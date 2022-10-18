@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+
+* {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+$background: #ffffff;
+$text: rgb(52, 52, 52);
+$secondary: gray;
+
+body {
+    background-color: $background;
+    color: $text;
+    display: flex;
+    flex-direction: column;
+    // Header
+    .header {
+        padding: 20px 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // Left of the header
+        .left {
+            .brand {
+                font-size: 25px !important;
+                font-weight: 800;
+                display: flex;
+                align-items: center;
+                span {
+                    width: 15px;
+                    height: 15px;
+                    background-color: $text;
+                    border-radius: 50%;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        // Right of the header
+        .right {
+            display: flex;
+            align-items: center;
+            div {
+                display: flex;
+                align-items: center;
+                color: $secondary;
+                font-weight: 500;
+                margin-left: 25px;
+                img {
+                    width: 15px;
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+    // Section 1
+    .section1 {
+        display: flex;
+        padding: 50px;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        margin-top: 50px;
+        img {
+            width: 100px;
+        }
+        .title {
+            font-weight: 700;
+            font-size: 50px;
+            color: #2d3142;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: $secondary;
+        }
+        .description {
+            margin-top: 25px;
+            line-height: 23px;
+            font-weight: 500;
+            color: gray;
+            width: 50%;
+        }
+    }
+
+    // Global section style
+    .section {
+        padding: 50px;
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h2 {
+            $space: 25px;
+            font-size: 25px;
+            margin-bottom: 20px;
+            border-bottom: solid 2px #e6e6e6;
+            padding-left: $space;
+            padding-right: $space;
+            padding-bottom: 10px;
+        }
+    }
+    // section 2
+    .section2{
+        min-height: 100%;
+        .education{
+            padding: 15px;
+            min-width: max-content;
+            text-align: center;
+            p{
+                color: $secondary;
+                font-size: 14px;
+                margin-top: 5px;
+            }
+        }
+        .education:nth-child(odd){
+            // background-color: ;
+        }
+    }
+
+    // Section3
+    .section3 {
+        .skillset {
+            ul {
+                list-style-type: none;
+                li {
+                    text-align: center;
+                    margin-top: 30px;
+                    p{
+                        margin-top: 5px;
+                        font-size: 14px;
+                        color: $secondary;
+                    }
+                }
+            }
+        }
+    }
+}
