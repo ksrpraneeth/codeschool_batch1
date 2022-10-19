@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+
+* {
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+$main: #2d3142;
+$gray: #bfc0c0;
+
+body {
+    .topheader {
+        background-color: $main;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        .contact:nth-child(odd) {
+            border-right: solid 2px $gray;
+            padding-right: 20px;
+        }
+        .contact {
+            color: $gray;
+            display: flex;
+            align-items: center;
+            margin-right: 25px;
+            p {
+                font-size: 14px;
+            }
+            img {
+                width: 20px;
+                margin-right: 10px;
+            }
+        }
+    }
+    .header {
+        padding: 25px;
+        h1 {
+            font-size: 30px;
+            color: $main;
+            text-align: center;
+            font-weight: 500;
+        }
+    }
+    .content {
+        width: 80%;
+        margin: 0 auto;
+    }
+    .section {
+        padding: 50px 25px 50px 25px;
+        display: flex;
+        border-top: solid 2px #e2e2e2;
+        .title {
+            font-weight: 600;
+            width: 200px;
+        }
+        .description {
+            text-align: justify;
+            width: calc(100% - 200px);
+        }
+        div {
+            margin-bottom: 15px;
+        }
+        .education h3 {
+            font-weight: 500;
+        }
+        p,li {
+            color: gray;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        ul{
+            color: gray;
+            // font-weight: 600;
+            font-size: 14px;
+            list-style-type: none;
+            li{
+                margin-top: 15px;
+            }
+
+        }
+    }
+}
