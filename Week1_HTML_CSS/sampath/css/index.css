@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+* {
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ffffff;
+  color: rgb(52, 52, 52);
+  display: flex;
+  flex-direction: column;
+}
+body .header {
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body .header .left .brand {
+  font-size: 25px !important;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+}
+body .header .left .brand span {
+  width: 15px;
+  height: 15px;
+  background-color: rgb(52, 52, 52);
+  border-radius: 50%;
+  margin-right: 10px;
+}
+body .header .right {
+  display: flex;
+  align-items: center;
+}
+body .header .right div {
+  display: flex;
+  align-items: center;
+  color: gray;
+  font-weight: 500;
+  margin-left: 25px;
+}
+body .header .right div img {
+  width: 15px;
+  margin-right: 10px;
+}
+body .section1 {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 50px;
+}
+body .section1 img {
+  width: 100px;
+}
+body .section1 .title {
+  font-weight: 700;
+  font-size: 50px;
+  color: #2d3142;
+}
+body .section1 .subtitle {
+  font-size: 14px;
+  color: gray;
+}
+body .section1 .description {
+  margin-top: 25px;
+  line-height: 23px;
+  font-weight: 500;
+  color: gray;
+  width: 50%;
+}
+body .section {
+  padding: 50px;
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+body .section h2 {
+  font-size: 25px;
+  margin-bottom: 20px;
+  border-bottom: solid 2px #e6e6e6;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 10px;
+}
+body .section2 {
+  min-height: 100%;
+}
+body .section2 .education {
+  padding: 15px;
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  text-align: center;
+}
+body .section2 .education p {
+  color: gray;
+  font-size: 14px;
+  margin-top: 5px;
+}
+body .section3 .skillset ul {
+  list-style-type: none;
+}
+body .section3 .skillset ul li {
+  text-align: center;
+  margin-top: 30px;
+}
+body .section3 .skillset ul li p {
+  margin-top: 5px;
+  font-size: 14px;
+  color: gray;
+}/*# sourceMappingURL=index.css.map */
