@@ -74,6 +74,14 @@ body .body .content .Form form .inputGroup * {
     font-size: 13px;
 }
 
+.nh_bar{
+    background-color: #1b364d;
+    color: white;
+    padding: 10px 30px;
+    writing-mode: vertical-lr;
+    transform: rotate(270deg);
+}
+
 .body::-webkit-scrollbar,
 .Tab::-webkit-scrollbar {
     width: 10px;
