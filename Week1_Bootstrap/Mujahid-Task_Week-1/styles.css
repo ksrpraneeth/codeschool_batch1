@@ -80,9 +80,10 @@ body .body .content .Form form .inputGroup * {
 }
 .body::-webkit-scrollbar-thumb,
 .Tab::-webkit-scrollbar-thumb {
-    border-radius: 8px;
     -webkit-box-shadow: inset 0 0 5px #1d3b55;
+    box-shadow: #1b364d;
     background-color: #1b364d;
+    border-radius: 8px;
 }
 @media screen and (max-width: 770px) {
     .collapseTab {
