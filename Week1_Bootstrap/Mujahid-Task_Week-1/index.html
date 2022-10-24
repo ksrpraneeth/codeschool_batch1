@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <!-- LINKS AND SCRIPTS -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,9 +20,12 @@
 </head>
 
 <body>
+    <!-- HEADER-LOGO -->
     <div class="text-white position-absolute w-100 h-100 row m-0" id="tapToggle">
         <div class="Tab p-0 collapseTab col-lg-2 col-md-4 h-100">
-            <img class="px-3 py-2 mt-2 w-100" src="/ifmis-logo.png" alt="IFIMISLOGO" />
+            <!-- HEADER-LOGO ENDS -->
+            <img class="px-3 py-2 mt-2 w-100" src="/logo.png" alt="IFIMISLOGO" />
+            <!-- SIDE MENU BAR STARTS -->
             <div class="menu gap-2">
                 <ul class="list-unstyled">
                     <li type="button" class="active px-4 py-2 w-100 block">Home</li>
@@ -33,7 +37,7 @@
                             <li><a class="dropdown-item" href="#">Second</a></li>
                             <li><a class="dropdown-item" href="#">Third</a></li>
                         </ul>
-                        <li class="px-4 py-2 dropend dropdown-toggle" data-bs-toggle="dropdown">Transcations
+                        <li class="px-4 py-2 dropend dropdown-toggle" data-bs-toggle="dropdown">Transactions
                             <span></span>
                         </li>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
@@ -44,41 +48,45 @@
                     </div>
                     <li class="px-4 py-2">Reports</li>
                     <li class="px-4 py-2">Return Cheque Generation</li>
-                    <li class="px-4 py-2">Forest Transcations</li>
-                    <li class="px-4 py-2">Forest Transcations Report</li>
-                    <li class="px-4 py-2">E-Kuber Return Recieved List</li>
+                    <li class="px-4 py-2">Forest Transactions</li>
+                    <li class="px-4 py-2">Forest Transactions Report</li>
+                    <li class="px-4 py-2">E-Kuber Return Received List</li>
                     <li class="px-4 py-2">E-Kuber Return Challan Print</li>
                     <li class="px-4 py-2">UTR Search</li>
                     <li class="px-4 py-2">Failed transactions (ACK Reject)</li>
                     <li class="px-4 py-2">Cheque Status Report</li>
-                    <li class="px-4 py-2"> Rejected Cheques due to FinYear End</li>
+                    <li class="px-4 py-2">Rejected Cheques due to FinYear End</li>
                     <li class="px-4 py-2">Finyear New Cheques Report</li>
                     <li class="px-4 py-2">Pb Budget Check</li>
                     <li class="px-4 py-2">Update Receipts Used Amount</li>
                 </ul>
             </div>
         </div>
+        <!-- SIDEBAR MENU ENDS -->
+        <!-- NAVBAR MENU STARTS -->
         <div class="body overflow-auto col-lg-10 col-md-8 h-100 col-sm-12 p-0">
             <div class="header w-100 text-white d-flex justify-content-between">
                 <div class="left d-flex">
                     <img class="headerlogo openTab d-sm-none my-2 mx-2" height="40px"
                         src="https://ifmis.telangana.gov.in/images/govt_logo.png" alt="" />
                     <div class="collapse" id="tabToggle">
+                        <!-- SANDWICH BAR LOGO -->
+                        <nav class="navbar navbar-dark collapseTab">
+                            <div class="container">
+                                <button type="button" class="navbar-toggler" data-bs-toggle="Tab"
+                                    data-bs-target="#tabToggle" aria-controls="tabToggle" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </div>
+                        </nav>
                     </div>
-                    <nav class="navbar navbar-dark openTab">
-                        <div class="container">
-                            <button type="button" class="navbar-toggler" data-bs-toggle="Tab"
-                                data-bs-target="#tabToggle" aria-controls="tabToggle" aria-expanded="false"
-                                aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-                        </div>
-                    </nav>
                     <button class="btn mod text-white btn-sm rounded-3 my-1 mx-2" style="height: 3rem;">
                         <i class="fas fa-boxes mx-1"></i>
                         <span>Modules</span>
                     </button>
                 </div>
+                <!-- SANDWICH BAR LOGO -->
                 <div class="right d-flex mx-0" style="font-size: 10px; text-align:center;">
                     <div class="time d-none d-md-inline collapseTab my-1 mx-0">
                         <p class="text-muted">Last Login:</p>
@@ -107,6 +115,8 @@
                     </div>
                 </div>
             </div>
+            <!-- NAVBAR MENU ENDS -->
+            <!-- MAIN BODY CONTENT STARTS -->
             <div class="content text-dark m-3 bg-white rounded-4 card p-3 mb-3 shadow">
                 <div class="title d-flex align-items-center p-2 rounded"
                     style="background-color: #e0ecfc; color: #0066c6">
@@ -115,6 +125,7 @@
                         Issue Cheque (E-Kuber Cheque From DD/MM/YYYY)
                     </p>
                 </div>
+                <!-- POINTS -->
                 <div class="my-2 p-3 rounded-3 card p-3 mb-1 shadow" style="background-color: #fcf8e3">
                     <h3 class="fw-bold fs-6">Points to remember</h3>
                     <ul class="fw-normal" style="font-size: 13px">
@@ -145,21 +156,23 @@
                             itself in the regular procedure.</li>
                     </ul>
                 </div>
-
-
+                <!-- POINTS -->
+                <!-- FORMS START -->
                 <div class="Form p-4">
-                    <form action="#">
+                    <form action="#" class="needs-validation" novalidate>
                         <div class="transcation-type row inputGroup bg-light py-2">
                             <div class="col-lg-2 col-md-3 col-sm-12">
                                 <p class="">
-                                    Transcation Type<span class="text-danger">*</span>
+                                    Transaction Type<span class="text-danger">*</span>
                                 </p>
                             </div>
                             <div class="col-lg-10 col-md-9 col-sm-12 row">
-                                <ul class="list-unstyled d-flex gap-0 gap-sm-2 flex-wrap">
+                                <ul class="list-unstyled d-flex gap-0 gap-sm-2 flex-wrap" required>
+                                    <p class="valid-feedback">Valid feedback</p>
+                                    <p class="invalid-feedback">Invalid feedback</p>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ttype" id="singlepar"
+                                            <input class="form-check-input" type="radio" name="type" id="singlepar"
                                                 checked />
                                             <label class="form-check-label" for="siglepar">
                                                 Single Party
@@ -168,7 +181,7 @@
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ttype" id="multipar" />
+                                            <input class="form-check-input" type="radio" name="type" id="multipar" />
                                             <label class="form-check-label" for="multipar">
                                                 Multi Parties
                                             </label>
@@ -176,7 +189,7 @@
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ttype" id="pdtopd" />
+                                            <input class="form-check-input" type="radio" name="type" id="pdtopd" />
                                             <label class="form-check-label" for="pdtopd">
                                                 PD Account to PD Account
                                             </label>
@@ -184,7 +197,7 @@
                                     </li>
                                     <li>
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ttype" id="pdtooth" />
+                                            <input class="form-check-input" type="radio" name="type" id="pdtooth" />
                                             <label class="form-check-label" for="pdtooth">
                                                 PD Account to other
                                             </label>
@@ -199,9 +212,10 @@
                                     Party Account Number<span class="text-danger">*</span>
                                 </p>
                             </div>
-
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                <input class="form-control" type="text" placeholder="Enter A/C Number" />
+                                <input class="form-control" type="text" placeholder="Enter A/C Number" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
                             </div>
                         </div>
                         <div class="row inputGroup align-items-center py-2">
@@ -211,7 +225,9 @@
                                 </p>
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                <input class="form-control" type="text" placeholder="Confirm A/C Number" />
+                                <input class="form-control" type="text" placeholder="Confirm A/C Number" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
                             </div>
                         </div>
                         <div class="row inputGroup align-items-center py-2">
@@ -221,7 +237,9 @@
                                 </p>
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                <input class="form-control" type="text" placeholder="Enter Party Name" />
+                                <input class="form-control" type="text" placeholder="Enter Party Name" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
                             </div>
                         </div>
                         <div class="row bg-light inputGroup align-items-center py-2">
@@ -231,7 +249,9 @@
                                 </p>
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-12 d-flex">
-                                <input class="form-control" type="text" placeholder="Enter IFSC Code" />
+                                <input class="form-control" type="text" placeholder="Enter IFSC Code" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
                                 <button class="btn btn-primary ms-3 d-flex">
                                     Search <Span><i class="fas fa-search mx-1"></i></Span>
                                 </button>
@@ -260,7 +280,9 @@
                                 </p>
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                <select name="" class="form-select" placeholder="Select" id="">
+                                <select name="" class="form-select" placeholder="Select" required>
+                                    <p class="valid-feedback">Valid feedback</p>
+                                    <p class="invalid-feedback">Invalid feedback</p>
                                     <option class="d-none" value="">
                                         Select
                                     </option>
@@ -306,7 +328,9 @@
                                 </p>
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                <select name="" class="form-select" placeholder="Select" id="">
+                                <select name="" class="form-select" placeholder="Select" required>
+                                    <p class="valid-feedback">Valid feedback</p>
+                                    <p class="invalid-feedback">Invalid feedback</p>
                                     <option class="d-none" value="">
                                         Select
                                     </option>
@@ -321,7 +345,9 @@
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-12">
                                 <textarea class="form-control " placeholder="Enter your purpose here.." rows="3"
-                                    cols="10"></textarea>
+                                    cols="10" required></textarea>
+                                    <p class="valid-feedback">Valid feedback</p>
+                                    <p class="invalid-feedback">Invalid feedback</p>
                             </div>
                         </div>
                         <div class="row inputGroup align-items-center py-2">
@@ -331,7 +357,9 @@
                                 </p>
                             </div>
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                <input class="form-control" type="text" placeholder="Enter Party Amount" />
+                                <input class="form-control" type="text" placeholder="Enter Party Amount" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
                             </div>
                             <div class="row inputGroup align-items-center py-2">
                                 <div class="col-lg-2 col-md-3 col-sm-12">
@@ -359,18 +387,19 @@
                         <div class="row inputGroup align-items-center py-2">
                             <div class="col-lg-2 col-md-3 col-sm-12"></div>
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                Note: Documents of Cheque(Letter/G.O.
-                                etc) can be uploaded here.
+                                <p class="text-secondary">Note: Documents of Cheque(Letter/G.O. etc) can be uploaded here..</p>
                             </div>
                         </div>
                         <div class="d-flex-end">
-                            <button class="btn btn-primary d-flex align-items-center">
+                            <button type="submit" class="btn btn-primary d-flex align-items-center">
                                 <p>Next</p>
                                 <i class="fa fa-arrow-right fa-fw m-1"></i>
                             </button>
                         </div>
                     </form>
+                    <!-- FORM ENDS -->
                 </div>
+                <!-- MAIN BODY CONTENT ENDS -->
             </div>
         </div>
     </div>
