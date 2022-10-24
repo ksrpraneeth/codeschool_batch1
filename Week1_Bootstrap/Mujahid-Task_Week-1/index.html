@@ -20,7 +20,7 @@
 
 <body>
     <div class="text-white position-absolute w-100 h-100 row m-0" id="tapToggle">
-        <div class="Tab p-0 hideTab col-lg-2 col-md-4 h-100">
+        <div class="Tab p-0 collapseTab col-lg-2 col-md-4 h-100">
             <img class="px-3 py-2 mt-2 w-100" src="/ifmis-logo.png" alt="IFIMISLOGO" />
             <div class="menu gap-2">
                 <ul class="list-unstyled">
@@ -61,11 +61,11 @@
         <div class="body overflow-auto col-lg-10 col-md-8 h-100 col-sm-12 p-0">
             <div class="header w-100 text-white d-flex justify-content-between">
                 <div class="left d-flex">
-                    <img class="headerlogo showTab d-sm-none my-2 mx-2" height="40px"
+                    <img class="headerlogo openTab d-sm-none my-2 mx-2" height="40px"
                         src="https://ifmis.telangana.gov.in/images/govt_logo.png" alt="" />
                     <div class="collapse" id="tabToggle">
                     </div>
-                    <nav class="navbar navbar-dark showTab">
+                    <nav class="navbar navbar-dark openTab">
                         <div class="container">
                             <button type="button" class="navbar-toggler" data-bs-toggle="Tab"
                                 data-bs-target="#tabToggle" aria-controls="tabToggle" aria-expanded="false"
@@ -80,7 +80,7 @@
                     </button>
                 </div>
                 <div class="right d-flex mx-0" style="font-size: 10px; text-align:center;">
-                    <div class="time d-none d-md-inline hideTab my-1 mx-0">
+                    <div class="time d-none d-md-inline collapseTab my-1 mx-0">
                         <p class="text-muted">Last Login:</p>
                         <p class="active">DD-MM-YYYY</p>
                         <p class="active">TIME</p>
@@ -90,7 +90,7 @@
                         <div class="left">
                             <i class="fa fa-user fa-fw ms-2 me-0" style="font-size: 1rem;"></i>
                         </div>
-                        <div class="right mx-2 hideTab">
+                        <div class="right mx-2 collapseTab">
                             <p class="welcome">Welcome USERNAME</p>
                             <p class="id">(XXXXXXXXXXXX)</p>
                         </div>
@@ -100,7 +100,7 @@
                     </div>
                     <div role="button" class="userinfo mx-0 mt-1 mx-md-4 rounded-3 d-flex align-items-center"
                         style="height: 3rem;">
-                        <div class="right mx-2 hideTab">
+                        <div class="right mx-2 collapseTab">
                             <i class="fas fa-sign-out-alt mx-1" style="font-size: 1rem;"></i>
                             <p class="welcome">Logout</p>
                         </div>

@@ -90,10 +90,10 @@ body .body .content .Form form .inputGroup * {
     background-color: #1b364d;
 }
 @media screen and (max-width: 770px) {
-    .hideTab {
+    .collapseTab {
         display: none !important;
     }
-    .showTab {
+    .openTab {
         display: block !important;
     }
 }
