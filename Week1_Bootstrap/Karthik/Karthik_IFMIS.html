@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
     crossorigin="anonymous">
@@ -20,41 +21,41 @@
     <div class="container-fluid  d-flex " >
         <div class="row  ">
           
-        <div class="col col-lg-3 col-md-12 col-sm-12 col-xs-12 h-100 d-none d-lg-block"  style="background-color:rgb(17, 53, 90)" >
+        <div class="sidebar col col-lg-3 col-md-12 col-sm-12 col-xs-12 h-100 d-none d-lg-block" >
               <img class="image-fluid w-100 " src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"  alt="" style="padding:10px" ><hr class="line text-secondary">
-              <div class="index text-secondary" style="padding:0px" style="margin:0px" style="background-color:rgb(28, 57, 104)"  >
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)" >Home</button><br>
+              <div class="index text-secondary" style="padding:0px" style="margin:0px"   >
+                <button type="button" class="btn" >Home</button><br>
                 <div class="btn-group dropend">
-                    <button type="button" class="btn btn-secondary border-0 " style="background-color:rgb(17, 53, 90)">
+                    <button type="button" class="btn" >
                       masters
                     </button>
-                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split border-0" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:rgb(17, 53, 90)">
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                       <span class="visually-hidden"></span>
                     </button>
                     <ul class="dropdown-menu">
                     </ul>
                   </div><br>
                 <div class="btn-group dropend">
-                    <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">
+                    <button type="button" class="btn" >
                     Transactions
                     </button>
-                    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split border-0" data-bs-toggle="dropdown" aria-expanded="false" style="background-color:rgb(17, 53, 90)">
+                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                       <span class="visually-hidden"></span>
                     </button>
                     <ul class="dropdown-menu">
                     </ul>
                 </div><br>    
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Reports</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Return Cheque generation</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Forest Transactions</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Forest Transactions report</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">E-Kuber Return Received List</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">E-Kuber Return Challan Print</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">UTR Search</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Cheque Status Report</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Finyear New Cheques Report</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Pd Budget Check</button><br>
-                <button type="button" class="btn btn-secondary border-0" style="background-color:rgb(17, 53, 90)">Update Rejects Used Amount</button><br>
+                <button type="button" class="btn">Reports</button><br>
+                <button type="button" class="btn">Return Cheque generation</button><br>
+                <button type="button" class="btn">Forest Transactions</button><br>
+                <button type="button" class="btn">Forest Transactions report</button><br>
+                <button type="button" class="btn">E-Kuber Return Received List</button><br>
+                <button type="button" class="btn">E-Kuber Return Challan Print</button><br>
+                <button type="button" class="btn">UTR Search</button><br>
+                <button type="button" class="btn">Cheque Status Report</button><br>
+                <button type="button" class="btn">Finyear New Cheques Report</button><br>
+                <button type="button" class="btn">Pd Budget Check</button><br>
+                <button type="button" class="btn">Update Rejects Used Amount</button><br>
             </div>
         </div>   
             <div class="col col-lg-9 col-md-12 col-sm-12 col-xs-12 p-0">
@@ -193,24 +194,28 @@
       <br>
       <form class="p-3">
             <div class="form-group d-lg-flex justify-content-between">
-                <p>Party Account No *</p>
-                <input type="email" class="form-control w-50"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter A/C No">
+            <div class="col-lg-4 col-sm-12">
+                <p>Party Account No *</p></div>
+                <input type="email" class="form-control"  id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter A/C No" autocomplete="off">
             </div><br>
             <div class="form-group d-lg-flex justify-content-between">
-                <label for="exampleInputPassword1">Confirm Party Account No *</label>
-                <input type="password" class="form-control w-50" id="exampleInputPassword1" placeholder="Enter A/C No">
+              <div class="col-lg-4 col-sm-12">
+                <label for="exampleInputPassword1">Confirm Party Account No *</label></div>
+                <input type="password" class="form-control " id="exampleInputPassword1" placeholder="Enter A/C No" autocomplete="off">
             </div><br>
             <div class="form-group d-lg-flex justify-content-between">
-                <label for="exampleInputEmail1">Party Name</label>
-                <input type="email" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Party Name">
+              <div class="col-lg-4 col-sm-12">
+                <label for="exampleInputEmail1">Party Name</label></div>
+                <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Party Name">
             </div>
             <br>
       </form>
       <div class="container-fluid  bg-opacity-10" style="margin:5px" >
           <div class="row" style="background-color:rgba(240, 244, 245, 0.942)">
             <div class="d-lg-flex justify-content-between">
-              <label for="bank id ">Bank IFSC Code</label>
-                 <div class="input-group mb-3 w-50" style="margin:10px">
+              <div class="col-lg-4 col-sm-12">
+              <label for="bank id">Bank IFSC Code</label></div>
+                 <div class="input-group ">
                     <input type="text" class="form-control" placeholder="Enter IFSC Code" aria-label="Recipient's username" aria-describedby="basic-addon2">
                         <div class="input-group-append">
                              <button class="btn btn-outline-secondary btn-primary text-white" type="button">Search</button>
@@ -218,74 +223,76 @@
                 </div>
             </div><br>
             <div class="d-lg-flex justify-content-between">
-                  <ladel class="w-50"><b>Bank Name</b>  </ladel>
-                  <label class="w-50">XXXXXX</label>
+              <div class="col-lg-4 col-sm-12">
+                  <label><b>Bank Name</b></label></div>
+                  <label class="col-lg-8 col-sm-12">XXXXXX</label>
             </div><br><p></p>
             <div class="d-lg-flex justify-content-between">
-                  <label class="w-50"> <b>Bank Branch</b>  </label>
-                  <label class="w-50"> XXXXXX</label>
+              <div class="col-lg-4 col-sm-12">
+                  <label"> <b>Bank Branch</b></label></div> 
+                  <label class="col-lg-8 col-sm-12"> XXXXXX</label>
             </div><br><p></p>
          </div>
       </div>
-      <div class="p-3">
+      <form class="p-3">
         <div class="d-lg-flex justify-content-between">
-      <label><b>Head of the Account</b></label>
-              <select class="form-control w-50">
+          <div class="col-lg-4 col-sm-12">
+           <label><b>Head of the Account</b></label></div>
+              <select class="form-control">
                   <option>Select</option>
               </select>
             </div><br>
               <div class="d-lg-flex justify-content-between">
-                   <label class="w-50"> <b>Balance (in Rs.)* </b>  </label>
-                   <label class="w-50"> XXXXXX</label>   
+                <div class="col-lg-4 col-sm-12">
+                   <label > <b>Balance (in Rs.)* </b>  </label></div>
+                   <label class="col-lg-8 col-sm-12"> XXXXXX</label>   
               </div><br>
               <div class="d-lg-flex justify-content-between">
-                    <label class="w-50"> <b>LOC (in Rs.)* </b>  </label> 
-                    <label class="w-50">XXXXXX</label>
+                    <label class="col-lg-4 col-sm-12"> <b>LOC (in Rs.)* </b>  </label> 
+                    <label class="col-lg-8 col-sm-12">XXXXXX</label>
               </div><br>
               <div class="d-lg-flex justify-content-between">  
-                    <label> <b>Expenditure type</b></label>
-              <select class="form-control w-50">
+                    <label class="col-lg-4 col-sm-12"> <b>Expenditure type</b></label>
+              <select class="form-control ">
                     <option>Select</option>
               </select>
               </div><br>
               <div class="d-lg-flex justify-content-between">
-              <ladel> <b>Purpose type</b>  </ladel>
-              <select class="form-control w-50">
+              <label class="col-lg-4 col-sm-12"> <b>Purpose type</b>  </label>
+              <select class="form-control">
                   <option>Select</option>
               </select>
             </div>
-            </div><br>
-              <form>
-                <div class="p-3">
+            <br>
                   <div class="form-group d-lg-flex justify-content-between">
-                    <label for="exampleInputEmail1"> <b> Purpose * </b></label>
-                    <input type="email" class="form-control w-50" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Purpose here">
+                  <div class="col-lg-4 col-sm-12">
+                    <label for="exampleInputEmail1"> <b> Purpose * </b></label></div>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Purpose here">
                   </div><br>
                   <div class="form-group d-lg-flex justify-content-between">
-                    <label for="exampleInputPassword1"> <b> Party amount</b> (in Rs.) *</label>
-                    <input type="password" class="form-control w-50" id="exampleInputPassword1" placeholder="Enter Party Amount">
+                    <div class="col-lg-4 col-sm-12">
+                    <label for="exampleInputPassword1"> <b> Party amount</b> (in Rs.) *</label></div>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Party Amount">
                   </div><br>
-              </form>
               <div class="d-lg-flex justify-content-between">
-              <label class="w-50"> <b>Party Amount in Words </b></label>
-              <label class="w-50">XXXXXX</label>  
+              <label class="col-lg-4 col-sm-12"> <b>Party Amount in Words </b></label>
+              <label class="col-lg-8 col-sm-12">XXXXXX</label>  
               </div><br>
-              <form>
               <div class="form-group d-lg-flex justify-content-between">
-                <label for="exampleInputEmail1"> <b>Upload Documents</b></label>
-                <div class="d-flex justify-content-between">
-                  <input type="file" class="form-control-file card w-50 p-1"  id="exampleFormControlFile1">
+              <div class="col-lg-4 col-sm-12">
+                <label for="exampleInputEmail1"> <b>Upload Documents</b></label></div>
+                <div class="d-flex justify-content-between col-lg-8 col-sm-12">
+                  <input type="file" class="form-control-file card p-1"  id="exampleFormControlFile1">
                   <button type="button" class="btn btn-primary align-item-end">+ADD</button><br>
               </div>
               </div>
               </form><br>
               <div class="d-lg-flex justify-content-between">
-              <label class="w-50"></label>
-              <label class="w-50 ">Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here</label>
+              <label class="col-lg-4 col-sm-12"></label>
+              <label class="col-lg-8 col-sm-12">Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here</label>
               </div>
               <hr>
-              <div class="d-lg-flex justify-content-end">
-              
+              <div class="d-flex justify-content-end">
               <button type="button" class="btn btn-primary pull-right">Next>></button>
             </div>
           </div>

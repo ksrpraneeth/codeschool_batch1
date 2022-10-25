@@ -1,0 +1,11 @@
+.sidebar,.sidebar button{
+    background: rgb(17, 53, 90);
+    border:0px;
+    color:white;
+}
+.sidebar button{
+    margin: 2px;
+}
+.sidebar button:hover{
+    background-color:gray;
+}
