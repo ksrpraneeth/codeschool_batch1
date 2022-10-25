@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid p-0 d-flex">
+        <div class="row m-0">
+            <div class="col col-lg-3 col-md-12 col-sm-12 col-xs-12 border-0  d-flex flex-column p-0 d-none d-lg-block" style="background-color: rgba(41, 42, 78, 0.973);" style="list-style-type:none">
+                <div class="logo mt-2">
+                    <img class="image-fluid my-2 " src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png" alt="ifmis"style="p-0"><hr class="line text-secondary">
+                </div>
+                <ul class="list-unstyled text-white">
+                        <li>Home</li>
+                        <li>Masters</li>
+                        <li>Transactions</li>
+                        <li>Reports</li>
+                        <li>Return Cheque Generation</li>
+                        <li>Forest Transactions</li>
+                        <li>Forest Transactions Report</li>
+                        <li>E-Kuber Returns Received List</li>
+                        <li>E-Kuber Return Challan Print</li>
+                        <li>UTR Search</li>
+                        <li>Failed transactions(AKC Reject)</li>
+                        <li>Cheque Status Report</li>
+                        <li>Rejected Che  due to FinYear End</li>
+                        <li>Finyear new Cheques Report</li>
+                        <li>Pd Budget Check</li>
+                        <li>Update Receipts Used Amount</li>
+                </ul>
+            </div>
+            <div class="col col-lg-9 col-md-12 col-sm-12 col-xs-12 p-0">
+                <div class="navbar" style="background-color: rgba(41, 42, 78, 0.973);">
+                    <a href="">modules
+                        
+                    </a>
+                      <ul class="navbar-nav">
+                        <li class="nav-item">
+                          <a href="" class=nav-link">logout</a>
+                        </li>
+                      </ul>   
+                </div>
+                <div class="container  justify-content-between align-item-start">
+                    <div class="text-bg-success bg-opacity-10 text-primary border-2 rounded">
+                        <h2>
+                            <b>issue cheque (E-Kuber Cheque from 01/03/2019)</b>
+                        </h2>
+                    </div>
+                    <div class="bg-warning bg-opacity-25 rounded-3 mt-4 p-2 ">
+                            <strong>  Points to be remember</strong>
+                        <ul class="list-unstyled p-0 " >
+                            <ul>
+                                <li>note that all cheques which are approved from DDOChecker/ Officer/Govt from 01/03/2019 shall get paid through E-kuber which is a Core Banking Solution of RBI. </li>
+                                <li>There is no need to present the cheques at the Bank for these cheques which got approved after 01/03/2019.</li>
+                                <li>Please give correct account details as it is when the Account was opened. </li>
+                                <li>Make sure there is no "Your self' or 'Self" in the account names while issuing cheques. Such cheques get auto-rejected by the E-Kuber </li>
+                                <li>Please check the exact length of the Bank Account Number and NO special characters are to be entered, which leads to auto-rejection. </li>
+                                <li>Finally, in multiple party cheques please do not enter the same party details in the same chequeno which will be considered as a duplicacy transaction and gets auto-rejeted. </li>
+                                <li>This is just a one-time procedure to get your Party details corrected and once when corrected the same details can be re-used for smooth transactions. </li>
+                                <li>PD-to-PD cheques shall be adjusted in treasury itself in the regular procedure. </li>
+                            </ul>  
+                        </ul>
+                    </div>
+                    <div class="type p-2 d-lg-flex justify-content-between align-item-start">
+                            <b>Transcation Type</b>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Single-Party</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Multiple Parties</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option3">
+                            <label class="form-check-label" for="inlineRadio1">PD Account to PD Account</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option4">
+                            <label class="form-check-label" for="inlineRadio2">PD Account to other</label>
+                        </div>
+                    </div>
+                    <form class="form-inline justify-content-between">
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label for="exampleInputEmail1"> <b>Party Account No:</b> </label>
+                            <input type="email" class="form-control w-50" id="exampleInputEmail1" placeholder="Enter A/C No">
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label for="Account"> <b>Confirm Party Account No:</b> </label>
+                            <input type="text" class="form-control w-50" id="Account" placeholder="Confirm A/C No">
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label for="Account"> <b>Party Name: </b> </label>
+                            <input type="text" class="form-control w-50" id="Account" placeholder="Enter Party Name">
+                        </div>
+                        <div class="bg-primary bg-opacity-25 rouded-3 mt-4">
+                            <div class="form-group d-lg-flex justify-content-between">
+                                <label class="w-50" for="bank"> <b>Bank IFSC Code:</b> </label>
+                                <input type="text" class="form-control " id="Account" placeholder="Enter IFSC Code">
+                                <button class="btn btn-outline-secondary btn-primary text-white mx-2 " type="button">Search</button>
+                            </div>
+                            <div class="form-group mt-2 d-lg-flex justify-content-between text-align-center ">
+                                <label for="bank"> <b>Bank Name:</b></label>
+                                <label class="w-50">XXXXXXX</label>
+                            </div>    
+                            <div class="form-group mt-2 d-lg-flex justify-content-between">
+                                <label class="w-50" for="bank"> <b>Bank Branch:</b> </label>
+                                <label class="w-50">XXXXXXX</label>
+                            </div>
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label > <b>Head of Account: </b> </label>
+                            <select class="form-control w-50">
+                                <option>Select</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label> <b>Balance(in Rs.):</b> </label>
+                            <label class="w-50">XXXXXXX</label>
+                        </div>
+                        <div class="form-group mt-2 d-flex justify-content-between">
+                            <label > <b>Loc(in Rs.):</b> </label>
+                            <label class="w-50">XXXXXXX</label>
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label> <b>Expenditure Type: </b> </label>
+                            <select class="form-control w-50">
+                                <option>Select</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label for="Account"> <b>Purpose Type: </b> </label>
+                            <select class="form-control w-50">
+                                <option>Select</option>
+                            </select>
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label> <b>Purpose: </b> </label>
+                            <input type="text" class="form-control w-50" id="Account" placeholder="Enter Purpose Here..">
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label for="Account"> <b>Party Amount(in Rs.): </b> </label>
+                            <input type="text" class="form-control w-50" id="Account" placeholder="Enter Party Amount">
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label for="bank"> <b>Party Amount in Words:</b> </label>
+                            <label class="w-50">XXXXXXX</label>
+                        </div>
+                        <div class="form-group mt-2 d-lg-flex justify-content-between">
+                            <label for="Account"><b>  Upload Documents: </b></label>
+                            <input  type="file" class="form-control w-50 " id="Party Account No">
+                            <button  class="btn btn-primary">+ADD</button>
+                        </div>          
+                    </form>
+                    <div class="class">
+                        <label class="note "> Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here</label>
+                    </div>
+                    <hr>
+                </div>
+                <button type="button" class="btn btn-primary ">Next>></button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
