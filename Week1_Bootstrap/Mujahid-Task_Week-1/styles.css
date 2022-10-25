@@ -3,7 +3,12 @@
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
-
+.menubar{
+    width: 35px;
+    height: 5px;
+    background-color: rgb(240, 234, 234);
+    margin: 6px 0;
+}
 body {
     background-color: lightgray;
 }
@@ -30,7 +35,7 @@ body .Tab .menu ul li:hover {
 body .Tab .menu ul .active {
     border-left: solid 3px #e0b76a;
     background-color: #324a5f;
-}
+} 
 body .body .header {
     background: url(/navbarBG.jpg) 0 0 no-repeat white;
     background-size: cover;
