@@ -28,15 +28,15 @@
     <div class="row m-0">
 
       <!-- Sidebar -->
-      <div class="col  col-md-2 border-0 d-flex flex-column p-1  d-none d-lg-block"
+      <div class="col  col-md-2 border-0 d-flex flex-column p-1  d-none d-md-block"
         style="background-color:rgb(17, 53, 90) ">
         <img class="image-fluid w-100" src="images/ifmis-logo2.png" alt="" style="padding:7px">
         <hr>
         <div class="line text-white ">
           <div class="sidebar" style="background-color:rgb(17, 57, 100)">
-            <div class="w3-bar-block w3-light-grey w3-card">
-              <ul class="list-group text-align-left gap-2 mx-3 list-unstyled">
-                <li class="text-decoration:none">Home</li>
+            <div class="menu w3-bar-block w3-light-grey w3-card">
+              <ul class="list-group text-align-left gap-2 mx-3 list-unstyled" style="cursor: pointer;">
+                <li class="text-decoration:none m-0">Home</li>
                 <li class="text-decoration:none">Masters</li>
                 <li class="text-decoration:none">Transcations</li>
                 <li class="text-decoration:none">Reports</li>
@@ -64,32 +64,30 @@
         <div class="header" style="background-image: url('./images/black.jpg')">
           <div class="container d-flex justify-content-between p-0">
             <div class="Main-content d-flex" >
-              <div class="left d-flex text-white p-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list"
-                  viewBox="0 0 16 16">
-                  <path fill-rule="evenodd"
-                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+              <div class="left d-flex text-white p-0 my-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                 </svg>
+                &nbsp;
                 <button class="btn btn-primary  d-flex align-items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="28" fill="currentColor" class="bi bi-boxes"
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-boxes"
                     viewBox="0 0 16 16">
-                    <path
-                      d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z" />
+                    <path d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z" />
                   </svg>
                   <p class="m-0">Modules</p>
                   <div class="text-white">
                 </button>
               </div>
        
-              <div class="right d-flex align-items-center" style="margin-left: 500px;">
-                <div class="row text-white d-none d-lg-block">
-                  <h6 class="m-0 text-muted">Last Login</h6>
-                  <h6 class="m-0">17-Jun-2022</h6>
-                  <h6 class="m-0">04:53 PM</h6>
+              <div class="right d-flex align-items-center my-2" style="margin-left: 600px;">
+                <div class="row text-white d-none d-md-block">
+                  <h6 class="mx-2 my-0">Last Login</h6>
+                  <h6 class="mx-2 my-0">17-Jun-2022</h6>
+                  <h6 class="mx-2 my-0">04:53 PM</h6>
                 </div>
 
                 <div
-                  class=" right align-items-center justify-content-center m-2 d-flex bg-light bg-opacity-25 rounded-2">
+                  class="right align-items-center justify-content-center m-2 d-flex bg-light bg-opacity-25 rounded-2">
                   <div class="icon text-white m-2">
                     <i class="bi text-white bi-person"></i>
 
@@ -100,7 +98,7 @@
                   </div>
 
                   <div
-                    class="text-white align-items-center d-none d-lg-block" >
+                    class="text-white align-items-center d-none d-md-block" >
                   
                     <h6 style="font: size 10px">WELCOME M.USHASREE</h6>
                     <h6 style="font: size 10px">(23031014097)</h6>
@@ -112,7 +110,7 @@
                   </div>
                 </div>
 
-                <div class="d-none d-lg-block">
+                <div class="d-none d-md-block">
                   <button type="button" class="logout d-flex bg-light border-0 bg-opacity-25 text-white align-items-center rounded-2 m-4">
                     <svg xmlns="http://www.w3.org/2000/svg"width="25" height="25"fill="currentColor" class="bi bi-box-arrow-right"viewBox="0 0 16 16">
                       <path  fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
@@ -134,12 +132,12 @@
         <!--main content-->
         <div class="bg-secondary m-3">
           <div class="main-content card ">
-            <div class="bar-block white border-3 m-3 p-2 d-none d-lg-block">
+            <div class="bar-block white border-3 m-0 d-none d-md-block">
               <div class="text-dark bg-primary bg-opacity-25">
                 <h4>
                   <strong>issue cheque (E-Kuber Cheque from 01/03/2019)</strong>
                 </h4>
-
+  
               </div>
             </div>
 
@@ -206,110 +204,120 @@
               </div>
             </div>
             <form>
-              <div class="row mb-2 p-3">
+              <div class="row mb-1 p-3">
                 <label class="col-md-3 col-form-label"><b>Party Account no*</b></label>
                 <div class="col-md-6 d-flex align-items-center">
-                  <b>:</b> &nbsp;<input type="party Account no" class="form-control" id="" placeholder="Enter A/c No">
+                  <b>:</b> &nbsp;  &nbsp;<input type="party Account no" class="form-control" id="" placeholder="Enter A/c No">
                 </div>
               </div>
 
-              <div class="row mb-2 p-3">
+              <div class="row mb-1 p-3">
                 <label class="col-md-3 col-form-label"><b>Confirm party Account No*</b></label>
                 <div class="col-md-6 d-flex align-items-center">
-                  <b>:</b> &nbsp; <input type="confirm party accoun no" class="form-control" id=""
+                  <b>:</b> &nbsp;  &nbsp; <input type="confirm party accoun no" class="form-control" id=""
                     placeholder="confirm A/c no">
                 </div>
               </div>
 
-              <div class="row mb-2 p-3">
+              <div class="row mb-1 p-3">
                 <label class="col-md-3 col-form-label"><b> party name*</b></label>
                 <div class="col-md-6  d-flex align-items-center">
-                  <b>:</b> &nbsp; <input type="partyname" class="form-control w-40" id=""
+                  <b>:</b> &nbsp;  &nbsp;<input type="partyname" class="form-control w-40" id=""
                     placeholder="Enter party name">
                 </div>
               </div>
             </form>
 
-            <div class="  bg-secondary bg-opacity-10" style="margin:5px">
-              <div class="row mb-2 p-3">
+            <div class=" bg-secondary bg-opacity-10" style="margin:5px">
+              <div class="row mb-1 p-3">
                 <label class="col-md-3 col-form-label"><b> Bank IFSC code*</b></label>
                 <div class=" d-flex col-md-6  d-flex align-items-center ">
-                  <b>:</b> &nbsp; <input type="ifsc code" class="form-control" id="" placeholder="Enter ifsc code">
+                  <b>:</b> &nbsp;  &nbsp;<input type="ifsc code" class="form-control" id="" placeholder="Enter ifsc code">
                   <div class="input-group-append">
                     <button class="btn btn-outline-secondary btn-primary text-white" type="button">Search</button>
                   </div>
                 </div>
               </div>
-              <div class="row p-3 ">
-                <label class="col-md-3 col-form-label"><b> Bank branch*</b></label>
-                <label class=" d-flex col-md-6  d-flex align-items-center"> XXXXXX</label>
-              </div><br>
-              <p></p>
-              <div class="row p-3">
+              <div class="row mb-1 p-3 ">
+                <label class="col-md-3 col-form-label"><b> Bank Name*</b></label>
+                <div class="col-md-6 d-md-flex">
+                <label class="d-none d-md-block">: &nbsp; &nbsp;</label>
+                <label>XXXXXX</label>
+              </div>
+              </div>
+            
+              <div class="row mb-1 p-3">
                 <label class="col-md-3 col-form-label"><b>Bank branch</b> </label>
-                <label class="d-flex col-md-6">XXXXXX</label>
+                <div class="col-md-6 d-md-flex">
+                <label class="d-none d-md-block">: &nbsp; &nbsp;</label>
+                <label>XXXXXXX</label>
               </div>
             </div>
-
-            <div class="row mb-2 p-3">
+          </div>
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"><b> Head of account*</b></label>
               <div class="col-md-6  d-flex align-items-center">
-                <b>:</b> &nbsp; <input type="Head of account" class="form-control" id="" placeholder="select">
+                <b>:</b> &nbsp;  &nbsp; <input type="Head of account" class="form-control" id="" placeholder="select">
               </div>
             </div>
 
-            <div class="row p-3">
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"><b>Balance (inRs*)</b></label>
-              <label class="col-md-6">XXXXXX</label>
-            </div><br>
+              <div class="col-md-6 d-md-flex">
+                <label class="d-none d-md-block">: &nbsp; &nbsp;</label>
+                <label>XXXXXXX</label>
+              </div>
+            </div>
 
-            <div class="row p-3">
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"><b>Loc (inRs)*</b> </label>
-              <label class="col-md-6">XXXXXX</label>
+              <div class="col-md-6 d-md-flex">
+                <label class="d-none d-md-block">:  &nbsp; &nbsp;</label>
+                <label>XXXXXXX</label>
+              </div>
             </div>
 
 
-            <div class="row mb-2 p-3">
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"><b> Expenditure Type*</b></label>
               <div class="col-md-6 d-flex align-items-center">
-                <b>:</b> &nbsp; <input type="text" class="form-control" id="" placeholder="select">
+                <b>:</b>  &nbsp;  &nbsp;<input type="text" class="form-control" id="" placeholder="select">
               </div>
             </div>
 
-            <div class="row mb-2 p-3">
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"><b> Purpose*</b></label>
               <div class="col-md-6  d-flex align-items-center ">
-                <b>:</b> &nbsp; <input type="text" class="form-control" id="" placeholder="Enter purpose here">
+                <b>:</b> &nbsp;  &nbsp; <input type="text" class="form-control" id="" placeholder="Enter purpose here">
               </div>
             </div>
 
-            <div class="row mb-2 p-3">
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"><b>party Amount (in Rs)*</b></label>
               <div class="col-md-6  d-flex align-items-center">
-                <b>:</b> &nbsp; <input type="text" class="form-control" id="" placeholder="Enter party Amount">
+                <b>:</b> &nbsp;  &nbsp; <input type="text" class="form-control" id="" placeholder="Enter party Amount">
               </div>
             </div>
 
-            <div class="row mb-2 p-3">
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"> <b>Party Amount in Words </b></label>
-              <label class="col-md-6">XXXXXX</label>
+              <div class="col-md-6  d-flex align-items-center">
+                <b>:</b> &nbsp;  &nbsp; <input type="text" class="form-control" id="" placeholder="Enter party Amount">
+              </div>
             </div>
 
-            <div class="row mb-2 p-3">
+            <div class="row mb-1 p-3">
               <label class="col-md-3 col-form-label"> <b>upload documents </b></label>
               <div class="col-md-6  d-flex align-items-center">
-                <b>:</b> &nbsp; <label for="formFile" class="form-label"></label>
+                <b>:</b> &nbsp;  &nbsp; <label for="formFile" class="form-label"></label>
                 <input class="form-control" type="file" id="formFile">
               </div>
-
-
-
 
               <div class="d-flex justify-content-center">
                 <label> Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here</label>
               </div>
               <hr>
-              <div class="d-flex justify-content-end">
+              <div class="d-flex justify-content-center">
                 <button type="button" class="btn btn-primary pull-right">Next>></button>
                 
   </div>
