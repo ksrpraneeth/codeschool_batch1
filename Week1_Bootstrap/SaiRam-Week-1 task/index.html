@@ -1,3 +1,4 @@
+'
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,14 +28,15 @@
     <div class="row m-0">
 
       <!-- Sidebar -->
-      <div class="col  col-md-2 border-0 d-flex flex-column p-1  d-none d-lg-block" style="background-color:rgb(17, 53, 90) ">
+      <div class="col  col-md-2 border-0 d-flex flex-column p-1  d-none d-lg-block"
+        style="background-color:rgb(17, 53, 90) ">
         <img class="image-fluid w-100" src="images/ifmis-logo2.png" alt="" style="padding:7px">
         <hr>
         <div class="line text-white ">
-          <div class="sidebar " style="background-color:rgb(17, 57, 100)">
+          <div class="sidebar" style="background-color:rgb(17, 57, 100)">
             <div class="w3-bar-block w3-light-grey w3-card">
-              <ul class="list-group text-align-left ">
-                <li class="text-decoration:none">home</li>
+              <ul class="list-group text-align-left gap-2 mx-3 list-unstyled">
+                <li class="text-decoration:none">Home</li>
                 <li class="text-decoration:none">Masters</li>
                 <li class="text-decoration:none">Transcations</li>
                 <li class="text-decoration:none">Reports</li>
@@ -56,19 +58,19 @@
       </div>
 
       <!-- Body -->
-      <div class="col col-md-10 col-sm-12 col-xs-12 p-0">
+      <div class="col col-md-10 col-sm-12 col-xs-12 p-0 bg-secondary">
 
         <!--Header-->
         <div class="header" style="background-image: url('./images/black.jpg')">
-          <div class="container d-flex justify-content-between p-4">
-            <div class="left d-flex align-items-center ">
-              <div class="text-white d-flex p-1">
+          <div class="container d-flex justify-content-between p-0">
+            <div class="Main-content d-flex" >
+              <div class="left d-flex text-white p-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-list"
                   viewBox="0 0 16 16">
                   <path fill-rule="evenodd"
                     d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
                 </svg>
-                <button class="btn btn-primary d-flex align-items-center">
+                <button class="btn btn-primary  d-flex align-items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" width="25" height="28" fill="currentColor" class="bi bi-boxes"
                     viewBox="0 0 16 16">
                     <path
@@ -78,193 +80,241 @@
                   <div class="text-white">
                 </button>
               </div>
-              <div class="right d-flex align-content-center" style="margin-left: 10;">
+       
+              <div class="right d-flex align-items-center" style="margin-left: 500px;">
+                <div class="row text-white d-none d-lg-block">
+                  <h6 class="m-0 text-muted">Last Login</h6>
+                  <h6 class="m-0">17-Jun-2022</h6>
+                  <h6 class="m-0">04:53 PM</h6>
+                </div>
 
-                <P class="text-end d-none d-lg-block">last login<br>12:30</P>
-                <button class="d-none d-lg-block">
-                  <P>p.usharani</P>
-                </button>
-                <button>
-                  <P>Logout</P>
-                </button>
+                <div
+                  class=" right align-items-center justify-content-center m-2 d-flex bg-light bg-opacity-25 rounded-2">
+                  <div class="icon text-white m-2">
+                    <i class="bi text-white bi-person"></i>
 
+                    <svg xmlns="http://www.w3.org/2000/svg"width="30"height="30" fill="currentColor"class="bi bi-person-circle"viewBox="0 0 16 16">
+                      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    </svg>
+                  </div>
 
+                  <div
+                    class="text-white align-items-center d-none d-lg-block" >
+                  
+                    <h6 style="font: size 10px">WELCOME M.USHASREE</h6>
+                    <h6 style="font: size 10px">(23031014097)</h6>
+                  </div>
+                  <div class="text-dark px-2">
+                    <svg xmlns="http://www.w3.org/2000/svg"width="20"height="20"fill="currentColor"class="bi bi-chevron-down"viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708 1z" />
+                    </svg>
+                  </div>
+                </div>
+
+                <div class="d-none d-lg-block">
+                  <button type="button" class="logout d-flex bg-light border-0 bg-opacity-25 text-white align-items-center rounded-2 m-4">
+                    <svg xmlns="http://www.w3.org/2000/svg"width="25" height="25"fill="currentColor" class="bi bi-box-arrow-right"viewBox="0 0 16 16">
+                      <path  fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                      <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                    </svg>
+                    &nbsp;
+                    <h4 style="font-size:15px">logout</h4>
+                  </button>
+             
+               
+                </div>
               </div>
 
             </div>
           </div>
+
+
         </div>
+        <!--main content-->
+        <div class="bg-secondary m-3">
+          <div class="main-content card ">
+            <div class="bar-block white border-3 m-3 p-2 d-none d-lg-block">
+              <div class="text-dark bg-primary bg-opacity-25">
+                <h4>
+                  <strong>issue cheque (E-Kuber Cheque from 01/03/2019)</strong>
+                </h4>
 
-        <div class="bar-block whiteborder-0 m-0 p-2 d-none d-lg-block">
-          <div class="text-by-sucess by-opacity-25 text-primary">
-            <h4>
-              <strong>issue cheque (E-Kuber Cheque from 01/03/2019)</strong>
-            </h4>
-
-          </div>
-        </div>
-
-        <div class="p-4 bar-block border-2">
-          <div class="text-bg-warning bg-opacity-25 rounded-2">
-            <h5>
-              <strong> . Points to be remember</strong>
-            </h5>
-
-            <div class="m-3">
-              <ul class="list-group text-align-left">
-
-                <ul>
-                  <li>note that all cheques which are approved from DDOChecker/ Officer/Govt from 01/03/2019 shall get
-                    paid through E-kuber which is a Core Banking Solution of RBI. </li>
-                  <li>There is no need to present the cheques at the Bank for these cheques which got approved after
-                    01/03/2019.</li>
-                  <li>Please give correct account details as it is when the Account was opened. </li>
-                  <li>Make sure there is no "Your self' or 'Self" in the account names while issuing cheques. Such
-                    cheques
-                    get auto-rejected by the E-Kuber </li>
-                  <li>Please check the exact length of the Bank Account Number and NO special characters are to be
-                    entered, which leads to auto-rejection. </li>
-                  <li>Finally, in multiple party cheques please do not enter the same party details in the same chequeno
-                    which will be considered as a duplicacy transaction and gets auto-rejeted. </li>
-                  <li>This is just a one-time procedure to get your Party details corrected and once when corrected the
-                    same details can be re-used for smooth transactions. </li>
-                  <li>PD-to-PD cheques shall be adjusted in treasury itself in the regular procedure. </li>
-                </ul>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div classs="container">
-          <div class="row">
-
-            <div class="bg-secondary  bg-opacity-10 p-2 d-md-flex justify-content-around align-items-center">
-              <h5><b> Transcation Type* </b> </h5>
-
-              <div class=" form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">checked
-                <label class="form-check-label" for="inlineRadio1"> Single party</label>
-              </div>
-
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="inlineRadio2"> Multiple parties</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
-                <label class="form-check-label" for="inlineRadio3">PD account to PD Account</label>
-              </div>
-
-              <div class="form-check  form-check-inline">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
-                <label class="form-check-label" for="inlineRadio4">PD account to other</label>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        <form>
-          <div class="row mb-2 p-2">
-            <label class="col-sm-3 col-form-label"><b>Party Account no*</b></label>
-            <div class="col-sm-6">
-              <input type="party Account no" class="form-control" id="" placeholder="Enter A/c No">
-            </div>
-          </div>
-
-          <div class="row mb-2 p-2">
-            <label class="col-sm-3 col-form-label"><b>Confirm party Account No*</b></label>
-            <div class="col-sm-6">
-              <input type="confirm party accoun no" class="form-control" id="" placeholder="confirm A/c no">
-            </div>
-          </div>
-
-          <div class="row mb-2 p-2">
-            <label class="col-sm-3 col-form-label"><b> party name*</b></label>
-            <div class="col-sm-6">
-              <input type="partyname" class="form-control w-40" id="" placeholder="Enter party name">
-            </div>
-          </div>
-        </form>
-
-        <div class="  bg-secondary bg-opacity-10" style="margin:5px">
-          <div class="row mb-2 p-1">
-            <label class="col-sm-3 col-form-label"><b> Bank IFSC code*</b></label>
-            <div class=" d-flex col-sm-6">
-              <input type="ifsc code" class="form-control" id="" placeholder="Enter ifsc code">
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary btn-primary text-white" type="button">Search</button>
               </div>
             </div>
-          </div>
-          <div class="row">
-            <label class="w-50"><b>Bank Name</b> </label>
-            <label class="w-50">XXXXXX</label>
-          </div><br>
-          <p></p>
-          <div class="row">
-            <label class="w-50"><b>Bank branch</b> </label>
-            <label class="w-50">XXXXXX</label>
-          </div>
-        </div>
 
-        <div class="row mb-2 p-1">
-          <label class="col-sm-3 col-form-label"><b> Head of account*</b></label>
-          <div class="col-sm-6">
-            <input type="Head of account" class="form-control" id="" placeholder="select">
-          </div>
-        </div>
+            <div class="p-3 bar-block border-2">
+              <div class="text-bg-warning bg-opacity-25 rounded-2">
+                <h5>
+                  <strong> . Points to be remember</strong>
+                </h5>
 
-        <div class="row">
-          <label class="w-50"><b>Balance (inRs*)</b></label>
-          <label class="w-50">XXXXXX</label>
-        </div><br>
-        <p></p>
-        <div class="row">
-          <label class="w-50"><b>Loc (inRs)*</b> </label>
-          <label class="w-50">XXXXXX</label>
-        </div>
+                <div class="m-3">
+                  <ul class="list-group text-align-left">
+
+                    <ul>
+                      <li>note that all cheques which are approved from DDOChecker/ Officer/Govt from 01/03/2019 shall
+                        get
+                        paid through E-kuber which is a Core Banking Solution of RBI. </li>
+                      <li>There is no need to present the cheques at the Bank for these cheques which got approved after
+                        01/03/2019.</li>
+                      <li>Please give correct account details as it is when the Account was opened. </li>
+                      <li>Make sure there is no "Your self' or 'Self" in the account names while issuing cheques. Such
+                        cheques
+                        get auto-rejected by the E-Kuber </li>
+                      <li>Please check the exact length of the Bank Account Number and NO special characters are to be
+                        entered, which leads to auto-rejection. </li>
+                      <li>Finally, in multiple party cheques please do not enter the same party details in the same
+                        chequeno
+                        which will be considered as a duplicacy transaction and gets auto-rejeted. </li>
+                      <li>This is just a one-time procedure to get your Party details corrected and once when corrected
+                        the
+                        same details can be re-used for smooth transactions. </li>
+                      <li>PD-to-PD cheques shall be adjusted in treasury itself in the regular procedure. </li>
+                    </ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div classs="container">
+              <div class="row">
+
+                <div class="bg-secondary  bg-opacity-10 p-2 d-md-flex justify-content-around align-items-center">
+                  <h5><b> Transcation Type*</b></h5>
+
+                  <div class=" form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">checked
+                    <label class="form-check-label" for="inlineRadio1"> Single party</label>
+                  </div>
+
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                    <label class="form-check-label" for="inlineRadio2"> Multiple parties</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" checked>
+                    <label class="form-check-label" for="inlineRadio3">PD account to PD Account</label>
+                  </div>
+
+                  <div class="form-check  form-check-inline">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4" checked>
+                    <label class="form-check-label" for="inlineRadio4">PD account to other</label>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <form>
+              <div class="row mb-2 p-3">
+                <label class="col-md-3 col-form-label"><b>Party Account no*</b></label>
+                <div class="col-md-6 d-flex align-items-center">
+                  <b>:</b> &nbsp;<input type="party Account no" class="form-control" id="" placeholder="Enter A/c No">
+                </div>
+              </div>
+
+              <div class="row mb-2 p-3">
+                <label class="col-md-3 col-form-label"><b>Confirm party Account No*</b></label>
+                <div class="col-md-6 d-flex align-items-center">
+                  <b>:</b> &nbsp; <input type="confirm party accoun no" class="form-control" id=""
+                    placeholder="confirm A/c no">
+                </div>
+              </div>
+
+              <div class="row mb-2 p-3">
+                <label class="col-md-3 col-form-label"><b> party name*</b></label>
+                <div class="col-md-6  d-flex align-items-center">
+                  <b>:</b> &nbsp; <input type="partyname" class="form-control w-40" id=""
+                    placeholder="Enter party name">
+                </div>
+              </div>
+            </form>
+
+            <div class="  bg-secondary bg-opacity-10" style="margin:5px">
+              <div class="row mb-2 p-3">
+                <label class="col-md-3 col-form-label"><b> Bank IFSC code*</b></label>
+                <div class=" d-flex col-md-6  d-flex align-items-center ">
+                  <b>:</b> &nbsp; <input type="ifsc code" class="form-control" id="" placeholder="Enter ifsc code">
+                  <div class="input-group-append">
+                    <button class="btn btn-outline-secondary btn-primary text-white" type="button">Search</button>
+                  </div>
+                </div>
+              </div>
+              <div class="row p-3 ">
+                <label class="col-md-3 col-form-label"><b> Bank branch*</b></label>
+                <label class=" d-flex col-md-6  d-flex align-items-center"> XXXXXX</label>
+              </div><br>
+              <p></p>
+              <div class="row p-3">
+                <label class="col-md-3 col-form-label"><b>Bank branch</b> </label>
+                <label class="d-flex col-md-6">XXXXXX</label>
+              </div>
+            </div>
+
+            <div class="row mb-2 p-3">
+              <label class="col-md-3 col-form-label"><b> Head of account*</b></label>
+              <div class="col-md-6  d-flex align-items-center">
+                <b>:</b> &nbsp; <input type="Head of account" class="form-control" id="" placeholder="select">
+              </div>
+            </div>
+
+            <div class="row p-3">
+              <label class="col-md-3 col-form-label"><b>Balance (inRs*)</b></label>
+              <label class="col-md-6">XXXXXX</label>
+            </div><br>
+
+            <div class="row p-3">
+              <label class="col-md-3 col-form-label"><b>Loc (inRs)*</b> </label>
+              <label class="col-md-6">XXXXXX</label>
+            </div>
 
 
-        <div class="row mb-2 p-1">
-          <label class="col-sm-3 col-form-label"><b> Expenditure Type*</b></label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="" placeholder="select">
-          </div>
-        </div>
+            <div class="row mb-2 p-3">
+              <label class="col-md-3 col-form-label"><b> Expenditure Type*</b></label>
+              <div class="col-md-6 d-flex align-items-center">
+                <b>:</b> &nbsp; <input type="text" class="form-control" id="" placeholder="select">
+              </div>
+            </div>
 
-        <div class="row mb-2 p-1">
-          <label class="col-sm-3 col-form-label"><b> Purpose*</b></label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="" placeholder="Enter purpose here">
-          </div>
-        </div>
+            <div class="row mb-2 p-3">
+              <label class="col-md-3 col-form-label"><b> Purpose*</b></label>
+              <div class="col-md-6  d-flex align-items-center ">
+                <b>:</b> &nbsp; <input type="text" class="form-control" id="" placeholder="Enter purpose here">
+              </div>
+            </div>
 
-        <div class="row mb-2 p-1">
-          <label class="col-sm-3 col-form-label"><b>party Amount (in Rs)*</b></label>
-          <div class="col-sm-6">
-            <input type="text" class="form-control" id="" placeholder="Enter party Amount">
-          </div>
-        </div>
+            <div class="row mb-2 p-3">
+              <label class="col-md-3 col-form-label"><b>party Amount (in Rs)*</b></label>
+              <div class="col-md-6  d-flex align-items-center">
+                <b>:</b> &nbsp; <input type="text" class="form-control" id="" placeholder="Enter party Amount">
+              </div>
+            </div>
 
-        <div class="d-md-flex justify-content-between">
-          <label class="w-50"> <b>Party Amount in Words </b></label>
-          <label class="w-50">XXXXXX</label>
-        </div><br>
+            <div class="row mb-2 p-3">
+              <label class="col-md-3 col-form-label"> <b>Party Amount in Words </b></label>
+              <label class="col-md-6">XXXXXX</label>
+            </div>
+
+            <div class="row mb-2 p-3">
+              <label class="col-md-3 col-form-label"> <b>upload documents </b></label>
+              <div class="col-md-6  d-flex align-items-center">
+                <b>:</b> &nbsp; <label for="formFile" class="form-label"></label>
+                <input class="form-control" type="file" id="formFile">
+              </div>
 
 
-        <div class="d-flex justify content around  mb-2 p-1">
-          <label for="col-sm-3 col-form-label"> <b>Upload Documents</b></label>
-          <div class=" d-flex col-sm-5">
-            <input type="file" class="form-control-file card " id="exampleFormControlFile1">
-            <button type="button" class="btn btn-primary align-item-end">+ADD</button>
-          </div>
-        </div>
-        <p>note documents of cheque(letter/G.0.etc)can be uploades here</p>
-        <hr>
-        <div class="d-md-flex justify-content-end">
-        <button type="button" class="btn btn-primary pull-right">Next>></button>
-        </div>
-    </div>
+
+
+              <div class="d-flex justify-content-center">
+                <label> Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here</label>
+              </div>
+              <hr>
+              <div class="d-flex justify-content-end">
+                <button type="button" class="btn btn-primary pull-right">Next>></button>
+                
+  </div>
+             </div>
+         </div>
 </body>
 
 </html>
