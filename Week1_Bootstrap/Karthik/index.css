@@ -1,11 +1,18 @@
-.sidebar,.sidebar button{
+.sidebar{
     background: rgb(17, 53, 90);
     border:0px;
     color:white;
 }
-.sidebar button{
-    margin: 2px;
+.sidebar li{
+    padding: 5px;
+    border-left:solid 2px transparent;
 }
-.sidebar button:hover{
-    background-color:gray;
+
+.sidebar  li:hover{
+    background-color: gray;
+}
+.sidebar .active{
+    border-left:solid 5px yellow;
+    background-color: gray;
+
 }

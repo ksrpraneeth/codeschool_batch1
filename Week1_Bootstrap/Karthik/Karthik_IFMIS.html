@@ -12,53 +12,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" 
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" 
-    integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container-fluid  d-flex " >
-        <div class="row  ">
+        <div class="row">
           
-        <div class="sidebar col col-lg-3 col-md-12 col-sm-12 col-xs-12 h-100 d-none d-lg-block" >
-              <img class="image-fluid w-100 " src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"  alt="" style="padding:10px" ><hr class="line text-secondary">
-              <div class="index text-secondary" style="padding:0px" style="margin:0px"   >
-                <button type="button" class="btn" >Home</button><br>
-                <div class="btn-group dropend">
-                    <button type="button" class="btn" >
-                      masters
-                    </button>
-                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                      <span class="visually-hidden"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                    </ul>
-                  </div><br>
-                <div class="btn-group dropend">
-                    <button type="button" class="btn" >
-                    Transactions
-                    </button>
-                    <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
-                      <span class="visually-hidden"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                    </ul>
-                </div><br>    
-                <button type="button" class="btn">Reports</button><br>
-                <button type="button" class="btn">Return Cheque generation</button><br>
-                <button type="button" class="btn">Forest Transactions</button><br>
-                <button type="button" class="btn">Forest Transactions report</button><br>
-                <button type="button" class="btn">E-Kuber Return Received List</button><br>
-                <button type="button" class="btn">E-Kuber Return Challan Print</button><br>
-                <button type="button" class="btn">UTR Search</button><br>
-                <button type="button" class="btn">Cheque Status Report</button><br>
-                <button type="button" class="btn">Finyear New Cheques Report</button><br>
-                <button type="button" class="btn">Pd Budget Check</button><br>
-                <button type="button" class="btn">Update Rejects Used Amount</button><br>
+        <div class="sidebar col col-lg-2 col-md-12 col-sm-12 col-xs-12 h-100 d-none d-lg-block align-item-start" >
+              <img class="image-fluid w-100 my-1" src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"  alt="" style="padding:px" ><hr class="line text-secondary">
+              <div class="index text-white">
+              <div class="list" style="list-style-type:none" style="padding:0px" style="margin:0px">
+                  <li class="active">Home</li>
+                  <li>Masters</li>
+                  <li>Transactions</li>
+                  <li>Reports</li>
+                  <li>Return Cheque generation</li>
+                  <li>Forest Transactions</li>
+                  <li>Forest Transactions report</li>
+                  <li>E-Kuber Return Received List</li>
+                  <li>E-Kuber Return Challan Print</li>
+                  <li>UTR</li>
+                  <li>Failed Transactions (ACK Reject)</li>
+                  <li>Cheque Status Report</li>
+                  <li>Finyear New Cheques Report</li>
+                  <li>Pd Budget Check</li>
+                  <li>Update Rejects Used Amount</li>
+              </div>
             </div>
         </div>   
-            <div class="col col-lg-9 col-md-12 col-sm-12 col-xs-12 p-0">
+            <div class="col col-lg-10 col-md-12 col-sm-12 p-0" style="background-color:rgb(195, 195, 194)">
             <div class="bg-image" style="background-image:url('./bg.jpeg'); background-color:rgb(17, 53, 90)">
             <div class="container d-flex justify-content-between align-items-center">
               <div class="left d-flex align-items-center ">
@@ -75,39 +56,38 @@
                           IFMIS
                       </h4>
                    </div>
-                <div class="text-white py-4 align-items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <div class="text-white py-2 align-items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
                   </svg>
               </div>
-              
-              <div class="align-items-center py-2 px-2 d-flex rounded-3" style="background-color:rgba(149, 145, 145, 0.614)">
+              <div class="align-items-center py-1 px-1 d-flex rounded-3" style="background-color:rgba(149, 145, 145, 0.614)">
                   <div class="text-white">
 
                     </div>
                     <div class="text-white">
-                      <h4 class="px-1">
+                      <h5>
                           Modules 
-                      </h4>
+                      </h5>
                     </div>
                 </div>
              </div>
              <div class="right d-flex align-items-center">
-              <div class="row text-white d-none d-lg-block">
-                  <h6> Last Login</h6>
-                  <h6> 17-Jun-2022</h6>
-                <h6> 04:53 PM</h6>  
+              <div class="row text-white d-none d-lg-block mx-2" style="font-size:0.8rem">
+                  <p  class="m-0 text-secondary"> Last Login</p>
+                  <p  class="m-0"> 17-Jun-2022</p>
+                  <p  class="m-0"> 04:53 PM</p>  
               </div>
-          <div class="align-items-center justify-content-center m-2  d-flex bg-secondary bg-opacity-25  rounded-2"> 
-          <div class="icon text-white bg-secondary p-2 ">
-              <i class="bi text-white bi-person "></i>
+          <div class="align-items-center justify-content-center  d-flex bg-secondary bg-opacity-75  rounded-2"> 
+          <div class="icon text-white bg-secondary p-2">
+              <i class="bi text-white bi-person m-0"></i>
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
                   <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                 </svg>
               </div>
-                <div class="text-white align-items-center d-none d-lg-block bg-secondary p-0"> 
-                  <p>WELCOME M.USHASREE</p>
-                  <p>(23031014097)</p> 
+                <div class="text-white align-items-center d-none d-lg-block bg-secondary px-1 m-0 " style="font-size:0.8rem"> 
+                  <p class="m-0">WELCOME M.USHASREE</p>
+                  <p class="m-0">(23031014097)</p> 
                </div> 
           <div class="text-white bg-secondary p-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
@@ -116,7 +96,7 @@
                </div>
           </div> 
           <div class="d-none d-lg-block ">
-              <button type="button" class="logout d-flex bg-secondary border-0 bg-opacity-25 text-white align-items-center  rounded-2 m-4"> 
+              <button type="button" class="logout d-flex bg-secondary border-0 bg-opacity-25 text-white align-items-center  rounded-2 m-2"> 
                   <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                       <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
@@ -127,29 +107,28 @@
             </div>
             </div>
             </div>
-            <div class="p-2 card m-2 d-flex border-0 d-none d-lg-block">
-            <div class="container border-0 d-flex image-fluid p-2 " style="background-color:rgba(152, 178, 215, 0.973)">
-              <div class="icon py-1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-credit-card-2-front-fill align-items-center" viewBox="0 0 16 16">
+            <div class="body" >
+            <div class="p-1 card m-3  border-1">
+            <div class="container border-0 d-flex image-fluid p-2 d-none d-md-flex " style="background-color:rgba(198, 211, 231, 0.973)">
+              <div class="icon py-1 ">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="primary" class="bi bi-credit-card-2-front-fill align-items-center" viewBox="0 0 16 16">
                   <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"/>
                 </svg>
               </div>
-                <div class="text-bg-warning bg-opacity-25 active text-dark bg-opacity-10" style="padding:5px"> 
+                <div class="text-bg-warning bg-opacity-25 active text-primary bg-opacity-10 " style="padding:5px"> 
                   <h5>
                        Issue cheque (E-Kuber Cheque from 01/03/2019)
                   </h5>
                 </div>
             </div>
-          </div>
-      <div class="p-3">
-      <div class="container bar-block border-3" style="background-color:rgb(230, 233, 176)" style="padding:20px"  >
+      <div class="container card my-2 bar-block border-3" style="background-color:rgb(241, 243, 213)" style="padding:20px" style="font-size:1rem"  >
              <br><h5>
               Points to be remember
             </h5>
             <div class="m-0">
             <ul class="list-unstyled">
                  <ul>
-                        <li>note that all cheques which are approved from DDOChecker/ Officer/Govt from 01/03/2019 shall get paid through E-kuber which is a Core Banking Solution of RBI. </li>
+                        <li>Note that all cheques which are approved from DDOChecker/ Officer/Govt from 01/03/2019 shall get paid through E-kuber which is a Core Banking Solution of RBI. </li>
                         <li>There is no need to present the cheques at the Bank for these cheques which got approved after 01/03/2019.</li>
                         <li>Please give correct account details as it is when the Account was opened. </li>
                         <li>Make sure there is no "Your self' or 'Self" in the account names while issuing cheques. Such cheques get auto-rejected by the E-Kuber </li>
@@ -159,11 +138,10 @@
                         <li>PD-to-PD cheques shall be adjusted in treasury itself in the regular procedure. </li><br>
                  </ul>  
             </ul>
-            </div>
-            
-        </div>
-      </div>
-        <div class="type p-2 d-lg-flex justify-content-between align-item-start">
+          </div>
+        </div><br>
+      
+        <div class="type m-3  d-lg-flex justify-content-between align-item-start">
           <h5>
               <b>
                 Transcation Type
@@ -179,18 +157,18 @@
           <label class="form-check-label" for="inlineRadio2">Multiple Parties</label>
       </div>
       <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-              <label class="form-check-label" for="inlineRadio1">PD Account to PD Account</label>
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option1">
+              <label class="form-check-label" for="inlineRadio3">PD Account to PD Account</label>
       </div>
       <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-              <label class="form-check-label" for="inlineRadio2">PD Account to others</label>
+              <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option2">
+              <label class="form-check-label" for="inlineRadio4">PD Account to others</label>
       </div>
       </div>
      
       
       <br>
-      <form class="p-3">
+      <form class="form m-2">
             <div class="form-group d-lg-flex justify-content-between">
             <div class="col-lg-4 col-sm-12">
                 <p>Party Account No *</p></div>
@@ -207,7 +185,7 @@
                 <input type="email" class="form-control " id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Party Name">
             </div>
             <br>
-      </form>
+     
       <div class="container-fluid  bg-opacity-10" style="margin:5px" >
           <div class="row" style="background-color:rgba(240, 244, 245, 0.942)">
             <div class="d-lg-flex justify-content-between">
@@ -232,7 +210,7 @@
             </div><br><p></p>
          </div>
       </div>
-      <form class="p-3">
+      <br>
         <div class="d-lg-flex justify-content-between">
           <div class="col-lg-4 col-sm-12">
            <label><b>Head of the Account</b></label></div>
@@ -280,7 +258,7 @@
               <div class="col-lg-4 col-sm-12">
                 <label for="exampleInputEmail1"> <b>Upload Documents</b></label></div>
                 <div class="d-flex justify-content-between col-lg-8 col-sm-12">
-                  <input type="file" class="form-control-file card p-1"  id="exampleFormControlFile1">
+                  <input type="file" class="form-control-file card p-1 w-100 "  id="exampleFormControlFile1">
                   <button type="button" class="btn btn-primary align-item-end">+ADD</button><br>
               </div>
               </div>
@@ -294,6 +272,7 @@
               <button type="button" class="btn btn-primary">Next>></button>
             </div>
           </div>
+        </div>
         </div>
       </div>  
   </body>
