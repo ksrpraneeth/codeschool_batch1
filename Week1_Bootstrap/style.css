@@ -1,0 +1,8 @@
+.sidebar{
+    margin:10px;
+    
+}
+
+.sidebar ul li:hover{
+    background-color: gray;
+}
