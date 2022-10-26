@@ -1,8 +1,21 @@
 .sidebar{
     margin:10px;
-    
+    border: 0px;
 }
 
-.sidebar ul li:hover{
+.sidebar.menu ul li{
+    padding: 5px;
+    border-left: solid 2px transparent;
+}
+
+.sidebar.menu ul li:hover{
     background-color: gray;
+}
+
+.sidebar .active{
+    border-left: solid 5px green;
+    background-color: gray;
+}
+p{
+    font-size: 10px;
 }
