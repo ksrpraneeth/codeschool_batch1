@@ -1,7 +1,7 @@
 Note : All the following functionality and validations should be through Javascript only
 
 1. Show current time and date at Last Login in the exact format shown in the image
-2. On Click of user profile button show his phone number and Designation in a drop down
+2. On Click of user profile show drop down - refer to profile drop down image.
 3. On Click of logout text should be changed to login and vice versa
 4. Validations :
     Party Account number
