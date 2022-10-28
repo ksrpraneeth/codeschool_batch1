@@ -375,7 +375,7 @@ function validateForm(event) {
     if(IFSCCode.length != 11){
         errors.push("IFSC Code should be 11 characters")
     }
-    if(IFSCCode.slice(0,4).toUpperCase() != IFSCCode.slice(0,4).toLowerCase() ){
+    if(/^[a-zA-Z()]+$/.test(IFSCCode) ){
         errors.push("IFSC Code first four letters should be alphabets")
     }
     if(IFSCCode.charAt(4) != '0'){
@@ -408,6 +408,9 @@ function validateForm(event) {
         errors.push("Party Amount shouldn't be empty")
     }
 
+    if(errors.length == 0){
+        return;
+    }
     errorsText.innerHTML = ""
 
     errors.forEach(element => {
