@@ -6,3 +6,7 @@
     border-left:solid 5px yellow;
     background-color: gray;
 }
+.sidebar ul li{
+   padding: 5px;
+   margin-left: 2px; 
+}
