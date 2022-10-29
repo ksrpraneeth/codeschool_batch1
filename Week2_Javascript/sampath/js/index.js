@@ -102,19 +102,24 @@ function toggleMobileSidebar() {
     // Getting sidebar and bg element refernce
     var sidebarElement = document.getElementById("sidebar");
     var bg = document.getElementById("mobileSidebarBg");
+    var body = document.getElementById("body");
 
     // Checking if sidebar is shown
     if (window.mobileSidebarShowing == true) {
         // Hiding
         sidebarElement.style.setProperty("left", "-250px", "important");
         bg.classList.add("d-none");
+        body.style.setProperty("width", "100%", "important");
+        body.style.setProperty("left", "0px", "important");
         window.mobileSidebarShowing = false;
+        window.sidebarShowing = false;
     } else {
         // Showing
         sidebarElement.style.setProperty("left", "0px", "important");
         console.log(sidebar.style.left);
         bg.classList.remove("d-none");
         window.mobileSidebarShowing = true;
+        window.sidebarShowing = true;
     }
 }
 
@@ -467,6 +472,7 @@ function ifscCodeChanged(ifsc) {
     var bankName = document.getElementById("bankName");
     var bankBranch = document.getElementById("bankBranch");
 
+    // IFSC Code checking and updating bank name and branch
     switch (ifsc.slice(0, 3)) {
         case "SBI":
             bankName.innerHTML = "State Bank of India";
