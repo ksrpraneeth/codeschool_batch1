@@ -460,7 +460,8 @@
                                 <div class="col-lg-5 col-md-8 col-sm-12">
                                     <input
                                         class="form-control"
-                                        type="text"
+                                        type="number"
+                                        inputmode="numeric"
                                         placeholder="Confirm A/C no"
                                         id="conPartyAccNum"
                                     />
@@ -505,7 +506,7 @@
                                         id="IFSCCode"
                                         oninput="this.value = this.value.toUpperCase();ifscCodeChanged(this.value);"
                                     />
-                                    <button class="btn btn-primary ms-2">
+                                    <button type="button" class="btn btn-primary ms-2">
                                         Search
                                     </button>
                                 </div>
@@ -728,7 +729,7 @@
                                         placeholder="Enter Party Amount"
                                         multiple="multiple"
                                     />
-                                    <button class="btn btn-primary ms-2 d-flex">
+                                    <button type="button" class="btn btn-primary ms-2 d-flex">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="16"

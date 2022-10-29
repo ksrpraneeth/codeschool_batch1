@@ -359,7 +359,7 @@ function validateForm(event) {
 
     // Party Account Number Validation
     if(partyAccNum.length < 12 || partyAccNum.length > 22){
-        errors.push("Party Account number must be between 12 and 22")
+        errors.push("Party Account number must be between 12 and 22 characters long")
     }
 
     // Confirm Party Account Number Validation
