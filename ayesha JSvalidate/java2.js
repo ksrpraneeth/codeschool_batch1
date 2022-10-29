@@ -18,12 +18,13 @@ const cpartyaccount = document.getElementById('cpartyaccount');
 const partyname = document.getElementById('partyname');
 const partyamount = document.getElementById('partyamount');
 const purpose = document.getElementById('purpose');
+const bankcode = document.getElementById('bankcode');
 
 //Show input error message
 
 function showError(input, message,id) {
 const formControl = input.parentElement;
-formControl.className = 'input-control error';
+formControl.classList.toggle('input-control-error');
 const small = formControl.querySelector('small');
 const errordiv = document.getElementById(id);
 errordiv.innerText = message;
@@ -34,7 +35,7 @@ errordiv.innerText = message;
 
 function showSuccess(input, message,id) {
 const formControl = input.parentElement;
-formControl.className = 'input-control success';
+formControl.classList.toggle('success');
 const small = formControl.querySelector('small');
 const errordiv = document.getElementById(id);
 errordiv.innerText = message;
@@ -60,7 +61,7 @@ else {
 showSuccess(cpartyaccount,'','e_cpartyaccount');
 }  
 //partname-no special characters
-var regex = /^[A-Za-z0-9 ]+$/
+ var regex = /^[A-Za-z0-9 ]+$/
  //Validate TextBox value against the Regex.
 var isValid = regex.test(document.getElementById("partyname").value);
 if (!isValid) {
@@ -80,6 +81,19 @@ showError(partyamount, 'Decimals not allowed','e_partyamount');
 else {
 showSuccess(partyamount,'','e_partyamount');
 }
+//IFSC Code Validation:
+//11 characters only, first four-UpperCase Alphabets,fifth-zero,last six-alphanumeric
+var regex2 = /^[A-Z]{4}0[A-Z0-9]{6}$/
+var isValid2 = regex2.test(document.getElementById("bankcode").value);
+if (!isValid2) 
+{
+showError(bankcode, 'Invalid IFSC Code','e_bankcode');
+} 
+else {
+showSuccess(bankcode,'','e_bankcode');
+}
+//
+
 
 });
 

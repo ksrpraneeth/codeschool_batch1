@@ -164,12 +164,12 @@ a.article:hover {
 #content.active {
     width: 100%;
 }
-.input-control.success input{
+.success input{
 
     border-color:var(--success-color);
 
 }
-.input-control.error input{
+.input-control-error input{
     border-color:var(--error-color);
 }
 

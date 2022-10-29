@@ -149,7 +149,7 @@
                         <input type="number" id="partyaccount" name="partyaccount" required class="form-control"
                                placeholder="Enter A/C number">
                     </div>
-                    <div id="e_partyaccount"></div>
+                    <div id="e_partyaccount" class="text-danger"></div>
                 </div>
         
                 <div class="input-control row align-items-center">
@@ -160,7 +160,7 @@
                         <input type="number" id="cpartyaccount" required name="cpartyaccount" class="form-control"
                                placeholder="Confirm A/C number">
                     </div>
-                    <div id="e_cpartyaccount"></div>
+                    <div id="e_cpartyaccount" class="text-danger"></div>
                 </div>
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-6 lg-6">
@@ -170,7 +170,7 @@
                         <input type="text" id="partyname" required name="partyname" class="form-control"
                                placeholder="Enter party name">
                     </div>
-                    <div id="e_partyname"></div>
+                    <div id="e_partyname" class="text-danger"></div>
                 </div>
     
                 <!--Bank-->
@@ -183,11 +183,11 @@
                     <div class="col-md-4 lg-4">
                         <input type="text" id="bankcode" name="bankcode" class="form-control" placeholder="Enter IFSC Code">
                     </div>
+                    <div id="e_bankcode" class="text-danger"></div>
                     <div class="col-md-4 lg-4" style="padding: 20px;">
                         <button class="btn btn-primary" type="submit">Search</button>
                     </div>
-                    <small id="e_bankcode"></small>
-                </div>
+                    </div>
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-4">
                         <label for="ifsccode" class="col-form-label">Bank Name:</label>
@@ -250,7 +250,7 @@
                         <label for="purpose" class="col-form-label">Purpose:</label>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <textarea class="form-control" rows="3" id="purpose" name="purpose" required></textarea>
+                        <textarea class="form-control" rows="3" id="purpose" name="purpose" required placeholder="Max 500 characters"></textarea>
                     </div>
                     <div id="e_purpose"></div>
                 </div>
@@ -261,7 +261,7 @@
                     <div class="col-md-6 lg-6">
                         <input type="number" id="partyamount" required class="form-control" placeholder="Enter Party Amount">
                     </div>
-                    <div id="e_partyamount"></div>
+                    <div id="e_partyamount" class="text-danger"></div>
                 </div>
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-6 lg-6">
@@ -284,7 +284,7 @@
                         <button class="btn btn-primary" type="submit">+ADD</button>
                     </div>
                     <div class="line"></div>
-                    <button type="submit" value="submit">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
     
                 </div>
             </form>
