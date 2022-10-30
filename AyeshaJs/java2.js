@@ -11,6 +11,20 @@ $(document).ready(function () {
     });
 });
 
+//Login and Logout toggle
+function toggle(ele) {
+  var cont = document.getElementById('cont');
+  if (cont.style.display == 'block') {
+      cont.style.display = 'none';
+
+      document.getElementById(ele.id).value = 'LogIn';
+  }
+  else {
+      cont.style.display = 'block';
+      document.getElementById(ele.id).value = 'LogOut';
+  }
+}
+
 //get Elements from html
 const form = document.getElementById('form');
 const partyaccount = document.getElementById('partyaccount');
@@ -20,8 +34,20 @@ const partyamount = document.getElementById('partyamount');
 const purpose = document.getElementById('purpose');
 const bankcode = document.getElementById('bankcode');
 
-//Show input error message
+//IFSC Code Validation,Bank Name,Bank Branch Validations
+//11 characters only, first four-UpperCase Alphabets,fifth-zero,last six-alphanumeric-IFSC Code
+//Prefil name and branch
+bankcode.onchange = function (){
+    if(/^[A-Z]{4}0[A-Z0-9]{6}$/.test(bankcode.value)){
+        document.getElementById('bankname').innerText = 'SBI Bank';
+        document.getElementById('bankbranch').innerText = 'Hyderabad';
+    }else{
+         document.getElementById('bankname').innerText = 'XXXXXX';
+        document.getElementById('bankbranch').innerText = 'XXXXXX';
+    }
+}
 
+//Show input error message
 function showError(input, message,id) {
 const formControl = input.parentElement;
 formControl.classList.toggle('input-control-error');
@@ -31,17 +57,15 @@ errordiv.innerText = message;
 }
 
 //Show success message
-
-
 function showSuccess(input, message,id) {
 const formControl = input.parentElement;
 formControl.classList.toggle('success');
 const small = formControl.querySelector('small');
 const errordiv = document.getElementById(id);
 errordiv.innerText = message;
-
 }
 
+//validations
 form.addEventListener('submit', function (e) {
 e.preventDefault();
 //partyaccount number
@@ -81,8 +105,6 @@ showError(partyamount, 'Decimals not allowed','e_partyamount');
 else {
 showSuccess(partyamount,'','e_partyamount');
 }
-//IFSC Code Validation:
-//11 characters only, first four-UpperCase Alphabets,fifth-zero,last six-alphanumeric
 var regex2 = /^[A-Z]{4}0[A-Z0-9]{6}$/
 var isValid2 = regex2.test(document.getElementById("bankcode").value);
 if (!isValid2) 
@@ -92,8 +114,6 @@ showError(bankcode, 'Invalid IFSC Code','e_bankcode');
 else {
 showSuccess(bankcode,'','e_bankcode');
 }
-//
-
-
 });
+
 

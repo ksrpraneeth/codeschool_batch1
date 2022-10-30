@@ -69,21 +69,17 @@
     
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
+                            <div id="cont">
                             <li class="nav-item active">
                                 <a class="nav-link" href="#">Last logout<br>1st Oct 2022</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Welcome Ayesha</a>
                             </li>
+                            </div>
                             <li class="nav-item">
-                                <a class="nav-link" href="#" id="demo" onclick="changetext()">Logout</a>
+                                <input type="button" value="LogOut" id="bt" onclick="toggle(this)">
                             </li>
-                            <script>
-                                function changetext()
-                                {
-                                    document.getElementById("demo").innerHTML="LogIn";
-                                }
-                            </script>
                         </ul>
                     </div>
                 </div>
@@ -190,18 +186,18 @@
                     </div>
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-4">
-                        <label for="ifsccode" class="col-form-label">Bank Name:</label>
+                        <label for="bankname" class="col-form-label">Bank Name:</label>
                     </div>
                     <div class="col-md-4 lg-4">
-                        <h5>xxxxxx</h5>
+                        <h5 id="bankname">xxxxxx</h5>
                     </div>
                 </div>
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-4">
-                        <label for="ifsccode" class="col-form-label">Bank Branch:</label>
+                        <label for="bankbranch" class="col-form-label">Bank Branch:</label>
                     </div>
                     <div class="col-md-4 lg-4">
-                        <h5>xxxxxxx</h5>
+                        <h5 id="bankbranch">xxxxxxx</h5>
                     </div>
                 </div>
                 <div class="line"></div>
@@ -284,7 +280,7 @@
                         <button class="btn btn-primary" type="submit">+ADD</button>
                     </div>
                     <div class="line"></div>
-                    <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+                    <button type="submit" class="btn btn-primary" value="submit">Next</button>
     
                 </div>
             </form>

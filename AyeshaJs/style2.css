@@ -164,14 +164,7 @@ a.article:hover {
 #content.active {
     width: 100%;
 }
-.success input{
 
-    border-color:var(--success-color);
-
-}
-.input-control-error input{
-    border-color:var(--error-color);
-}
 
 .input-control small{
     color: var(--error-color);
