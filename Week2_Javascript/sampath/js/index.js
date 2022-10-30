@@ -10,6 +10,9 @@ window.onload = () => {
 
     // Hiding Loading Image
     setTimeout(hideLoading, 0);
+
+    // Initializing the files
+    window.filesUploaded = [];
 };
 
 // Function: updateDate()
@@ -70,21 +73,18 @@ function showLoading() {
 // Function: toggleSidebar()
 // Description: Toggle sidebar /hide, show
 // Parameters: None
-function toggleSidebar() 
-{
+function toggleSidebar() {
     // Getting sidebar and body
     var sidebar = document.getElementById("sidebar");
     var body = document.getElementById("body");
 
     // Checking if sidebar is not hiding
     if (window.sidebarShowing == true) {
-
         // hiding it
         sidebar.style.left = "-250px";
         body.style.left = "0px";
         body.style.width = "100%";
         window.sidebarShowing = false;
-
     } else {
         // show it
         sidebar.style.left = "0px";
@@ -98,7 +98,6 @@ function toggleSidebar()
 // Description: mobile Toggle sidebar /hide, show
 // Parameters: None
 function toggleMobileSidebar() {
-
     // Getting sidebar and bg element refernce
     var sidebarElement = document.getElementById("sidebar");
     var bg = document.getElementById("mobileSidebarBg");
@@ -153,16 +152,13 @@ function logout() {
 // Description: Party Amount input changed, make it to words
 // Parameters: { value: number }
 function partyAmountChanged(value) {
-
     // checking if value lengt is 0
     if (value.length == "0") {
-        
         // making party amount in words empty
         document.getElementById("partyAmountInWords").innerHTML = "";
         return;
     }
     if (isFinite(value)) {
-
         // updating party amount in words
         var text = numberToEnglish(value);
         if (text.slice(0, 3) == "and") {
@@ -172,158 +168,276 @@ function partyAmountChanged(value) {
     }
 }
 
+// function numberToEnglish(n) {
+//     var string = n.toString(),
+//         units,
+//         tens,
+//         scales,
+//         start,
+//         end,
+//         chunks,
+//         chunksLen,
+//         chunk,
+//         ints,
+//         i,
+//         word,
+//         words,
+//         and = "and";
+
+//     /* Remove spaces and commas */
+//     string = string.replace(/[, ]/g, "");
+
+//     /* Is number zero? */
+//     if (parseInt(string) === 0) {
+//         return "zero";
+//     }
+
+//     /* Array of units as words */
+//     units = [
+//         "",
+//         "one",
+//         "two",
+//         "three",
+//         "four",
+//         "five",
+//         "six",
+//         "seven",
+//         "eight",
+//         "nine",
+//         "ten",
+//         "eleven",
+//         "twelve",
+//         "thirteen",
+//         "fourteen",
+//         "fifteen",
+//         "sixteen",
+//         "seventeen",
+//         "eighteen",
+//         "nineteen",
+//     ];
+
+//     /* Array of tens as words */
+//     tens = [
+//         "",
+//         "",
+//         "twenty",
+//         "thirty",
+//         "forty",
+//         "fifty",
+//         "sixty",
+//         "seventy",
+//         "eighty",
+//         "ninety",
+//     ];
+
+//     /* Array of scales as words */
+//     scales = [
+//         "",
+//         "thousand",
+//         "million",
+//         "billion",
+//         "trillion",
+//         "quadrillion",
+//         "quintillion",
+//         "sextillion",
+//         "septillion",
+//         "octillion",
+//         "nonillion",
+//         "decillion",
+//         "undecillion",
+//         "duodecillion",
+//         "tredecillion",
+//         "quatttuor-decillion",
+//         "quindecillion",
+//         "sexdecillion",
+//         "septen-decillion",
+//         "octodecillion",
+//         "novemdecillion",
+//         "vigintillion",
+//         "centillion",
+//     ];
+
+//     /* Split user argument into 3 digit chunks from right to left */
+//     start = string.length;
+//     chunks = [];
+//     while (start > 0) {
+//         end = start;
+//         chunks.push(string.slice((start = Math.max(0, start - 3)), end));
+//     }
+
+//     /* Check if function has enough scale words to be able to stringify the user argument */
+//     chunksLen = chunks.length;
+//     if (chunksLen > scales.length) {
+//         return "";
+//     }
+
+//     /* Stringify each integer in each chunk */
+//     words = [];
+//     for (i = 0; i < chunksLen; i++) {
+//         chunk = parseInt(chunks[i]);
+
+//         if (chunk) {
+//             /* Split chunk into array of individual integers */
+//             ints = chunks[i].split("").reverse().map(parseFloat);
+
+//             /* If tens integer is 1, i.e. 10, then add 10 to units integer */
+//             if (ints[1] === 1) {
+//                 ints[0] += 10;
+//             }
+
+//             /* Add scale word if chunk is not zero and array item exists */
+//             if ((word = scales[i])) {
+//                 words.push(word);
+//             }
+
+//             /* Add unit word if array item exists */
+//             if ((word = units[ints[0]])) {
+//                 words.push(word);
+//             }
+
+//             /* Add tens word if array item exists */
+//             if ((word = tens[ints[1]])) {
+//                 words.push(word);
+//             }
+
+//             /* Add 'and' string after units or tens integer if: */
+//             if (ints[0] || ints[1]) {
+//                 /* Chunk has a hundreds integer or chunk is the first of multiple chunks */
+//                 if (ints[2] || (!i && chunksLen)) {
+//                     words.push(and);
+//                 }
+//             }
+
+//             /* Add hundreds word if array item exists */
+//             if ((word = units[ints[2]])) {
+//                 words.push(word + " hundred");
+//             }
+//         }
+//     }
+
+//     return words.reverse().join(" ");
+// }
+
 // Function: numberToEnglish
 // Description: Changes Number to Words
 // Parameters: { n: number }
 // Reference: https://stackoverflow.com/questions/14766951/transform-numbers-to-words-in-lakh-crore-system#:~:text=%2F%2F%20numToWords%20%3A%3A%20(Number%20a,'thirty'%2C%20'forty'
-function numberToEnglish(n) {
-    var string = n.toString(),
-        units,
-        tens,
-        scales,
-        start,
-        end,
-        chunks,
-        chunksLen,
-        chunk,
-        ints,
-        i,
-        word,
-        words,
-        and = "and";
 
-    /* Remove spaces and commas */
-    string = string.replace(/[, ]/g, "");
+function numberToEnglish(price) {
+    var sglDigit = [
+            "Zero",
+            "One",
+            "Two",
+            "Three",
+            "Four",
+            "Five",
+            "Six",
+            "Seven",
+            "Eight",
+            "Nine",
+        ],
+        dblDigit = [
+            "Ten",
+            "Eleven",
+            "Twelve",
+            "Thirteen",
+            "Fourteen",
+            "Fifteen",
+            "Sixteen",
+            "Seventeen",
+            "Eighteen",
+            "Nineteen",
+        ],
+        tensPlace = [
+            "",
+            "Ten",
+            "Twenty",
+            "Thirty",
+            "Forty",
+            "Fifty",
+            "Sixty",
+            "Seventy",
+            "Eighty",
+            "Ninety",
+        ],
+        handle_tens = function (dgt, prevDgt) {
+            return 0 == dgt
+                ? ""
+                : " " + (1 == dgt ? dblDigit[prevDgt] : tensPlace[dgt]);
+        },
+        handle_utlc = function (dgt, nxtDgt, denom) {
+            return (
+                (0 != dgt && 1 != nxtDgt ? " " + sglDigit[dgt] : "") +
+                (0 != nxtDgt || dgt > 0 ? " " + denom : "")
+            );
+        };
 
-    /* Is number zero? */
-    if (parseInt(string) === 0) {
-        return "zero";
-    }
-
-    /* Array of units as words */
-    units = [
-        "",
-        "one",
-        "two",
-        "three",
-        "four",
-        "five",
-        "six",
-        "seven",
-        "eight",
-        "nine",
-        "ten",
-        "eleven",
-        "twelve",
-        "thirteen",
-        "fourteen",
-        "fifteen",
-        "sixteen",
-        "seventeen",
-        "eighteen",
-        "nineteen",
-    ];
-
-    /* Array of tens as words */
-    tens = [
-        "",
-        "",
-        "twenty",
-        "thirty",
-        "forty",
-        "fifty",
-        "sixty",
-        "seventy",
-        "eighty",
-        "ninety",
-    ];
-
-    /* Array of scales as words */
-    scales = [
-        "",
-        "thousand",
-        "million",
-        "billion",
-        "trillion",
-        "quadrillion",
-        "quintillion",
-        "sextillion",
-        "septillion",
-        "octillion",
-        "nonillion",
-        "decillion",
-        "undecillion",
-        "duodecillion",
-        "tredecillion",
-        "quatttuor-decillion",
-        "quindecillion",
-        "sexdecillion",
-        "septen-decillion",
-        "octodecillion",
-        "novemdecillion",
-        "vigintillion",
-        "centillion",
-    ];
-
-    /* Split user argument into 3 digit chunks from right to left */
-    start = string.length;
-    chunks = [];
-    while (start > 0) {
-        end = start;
-        chunks.push(string.slice((start = Math.max(0, start - 3)), end));
-    }
-
-    /* Check if function has enough scale words to be able to stringify the user argument */
-    chunksLen = chunks.length;
-    if (chunksLen > scales.length) {
-        return "";
-    }
-
-    /* Stringify each integer in each chunk */
-    words = [];
-    for (i = 0; i < chunksLen; i++) {
-        chunk = parseInt(chunks[i]);
-
-        if (chunk) {
-            /* Split chunk into array of individual integers */
-            ints = chunks[i].split("").reverse().map(parseFloat);
-
-            /* If tens integer is 1, i.e. 10, then add 10 to units integer */
-            if (ints[1] === 1) {
-                ints[0] += 10;
+    var str = "",
+        digitIdx = 0,
+        digit = 0,
+        nxtDigit = 0,
+        words = [];
+    if (((price += ""), isNaN(parseInt(price)))) str = "";
+    else if (parseInt(price) > 0 && price.length <= 10) {
+        for (digitIdx = price.length - 1; digitIdx >= 0; digitIdx--)
+            switch (
+                ((digit = price[digitIdx] - 0),
+                (nxtDigit = digitIdx > 0 ? price[digitIdx - 1] - 0 : 0),
+                price.length - digitIdx - 1)
+            ) {
+                case 0:
+                    words.push(handle_utlc(digit, nxtDigit, ""));
+                    break;
+                case 1:
+                    words.push(handle_tens(digit, price[digitIdx + 1]));
+                    break;
+                case 2:
+                    words.push(
+                        0 != digit
+                            ? " " +
+                                  sglDigit[digit] +
+                                  " Hundred" +
+                                  (0 != price[digitIdx + 1] &&
+                                  0 != price[digitIdx + 2]
+                                      ? " and"
+                                      : "")
+                            : ""
+                    );
+                    break;
+                case 3:
+                    words.push(handle_utlc(digit, nxtDigit, "Thousand"));
+                    break;
+                case 4:
+                    words.push(handle_tens(digit, price[digitIdx + 1]));
+                    break;
+                case 5:
+                    words.push(handle_utlc(digit, nxtDigit, "Lakh"));
+                    break;
+                case 6:
+                    words.push(handle_tens(digit, price[digitIdx + 1]));
+                    break;
+                case 7:
+                    words.push(handle_utlc(digit, nxtDigit, "Crore"));
+                    break;
+                case 8:
+                    words.push(handle_tens(digit, price[digitIdx + 1]));
+                    break;
+                case 9:
+                    words.push(
+                        0 != digit
+                            ? " " +
+                                  sglDigit[digit] +
+                                  " Hundred" +
+                                  (0 != price[digitIdx + 1] ||
+                                  0 != price[digitIdx + 2]
+                                      ? " and"
+                                      : " Crore")
+                            : ""
+                    );
             }
-
-            /* Add scale word if chunk is not zero and array item exists */
-            if ((word = scales[i])) {
-                words.push(word);
-            }
-
-            /* Add unit word if array item exists */
-            if ((word = units[ints[0]])) {
-                words.push(word);
-            }
-
-            /* Add tens word if array item exists */
-            if ((word = tens[ints[1]])) {
-                words.push(word);
-            }
-
-            /* Add 'and' string after units or tens integer if: */
-            if (ints[0] || ints[1]) {
-                /* Chunk has a hundreds integer or chunk is the first of multiple chunks */
-                if (ints[2] || (!i && chunksLen)) {
-                    words.push(and);
-                }
-            }
-
-            /* Add hundreds word if array item exists */
-            if ((word = units[ints[2]])) {
-                words.push(word + " hundred");
-            }
-        }
-    }
-
-    return words.reverse().join(" ");
+        str = words.reverse().join("");
+    } else str = "";
+    return str;
 }
 
 // Function: validateForm
@@ -331,17 +445,16 @@ function numberToEnglish(n) {
 // Parameters: { event: form event }
 function validateForm(event) {
     // Initialize the errors
-    var errors = []
+    var errors = [];
 
     // Preventing form submission
     event.preventDefault();
-    
+
     // Getting errors alert refernece
     var errorsText = document.getElementById("errors");
 
     // Hiding errors at start
-    errorsText.classList.add("d-none")
-
+    errorsText.classList.add("d-none");
 
     // Getting form data
     var partyAccNum = document.getElementById("partyAccNo").value;
@@ -358,71 +471,76 @@ function validateForm(event) {
     var partyAmount = document.getElementById("partyAmount").value;
 
     // Party Account Number Validation
-    if(partyAccNum.length < 12 || partyAccNum.length > 22){
-        errors.push("Party Account number must be between 12 and 22 characters long")
+    if (partyAccNum.length < 12 || partyAccNum.length > 22) {
+        errors.push(
+            "Party Account number must be between 12 and 22 characters long"
+        );
+    }
+    if (/^-?\d+$/.test(partyAccNum) == false) {
+        errors.push("Party Account number must be numbers");
     }
 
     // Confirm Party Account Number Validation
-    if(partyAccNum != conPartyAccNum){
-        errors.push("Party Account numbers should be same")
+    if (partyAccNum != conPartyAccNum) {
+        errors.push("Party Account numbers should be same");
     }
 
     // Party Name Validation
-    var format = /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    if(format.test(partyName)){
-        errors.push("Party Name shouldn't have special characters")
+    var format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+    if (format.test(partyName)) {
+        errors.push("Party Name shouldn't have special characters");
     }
-    if(partyName == ""){
-        errors.push("Party Name shouldn't be empty")
+    if (partyName == "") {
+        errors.push("Party Name shouldn't be empty");
     }
 
     // IFSC Code Validation
-    if(IFSCCode.length != 11){
-        errors.push("IFSC Code should be 11 characters")
+    if (IFSCCode.length != 11) {
+        errors.push("IFSC Code should be 11 characters");
     }
-    if(/^[a-zA-Z()]+$/.test(IFSCCode) ){
-        errors.push("IFSC Code first four letters should be alphabets")
+    if (/^[a-zA-Z()]+$/.test(IFSCCode)) {
+        errors.push("IFSC Code first four letters should be alphabets");
     }
-    if(IFSCCode.charAt(4) != '0'){
-        errors.push("IFSC Code should contain 0 at 5th character")
+    if (IFSCCode.charAt(4) != "0") {
+        errors.push("IFSC Code should contain 0 at 5th character");
     }
-    if(bankName == "XXXXX"){
-        errors.push("IFSC Code is Wrong")
+    if (bankName == "XXXXX") {
+        errors.push("IFSC Code is Wrong");
     }
 
     // Head of account
-    if(headOfAccount == "-1"){
-        errors.push("Please select Head of Account!")
+    if (headOfAccount == "-1") {
+        errors.push("Please select Head of Account!");
     }
 
     // Expenditure Type
-    if(expenditureType == "-1"){
-        errors.push("Please select Expenditure Type!")
+    if (expenditureType == "-1") {
+        errors.push("Please select Expenditure Type!");
     }
 
     // Purpose Validation
-    if(purpose.length > 500){
-        errors.push("Purpose should be less than 500 characters")
+    if (purpose.length > 500) {
+        errors.push("Purpose should be less than 500 characters");
     }
-    if(purpose == ""){
-        errors.push("Purpose shouldn't be empty")
+    if (purpose == "") {
+        errors.push("Purpose shouldn't be empty");
     }
 
     // Party Amount
-    if(partyAmount == ""){
-        errors.push("Party Amount shouldn't be empty")
+    if (partyAmount == "") {
+        errors.push("Party Amount shouldn't be empty");
     }
 
-    if(errors.length == 0){
+    if (errors.length == 0) {
         return;
     }
-    errorsText.innerHTML = ""
+    errorsText.innerHTML = "";
 
-    errors.forEach(element => {
-        errorsText.innerHTML += "* " + element + "<br />"
+    errors.forEach((element) => {
+        errorsText.innerHTML += "* " + element + "<br />";
     });
 
-    errorsText.classList.remove("d-none")
+    errorsText.classList.remove("d-none");
     errorsText.scrollIntoView();
 }
 
@@ -467,32 +585,75 @@ function expenditureTypeChanged(selected) {
 // Function: ifscCodeChanged()
 // Description: IFSC Code Changed
 // Parameters: { ifsc: string }
-function ifscCodeChanged(ifsc) {
+function ifscCodeChanged(IFSCCode) {
     // Variables
     var bankName = document.getElementById("bankName");
     var bankBranch = document.getElementById("bankBranch");
 
     // IFSC Code checking and updating bank name and branch
-    switch (ifsc.slice(0, 3)) {
-        case "SBI":
-            bankName.innerHTML = "State Bank of India";
-            bankBranch.innerHTML = "Hyderabad";
-            break;
-        case "IOB":
-            bankName.innerHTML = "Indian Overseas Bank";
-            bankBranch.innerHTML = "Hyderabad";
-            break;
-        case "PNB":
-            bankName.innerHTML = "Indian Overseas Bank";
-            bankBranch.innerHTML = "Hyderabad";
-            break;
-        case "ICI":
-            bankName.innerHTML = "ICICI";
-            bankBranch.innerHTML = "Hyderabad";
-            break;
-        default:
-            bankName.innerHTML = "XXXXX";
-            bankBranch.innerHTML = "XXXXX";
-
+    if (
+        IFSCCode.length == 11 &&
+        /^[a-zA-Z()]+$/.test(IFSCCode.slice(0, 4)) &&
+        IFSCCode.charAt(4) == "0"
+    ) {
+        bankName.innerHTML = "SBI";
+        bankBranch.innerHTML = "Hyderabad";
+    } else {
+        bankName.innerHTML = "XXXXX";
+        bankBranch.innerHTML = "XXXXX";
     }
+}
+
+// Function: addFiles()
+// Description: Adds files to the list of files
+// Parameters: None
+function addFiles() {
+    // Element initilization
+    var upload = document.getElementById("upload");
+
+    // Get file
+    var files = upload.files;
+    for (var i = 0; i < files.length; i++) {
+        const found = window.filesUploaded.some(
+            (el) => el.name == files[i].name
+        );
+        if (found) {
+            alert("Files already added!");
+            return;
+        }
+        window.filesUploaded[window.filesUploaded.length] = files[i];
+        // Rendering files
+    }
+    upload.value = "";
+    renderFiles();
+}
+
+// Function: renderFiles()
+// Description: Rendering the file list from uploaded documents
+// Parameters: None
+function renderFiles() {
+    // Element initilization
+    var filesList = document.getElementById("filesList");
+
+    // Making empty list
+    filesList.innerHTML = ``;
+
+    // Looping throug files list
+    var files = window.filesUploaded;
+    if (files.length == 0) {
+        return;
+    }
+    for (var i = 0; i < files.length; i++) {
+        filesList.innerHTML += `<li class="list-group-item d-flex justify-content-between w-100"><p title='${files[i].name}'>${files[i].name}</p> <span onclick='removeFile("${i}")' class='text-danger'>x</span></li>`;
+    }
+}
+
+// Function: removeFile()
+// Description: Removing the file list from uploaded documents
+// Parameters: { index: number }
+function removeFile(index) {
+    window.filesUploaded.splice(index, 1);
+
+    // Rendering the file list
+    renderFiles();
 }

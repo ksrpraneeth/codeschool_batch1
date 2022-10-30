@@ -439,7 +439,7 @@
                                 <div class="col-lg-5 col-md-8 col-sm-12">
                                     <input
                                         class="form-control"
-                                        type="number"
+                                        type="password"
                                         inputmode="numeric"
                                         placeholder="Enter A/C no"
                                         id="partyAccNo"
@@ -727,9 +727,10 @@
                                         class="form-control"
                                         type="file"
                                         placeholder="Enter Party Amount"
+                                        id="upload"
                                         multiple="multiple"
                                     />
-                                    <button type="button" class="btn btn-primary ms-2 d-flex">
+                                    <button type="button" class="btn btn-primary ms-2 d-flex" onclick="addFiles()">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             width="16"
@@ -755,6 +756,7 @@
                                         >Note: Documents of Cheque(Letter/G.O.
                                         etc) can be uploaded here.</i
                                     >
+                                    <ul id="filesList" class="filesList list-group"></ul>
                                 </div>
                             </div>
 
