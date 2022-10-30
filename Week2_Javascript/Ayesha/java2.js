@@ -36,6 +36,8 @@ const bankcode = document.getElementById('bankcode');
 var headOfAccount = document.getElementById("headOfAccount").value;
 var balance = document.getElementById("balance").innerHTML;
 var loc = document.getElementById("loc").innerHTML;
+var expenditureType = document.getElementById("expenditureType").value;
+
 
 
 //IFSC Code Validation,Bank Name,Bank Branch Validations
@@ -119,7 +121,7 @@ else {
 showSuccess(bankcode,'','e_bankcode');
 }
 });
-
+//HeadAccount
 function headOfAccountChanged(event, element) {
     // Gettting details from
     var balance =
@@ -129,4 +131,25 @@ function headOfAccountChanged(event, element) {
     // Setting balance and loc
     document.getElementById("balance").innerHTML = balance;
     document.getElementById("loc").innerHTML = loc;
+}
+//Expenditure and Purpose type
+function expenditureTypeChanged(selected) {
+    switch (selected) {
+        case "opt1":
+            document.getElementById("purposeType").innerHTML =
+                "<option>Maintain current levels of operation within the organization</option>" +
+                "<option>Expenses to permit future expansion</option>";
+            break;
+        case "opt2":
+            document.getElementById("purposeType").innerHTML =
+                "<option>Sales costs or All expenses incurred by the firm that are directly tied to the manufacture and selling of its goods or services.</option>" +
+                "<option>All expenses incurred by the firm to guarantee the smooth operation</option>";
+            break;
+        case "opt3":
+            document.getElementById("purposeType").innerHTML =
+                "<option>Exorbitant Advertising Expenditures</option>" +
+                "<option>Unprecedented Losses</option>";
+            "<option>Development and Research Cost</option>";
+            break;
+    }
 }

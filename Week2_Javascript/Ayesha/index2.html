@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Collapsible sidebar using Bootstrap 4</title>
+    <title>IFMIS</title>
 
     <!-- Bootstrap CSS CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -71,20 +71,24 @@
                         <ul class="nav navbar-nav ml-auto">
                             <div id="cont">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Last logout<br>1st Oct 2022</a>
+                                <a class="nav-link" href="#" id="p1"></a>
+<script>
+	var date = new Date();
+	document.getElementById("p1").innerHTML = date;
+</script>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Welcome Ayesha</a>
                             </li>
                             </div>
                             <li class="nav-item">
-                                <input type="button" value="LogOut" id="bt" onclick="toggle(this)">
+                                <input type="button" value="LogOut" id="bt" class="btn btn-light" onclick="toggle(this)">
                             </li>
                         </ul>
                     </div>
                 </div>
             </nav>
-            <h2>Points to Remember:</h2>
+            <h2 id="heading">Points to Remember:</h2>
             <p>
             <ul>
                 <li>All cheques are approved from DDO Checker/Govt from 01/03/2019 shall get paid through E-Kuber which is a
@@ -139,7 +143,7 @@
                         <label for="partyaccount" class="col-form-label">Party Account Number:</label>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <input type="number" id="partyaccount" name="partyaccount" required class="form-control"
+                        <input type="number" id="partyaccount" name="partyaccount" class="form-control"
                                placeholder="Enter A/C number">
                     </div>
                     <div id="e_partyaccount" class="text-danger"></div>
@@ -150,7 +154,7 @@
                         <label for="cpartyaccount" class="col-form-label">Confirm Party Account Number:</label>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <input type="number" id="cpartyaccount" required name="cpartyaccount" class="form-control"
+                        <input type="number" id="cpartyaccount" name="cpartyaccount" class="form-control"
                                placeholder="Confirm A/C number">
                     </div>
                     <div id="e_cpartyaccount" class="text-danger"></div>
@@ -161,7 +165,7 @@
                         <label for="partyname" class="col-form-label">Party Name:</label>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <input type="text" id="partyname" required name="partyname" class="form-control"
+                        <input type="text" id="partyname" name="partyname" class="form-control"
                                placeholder="Enter party name">
                     </div>
                     <div id="e_partyname" class="text-danger"></div>
@@ -277,28 +281,59 @@
                         XXXXX
                     </div>
                 </div>
-                <div class="input-control row align-items-center">
-                    <div class="col-sm-12 md-6 lg-6">
-                        <label for="partyaccount" class="col-form-label">Expenditure Type:</label>
+<!--Expenditure Type-->
+                <div class="row inputGroup align-items-center py-2">
+                    <div class="col-sm-12 md-6">
+                        <p class="">
+                            Expenditure Type:
+                        </p>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <input type="dropdown-menu" id="dropdownMenuLink" class="form-control">
+                        <select
+                            name=""
+                            class="form-select"
+                            placeholder="Select"
+                            id="expenditureType"
+                            onchange="expenditureTypeChanged(this.value)"
+                        >
+                            <option class="d-none" value="-1">
+                                Select
+                            </option>
+                            <option value="opt1">Capital Expenditure </option>
+                            <option value="opt2">Revenue Expenditure</option>
+                            <option value="opt3">Deferred Revenue Expenditure</option>
+                        </select>
                     </div>
                 </div>
-                <div class="row align-items-center">
-                    <div class="col-sm-12 md-6 lg-6">
-                        <label for="partyaccount" class="col-form-label">Purpose Type:</label>
+                <!-- Purpose Type -->
+                <div class="row inputGroup align-items-center py-2">
+                    <div class="col-sm-12 md-6">
+                        <p class="">
+                            Purpose Type<span class="text-danger"
+                                >*</span
+                            >
+                        </p>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <input type="dropdown-menu" id="dropdownMenuLink" class="form-control">
+                        <select
+                            name=""
+                            class="form-select"
+                            placeholder="Select"
+                            id="purposeType"
+                        >
+                            <option class="d-none" value="">
+                                Select
+                            </option>
+                        </select>
                     </div>
                 </div>
+
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-6 lg-6">
                         <label for="purpose" class="col-form-label">Purpose:</label>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <textarea class="form-control" rows="3" id="purpose" name="purpose" required placeholder="Max 500 characters"></textarea>
+                        <textarea class="form-control" rows="3" id="purpose" name="purpose"  placeholder="Max 500 characters"></textarea>
                     </div>
                     <div id="e_purpose"></div>
                 </div>
@@ -307,7 +342,7 @@
                         <label for="partyamount" class="col-form-label">Party Amount(in Rs.):</label>
                     </div>
                     <div class="col-md-6 lg-6">
-                        <input type="number" id="partyamount" required class="form-control" placeholder="Enter Party Amount">
+                        <input type="number" id="partyamount" class="form-control" placeholder="Enter Party Amount">
                     </div>
                     <div id="e_partyamount" class="text-danger"></div>
                 </div>
@@ -326,8 +361,8 @@
                         <label for="partyaccount" class="col-form-label">Upload Documents:</label>
                     </div>
                     <div class="col-md-4 lg-4">
-                        <input type="dropdown-menu" id="dropdownMenuLink" class="form-control"
-                               placeholder="No File Choosen"></div>
+                        <input type="file" id="dropdownMenuLink" class="form-control"
+                               placeholder="No File Choosen" multiple></div>
                     <div class="col-md-2 lg-2" style="padding: 20px;">
                         <button class="btn btn-primary" type="submit">+ADD</button>
                     </div>

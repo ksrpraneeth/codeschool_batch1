@@ -18,6 +18,10 @@ p {
     line-height: 1.7em;
     color: #999;
 }
+#p1
+{
+font-style:red;
+}
 
 a,
 a:hover,
@@ -28,8 +32,8 @@ a:focus {
 }
 
 .navbar {
-    padding: 15px 10px;
-    background: #fff;
+    padding: 15px 20px;
+    background: #7386D5;
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
@@ -153,7 +157,7 @@ a.article:hover {
 
 #content {
     width: calc(100% - 250px);
-    padding: 40px;
+    padding: 0px;
     min-height: 100vh;
     transition: all 0.3s;
     position: absolute;
@@ -161,6 +165,14 @@ a.article:hover {
     right: 0;
 }
 
+#heading
+{
+    padding: 20px;
+}
+.form
+{
+    padding: 20px;
+}
 #content.active {
     width: 100%;
 }

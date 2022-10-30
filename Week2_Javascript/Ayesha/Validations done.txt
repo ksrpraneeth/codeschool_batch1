@@ -20,3 +20,5 @@
         Should not be in fractions.
 -Head of Account validations
 -Side bar open close onclick of hamburger button
+-Expenditure and Purpose validations
+-Show date and time
