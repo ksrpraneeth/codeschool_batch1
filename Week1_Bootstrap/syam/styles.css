@@ -1,0 +1,18 @@
+.center {
+    text-align: center;
+}
+.air{
+    cursor: pointer;
+    border-left: solid 3px transparent;
+
+
+}
+.active{
+    border-left: solid 3px yellow ;
+    background-color: lightgray;
+    color: black;
+}
+.air:hover{
+    background-color: lightgray;
+    color: black;
+}
