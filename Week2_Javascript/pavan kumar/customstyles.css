@@ -1,0 +1,21 @@
+.sidebar{
+    margin-bottom:10px;
+
+}
+.Main{
+    margin-bottom:10px;
+    font-size:small;
+}
+.points{
+    font-size: 12px;
+}
+.sidebar li:hover{
+    background-color: gray;
+}
+
+.close_sidebar{
+    display: none !important;
+}
+.open_sidebar{
+    display: block !important;
+}
