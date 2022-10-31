@@ -620,7 +620,7 @@
                     class="form-control form-control-sm"
                     placeholder="Enter Party Amount"
                     id="partyamount"
-                    
+                    oninput="updateAmount(this.value)"
                   />
                 </div>
               </div>
@@ -629,7 +629,7 @@
                 <label class="col-12 col-md-2"> Party Amount in Words </label>
                 <div class="col-12 col-md-4 d-lg-flex">
                   <label class="d-none d-lg-block">: </label>&nbsp;
-                  <label id="h1" oninput="partyamount"> </label>
+                  <label id="inwords" > </label>
                 </div>
               </div>
 
