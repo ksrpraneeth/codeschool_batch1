@@ -5,6 +5,18 @@ $(document).ready(function () {
  });
  });
 
+function change_text() {
+  document.getElementById("demo").innerHTML = "LogIn";
+}
+ var date = new Date();
+ // var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+ // document.getElementById("lldate").innerHTML = current_date;
+ 
+ var date = new Date();
+ var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + "-" + (date.getMinutes() + 1) + "-" + date.getSeconds();
+ document.getElementById("lltime").innerHTML = current_date;
+
+
 
     var a = ['','one ','two ','three ','four ', 'five ','six ','seven ','eight ','nine ','ten ','eleven ','twelve ','thirteen ','fourteen ','fifteen ','sixteen ','seventeen ','eighteen ','nineteen '];
     var b = ['', '', 'twenty','thirty','forty','fifty', 'sixty','seventy','eighty','ninety'];
@@ -21,11 +33,12 @@ $(document).ready(function () {
         return str;
     }
 
-function toWords(this)
+function toWords(amt)
 {
+  console.log(amt.value)
     var input4 = document.getElementById('PartyAmount');
     var input5 = document.getElementById('AmntTOwords');
-    input5.value = inWords(this);
+    input5.value = inWords(amt);
 }
 
 
@@ -77,11 +90,16 @@ var AcntNo=document.signup.AcNum.value;
 var CnfmAcntNo=document.signup.CnfrmAcNum.value;
 var PartyName=document.signup.PName.value; 
 var IfscCode=document.signup.IfscCode.value; 
+let res1;
+let res2;
   if(IfscCode.length==11)
   {
     check1=IfscCode.slice(0,4);
-    let res1= isUpperCase(check1);
+    console.log(check1);
+    res1 = isUpperCase(check1);
+    console.log(res1)
     let res2 = IfscCode.slice(6,10);
+    console.log(res2)
   }
   if(AcntNo.length<12 || AcntNo.length>22){  
   alert("Account number must be in between 12-22");  
@@ -97,15 +115,15 @@ var IfscCode=document.signup.IfscCode.value;
   return false;
   }
   else if(IfscCode.length!=11) {
-    alert("IfscCode must be 11 Characters Long");  
+    alert("IFSC Code must be 11 Characters Long");  
   return false;
   } 
   else if(!res1) {
-    alert("IfscCode's firsr 5 characters must be UpperCase");  
+    alert("IfscCode's firsr 4 characters must be UpperCase");  
   return false;
   } 
-  else if( IfscCode.charAt(5)!='0') {
-    alert("IfscCode must contain 0 at 6th position");  
+  else if( IfscCode.charAt(4)!='0') {
+    alert("IfscCode must contain 0 at 5th position");  
   return false;
   } 
   else if(containsSpecialChars(res2)) {
@@ -121,4 +139,27 @@ else if(PartyAmount) {
     alert("Party Amount should not be fractions");  
   return false;
 }
+if(purpose.length>500){
+alert("purposetype must contain >500 character");
+}
+}
+function expenditureTypeChanged(selected){
+  switch (selected.value) {
+      case "option1":
+        document.getElementById("purposeType").innerHTML = "<option>Maintain current levels of operationorganization</option><option>Expenses to permit future expenses</option>"
+          break;
+      case "option2":
+        document.getElementById("purposeType").innerHTML = 
+      "<option>Sales costsor All expenditure incurred by the firm directly tied to the menu</option><option>All expenses incurred by the firm to guarnatee</option>"
+          break;
+      case "option3":
+        document.getElementById("purposeType").innerHTML = "<option>Extraorbitant Adveritsing Expenditure</option><option>Unprediceted losses</option><option>Development and research cost</option>"
+        break;
+  }
+}
+function addfiles() {
+  let files = document.getElementById("uploadfiles").files;
+  for (let i = 0; i < files.length; i++) {
+    document.getElementById("filesList").innerHTML += "<li class='list-group-item'>" + files[i].name + "</li>";
+  }
 }
