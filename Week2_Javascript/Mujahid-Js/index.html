@@ -28,7 +28,7 @@
             <!-- HEADER-LOGO ENDS -->
             <img class="px-3 py-2 mt-2 w-100" src="logo.png" alt="IFIMISLOGO" />
             <!-- SIDE MENU BAR STARTS -->
-            <div class="menu gap-2">
+            <div class="menu gap-2" id="menu">
                 <ul class="list-unstyled">
                     <li type="button" class="active px-4 py-2 w-100 block">Home</li>
                     <div class="dropend">
@@ -66,7 +66,7 @@
         </div>
         <!-- SIDEBAR MENU ENDS -->
         <!-- NAVBAR MENU STARTS -->
-        <div class="body overflow-auto col-lg-10 col-md-8 h-100 col-sm-12 p-0">
+        <div class="body overflow-auto col-lg-10 col-md-8 h-100 col-sm-12 p-0" id="body">
             <div class="header w-100 text-white d-flex justify-content-between">
                 <div class="left d-flex">
                     <img class="headerlogo d-sm-none my-2 mx-2" height="40px"
@@ -187,9 +187,10 @@
                 <!-- FORMS START -->
 
                 <div class="Form p-2 m-4">
-                    <div class="errors alert alert-warning d-none unstyled p-4 m-1" style="font-size: 0.8rem;" id="errors"></div>
+                    <div class="errors alert alert-warning d-none unstyled p-4 m-1" style="font-size: 0.8rem;"
+                        id="errors"></div>
 
-                    <form action="#"  name="partyForm" onsubmit="validateForm(event)" >
+                    <form action="#" name="partyForm" onsubmit="validateForm(event)">
 
                         <!-- Transaction Type start -->
                         <div class="transcation_type row inputGroup bg-light py-2">
@@ -201,7 +202,7 @@
                             <div class="col-lg-10 col-md-9 col-sm-12">
                                 <ul class="list-unstyled d-flex gap-0 flex-wrap">
                                     <li>
-                                        <div class="form-check">
+                                        <div class="form-check  mx-1">
                                             <input class="form-check-input" type="radio" name="ttype" checked
                                                 id="singleparty" />
                                             <label class="form-check-label" for="singleparty">
@@ -210,7 +211,7 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="form-check">
+                                        <div class="form-check   mx-1">
                                             <input class="form-check-input" type="radio" name="ttype"
                                                 id="multipleparty" />
                                             <label class="form-check-label" for="multipleparty">
@@ -219,15 +220,16 @@
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="ttype" id="pdtopd" />
+                                        <div class="form-check   mx-1">
+                                            <input class="form-check-input  mx-1" type="radio" name="ttype"
+                                                id="pdtopd" />
                                             <label class="form-check-label" for="pdtopd">
                                                 PD Account to PD Account
                                             </label>
                                         </div>
                                     </li>
                                     <li>
-                                        <div class="form-check">
+                                        <div class="form-check  mx-1">
                                             <input class="form-check-input" type="radio" name="ttype" id="pdtoother" />
                                             <label class="form-check-label" for="pdtoother">
                                                 PD Account to other

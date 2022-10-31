@@ -34,6 +34,23 @@ function myFunction() {
 //         returnval = false;
 //     }
 // }
+
+function toggleSidebar() {
+    var menu = document.getElementById("menu");
+    var body = document.getElementById("body");
+
+    if (window.sidebarShowing == true) {
+        sidebar.style.left = "-250px";
+        body.style.left = "0px";
+        body.style.width = "100%";
+        window.sidebarShowing = false;
+    } else {
+        sidebar.style.left = "0px";
+        body.style.left = "250px";
+        body.style.width = "calc(100% - 250px)";
+        window.sidebarShowing = true;
+    }
+}
 function validateForm(event) {
     const errors = [];
     event.preventDefault();
