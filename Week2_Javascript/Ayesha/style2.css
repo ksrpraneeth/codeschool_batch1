@@ -33,7 +33,7 @@ a:focus {
 
 .navbar {
     padding: 15px 20px;
-    background: #7386D5;
+    background-image: url("header.jpeg");
     border: none;
     border-radius: 0;
     margin-bottom: 40px;
@@ -69,7 +69,7 @@ a:focus {
     left: 0;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: #1b364d;
     color: #fff;
     transition: all 0.3s;
 }
@@ -80,7 +80,7 @@ a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #1b364d;
 }
 
 #sidebar ul.components {

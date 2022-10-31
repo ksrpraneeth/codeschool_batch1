@@ -71,14 +71,20 @@
                         <ul class="nav navbar-nav ml-auto">
                             <div id="cont">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#" id="p1"></a>
+                                <a class="nav-link text text-light" href="#" id="p1"></a>
 <script>
-	var date = new Date();
-	document.getElementById("p1").innerHTML = date;
+	function setTime(){
+                                    setTimeout(() => {
+                                        var date = new Date();
+                                        document.getElementById("p1").innerHTML = date;
+                                        setTime();
+                                    }, 1000);
+                                }
+                                setTime();
 </script>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Welcome Ayesha</a>
+                                <a class="nav-link " href="#"><p class="text text-light">Welcome Ayesha</p></a>
                             </li>
                             </div>
                             <li class="nav-item">
