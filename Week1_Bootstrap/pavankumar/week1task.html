@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./customstyles.css">
+</head>
+
+<body>
+  <div class="cotainer h-auto">
+    <div class="row m-0 p-0 h-auto">
+      <div class="col-lg-3 d-none d-lg-block p-0">
+        <div class="sidebar h-100 d-flex flex-column" style="background-color:rgb(17, 53, 90)">
+          <img class="w-100 p-2 " src="images/ifmis-logo.png">
+          <hr>
+          <ul class="list-group text-align-center text-white px-2">
+            <li class="text-decorations-none">Home</li>
+            <li class="text-decorations-none">Masters</li>
+            <li class="text-decorations-none">Transactions</li>
+            <li class="text-decorations-none">Reports</li>
+            <li class="text-decorations-none">Return Check Generation</li>
+            <li class="text-decorations-none">Forest Transactions</li>
+            <li class="text-decorations-none">Forest Transactions Report</li>
+            <li class="text-decorations-none">E-kuber Returns Received List</li>
+            <li class="text-decorations-none">E-kuber Return Challan Print</li>
+            <li class="text-decorations-none">UTR Search</li>
+            <li class="text-decorations-none">Failed Transactions(ACK Rejected)</li>
+            <li class="text-decorations-none">Check Status Report</li>
+            <li class="text-decorations-none">Rejected Cheques Due to Finyear End</li>
+            <li class="text-decorations-none">Finyear New Cheques Report</li>
+            <li class="text-decorations-none">Pd Budget Check</li>
+            <li class="text-decorations-none">Update Receipts Used Amount</li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-9 p-0">
+        <div class="bg-image" style="background-color:rgb(17, 53, 90)">
+          <div class="container d-flex justify-content-between align-items-center">
+            <div class="left d-flex align-items-center ">
+              <div class="logo d-flex d-md-flex d-lg-none align-items-center">
+                <div class="bg-image  d-flex align-items-center justify-content-sm-around"
+                  style="background-image: url('bg_city.jpeg')">
+                  <img src="https://ifmis.telangana.gov.in/images/govt_logo.png" width="40px" height="40px" class=""
+                    alt="..." />
+                </div>
+                <h4 class="p-0 text-white">
+                  IFMIS
+                </h4>
+              </div>
+              <div class="text-white py-4 align-items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list"
+                  viewBox="0 0 16 16">
+                  <path fill-rule="evenodd"
+                    d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
+                </svg>
+              </div>
+
+              <div class="align-items-center py-2 px-2 d-flex rounded-3"
+                style="background-color:rgba(149, 145, 145, 0.614)">
+                <div class="text-white">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-boxes"
+                    viewBox="0 0 16 16">
+                    <path
+                      d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z" />
+                  </svg>
+                </div>
+                <div class="text-white">
+                  <h4 class="px-1">
+                    Modules
+                  </h4>
+                </div>
+              </div>
+            </div>
+            <div class="right d-flex align-items-center">
+              <div class="row text-white d-none d-lg-block">
+                <h6> Last Login</h6>
+                <h6> 17-Jun-2022</h6>
+                <h6> 04:53 PM</h6>
+              </div>
+              <div class="align-items-center justify-content-center m-2  d-flex bg-opacity-25  rounded-2"
+                style="background-color:rgba(149, 145, 145, 0.614)">
+                <div class="icon text-white bg-secondary p-2">
+                  <i class="bi text-white bi-person "></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-person" viewBox="0 0 16 16">
+                    <path
+                      d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                  </svg>
+                </div>
+                <div class="text-white align-items-center d-none d-lg-block">
+                  <p>WELCOME M.USHASREE</p>
+                  <p class="px-1">(23031014097)</p>
+                </div>
+                <div class="text-white  p-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                    class="bi bi-chevron-down" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                </div>
+              </div>
+              <div class="d-none d-lg-block">
+                <button type="button"
+                  class="logout d-flex bg-secondary border-0 bg-opacity-25 text-white align-items-center  rounded-2 m-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                    class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z" />
+                    <path fill-rule="evenodd"
+                      d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />
+                  </svg>
+                  <h6 class="p-2"> logout</h6>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="maincontent h-100">
+          <div class="p-2 card m-2 d-flex border-0 d-none d-lg-block">
+            <div class="container border-0 d-flex image-fluid p-2 " style="background-color:rgba(152, 178, 215, 0.973)">
+              <div class="icon py-1">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                  class="bi bi-credit-card-2-front-fill align-items-center" viewBox="0 0 16 16">
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                </svg>
+              </div>
+              <div class="text-dark" style="padding:5px">
+                <h5>
+                  Issue cheque (E-Kuber Cheque from 01/03/2019)
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="cotainer">
+              <div class="col-md-12" style="background-color:antiquewhite">
+                <h6 class="p-2"> Points to remember</h6>
+                <ul class="list-styled points p-4">
+
+                  <li>Please note that all cheques which are approved from DDOChecker/ Officer/Govt from 01/03/2019
+                    shall get paid through E-kuber which is a Core Banking Solution of RBI.</li>
+                  <li>There is no need to present the cheques at the Bank for these cheques which got approved after
+                    01/03/2019.</li>
+                  <li>Please give correct account details as it is when the Account was opened. </li>
+                  <li>Make sure there is no "Your self' or 'Self" in the account names while issuing cheques. Such
+                    cheques get auto-rejected by the E-Kuber </li>
+                  <li>Please check the exact length of the Bank Account Number and NO special characters are to be
+                    entered, which leads to auto-rejection. </li>
+                  <li>Finally, in multiple party cheques please do not enter the same party details in the same chequeno
+                    which will be considered as a duplicacy transaction and gets auto-rejeted. </li>
+                  <li>This is just a one-time procedure to get your Party details corrected and once when corrected the
+                    same details can be re-used for smooth transactions. </li>
+                  <li>PD-to-PD cheques shall be adjusted in treasury itself in the regular procedure. </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="col-md-12 p-2 d-flex" style="background-color:aliceblue">
+              <label class="col-xs-12">Transaction Type<span class="text-danger">*</span></label>
+              <ul class="list-inline d-flex justify-content-around px-5 list-styled ">
+                <li class="list-inline-item col-xs-6"><b>Single party</b></li>
+                <li class="list-inline-item col-xs-6"><b>Multiple parties</b></li>
+                <li class="list-inline-item col-xs-6"><b>PD Account to PD Account</b></li>
+                <li class="list-inline-item col-xs-6"><b>PD Account to Other</b></li>
+              </ul>
+            </div>
+            <form class="form-group">
+              <div class="row my-2">
+                <label for="Party Account No" class="col-12 col-md-4 col-lg-4">Party Account No<span
+                    class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <input class="form-control" placeholder="Enter A/C No" type="text" id="Party Account No" />
+                </div>
+              </div>
+              <div class="row my-2">
+                <label for=" Confirm Party Account No" class="col-12 col-md-4 col-lg-4"> Confirm Party Account No<span
+                    class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <input class="form-control" placeholder="Confirm A/C No" type="text" id="Party Account No" />
+                </div>
+              </div>
+              <div class="row my-2">
+                <label for="Enter Party Name" class="col-12 col-md-4 col-lg-4">Enter Party Name<span
+                    class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <input class="form-control" placeholder="Enter Party Name" type="text" id="Enter Party Name" />
+                </div>
+              </div>
+              <div class="row my-2">
+                <label for="Bank IFSC code" class="col-12 col-md-4 col-lg-4">Bank IFSC code<span
+                    class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <input class="form-control" placeholder="Enter IFSC code" type="text" id="Bank IFSC code" />
+                  <button type="button" class="btn btn-primary col-md-2">Search</button>
+                </div>
+              </div>
+              <div class="row my-2">
+                <label class="col-12 col-md-4 col-lg-4">Bank Name</label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <label>XXXXXX</label>
+                </div>
+              </div>
+              <div class="row my-2">
+                <label class="col-12 col-md-4 col-lg-4">Bank Branch</label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <label>XXXXXX</label>
+                </div>
+              </div>
+              <div class="row my-2">
+                <label for="Head of Account" class="col-12 col-md-4 col-lg-4">Head of Account<span
+                    class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <input class="form-control" placeholder="Select" type="text" id="Head of Account" />
+                </div>
+                <div class="row my-2">
+                  <label class="col-12 col-md-4 col-lg-4">Balance (in Rs)<span class="text-danger">*</span></label>
+                  <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                    <span>:&nbsp;</span>
+                    <label>XXXXXX</label>
+                  </div>
+                </div>
+                <div class="row my-2">
+                  <label class="col-12 col-md-4 col-lg-4">Loc (in Rs)<span class="text-danger">*</span></label>
+                  <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                    <span>:&nbsp;</span>
+                    <label>XXXXXX</label>
+                  </div>
+                </div>
+                <div class="row my-2">
+                  <label for="Expenditure Type" class="col-12 col-md-4 col-lg-4">Expenditure Type<span
+                      class="text-danger">*</span></label>
+                  <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                    <span>:&nbsp;</span>
+                    <input class="form-control" placeholder="Select" type="text" id="Expenditure type" />
+                  </div>
+                </div>
+                <div class="row my-2">
+                  <label for="Purpose Type" class="col-12 col-md-4 col-lg-4">Purpose Type<span
+                      class="text-danger">*</span></label>
+                  <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                    <span>:&nbsp;</span>
+                    <input class="form-control" placeholder="Enter Purpose Here" type="text" id="Purpose Type" />
+                  </div>
+                  <div class="row my-2">
+                    <label for="Party Amount in Rs" class="col-12 col-md-4 col-lg-4">Party Amount (in Rs)<span
+                        class="text-danger">*</span></label>
+                    <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                      <span>:&nbsp;</span>
+                      <input class="form-control" placeholder="Enter Party Amount" type="text"
+                        id="Enter Party Amount" />
+                    </div>
+                  </div>
+                  <div class="row my-2">
+                    <label class="col-12 col-md-4 col-lg-4">Party Amount in Words<span
+                        class="text-danger">*</span></label>
+                    <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                      <span>:&nbsp;</span>
+                      <label>XXXXXX</label>
+                    </div>
+                  </div>
+                  <div class="row my-2">
+                    <label class="col-12 col-md-4 col-lg-4">Upload Documents:</label>
+                    <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                      <span>:&nbsp;</span>
+                      <input type="file" class="form-control" placeholder="choose file  No file Choosen">
+                      <button type="button" class="btn btn-primary">Add</button>
+                    </div>
+                  </div>
+                </div>
+            </form>
+            <p class="fw-lighter col-xs-12">Note:Documents of Cheque(Letter/G.O etc) can be uploaded here.</p>
+            <hr>
+            <div class="col-md-4 offset-7">
+              <button type="button" class="btn btn-primary">Next>></button>
+            </div>
+          </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+          integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+          crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
+          integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
+          crossorigin="anonymous"></script>
+</body>
+
+</html>
