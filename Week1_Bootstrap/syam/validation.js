@@ -23,7 +23,7 @@ function login(){
           document.getElementById("log").innerHTML = "Logout"
           document.getElementById("log1").innerHTML = "Logout"
       }
-      document.getElementById("log").innerHTML=history
+      document.getElementById("log").innerHTML=history;
     }
     
     var partyName = document.getElementById("pname").value;
@@ -60,12 +60,6 @@ function login(){
         if(document.getElementById("prp").value.length>500){
          errors.push("It should be within 500 characters");
         } 
-    
-    
-        document.getElementById("errorid").innerHTML=errors;
-        for (var i = 0; i < errors.length; i++) {
-          html += "<li>" + errors[i] + "</li>";
-        }
         document.getElementById("errorid").innerHTML = html;
       }
       
@@ -81,8 +75,8 @@ function login(){
           fifsc.value.charAt(4) == "0" &&
           /^[a-zA-Z()]+$/.test(fifsc.value.slice(0, 4))
         ) {
-          document.getElementById("bankname").innerHTML = "CNB";
-          document.getElementById("bankbrach").innerHTML = "JMD";
+          document.getElementById("bankname").innerHTML = CNB;
+          document.getElementById("bankbrach").innerHTML = JMD;
         }
       }
     
@@ -95,3 +89,29 @@ function login(){
         document.getElementById("loc").innerHTML = loc;
       }
       
+      
+      function expt() {
+            var a = document.getElementById("expts").value;
+            if (a === "Expenditure type") {
+              var arr = [""];
+            } else if (a === "Capital Expenditure") {
+              var arr = [
+                "Select",
+                "Maintain current levels of operation within the organization",
+                "Expenses to permit future expansion.",
+              ];
+            } else if (a === "Revenue Expenditure") {
+              var arr = [
+                "Select",
+                "Sales costs or All expenses incurred by the firm that are directly tied to the manufacture and selling of its goods or services",
+                " All expenses incurred by the firm to guarantee the smooth operation",
+              ];
+            } else if (a === "Deferred Revenue Expenditure") {
+              var arr = [
+                "Select",
+                "Exorbitant Advertising Expenditures",
+                "Unprecedented Losses",
+                "Development and Research Cost York",
+              ];
+            }
+      }
