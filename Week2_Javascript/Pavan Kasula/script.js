@@ -13,11 +13,12 @@ window.onload = function () {
   minutes = minutes < 10 ? "0" + minutes : minutes;
   var strTime = hours + ":" + minutes + " " + ampm;
 
-  /////////////////////////////// LOGIN TO LOGOUT AND VICEVERSA \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
   document.getElementById("displayDateTime").innerHTML =
     date + "<br>" + strTime;
 };
+
+  /////////////////////////////// LOGIN TO LOGOUT AND VICEVERSA \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 
 function login() {
   if (document.getElementById("log").innerHTML == "Logout") {
@@ -97,9 +98,8 @@ function nextvalid() {
   if (document.getElementById("partyamount").value == "") {
     errors.push("Party Account is empty");
   }
-
-  ////////to get alerts in Order--\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-  var html = "";
+/////////////////////////////////////////-=-=----=-=-=--=-=-=--=-=-=-=-=-=-=-=---\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  var html=""
   for (var i = 0; i < errors.length; i++) {
     html += "<li>" + errors[i] + "</li>";
   }
@@ -176,6 +176,10 @@ function ifsccodeinput() {
     document.getElementById("bankname").innerHTML = "KKBK";
     document.getElementById("bankbrach").innerHTML = "A.S.Rao Nagar";
   }
+  else{ document.getElementById("ifscerror").innerHTML="*ENTER VALID IFSCCODE*"
+
+  }
+  
 }
 
 //--------Multiple upload-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -252,11 +256,12 @@ function inWords(num) {
     n[5] != 0
       ? (str != "" ? "and " : "") +
         (a[Number(n[5])] || b[n[5][0]] + " " + a[n[5][1]]) +
-        "only "
+        "Rupees only "
       : "";
   return str;
 }
-
 function updateAmount(amount){
     document.getElementById("inwords").innerHTML = inWords(amount)
+
 }
+////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
