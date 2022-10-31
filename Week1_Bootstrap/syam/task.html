@@ -225,7 +225,7 @@
                                         <label> <b>Bank IFSC Code:</b> </label>
                                     </div>
                                     <div class="col-lg-5 d-flex ">
-                                        <input type="text" class="form-control right d-flex" id="ifsc" name="fifsc" placeholder="Enter IFSC Code">
+                                        <input type="text" class="form-control right d-flex" id="ifsc"  placeholder="Enter IFSC Code">
                                         <button class="btn btn-outline-secondary btn-primary text-white right d-flex mx-2 " onclick="fifsc()";
                                             type="button">Search</button>
                                     </div> 
@@ -233,8 +233,8 @@
                                         <div class="col-lg-2">
                                             <label> <b>Bank Name:</b></label>
                                         </div>
-                                        <div class="col-lg-5">
-                                            <label>XXXXXXX</label>
+                                        <div class="col-lg-5" >
+                                            <label id="bankname">XXXXXXX</label>
                                         </div>
                                     </div>
                                     <div class="form-group mt-2 d-lg-flex justify-content align-item-center">
@@ -242,7 +242,7 @@
                                             <label> <b>Bank Branch:</b> </label>
                                         </div>
                                         <div class="col-lg-5">
-                                            <label class="w-50">XXXXXXX</label>
+                                            <label class="w-50" id="bankbranch">XXXXXXX</label>
                                         </div>
                                     </div>
                                 </div>
@@ -291,12 +291,15 @@
                                 </div>
                             </div>
                             <div class="form-group mt-2 d-lg-flex justify-content align-item-center">
-                                <div class="col-lg-2" id="expts">
-                                    <label> <b>Expenditure Type: </b> </label>
+                                <div class="col-lg-2" >
+                                    <label id="expts"> <b>Expenditure Type: </b> </label>
                                 </div>
                                 <div class="col-lg-5">
-                                    <select class="form-control">
+                                    <select class="form-control" onchange="expt()">
                                         <option>Select</option>
+                                        <option>Capital Expenditure</option>
+                                        <option>Revenue Expenditure </option>
+                                        <option>Deferred Revenue Expenditure </option>
                                     </select>
                                 </div>
                             </div>
@@ -305,8 +308,15 @@
                                     <label for="Account"> <b>Purpose Type: </b> </label>
                                 </div>
                                 <div class="col-lg-5">
-                                    <select class="form-control">
-                                        <option>Select</option>
+                                    <select class="form-control" id="" onchange="expt()">
+                                        <option >Select</option>
+                                        <option> - Maintain current levels of operation within the organization
+                                            - Expenses to permit future expansion. </option>
+                                        <option>  - Sales costs or All expenses incurred by the firm that are directly tied to the manufacture and selling of its goods or services.
+                                            - All expenses incurred by the firm to guarantee the smooth operation. </option>
+                                        <option>- Exorbitant Advertising Expenditures
+                                            - Unprecedented Losses
+                                            - Development and Research Cost</option>
                                     </select>
                                 </div>
                             </div>
@@ -350,7 +360,7 @@
                             </div>
                             <hr>
                             <div class="justify-content-center d-flex">
-                                <button type="submit" class="btn btn-primary" onclick="validation()">Next></button>
+                                <button type="submit" class="btn btn-primary" onclick="vlidation()">Next></button>
                             </div>
                         </form>
                     </div>
