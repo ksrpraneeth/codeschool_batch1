@@ -186,8 +186,8 @@ function ifsccodeinput() {
 function Multiplefiles() {
   let files = document.getElementById("uploadfiles").files;
 
-  for (let i = 0; i < files.length; i++) {
-    document.getElementById("fileslist").innerHTML += "<li class='list-group-item'>" + files[i].name +"</li>" 
+  for (let i = 0; i < files.length; i++) { 
+    document.getElementById("fileslist").innerHTML += "<li class='list-group-item'>" + files[i].name +"</li>"  
     
   }
 }

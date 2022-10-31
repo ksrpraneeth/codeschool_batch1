@@ -31,8 +31,9 @@
     <div class="container-fluid p-0 ">
       <div class="row m-0">
         <div
-          class="d-none d-block d-lg-block col-lg-2 border-0 d-flex flex-column p-0"
+          class="sidebar d-none d-block d-lg-block col-lg-2 border-0 d-flex flex-column p-0"
           style="background-color: rgb(0, 27, 71)"
+          id="sidenav"
         >
           <img
             class="w-100"
@@ -195,7 +196,9 @@
                       width="30"
                       height="30"
                       fill="currentColor"
-                      class="bi bi-filter-left"
+                      class="bi bi-filter-left" 
+                      id="click_hambergur"
+
                       viewBox="0 0 16 16"
                     >
                       <path
@@ -451,7 +454,7 @@
                   >
                   <div class="col-12 col-lg-4 align-items-center d-flex">
                     <label class="d-none d-lg-block">: </label
-                    > &nbsp;<input type="password " onkeypress="return allowonlynumber(event)" class="form-control form-select-sm"  placeholder="Enter A/C No"  id="partyacno"/>
+                    > &nbsp;<input type="password" onkeypress="return allowonlynumber(event)" class="form-control form-select-sm"  placeholder="Enter A/C No"  id="partyacno"/>
                   </div>
                 </div>
 
@@ -658,7 +661,7 @@
                 <p class="col-12 col-md-2"></p>
                 <h6 class="col-12 col-md-5" style="font-size:12px">
                   Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here
-                </h6> <ul id="fileslist"> </ul>
+                </h6> <ul id="fileslist" class="list-group"> </ul>
               </div>
               
 
