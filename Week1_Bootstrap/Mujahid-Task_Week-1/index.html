@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- LINKS AND SCRIPTS -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <script src="/fontawesome-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>IFMIS</title>
+</head>
+
+<body>
+    <!-- HEADER-LOGO STARTS-->
+    <div class="text-white position-absolute w-100 h-100 row m-0" id="tapToggle">
+        <div class="Tab p-0 collapseTab col-lg-2 col-md-4 h-100">
+            <!-- HEADER-LOGO ENDS -->
+            <img class="px-3 py-2 mt-2 w-100" src="logo.png" alt="IFIMISLOGO" />
+            <!-- SIDE MENU BAR STARTS -->
+            <div class="menu gap-2">
+                <ul class="list-unstyled">
+                    <li type="button" class="active px-4 py-2 w-100 block">Home</li>
+                    <div class="dropend">
+                        <li class="px-4 py-2 dropend dropdown-toggle" data-bs-toggle="dropdown">Masters <span></span>
+                        </li>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <li><a class="dropdown-item" href="#">First</a></li>
+                            <li><a class="dropdown-item" href="#">Second</a></li>
+                            <li><a class="dropdown-item" href="#">Third</a></li>
+                        </ul>
+                        <li class="px-4 py-2 dropend dropdown-toggle" data-bs-toggle="dropdown">Transactions
+                            <span></span>
+                        </li>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                            <li><a class="dropdown-item" href="#">First</a></li>
+                            <li><a class="dropdown-item" href="#">Second</a></li>
+                            <li><a class="dropdown-item" href="#">Third</a></li>
+                        </ul>
+                    </div>
+                    <li class="px-4 py-2">Reports</li>
+                    <li class="px-4 py-2">Return Cheque Generation</li>
+                    <li class="px-4 py-2">Forest Transactions</li>
+                    <li class="px-4 py-2">Forest Transactions Report</li>
+                    <li class="px-4 py-2">E-Kuber Return Received List</li>
+                    <li class="px-4 py-2">E-Kuber Return Challan Print</li>
+                    <li class="px-4 py-2">UTR Search</li>
+                    <li class="px-4 py-2">Failed transactions (ACK Reject)</li>
+                    <li class="px-4 py-2">Cheque Status Report</li>
+                    <li class="px-4 py-2">Rejected Cheques due to FinYear End</li>
+                    <li class="px-4 py-2">Finyear New Cheques Report</li>
+                    <li class="px-4 py-2">Pb Budget Check</li>
+                    <li class="px-4 py-2">Update Receipts Used Amount</li>
+                </ul>
+            </div>
+        </div>
+        <!-- SIDEBAR MENU ENDS -->
+        <!-- NAVBAR MENU STARTS -->
+        <div class="body overflow-auto col-lg-10 col-md-8 h-100 col-sm-12 p-0">
+            <div class="header w-100 text-white d-flex justify-content-between">
+                <div class="left d-flex">
+                    <img class="headerlogo d-sm-none my-2 mx-2" height="40px"
+                        src="https://ifmis.telangana.gov.in/images/govt_logo.png" alt="" />
+                    <div class="menu text-light m-2 rounded-1">
+                        <!-- MENU BAR LOGO -->
+                        <div class="menubar"></div>
+                        <div class="menubar"></div>
+                        <div class="menubar"></div>
+                        <!-- MENU BAR LOGO -->
+                    </div>
+                    <button class="btn mod text-white btn-sm rounded-3 my-1 mx-2" style="height: 3rem;">
+                        <i class="fas fa-boxes mx-1"></i>
+                        <span>Modules</span>
+                    </button>
+                </div>
+                <div class="right d-flex mx-0" style="font-size: 10px; text-align:center;">
+                    <div class="time d-none d-md-inline collapseTab my-1 mx-0">
+                        <p class="text-muted">Last Login:</p>
+                        <p class="active">DD-MM-YYYY</p>
+                        <p class="active">TIME</p>
+                    </div>
+                    <div role="button" class="userinfo mx-0 mt-1 mx-md-4 rounded-3 d-flex align-items-center"
+                        style="height: 3rem;">
+                        <div class="left">
+                            <i class="fa fa-user fa-fw ms-2 me-0" style="font-size: 1rem;"></i>
+                        </div>
+                        <div class="right mx-2 collapseTab">
+                            <p class="welcome">Welcome USERNAME</p>
+                            <p class="id">(XXXXXXXXXXXX)</p>
+                        </div>
+                        <div class="logo mx-2">
+                            <i class="fa fa-chevron-down me-2" style="font-size: 1rem;"></i>
+                        </div>
+                    </div>
+                    <div role="button" class="userinfo mx-0 mt-1 mx-md-4 rounded-3 d-flex align-items-center"
+                        style="height: 3rem;">
+                        <div class="right mx-2 collapseTab">
+                            <i class="fas fa-sign-out-alt mx-1" style="font-size: 1rem;"></i>
+                            <p class="welcome">Logout</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- NAVBAR MENU ENDS -->
+            <!-- MAIN BODY CONTENT STARTS -->
+            <div class="content text-dark m-3 bg-white rounded-4 card p-3 mb-3 shadow">
+                <div class="title d-flex align-items-center p-2 rounded"
+                    style="background-color: #e0ecfc; color: #0066c6">
+                    <i class="fa fa-credit-card" style="font-size:24px"></i>
+                    <p class="fw-bold m-0 mx-2 rounded">
+                        Issue Cheque (E-Kuber Cheque From DD/MM/YYYY)
+                    </p>
+                </div>
+                <!-- POINTS -->
+                <div class="my-2 p-3 rounded-3 card p-3 mb-1 shadow" style="background-color: #fcf8e3">
+                    <h3 class="fw-bold fs-6">Points to remember</h3>
+                    <ul class="fw-normal" style="font-size: 13px">
+                        <li>Please note that all cheques which are approved
+                            from DDOChecCKer/Ohicer/Govt trom 01/03/2019
+                            shall get paid through Ekuber which iIS a Core
+                            Banking Solution ot RBl.</li>
+                        <li>There is no need to present the cheques at the
+                            Bank for these cheques which got approved after
+                            01/03/2019.</li>
+                        <li>Please give correct account details as it is
+                            when the Account was opened.</li>
+                        <li>Make sure there is no 'Your self' or 'Self" in
+                            the account names while issuing cheques. Such
+                            cheques get auto-rejected by the EKuber</li>
+                        <li>Please check the exact length of the Bank
+                            Account Number and NO special characters are to
+                            be entered, which leads to auto rejection</li>
+                        <li>Finally, in multiple party cheques please do not
+                            enter the same party details in the same
+                            cheque no which will be considered as a duplicacy transaction and gets auto-rejeted.
+                        </li>
+                        <li>This is just a one-time procedure to get your
+                            Party details corrected and once when corrected
+                            the same details can be re-used for smooth
+                            transactions.</li>
+                        <li>PD-to-PD cheques shall be adjusted in treasury
+                            itself in the regular procedure.</li>
+                    </ul>
+                </div>
+                <!-- POINTS -->
+                <!-- FORMS START -->
+                <div class="Form p-4">
+                    <form action="#" class="needs-validation" novalidate>
+                        <div class="transcation-type row inputGroup bg-light py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Transaction Type<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-10 col-md-9 col-sm-12 row">
+                                <ul class="list-unstyled d-flex gap-0 gap-sm-2 flex-wrap" required>
+                                    <!-- VALIDATIONS -->
+                                    <p class="valid-feedback">Valid feedback</p>
+                                    <p class="invalid-feedback">Invalid feedback</p>
+                                    <!-- VALIDATIONS -->
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="type" id="singlepar"
+                                                checked />
+                                            <label class="form-check-label" for="siglepar">
+                                                Single Party
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="type" id="multipar" />
+                                            <label class="form-check-label" for="multipar">
+                                                Multi Parties
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="type"
+                                                id="pdacctopdacc" />
+                                            <label class="form-check-label" for="pdtopd">
+                                                PD Account to PD Account
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="type" id="pdtooth" />
+                                            <label class="form-check-label" for="pdacctoothers">
+                                                PD Account to other
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-4">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Party Account Number<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <input class="form-control" type="text" placeholder="Enter A/C Number" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Confirm Party Account Number<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <input class="form-control" type="text" placeholder="Confirm A/C Number" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Party Name<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <input class="form-control" type="text" placeholder="Enter Party Name" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
+                            </div>
+                        </div>
+                        <div class="row bg-light inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Bank IFSC Code<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12 d-flex">
+                                <input class="form-control" type="text" placeholder="Enter IFSC Code" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
+                                <button class="btn btn-primary ms-3 d-flex">
+                                    Search <Span><i class="fas fa-search mx-1"></i></Span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row bg-light inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">Bank Name</p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                XXXXX
+                            </div>
+                        </div>
+                        <div class="row bg-light inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">Bank Branch</p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                XXXXX
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Head Of Account<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <select name="" class="form-select" placeholder="Select" required>
+                                    <p class="valid-feedback">Valid feedback</p>
+                                    <p class="invalid-feedback">Invalid feedback</p>
+                                    <option class="d-none" value="">
+                                        Select
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Balance <span>(in Rs.)</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                XXXXX
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">LOC <span>(in Rs.)</span></p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                XXXXX
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Expenditure Type<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <select name="" class="form-select" placeholder="Select" id="">
+                                    <option class="d-none" value="">
+                                        Select
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Purpose Type<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <select name="" class="form-select" placeholder="Select" required>
+                                    <p class="valid-feedback">Valid feedback</p>
+                                    <p class="invalid-feedback">Invalid feedback</p>
+                                    <option class="d-none" value="">
+                                        Select
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Purpose<span class="text-danger">*</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <textarea class="form-control " placeholder="Enter your purpose here.." rows="3"
+                                    cols="10" required></textarea>
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">
+                                    Party Amount <span>(in Rs.)</span>
+                                </p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <input class="form-control" type="text" placeholder="Enter Party Amount" required />
+                                <p class="valid-feedback">Valid feedback</p>
+                                <p class="invalid-feedback">Invalid feedback</p>
+                            </div>
+                            <div class="row inputGroup align-items-center py-2">
+                                <div class="col-lg-2 col-md-3 col-sm-12">
+                                    <p class="">
+                                        Party Amount In Words <span>(in Rs.)</span>
+                                    </p>
+                                </div>
+                                <div class="col-lg-5 col-md-8 col-sm-12">
+                                    XXXXX
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12">
+                                <p class="">Upload Documents</p>
+                            </div>
+                            <div class="col-lg-5 col-md-8 col-sm-12 d-flex">
+                                <input class="form-control rounded-2" type="file">
+                                <button class="btn btn-primary d-flex mx-3" style="font-size: 0.8rem;">
+                                    <i class="fa fa-plus fa-fw mx-1 mt-1" style="height: 10px;"></i>
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row inputGroup align-items-center py-2">
+                            <div class="col-lg-2 col-md-3 col-sm-12"></div>
+                            <div class="col-lg-5 col-md-8 col-sm-12">
+                                <p class="text-secondary">Note: Documents of Cheque(Letter/G.O. etc) can be uploaded
+                                    here..</p>
+                            </div>
+                        </div>
+                        <div class="d-flex-end">
+                            <button type="submit" class="btn btn-primary d-flex align-items-center">
+                                <p>Next</p>
+                                <i class="fa fa-arrow-right fa-fw m-1"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <!-- FORM ENDS -->
+                </div>
+                <!-- MAIN BODY CONTENT ENDS -->
+            </div>
+        </div>
+    </div>
+    <!-- NEED HELP START -->
+    <div class="nh_bar rounded-4 position-absolute bottom-0 end-0 translate-middle-y mx-4 p-2">
+        Need Help ?
+    </div>
+    <!-- NEED HELP ENDS -->
+</body>
+
+</html>
