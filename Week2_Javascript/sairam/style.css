@@ -10,3 +10,9 @@
    padding: 5px;
    margin-left: 2px; 
 }
+.close_sidebar{
+    display: none !important;
+}
+.open_sidebar{
+    display: block !important;
+}

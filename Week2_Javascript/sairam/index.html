@@ -72,8 +72,10 @@
                         class="" alt="..." />
                         
                       <h1 class="text-white ">IFMIS</h1> </div>
-          <div class="left d-flex text-white p-0 my-4">
-          
+
+
+          <div id="click_hambergur" class="left d-flex text-white p-0 my-4">
+         
             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list"
               viewBox="0 0 16 16">
               <path fill-rule="evenodd"
@@ -123,12 +125,12 @@
                       <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
                     <p class="m-0 mx-2">Change Password</p></a></li>
-                  <li><a class="dropdown-item d-flex align-items-center" href="#">
+                  <li><a class="dropdown-item d-flex align-items-center" onclick="login()" href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
                       <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
                       <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
                   </svg>
-                   <p class="m-0 mx-2">Logout</p></a></li>
+                   <p class="m-0 mx-2" id="log2">Logout</p></a></li>
                 </ul>
             </div>
             <div class="d-none d-md-block">
@@ -221,13 +223,13 @@
               </div>
             </div>
 
-
-             
+      
+            <p id="errorid"></p> 
               <div class="row mb-1 p-3 d-flex">
                 <label class="col-md-3 col-form-label"><b>PartyAccountno*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-12 col-md-5 d-lg-flex align-items-center">
-                  <input type="party Account no" onkeypress="return" class="form-control" id="pAccountno" placeholder="Enter A/c No">
+                  <input type="tel" onkeypress="return" class="form-control" id="pAccountno" placeholder="Enter A/c No">
                 </div>
               </div>
 
@@ -235,7 +237,7 @@
                 <label class="col-md-3 col-form-label"><b>Confirm party Account No*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5  d-lg-flex align-items-center">
-                   <input type="confirm party accoun no" class="form-control" id="cfmaccountno"
+                   <input type="text" class="form-control" id="cfmaccountno"
                     placeholder="confirm A/c no">
                 </div>
               </div>
@@ -245,7 +247,7 @@
                   <label class="col-md-3 "><b> party name*</b></label>
                   <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                   <div class=" col-12 col-md-5  d-lg-flex align-items-center">
-                   <input type="partyname" class="form-control" id="pname"
+                   <input type="text" class="form-control" id="pname"
                       placeholder="Enter party name">
                   </div>
                 </div>
@@ -259,9 +261,9 @@
                   <label class="col-12 col-md-3 col-form-label"><b> Bank IFSC code*</b></label>
                   <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                   <div class=" col-12 col-md-5 d- lg-flex align-items-center">
-                  <input type="ifsc code" class="form-control" id="code" placeholder="Enter ifsc code">
+                  <input type="text" class="form-control" id="ifsccode" placeholder="Enter ifsc code">
                       <div class="input-group-append"> 
-                        <button class=" btn btn-outline-secondary btn-primary text-white d-flex" type="button">Search</button>
+                        <button class=" btn btn-outline-secondary btn-primary text-white d-flex" onclick="ifsccodeinput()" type="submit">Search</button>
                       </div>
                   </div>
                 </div>
@@ -273,7 +275,7 @@
                   <div class="col-md-6">
                     <label class="col-12 col-md-2">: &nbsp; &nbsp;</label>
                     <label class=" col-12 col-md-5"></label>
-                    <label id="bank name"></label>
+                    <label id="bankname"></label>
                   </div>
 
 
@@ -282,7 +284,7 @@
                     <div class="col-md-6"> 
                       <label class="col-12 col-md-2">: &nbsp; &nbsp;</label>
                       <label class=" col-12 col-md-5"></label> 
-                      <label id="bank branch"></label>
+                      <label id="bankbranch"></label>
                     </div>
                   </div>
                 </div>
@@ -294,32 +296,32 @@
                   <label class="col-md-3 "><b> Head of account*</b></label>
                   <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                   <div class="col-md-5 d-lg-flex align-items-center">
-                    <select class="form-select" id="headofaccount" placeholder="select">  
+                    <select class="form-select" id="hoa" onchange="fill()" placeholder="select">  
                       <option value="select"></option>
-                      <option value="0853001020002000000NVN" data-balance="1000000" data-loc="5000">
+                  
+                      <option value="0853001020002000000NVN">
                         0853001020002000000NVN
                     </option>
-                    <option value="8342001170004001000NVN" data-balance=" 1008340" data-loc="4000">
+                    <option value="8342001170004001000NVN" >
                       8342001170004001000NVN
                   </option>
-                  <option value="  2071011170004320000NVN " data-balance=" 14530000" data-loc=" 78000">
+                  <option value="  2071011170004320000NVN " >
                     2071011170004320000NVN
                 </option>
-                <option value="8342001170004002000NVN" data-balance="1056400" data-loc="34000">
+                <option value="8342001170004002000NVN" >
                   8342001170004002000NVN
               </option>
                       </select>
                   </div>
                 </div>
              
-
                
   
               <div class="row mb-1 p-3 d-flex">
                 <label class="col-md-3 col-form-label"><b>Balance (inRs*)</b></label>
                 <div class="col-md-6   d-lg-flex align-items-center">
                   <label class="col-12 col-md-2">: &nbsp; &nbsp;</label>
-                  <label>XXXXXXX</label>
+                  <label id="balance"></label>
                 </div>
               </div>
   
@@ -327,7 +329,7 @@
                      <label class="col-md-3 col-form-label"><b>Loc (inRs)*</b> </label>
                 <div class="col-md-6 d-lg-flex align-items-center">
                   <label class="col-12 col-md-2">: &nbsp; &nbsp;</label>
-                  <label>XXXXXXX</label>
+                  <label id="Loc"></label>
                 </div>
               </div>
   
@@ -336,18 +338,23 @@
                 <label class="col-md-3 "><b> Expenditure type*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                 <select class="form-select" id="Expenditure type" placeholder="select">  
-                  <option>Select</option>
+                 <select name="" class="form-select form-select-sm" id="input" placeholder="select" onchange="random_function()">  
+                  <option>
+                    Select
+                  </option>
+                  <option>Capital Expenditure</option>
+                  <option >Revenue Expenditure</option>
+                  <option >Deffered Revenue Expenditure</option>
                 </select>
                 </div>
               </div>
 
               <div class="row mb-1 p-3 d-flex">
-                <label class="col-md-3 "><b> purpose type*</b></label>
+                <label class="col-md-3 "><b> Purpose type*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                  <select class="form-select" id="purpose type" placeholder="select">  
-                    <option>Select</option>
+                  <select class="form-select  form-select-sm" id="output" placeholder="select">  
+                    <option></option>
                     </select>
                 </div>
               </div>
@@ -356,7 +363,7 @@
                 <label class="col-md-3 "><b> purpose*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                 <input type="text" class="form-control" id=" purpose"placeholder="enter purpose here">
+                 <input type="text" class="form-control" id="purpose1" placeholder="enter purpose here" maxlength="500">
                 </div>
               </div>
 
@@ -373,7 +380,7 @@
                 <label class="col-md-3 col-form-label"> <b>Party Amount in Words </b></label>
                 <div class="col-md-6 d-lg-flex align-items-center">
                   <label  class="col-12 col-md-2">: &nbsp; &nbsp;</label>
-                  <label>xxxxxx</label>
+                  <label >xxxxxx</label>
                 </div>
               </div>
   
@@ -382,7 +389,7 @@
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center ">
                   <label for="formFile" class="form-label"></label>
-                  <input class="form-control" type="file" id="formFile">
+                  <input class="form-control" type="file" id="formFile" multiple>
                   <button type="button" class="btn btn-primary pull-right">+Add</button>
                 </div>
               
