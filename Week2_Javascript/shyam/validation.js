@@ -1,3 +1,12 @@
+function myFunction() {
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
+  }
+}
+
 window.onload = function () {
   var today = new Date();
   var month = today.toLocaleString("default", { month: "short" });
@@ -22,7 +31,6 @@ function login() {
   }
   document.getElementById("log").innerHTML = history;
 }
-
 
 function validation(event) {
   var partyName = document.getElementById("pname").value;
@@ -128,9 +136,7 @@ function addfiles() {
   }
 }
 
-const toggle = document.getElementById("toggle");
-const sidebar = document.getElementById("sidebar");
-toggle.onclick = function () {
-  toggle.classList.toggle("active");
-  toggle.classList.toggle("active");
-};
+function sidebar1(){
+  document.querySelector("body").classList.toggle("active");
+}
+
