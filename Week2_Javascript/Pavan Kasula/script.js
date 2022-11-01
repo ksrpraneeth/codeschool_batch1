@@ -1,6 +1,7 @@
 /////////////////////////////   DATE AND TIME CHANGES ACCORDINGLY  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 window.onload = function () {
+  window.uplodedfiles = [];
   var today = new Date();
   var day = today.getDay();
   var month = today.toLocaleString("default", { month: "short" });
@@ -17,8 +18,7 @@ window.onload = function () {
     date + "<br>" + strTime;
 };
 
-  /////////////////////////////// LOGIN TO LOGOUT AND VICEVERSA \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
+/////////////////////////////// LOGIN TO LOGOUT AND VICEVERSA \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 function login() {
   if (document.getElementById("log").innerHTML == "Logout") {
@@ -98,8 +98,8 @@ function nextvalid() {
   if (document.getElementById("partyamount").value == "") {
     errors.push("Party Account is empty");
   }
-/////////////////////////////////////////-=-=----=-=-=--=-=-=--=-=-=-=-=-=-=-=---\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-  var html=""
+  /////////////////////////////////////////-=-=----=-=-=--=-=-=--=-=-=-=-=-=-=-=---\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  var html = "";
   for (var i = 0; i < errors.length; i++) {
     html += "<li>" + errors[i] + "</li>";
   }
@@ -166,6 +166,7 @@ function Headoftheaccount() {
 
 //---------IFSC CODE - BANK NAME AND BRANCH----//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function ifsccodeinput() {
+  document.getElementById("ifscerror").innerHTML = "";
   var ifsccode123 = document.getElementById("ifsccode");
   ifsccode123.value = ifsccode123.value.toUpperCase();
   if (
@@ -175,28 +176,44 @@ function ifsccodeinput() {
   ) {
     document.getElementById("bankname").innerHTML = "KKBK";
     document.getElementById("bankbrach").innerHTML = "A.S.Rao Nagar";
+  } else {
+    document.getElementById("bankname").innerHTML = "";
+    document.getElementById("bankbrach").innerHTML = "";
+    document.getElementById("ifscerror").innerHTML = "Invalid Code!";
   }
-  else{ document.getElementById("ifscerror").innerHTML="*ENTER VALID IFSCCODE*"
 
+  if (ifsccode123.value.length == 0) {
+    document.getElementById("ifscerror").innerHTML = "";
   }
-  
 }
 
 //--------Multiple upload-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function Multiplefiles() {
-  let files = document.getElementById("uploadfiles").files;
+  var files = [];
+  files.push(...document.getElementById("uploadfiles").files);
+  window.uplodedfiles = [...window.uplodedfiles, ...files];
+  document.getElementById("fileslist").innerHTML = "";
+  window.uplodedfiles.forEach((ele, index) => {
+    document.getElementById(
+      "fileslist"
+    ).innerHTML += `<li class='list-group-item'>${ele.name}<span onclick='deleteFile(${index})'>X</span></li>`;
+  });
+  document.getElementById("uploadfiles").value = ''
+}
 
-  for (let i = 0; i < files.length; i++) { 
-    document.getElementById("fileslist").innerHTML += "<li class='list-group-item'>" + files[i].name +"</li>"  
-    
-  }
+function deleteFile(index) {
+  window.uplodedfiles.splice(index, 1);
+  document.getElementById("fileslist").innerHTML = "";
+  window.uplodedfiles.forEach((ele, index) => {
+    document.getElementById(
+      "fileslist"
+    ).innerHTML += `<li class='list-group-item d-flex'>${ele.name}<span onclick='deleteFile(${index})'>X</span></li>`;
+  });
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 function inWords(num) {
-  
-
   var a = [
     "",
     "one ",
@@ -261,8 +278,18 @@ function inWords(num) {
       : "";
   return str;
 }
-function updateAmount(amount){
-    document.getElementById("inwords").innerHTML = inWords(amount)
-
+function updateAmount(amount) {
+  document.getElementById("inwords").innerHTML = inWords(amount);
 }
 ////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+function sidebar1() {
+  document.querySelector("body").classList.toggle("active");
+}
+
+function onlyNumberKey(evt) {
+  // Only ASCII character in that range allowed
+  var ASCIICode = evt.which ? evt.which : evt.keyCode;
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) return false;
+  return true;
+}
