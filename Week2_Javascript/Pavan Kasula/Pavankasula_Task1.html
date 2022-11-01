@@ -181,15 +181,32 @@
                     >
                       <img
                         src="https://ifmis.telangana.gov.in/images/govt_logo.png"
-                        width="80px"
-                        height="80px"
+                        width="60px"
+                        height="60px"
                         class=""
                         alt="..."
                       />
                       <h1 class="text-white">IFMIS</h1>
                     </div>
                   </div>
-
+                  <!------------------------------------------>
+                  <div class="d-none "  id="IFMIS">
+                    <div
+                      class="bg-image d-flex"
+                      style="background-image: url('bg_city.jpeg')"
+                     
+                    >
+                      <img
+                        src="https://ifmis.telangana.gov.in/images/govt_logo.png"
+                        width="60px"
+                        height="60px"
+                        class=""
+                        alt="..."
+                      />
+                      <h1 class="text-white">IFMIS</h1>
+                    </div>
+                  </div>
+                 <!--------------------------------------------------------->
                   <div class="text-white">
                     <div class="top_navbar">
                       <div class="hamburger text-white p-3">
@@ -490,12 +507,15 @@
                           class="form-control form-select-sm"
                           placeholder="Enter IFSC Code"
                           id="ifsccode"
-                          oninput="ifsccodeinput()"
+                         oninput="ifscvalid()"
                         />
                         &nbsp;
                         <button
                           class="btn btn-outline-secondary btn-primary text-white"
-                          type="button"  
+                          type="button" 
+                          onclick="ifsccodeinput()"
+                          
+
                         >
                           Search
                         </button> </div>

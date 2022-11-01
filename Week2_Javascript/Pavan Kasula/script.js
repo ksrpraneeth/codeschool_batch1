@@ -187,6 +187,16 @@ function ifsccodeinput() {
   }
 }
 
+function ifscvalid()
+{
+   if (document.getElementById("ifsccode").value == "" )
+   {
+    document.getElementById("bankname").innerHTML ="";
+    document.getElementById("bankbrach").innerHTML ="";
+
+   }
+}
+
 //--------Multiple upload-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function Multiplefiles() {
   var files = [];
@@ -285,6 +295,10 @@ function updateAmount(amount) {
 
 function sidebar1() {
   document.querySelector("body").classList.toggle("active");
+ 
+  //document.getElementById("IFMIS").classList.toggle("d-none");
+  document.getElementById("IFMIS").classList.toggle("d-lg-block");
+  
 }
 
 function onlyNumberKey(evt) {
