@@ -25,13 +25,13 @@
     <div class="row m-0 ">
 
       <!-- Sidebar -->
-      <div class="col  col-md-2 border-0  border-0 d-flex flex-column p-1 d-none d-md-block"
-        style="background-color:rgb(17, 53, 90) ">
+      <div class="sidebar col  col-md-2 border-0  border-0 d-flex flex-column p-1 d-none d-md-block "
+        style="background-color:rgb(17, 53, 90)"id="side_Nav" >
         <img class="image-fluid w-100" src="images/ifmis-logo2.png" alt="" style="padding:7px">
         <hr>
 
 
-        <div class="sidebar line text-white" style="background-color:rgb(17, 57, 100)">
+        <div class=" line text-white" style="background-color:rgb(17, 57, 100)">
           <div class="w3-bar-block w3-light-grey w3-card">
             <ul class="list-group text-align-left my-2 p-2 font-size:2px;" style="list-style-type:none">
               <li class ="active text-decoration:none ">Home</li>
@@ -198,10 +198,10 @@
            <p id="errorid"></p>  
 
         
-            <div classs="container">
-              <div class="row">
-                <form action="#"  onsubmit="return false" class="bg-light">
-                <div class="bg-secondary  bg-opacity-10 p-2 m-1 d-md-flex justify-content-around align-items-center">
+          
+           <form action="#" onsubmit="return false" class="bg-light">
+            <div class="row d-flex">
+                <div class="bg-secondary  bg-opacity-10 mx-0 d-md-flex justify-content-around align-items-center">
                   <h5><b> Transcation Type*</b></h5>
                   <div class=" form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
@@ -220,7 +220,6 @@
                     <label class="form-check-label" for="inlineRadio4">PD account to other</label>
                   </div>
                 </div>
-              </div>
             </div>
 
       
@@ -371,7 +370,7 @@
                 <label class="col-md-3 "><b> party Amount in Rs*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                 <input type="text" class="form-control" id="pAmount"placeholder="select">
+                 <input type="text" class="form-control" id="pAmount"placeholder="select"  oninput=" numberToWords()">
                 </div>
               </div>
   
@@ -380,7 +379,7 @@
                 <label class="col-md-3 col-form-label"> <b>Party Amount in Words </b></label>
                 <div class="col-md-6 d-lg-flex align-items-center">
                   <label  class="col-12 col-md-2">: &nbsp; &nbsp;</label>
-                  <label >xxxxxx</label>
+                  <label id="partyAmountWords1">/label>
                 </div>
               </div>
   
