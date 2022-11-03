@@ -6,7 +6,7 @@ Create a json file for Earnings and Deductions also and get those from json file
 	1.2 If click on "Delete", then remove that row from table
 2. Show Edit option in Actions column for Earnings (only for Basic Pay).
 	2.1 If click on "Edit", then show amount as editable and show Save instead of Edit, else just show amount only.
-	2.2 If Basic Amount is edited and saved then show that value and calculate DA (Dearness Allowances) @ 17.29% on Basic Pay and change that value
+	2.2 If Basic Amount is edited and saved then show that value and calculate DA (Dearness Allowances) @ 17.29% (based on json file) on Basic Pay and change that value
 
 Earnings:
 1. Below Earnings need to show in dropdown next to "Select Earning" in popup
