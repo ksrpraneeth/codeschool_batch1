@@ -1,3 +1,6 @@
+Create a json file and store employee details. And get employee details only from json file using ajax call.
+Create a json file for Earnings and Deductions also and get those from json file and show then in popup based on popup (Earnings/Deductions).
+
 1. Show Edit and Delete options in Actions column for Deductions.
 	1.1 If click on "Edit", then show amount as editable else just show amount only
 	1.2 If click on "Delete", then remove that row from table
