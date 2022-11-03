@@ -1,0 +1,28 @@
+
+header{
+    margin-top: 5rem;
+}
+.logo{
+    width: 100px;
+}
+.container{
+    max-width: 800px;
+    max-height: 800px;
+    border: 1px solid;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.form{
+    border-top: 20px;
+}
+.left{
+    flex-basis: 50%;
+}
+.right{
+    flex-basis: 50%;
+}
+.right img{
+    width: 100%;
+}
