@@ -7,12 +7,14 @@
     />
     <link href="https://css.gg/boy.css" rel="stylesheet" />
 
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"> </script>
+
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
   </head>
@@ -24,13 +26,14 @@
     }
   </style>
   <!---- ----------------------------------------------------------------------------------------------------------->
-  <div style="font-size:12px">
+ 
   
-    <div class="container-fluid p-0 ">
-      <div class="row m-0">
+    <div class="container-fluid p-0  d-flex posittion-absolute p-0 m-0" style="font-size:12px">
+      
         <div
-          class="d-none d-block d-lg-block col-lg-2 border-0 d-flex flex-column p-0"
-          style="background-color: rgb(17, 53, 90)"
+          class="sidebar d-none d-block d-lg-block col-lg-2 border-0 d-flex flex-column p-0"
+          style="background-color: rgb(0, 27, 71)"
+          id="sidenav"
         >
           <img
             class="w-100"
@@ -40,43 +43,43 @@
           />
           <hr class="text-secondary" />
 
-          <div class="index" style="background-color: rgb(28, 57, 104)"></div>
+          <div class="index" style="background-color: rgb(0, 27, 71)"></div>
 
           <div class="w3-bar-block w3-light-grey w3-card">
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Home</a
             >
             <div
               class="w3-dropdown-hover"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
             >
               <button
                 class="w3-button text-white"
-                style="background-color: rgb(17, 53, 90)"
+                style="background-color: rgb(0, 27, 71)"
               >
                 Master
                 <i
                   class="fa fa-caret-down"
-                  style="background-color: rgb(17, 53, 90)"
+                  style="background-color: rgb(0, 27, 71)"
                 ></i>
               </button>
 
               <div
                 class="w3-dropdown-content w3-bar-block"
-                style="background-color: rgb(17, 53, 90)"
+                style="background-color: rgb(0, 27, 71)"
               ></div>
 
               <button
                 class="w3-button text-white"
-                style="background-color: rgb(17, 53, 90)"
+                style="background-color: rgb(0, 27, 71)"
               >
                 Transcations
                 <i
                   class="fa fa-caret-down"
-                  style="background-color: rgb(17, 53, 90)"
+                  style="background-color: rgb(0, 27, 71)"
                 ></i>
               </button>
             </div>
@@ -84,88 +87,88 @@
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Reports</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Return Cheque Generation</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Forest Transcations</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Forest Transcations Reports</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >E-Kuber Returns Received List
             </a>
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >E-Kuber Return Challan Print</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >UTR Search</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Failed Transactions (ACK Reject)</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Cheque Status Report</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Rejected Cheques due to FinYear End
             </a>
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >FinYear New Cheques Report</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >PD Budget Check</a
             >
             <a
               href="#"
               class="w3-bar-item w3-button text-white"
-              style="background-color: rgb(17, 53, 90)"
+              style="background-color: rgb(0, 27, 71)"
               >Update Receipts Used Amount</a
             >
           </div>
         </div>
         <!----SIDEBAR-------------------------------------------->
 
-        <div class="col col-lg-10 p-0">
-          <div class="container-fluid bg-secondary bg-opacity-25">
-            <div class="row">
+       
+          <div class="Content position-relative p-0 bg-secondary bg-opacity-25">
+           
               <div
                 class="bg-image d-flex align-items-center justify-content-md-between justify-content-around"
                 style="background-image: url('bg_city.jpeg')"
@@ -178,37 +181,49 @@
                     >
                       <img
                         src="https://ifmis.telangana.gov.in/images/govt_logo.png"
-                        width="80px"
-                        height="80px"
+                        width="60px"
+                        height="60px"
                         class=""
                         alt="..."
                       />
                       <h1 class="text-white">IFMIS</h1>
                     </div>
                   </div>
-
-                  <div class="text-white">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="40"
-                      height="40"
-                      fill="currentColor"
-                      class="bi bi-filter-left"
-                      viewBox="0 0 16 16"
+                  <!------------------------------------------>
+                  <div class="d-none "  id="IFMIS">
+                    <div
+                      class="bg-image d-flex"
+                      style="background-image: url('bg_city.jpeg')"
+                     
                     >
-                      <path
-                        d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                      <img
+                        src="https://ifmis.telangana.gov.in/images/govt_logo.png"
+                        width="60px"
+                        height="60px"
+                        class=""
+                        alt="..."
                       />
-                    </svg>
+                      <h1 class="text-white">IFMIS</h1>
+                    </div>
+                  </div>
+                 <!--------------------------------------------------------->
+                  <div class="text-white">
+                    <div class="top_navbar">
+                      <div class="hamburger text-white p-3">
+                          
+                         <i class="fas fa-bars" id="hamburger" onclick="sidebar1()"></i>
+                          
+                      </div>
+                      </div>
                   </div>
 
                   <div
-                    class="text-bg-light bg-opacity-25 align-items-center py-1 px-1 d-flex rounded-3"
+                    class="text-bg-light bg-opacity-25 align-items-center px-2 d-flex rounded-1"
                   >
                     <div class="text-white">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="20"
+                        width="15"
                         height="15"
                         fill="currentColor"
                         class="bi bi-boxes"
@@ -220,73 +235,64 @@
                       </svg>
                     </div>
                     &nbsp;
-                    <div class="text-white">
-                      <h4 style="font-size: 15px!important">Modules</h4>
+                    <div class="text-white " >
+                      <h4 style="font-size:10px">Modules</h4>
                     </div>
                   </div>
                 </div>
 
                 <div class="right d-flex align-items-center">
                   <div class="row text-white d-none d-lg-block">
-                    <h6 style="font-size: 10px!important" class="m-0 text-muted">Last Login</h6>
-                    <h6 style="font-size: 10px!important" class="m-0">17-Jun-2022</h6>
-                    <h6 style="font-size: 10px!important" class="m-0">04:53 PM</h6>
-                  </div>
+                    <h6 class="m-0 text-muted" style="font-size:10px">Last Login</h6>
+                    <h6 class="m-0" style="font-size:10px" id="displayDateTime"></h6>
+                    
+                  </div> &nbsp;
+                 
+                   
+                    <div class="dropdown ">
+                    <button class="btn btn-secondary dropdown-toggle d-flex align-items-center p-0 m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                        <svg  class="p-1 m-1 " xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg> 
 
-                  <div
-                    class="align-items-center justify-content-center m-2 d-flex bg-light bg-opacity-25 rounded-2"
-                  >
-                    <div class="icon text-white m-2">
-                      <i class="bi text-white bi-person"></i>
+                        <p class="m-0" style="font-size:8px">
+                        WELCOME M.USHASREE <br> (23031014097)</p> 
+                    </button>
+                    <ul class="dropdown-menu rounded-0">
+                      <li>  
+                        <a class="dropdown-item d-flex" href="#"> 
+                          <svg  class="p-0 m-0 d-flex text-success " xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                          </svg>
+                          Profile</a></li>
+                      <li><a class="dropdown-item d-flex" href="#"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key text-success" viewBox="0 0 16 16">
+                          <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+                          <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg> 
+                        Change password</a></li>
+                      <li><a class="dropdown-item" onclick="login()" href="#">
+                        <svg class="text-success" xmlns="http://www.w3.org/2000/svg" width="16" height="16"   viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                          <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                        </svg>
+                        <p id="log">Logout</p></a></li>
+                    </ul>
+                  </div> 
+                 
 
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        class="bi bi-person-circle"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                        <path
-                          fill-rule="evenodd"
-                          d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
-                        />
-                      </svg>
-                    </div>
-
-                    <div
-                      class="text-white align-items-center m-0 d-none d-lg-block" 
-                    >
-                      <h6 class="m-0" style="font-size: 10px!important">WELCOME M.USHASREE</h6>
-                      <h6 class="m-0" style="font-size: 10px!important">(23031014097)</h6>
-                    </div>
-                    <div class="text-dark px-2">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        class="bi bi-chevron-down"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-
-                  <div class="d-none d-lg-block">
+                  &nbsp;  
+                  <div class="d-none d-lg-block ">
                     <button
+                      onclick="login()"
                       type="button"
-                      class="logout d-flex bg-light border-0 bg-opacity-25 text-white align-items-center rounded-2 mx-4"
+                      class="btn  d-flex btn-secondary border-0  text-white  p-1  m-0 rounded-1"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
+                        width="20"
+                        height="20"
                         fill="currentColor"
                         class="bi bi-box-arrow-right"
                         viewBox="0 0 16 16"
@@ -301,12 +307,12 @@
                         />
                       </svg>
                       &nbsp;
-                      <h4 style="font-size:15px">logout</h4>
+                      <p id="log1">Logout</p> 
                     </button>
                   </div>
                 </div>
               </div>
-            </div>
+            
 
             <!---- ----------------------------------------------------------------------------------------------------------->
         <div class="bg-white"> 
@@ -331,7 +337,7 @@
                   />
                 </svg>
                  
-                  &nbsp; <b class="m-0" class="m-0"> issue cheque (E-Kuber Cheque from 01/03/2019)</b>
+                  &nbsp; <b  class="px-1 p-2"> issue cheque (E-Kuber Cheque from 01/03/2019)</b>
                 
               </div>
             </div>
@@ -388,9 +394,11 @@
               </div>
             </div>
             <!---- ----------------------------------------------------------------------------------------------------------->
-
+            <div class="er " > <p id="errorid" class="errorid closebtn px-4  rounded-2 "  >  </p></div> 
+            
             <div class="p-4">
-              <div>
+
+           <form>    <div>
                 <div
                   class="bg-secondary bg-opacity-10 col-12 col-md-12 p-1 d-lg-flex align-items-lg-center" >
                   <div class="d-flex col-12 col-md-2 px-2">
@@ -406,7 +414,7 @@
                         value="option1"
                         checked
                       />
-                      <label class="form-check-label" for="inlineRadio1" 
+                      <label class="form-check-label"  
                         >Single-Party</label>
                     </div>
 
@@ -419,7 +427,7 @@
                         id="inlineRadio2"
                         value="option2"
                       />
-                      <label class="form-check-label" for="inlineRadio2"
+                      <label class="form-check-label" 
                         >Multiple Parties</label
                       >
                     </div>
@@ -431,7 +439,7 @@
                         id="inlineRadio1"
                         value="option1"
                       />
-                      <label class="form-check-label" for="inlineRadio1"
+                      <label class="form-check-label" 
                         >PD Account to PD Account</label
                       >
                     </div>
@@ -443,7 +451,7 @@
                         id="inlineRadio2"
                         value="option2"
                       />
-                      <label class="form-check-label form-select-sm" for="inlineRadio2"
+                      <label class="form-check-label form-select-sm"
                         >PD Account to others</label
                       >
                     </div>
@@ -456,7 +464,7 @@
                   >
                   <div class="col-12 col-lg-4 align-items-center d-flex">
                     <label class="d-none d-lg-block">: </label
-                    > &nbsp;<input class="form-control form-select-sm" placeholder="Enter A/C No" />
+                    > &nbsp;<input type="password" onkeypress="return allowonlynumber(event)" class="form-control form-select-sm"  placeholder="Enter A/C No"  id="partyacno"/>
                   </div>
                 </div>
 
@@ -466,12 +474,12 @@
                   >
                   <div class="col-12 col-lg-4 align-items-center d-flex">
                     <label class="d-none d-lg-block">: </label
-                    > &nbsp;<input class="form-control form-select-sm" placeholder="Enter A/C No" />
+                    > &nbsp;<input class="form-control form-select-sm "  onkeypress="return allowonlynumber(event)"  placeholder="Enter A/C No"  id="cpartyacno" />
                   </div>
                 </div>
 
                 <div class="form-group d-lg-flex p-2">
-                  <label class="col-12 col-lg-2">
+                  <label class="col-12 col-lg-2" >
                     Party Name<b class="text-danger"> *</b></label
                   >
                   <div class="col-12 col-lg-4 align-items-center d-flex">
@@ -479,39 +487,51 @@
                     <input
                       class="form-control form-select-sm"
                       placeholder="Enter  Party Name"
+                      id="pname"
+                      name="folderName"  onkeypress="return blockspecialcharactersinpartyname(event)"
                     />
                   </div>
                 </div>
               </div>
 
               <div class="bg-secondary p-2 bg-opacity-10 col-md-6 rounded-2">
-                <div class="row">
+             
                   <div class="input-group align-items-center d-lg-flex">
                     <label class="col-12 col-lg-4" for="bank id ">
                       Bank IFSC Code
                     </label>
-                    <div class="input-group-append col-12 col-lg-8 d-flex">
-                      <label class="d-none d-lg-block">: </label>
-                      <input
-                        class="form-control form-select-sm"
-                        placeholder="Enter IFSC Code"
-                      />
-                      &nbsp;
-                      <button
-                        class="btn btn-outline-secondary btn-primary text-white"
-                        type="button"
-                      >
-                        Search
-                      </button>
+                    <div class="input-group-append col-12 col-lg-8 d-flex flex-column">
+                      
+                      <div class="d-flex" ><label class="d-none d-lg-block">: </label>
+                        <input
+                          class="form-control form-select-sm"
+                          placeholder="Enter IFSC Code"
+                          id="ifsccode"
+                         oninput="ifscvalid()"
+                        />
+                        &nbsp;
+                        <button
+                          class="btn btn-outline-secondary btn-primary text-white"
+                          type="button" 
+                          onclick="ifsccodeinput()"
+                          
+
+                        >
+                          Search
+                        </button> </div>
+                        <p class="alertfont px-2 text-danger" id="ifscerror" > </p>
                     </div>
+                    
                   </div>
+
+                  
                   &nbsp;
 
                   <div class="d-lg-flex p-2">
                     <label class="col-12 col-lg-4"> Bank Name</label>
                     <div class="col-12 col-lg-8 d-lg-flex">
                       <label class="d-none d-lg-block">: </label>
-                      <label> XXXXXX</label>
+                      <label id="bankname"></label>
                     </div>
                   </div>
 
@@ -519,19 +539,24 @@
                     <label class="col-12 col-lg-4"> Bank Branch</label>
                     <div class="col-12 col-lg-8 d-lg-flex">
                       <label class="d-none d-lg-block">: </label>
-                      <label> XXXXXX</label>
+                      <label id="bankbrach"></label>
                     </div>
                   </div>
-                </div>
+               
               </div>
 <!-----  -------------------------------------------------------------------- -->
               <div class="d-lg-flex p-2">
                 <label class="col-12 col-lg-2"> Head of the Account </label>
                 <div class="col-12 col-lg-4 d-flex">
                   <label class="d-none d-lg-block">: </label>&nbsp;
-                  <select class="form-select form-select-sm">
-                    <option>Select </option>
-                   
+                  <select  id="hoa" class="form-select form-select-sm"  onchange="Headoftheaccount()">
+                    <option> select</option>
+                    <option value="0853001020002000000NVN">0853001020002000000NVN</option>
+                    <option value="8342001170004001000NVN">8342001170004001000NVN</option>
+                    <option value="2071011170004320000NVN ">2071011170004320000NVN </option>
+                    <option value="8342001170004002000NVN ">8342001170004002000NVN </option>
+                    <option value="2204000030006300303NVN ">2204000030006300303NVN </option>
+                    
                 
                     
                   </select>
@@ -544,7 +569,8 @@
                 >
                 <div class="col-12 col-lg-4 d-lg-flex">
                   <label class="d-none d-lg-block">: </label>&nbsp;&nbsp;
-                  <label> XXXXXX</label>
+                  <label id="balance">  </label>
+                  
                 </div>
               </div>
 
@@ -555,40 +581,53 @@
 
                 <div class="col-12 col-lg-4 d-lg-flex">
                   <label class="d-none d-lg-block">: </label>&nbsp;
-                  <label> XXXXXX</label>
+                  <label id="Loc"> </label>
+                  
                 </div>
               </div>
 
-              <div class="d-lg-flex p-2">
-                <label class="col-12 col-lg-2"> Expenditure type </label>
+              <form name="form1" id="select1"  >
+                <div class="d-flex m-2"> 
+                <label class="col-12 col-lg-2 ">Expenditure type</label>
                 <div class="col-12 col-lg-4 d-flex">
                   <label class="d-none d-lg-block">: </label>
                   &nbsp;
-                  <select class="form-select form-select-sm">
-                    <option>Select</option>
+                  <select class="form-select form-select-sm" name="select1" id="input" onchange="expenditurepurpose()" >
+                    <option >Select </option>
+                     <option>Capital Expenditure</option> 
+                     <option >Revenue Expenditure</option> 
+                    <option >Deferred Revenue Expenditure</option> 
+ 
                   </select>
+                  
+
+
+                     
+                 </div>    
                 </div>
-              </div>
+              
 
               <div class="d-lg-flex p-2">
-                <label class="col-12 col-lg-2"> Purpose type </label>
+                <label class="col-12 col-lg-2" for=""> Purpose type </label>
                 <div class="col-12 col-lg-4 d-flex">
                   <label class="d-none d-lg-block">: </label>&nbsp;
-                  <select class="form-select form-select-sm">
-                    <option>Select</option>
-                  </select>
+                  <select class="form-select form-select-sm" name="select2" id="output"  > </select>
+                  <option value="" selected="selected"></option>
                 </div>
               </div>
+            </form type="submit" value="Submit">
 
               <div class="form-group p-0 d-lg-flex p-2">
-                <label class="col-12 col-lg-2">
+                <label class="col-12 col-lg-2" type="text">
                    Purpose <b class="text-danger"> *</b></label
                 >
                 <div class="col-12 col-lg-4 align-items-center d-flex">
                   <label class="d-none d-lg-block">: </label>&nbsp;
-                  <input
+                   <input
                     class="form-control form-control-sm"
                     placeholder="Enter Purpose here"
+                    id="purpose"
+                    maxlength="500"
                   />
                 </div>
               </div>
@@ -602,6 +641,11 @@
                   <input
                     class="form-control form-control-sm"
                     placeholder="Enter Party Amount"
+                    id="partyamount"
+                    oninput="updateAmount(this.value)"
+                    type="tel"
+                    onkeypress="return onlyNumberKey(event)"                   
+
                   />
                 </div>
               </div>
@@ -610,7 +654,7 @@
                 <label class="col-12 col-md-2"> Party Amount in Words </label>
                 <div class="col-12 col-md-4 d-lg-flex">
                   <label class="d-none d-lg-block">: </label>&nbsp;
-                  <label> XXXXXX</label>
+                  <label id="inwords" > </label>
                 </div>
               </div>
 
@@ -621,26 +665,31 @@
                   <input
                     class="form-control form-select-sm"
                     type="file"
-                    id="exampleFormControlFile1"
-                  />
+                    multiple
+                    id="uploadfiles"
+                    
+                    />
                   &nbsp;
-                  <button class="btn btn-primary">+ADD</button>
+                  <button class="btn btn-primary" onclick="Multiplefiles()" >+ADD</button>
                 </div>
               </div>
               <div class="row">
                 <p class="col-12 col-md-2"></p>
                 <h6 class="col-12 col-md-5" style="font-size:12px">
                   Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here
-                </h6>
+                  <ul id="fileslist" class="list-group"> </ul>
+                </h6> 
               </div>
               
 
               <div class="d-flex my-3 justify-content-center">
                 <button
                   type="button "
+                  onclick="nextvalid()"
                   class="btn btn-primary align-items-center"
-                >
+                >    
                   NEXT
+                  
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="15"
@@ -659,14 +708,20 @@
                     />
                   </svg>
                 </button>
+              </form>  
+              </div > 
 
-                <button class=" d-none d-md-block btn position-absolute  end-0  bottom-1 btn-warning "> 
-                  NEED HELP ??              </button>
+                <div class="*  next d-none d-md-block  position-absolute  end-0  bottom-0  translate-middle-y p-2  text-white rounded-5" style="writing-mode:vertical-lr; transform: rotate(270deg);" > 
+                  NEED HELP ??              
+                </div>
+              
+                 
+                
               </div>
             </div>
-          </div>
+          
         </div>
-      </div>
+      
     </div>
 </div>
 </div> 

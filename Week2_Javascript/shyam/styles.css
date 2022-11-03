@@ -1,0 +1,45 @@
+.center {
+    text-align: center;
+}
+.air{
+    cursor: pointer;
+    border-left: solid 3px transparent;
+    
+
+
+}
+.active{
+    border-left: solid 3px yellow ;
+    background-color: lightgray;
+    color: black;
+}
+.air:hover{
+    background-color: lightgray;
+    color: black;
+}
+.sidebar{
+    background: rgb(5, 68, 104);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 225px;
+    height: 100%;
+    overflow: auto;
+    padding: 20px 0;
+    transition: all 0.5s ease;
+}
+.Content{
+    width: calc(100% - 225px);
+    left: 225px;
+    transition: all 0.5s ease;
+}
+body.active .sidebar{
+    left: -225px;
+}
+body .active .content{
+    left: 0;
+    width: 100%!important;
+}
+.Content .top_navbar .hamburger{
+    padding: 1px;
+}
