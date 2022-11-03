@@ -1,0 +1,39 @@
+1. Show Edit and Delete options in Actions column for Deductions.
+	1.1 If click on "Edit", then show amount as editable else just show amount only
+	1.2 If click on "Delete", then remove that row from table
+2. Show Edit option in Actions column for Earnings (only for Basic Pay).
+	2.1 If click on "Edit", then show amount as editable and show Save instead of Edit, else just show amount only.
+	2.2 If Basic Amount is edited and saved then show that value and calculate DA (Dearness Allowances) @ 17.29% on Basic Pay and change that value
+
+Earnings:
+1. Below Earnings need to show in dropdown next to "Select Earning" in popup
+	ANS Allowance
+	CSS INTEREST
+	Accommodation Allowance
+	Investigation Allowance
+	Constituency Allowance
+	Cycle Allowance
+	Additional HRA
+	Medical Reimbursement
+	Leave Travel Concession
+2. Amount should only take numbers without decimals
+3. When click on "Add" button, need to check all form inputs are given or not. If not given please show the error message as "Please select Earning" like that. If all are given and correct amount then show bootstrap alert message as "Added Successfully"
+4. When click on close button close the popup window
+
+Deductions:
+1. Below Deductions need to show in dropdown in popup
+	Assembly Excess Recovery
+	PENSION DEDN
+	Arogya Fund
+	Salary Adv Recovery
+	Employee Welfare Fund
+	ZP GPF
+	GPF IV
+	Professional Tax
+	INCOME TAX
+	House Rent Deduction
+2. Amount should only take numbers without decimals
+3. When click on "Add" button, need to check all form inputs are given or not. If not given please show the error message as "Please select Deduction" like that. If all are given and correct amount then show bootstrap alert message as "Added Successfully"
+4. When click on close button close the popup window
+
+
