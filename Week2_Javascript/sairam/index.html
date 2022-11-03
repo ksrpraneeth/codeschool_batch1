@@ -259,7 +259,7 @@
                   <label class="col-12 col-md-3 col-form-label"><b> Bank IFSC code*</b></label>
                   <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                   <div class=" col-12 col-md-5 d- lg-flex align-items-center">
-                  <input type="ifsc code" class="form-control" id="code" placeholder="Enter ifsc code">
+                  <input type="ifsccode" class="form-control" id="code" placeholder="Enter ifsc code">
                       <div class="input-group-append"> 
                         <button class=" btn btn-outline-secondary btn-primary text-white d-flex" type="button">Search</button>
                       </div>
@@ -273,7 +273,7 @@
                   <div class="col-md-6">
                     <label class="col-12 col-md-2">: &nbsp; &nbsp;</label>
                     <label class=" col-12 col-md-5"></label>
-                    <label id="bank name"></label>
+                    <label id="bankname"></label>
                   </div>
 
 
@@ -282,7 +282,7 @@
                     <div class="col-md-6"> 
                       <label class="col-12 col-md-2">: &nbsp; &nbsp;</label>
                       <label class=" col-12 col-md-5"></label> 
-                      <label id="bank branch"></label>
+                      <label id="bankbranch"></label>
                     </div>
                   </div>
                 </div>
@@ -336,9 +336,14 @@
                 <label class="col-md-3 "><b> Expenditure type*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                 <select class="form-select" id="Expenditure type" placeholder="select">  
-                  <option>Select</option>
-                </select>
+                  <select name="" class="form-select" id="Expendituretype" placeholder="select">  
+                    <option class="d-none">
+                      Select
+                    </option>
+                    <option value="option 1">capital Expenditure</option>
+                    <option value="option 1">Revenue Expenditure</option>
+                    <option value="option 1">Deffered Revenue Expenditure</option>
+                  </select>
                 </div>
               </div>
 
@@ -346,7 +351,7 @@
                 <label class="col-md-3 "><b> purpose type*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                  <select class="form-select" id="purpose type" placeholder="select">  
+                  <select class="form-select" id="purposetype" placeholder="select">  
                     <option>Select</option>
                     </select>
                 </div>
@@ -356,7 +361,7 @@
                 <label class="col-md-3 "><b> purpose*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                 <input type="text" class="form-control" id=" purpose"placeholder="enter purpose here">
+                 <input type="text" class="form-control" id="purpose"placeholder="enter purpose here">
                 </div>
               </div>
 
@@ -364,7 +369,7 @@
                 <label class="col-md-3 "><b> party Amount in Rs*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-                 <input type="text" class="form-control" id="pAmount"placeholder="select">
+                 <input type="text" class="form-control" id="partyAmount"placeholder="select">
                 </div>
               </div>
   
@@ -373,7 +378,7 @@
                 <label class="col-md-3 col-form-label"> <b>Party Amount in Words </b></label>
                 <div class="col-md-6 d-lg-flex align-items-center">
                   <label  class="col-12 col-md-2">: &nbsp; &nbsp;</label>
-                  <label>xxxxxx</label>
+                  <label id="pAmount">xxxxxx</label>
                 </div>
               </div>
   

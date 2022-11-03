@@ -50,22 +50,22 @@ window.onload=function(){
       if (document.getElementById("pAccountno").value == "") {
         errors.push("Party Account Number is empty");
       }
-      /*
+      
       if (
-        document.getElementById("accountno").value.length < 12 ||
-        document.getElementById("accountno").value.length > 22
+        document.getElementById("pAccountno").value.length < 12 ||
+        document.getElementById("pAccountno").value.length > 22
       ) {
         errors.push(
           "Please enter min 12 - Max 22 characters in Party account number"
         );
       }
     
-      if (document.getElementById("Cfm accountno").value == "") {
+      if (document.getElementById("cfmaccountno").value == "") {
         errors.push("confirm Party Account Number is empty");
       }
       if (
-        document.getElementById("accountno").value !=
-        document.getElementById("cfm accountno").value
+        document.getElementById("pAccountno").value !=
+        document.getElementById("cfmaccountno").value
       ) {
         errors.push(
           "Confirm Party Account Number & Party account numer is not matching"
@@ -80,6 +80,12 @@ window.onload=function(){
       if (document.getElementById("ifsccode").value.length != 11) {
         errors.push("Plase enter total 11 Digits ");
       }
+      if (document.getElementById("bankname").value.length != 11) {
+        errors.push("Plase enter total 11 Digits ");
+      }
+      if (document.getElementById("bankbranch").value.length != 11) {
+        errors.push("Plase enter total 11 Digits ");
+      }
     
       if (document.getElementById("purpose").value == "") {
         errors.push("Please enter Purpose   ");
@@ -87,9 +93,12 @@ window.onload=function(){
       if (document.getElementById("purpose").value.length < 500) {
         errors.push("Purpose should be  500 characters only");
       }
-      if (document.getElementById("partyamount").value == "") {
+      if (document.getElementById("partyAmount").value == "") {
         errors.push("Party Account is empty");
-      } */
+      } 
+      if (document.getElementById("pAmount").value == "") {
+        errors.push("Party Account is empty");
+      } 
     
       var html = ''
       for (var i = 0; i < errors.length; i++) {
