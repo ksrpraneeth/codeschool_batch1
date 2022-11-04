@@ -24,6 +24,18 @@
         }, 1000);
 
         getAndUpdateDetails();
+
+        // Bank Status Clicked
+        $("#bankStatusBtn").click(() => {
+            $("#bankStatusBtn").hide()
+            $("#bankStatusPopup").css("transform", "translate(0)")
+        })
+
+        // Bank Status Close Clicked
+        $("#bankStatusCloseBtn").click(() => {
+            $("#bankStatusBtn").show()
+            $("#bankStatusPopup").css("transform", "translate(100%)")
+        })
     });
 })(window.jQuery, window, document);
 // Function: setCurrentDate

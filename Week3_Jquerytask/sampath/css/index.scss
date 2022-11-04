@@ -7,6 +7,7 @@
 body {
     font-size: 14px;
     background-color: lightgray;
+    overflow-x: hidden;
 }
 p {
     margin: 0!important;
@@ -125,5 +126,52 @@ p {
                 }
             }
         }
+    }
+}
+
+.bankStatusPopup{
+    right: 0;
+    transform: translate(100%);
+    transition: all ease 0.5s;
+    .body{
+        .list-group{
+            .list-group-item{
+                img{
+                    width: 35px;
+                }
+                .details{
+                    .title{
+                        font-weight: 500;
+                    }
+                    .view{
+                        color: darkgray;
+                    }
+                    .value{
+                        font-weight: bold;
+                        font-size: 16px;
+                        span{
+                            color: darkgray;
+                            font-weight: 500;
+                            font-size: 12px;
+                            margin-right: 3px;
+                            margin-left: 3px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.bankStatusBtn{
+    transform: rotate(270deg);
+    bottom: 200px;
+    transform-origin:100% 100%;
+    background-color: #1b364d;
+    &:hover{
+        background-color: #293f53;
+    }
+    &:active{
+        background-color: #36424c!important;
     }
 }

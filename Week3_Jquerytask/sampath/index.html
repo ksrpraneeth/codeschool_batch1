@@ -30,7 +30,7 @@
     </head>
     <body>
         <!-- Main Div -->
-        <div class="main pb-3">
+        <div class="main pb-3 overflow-auto">
             <!-- Header Div -->
             <div
                 class="header text-white p-3 d-flex justify-content-between align-items-center"
@@ -673,6 +673,108 @@
                 src="http://static.demilked.com/wp-content/uploads/2016/06/gif-animations-replace-loading-screen-14.gif"
                 alt=""
             />
+        </div>
+
+        <!-- Bank Status Btn -->
+        <button id="bankStatusBtn" class="position-fixed end-0 text-white p-2 px-4 btn border-0 bankStatusBtn">
+            <i class="bi bi-bank"></i>
+            <span>Bank Status</span>
+        </button>
+
+        <!-- Bank Status Popup -->
+        <div
+            class="position-fixed bottom-0 bankStatusPopup bg-white p-2 shadow"
+            id="bankStatusPopup"
+        >
+            <div class="topbar d-flex align-items-center gap-2">
+                <p class="fs-5">Bank Status</p>
+                <p class="warning text-warning">Refresh for latest amount</p>
+                <button class="refresh btn btn-warning">
+                    <i class="bi bi-arrow-clockwise"></i>
+                </button>
+                <button class="closeBtn btn btn-light" id="bankStatusCloseBtn">
+                    <i class="bi bi-x fs-5"></i>
+                </button>
+            </div>
+            <!-- Body -->
+            <div class="body">
+                <ul class="list-group rounded-0 mt-3">
+                    <!-- Approved Today -->
+                    <li
+                        class="list-group-item m-0 d-flex align-items-center border-start-0 border-end-0"
+                    >
+                        <div class="me-3">
+                            <img src="./images/salary.png" alt="" />
+                        </div>
+                        <div class="details">
+                            <span class="title">APPROVED TODAY</span>
+                            <p class="view">( View Details )</p>
+                            <p class="value">
+                                <span>Cash</span
+                                >71.71<span>Cr.&nbsp;&nbsp;Adj</span>0<span
+                                    >Cr.</span
+                                >
+                            </p>
+                        </div>
+                    </li>
+
+                    <!-- Ready for payment -->
+                    <li
+                        class="list-group-item m-0 d-flex align-items-center border-start-0 border-end-0"
+                    >
+                        <div class="me-3">
+                            <img src="./images/like.png" alt="" />
+                        </div>
+                        <div class="details">
+                            <span class="title">READY FOR PAYMENT</span>
+                            <p class="view">( View Details )</p>
+                            <p class="value">1.49 <span>Cr.</span></p>
+                        </div>
+                    </li>
+
+                    <!-- Sent to bank -->
+                    <li
+                        class="list-group-item m-0 d-flex align-items-center border-start-0 border-end-0"
+                    >
+                        <div class="me-3">
+                            <img src="./images/bag.png" alt="" />
+                        </div>
+                        <div class="details">
+                            <span class="title">SENT TO BANK</span>
+                            <p class="view">( View Details )</p>
+                            <p class="value">74.59 <span>Cr.</span></p>
+                        </div>
+                    </li>
+
+                    <!-- At the back -->
+                    <li
+                        class="list-group-item m-0 d-flex align-items-center border-start-0 border-end-0"
+                    >
+                        <div class="me-3">
+                            <img src="./images/bank.png" alt="" />
+                        </div>
+                        <div class="details">
+                            <span class="title">AT THE BANK</span>
+                            <p class="view">( View Details )</p>
+                            <p class="value">0.02 <span>Cr.</span></p>
+                        </div>
+                    </li>
+
+                    <!-- Paid Today -->
+                    <li
+                        class="list-group-item m-0 d-flex align-items-center border-start-0 border-end-0"
+                    >
+                        <div class="me-3">
+                            <img src="./images/salary.png" alt="" />
+                        </div>
+                        <div class="details">
+                            <span class="title">PAID TODAY</span>
+                            <p class="view">( View Details )</p>
+                            <p class="value">78.59 <span>Cr.</span></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </body>
 </html>
