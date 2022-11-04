@@ -19,7 +19,7 @@
     <div class="row m-0 p-0 h-auto">
       <div class="col-lg-3 d-none d-lg-block p-0">
         <div class="sidebar h-100 d-flex flex-column" style="background-color:rgb(17, 53, 90)">
-          <img class="w-100 p-2 " src="images/ifmis-logo.png">
+          <img class="image-fluid w-100 p-2 " src="images/ifmis-logo.png" alt="ifmis-logo">
           <hr>
           <ul class="list-group text-align-center text-white px-2">
             <li class="text-decorations-none">Home</li>
@@ -47,8 +47,8 @@
             <div class="left d-flex align-items-center ">
               <div class="logo d-flex d-md-flex d-lg-none align-items-center">
                 <div class="bg-image  d-flex align-items-center justify-content-sm-around"
-                  style="background-image: url('bg_city.jpeg')">
-                  <img src="https://ifmis.telangana.gov.in/images/govt_logo.png" width="40px" height="40px" class=""
+                  style="background-image: url('images/header.jpeg')">
+                  <img src="https://ifmis.telangana.gov.in/images/govt_logo.png" width="40" height="40" class=""
                     alt="..." />
                 </div>
                 <h4 class="p-0 text-white">
@@ -167,45 +167,45 @@
           </div>
           <div class="container">
             <div class="col-md-12 p-2 d-flex" style="background-color:aliceblue">
-              <label class="col-xs-12">Transaction Type<span class="text-danger">*</span></label>
+              <label class="col-xs-4">Transaction Type<span class="text-danger">*</span></label>
               <ul class="list-inline d-flex justify-content-around px-5 list-styled ">
-                <li class="list-inline-item col-xs-6"><b>Single party</b></li>
-                <li class="list-inline-item col-xs-6"><b>Multiple parties</b></li>
-                <li class="list-inline-item col-xs-6"><b>PD Account to PD Account</b></li>
-                <li class="list-inline-item col-xs-6"><b>PD Account to Other</b></li>
+                <li class="list-inline-item col-xs-4"><b>Single party</b></li>
+                <li class="list-inline-item col-xs-4"><b>Multiple parties</b></li>
+                <li class="list-inline-item col-xs-4"><b>PD Account to PD Account</b></li>
+                <li class="list-inline-item col-xs-4"><b>PD Account to Other</b></li>
               </ul>
             </div>
             <form class="form-group">
               <div class="row my-2">
-                <label for="Party Account No" class="col-12 col-md-4 col-lg-4">Party Account No<span
+                <label for="Party-Account-No" class="col-12 col-md-4 col-lg-4">Party Account No<span
                     class="text-danger">*</span></label>
                 <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                   <span>:&nbsp;</span>
-                  <input class="form-control" placeholder="Enter A/C No" type="text" id="Party Account No" />
+                  <input class="form-control" placeholder="Enter A/C No" type="text" id="Party-Account-No" />
                 </div>
               </div>
               <div class="row my-2">
-                <label for=" Confirm Party Account No" class="col-12 col-md-4 col-lg-4"> Confirm Party Account No<span
+                <label for=" Confirm-Party-Account-No" class="col-12 col-md-4 col-lg-4"> Confirm Party Account No<span
                     class="text-danger">*</span></label>
                 <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                   <span>:&nbsp;</span>
-                  <input class="form-control" placeholder="Confirm A/C No" type="text" id="Party Account No" />
+                  <input class="form-control" placeholder="Confirm A/C No" type="text" id="Confirm-A/C-No" />
                 </div>
               </div>
               <div class="row my-2">
-                <label for="Enter Party Name" class="col-12 col-md-4 col-lg-4">Enter Party Name<span
+                <label for="Enter-Party-Name" class="col-12 col-md-4 col-lg-4">Enter Party Name<span
                     class="text-danger">*</span></label>
                 <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                   <span>:&nbsp;</span>
-                  <input class="form-control" placeholder="Enter Party Name" type="text" id="Enter Party Name" />
+                  <input class="form-control" placeholder="Enter Party Name" type="text" id="Enter-Party-Name" />
                 </div>
               </div>
               <div class="row my-2">
-                <label for="Bank IFSC code" class="col-12 col-md-4 col-lg-4">Bank IFSC code<span
+                <label for="Bank-IFSC-code" class="col-12 col-md-4 col-lg-4">Bank IFSC code<span
                     class="text-danger">*</span></label>
                 <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                   <span>:&nbsp;</span>
-                  <input class="form-control" placeholder="Enter IFSC code" type="text" id="Bank IFSC code" />
+                  <input class="form-control" placeholder="Enter IFSC code" type="text" id="Bank-IFSC-code" />
                   <button type="button" class="btn btn-primary col-md-2">Search</button>
                 </div>
               </div>
@@ -224,67 +224,67 @@
                 </div>
               </div>
               <div class="row my-2">
-                <label for="Head of Account" class="col-12 col-md-4 col-lg-4">Head of Account<span
+                <label for="Head-of-Account" class="col-12 col-md-4 col-lg-4">Head of Account<span
                     class="text-danger">*</span></label>
                 <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                   <span>:&nbsp;</span>
-                  <input class="form-control" placeholder="Select" type="text" id="Head of Account" />
+                  <input class="form-control" placeholder="Select" type="text" id="Head-of-Account" />
+                </div>
+              </div>
+              <div class="row my-2">
+                <label class="col-12 col-md-4 col-lg-4">Balance (in Rs)<span class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <label>XXXXXX</label>
+                </div>
+              </div>
+              <div class="row my-2">
+                <label class="col-12 col-md-4 col-lg-4">Loc (in Rs)<span class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <label>XXXXXX</label>
+                </div>
+              </div>
+              <div class="row my-2">
+                <label for="Expenditure-Type" class="col-12 col-md-4 col-lg-4">Expenditure Type<span
+                    class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <input class="form-control" placeholder="Select" type="text" id="Expenditure-type" />
+                </div>
+              </div>
+              <div class="row my-2">
+                <label for="Purpose-Type" class="col-12 col-md-4 col-lg-4">Purpose Type<span
+                    class="text-danger">*</span></label>
+                <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                  <span>:&nbsp;</span>
+                  <input class="form-control" placeholder="Enter Purpose Here" type="text" id="Purpose-Type" />
                 </div>
                 <div class="row my-2">
-                  <label class="col-12 col-md-4 col-lg-4">Balance (in Rs)<span class="text-danger">*</span></label>
+                  <label for="Party-Amount-in-Rs" class="col-12 col-md-4 col-lg-4">Party Amount (in Rs)<span
+                      class="text-danger">*</span></label>
+                  <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                    <span>:&nbsp;</span>
+                    <input class="form-control" placeholder="Enter Party Amount" type="text" id="Enter-Party-Amount" />
+                  </div>
+                </div>
+                <div class="row my-2">
+                  <label class="col-12 col-md-4 col-lg-4">Party Amount in Words<span
+                      class="text-danger">*</span></label>
                   <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                     <span>:&nbsp;</span>
                     <label>XXXXXX</label>
                   </div>
                 </div>
                 <div class="row my-2">
-                  <label class="col-12 col-md-4 col-lg-4">Loc (in Rs)<span class="text-danger">*</span></label>
+                  <label class="col-12 col-md-4 col-lg-4">Upload Documents:</label>
                   <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
                     <span>:&nbsp;</span>
-                    <label>XXXXXX</label>
+                    <input type="file" class="form-control" placeholder="choose file  No file Choosen">
+                    <button type="button" class="btn btn-primary">Add</button>
                   </div>
                 </div>
-                <div class="row my-2">
-                  <label for="Expenditure Type" class="col-12 col-md-4 col-lg-4">Expenditure Type<span
-                      class="text-danger">*</span></label>
-                  <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
-                    <span>:&nbsp;</span>
-                    <input class="form-control" placeholder="Select" type="text" id="Expenditure type" />
-                  </div>
-                </div>
-                <div class="row my-2">
-                  <label for="Purpose Type" class="col-12 col-md-4 col-lg-4">Purpose Type<span
-                      class="text-danger">*</span></label>
-                  <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
-                    <span>:&nbsp;</span>
-                    <input class="form-control" placeholder="Enter Purpose Here" type="text" id="Purpose Type" />
-                  </div>
-                  <div class="row my-2">
-                    <label for="Party Amount in Rs" class="col-12 col-md-4 col-lg-4">Party Amount (in Rs)<span
-                        class="text-danger">*</span></label>
-                    <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
-                      <span>:&nbsp;</span>
-                      <input class="form-control" placeholder="Enter Party Amount" type="text"
-                        id="Enter Party Amount" />
-                    </div>
-                  </div>
-                  <div class="row my-2">
-                    <label class="col-12 col-md-4 col-lg-4">Party Amount in Words<span
-                        class="text-danger">*</span></label>
-                    <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
-                      <span>:&nbsp;</span>
-                      <label>XXXXXX</label>
-                    </div>
-                  </div>
-                  <div class="row my-2">
-                    <label class="col-12 col-md-4 col-lg-4">Upload Documents:</label>
-                    <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
-                      <span>:&nbsp;</span>
-                      <input type="file" class="form-control" placeholder="choose file  No file Choosen">
-                      <button type="button" class="btn btn-primary">Add</button>
-                    </div>
-                  </div>
-                </div>
+              </div>
             </form>
             <p class="fw-lighter col-xs-12">Note:Documents of Cheque(Letter/G.O etc) can be uploaded here.</p>
             <hr>
@@ -292,7 +292,8 @@
               <button type="button" class="btn btn-primary">Next>></button>
             </div>
           </div>
-        </div>
+       </div>
+      </div>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
           integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
           crossorigin="anonymous"></script>
