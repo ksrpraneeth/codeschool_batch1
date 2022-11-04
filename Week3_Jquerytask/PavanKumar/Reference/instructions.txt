@@ -1,0 +1,12 @@
+Reference Api: https://reqres.in/
+
+
+1. Replicate the main.jpeg Image using HTML, CSS, Bootstrap, Javascript and Jquery
+2. Fill the pensioner details section with the sample api data.
+3. On click of Add Legal Heir button Open the modal and write the form as popup_modal.png
+4. Validate Date in the modale popup
+      a. Recovery type should be dropdown and that should be selected.
+      b. Recovery type should be dropdown and that should be selected.
+      c. ON change of Hoa Type You should fill All tiers of Hoa and fileds are mandatory
+      d. Date should be selected and date selected should be less than today
+      e. On click of Save Implement one post Ajax call
