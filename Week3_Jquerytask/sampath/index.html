@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Dashboard || IFMIS</title>
+
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+        <!-- Index CSS -->
+        <link rel="stylesheet" href="./css/index.css" />
+
+        <!-- Index JS -->
+        <script src="./js/index.js"></script>
+    </head>
+    <body>
+        <!-- Main Div -->
+        <div class="main pb-3">
+            <!-- Header Div -->
+            <div
+                class="header text-white p-3 d-flex justify-content-between align-items-center"
+            >
+                <!-- Left Div -->
+                <div class="left d-flex align-items-center gap-2">
+                    <!-- Logo -->
+                    <img
+                        class="d-none d-lg-block"
+                        src="./images/logo.png"
+                        alt=""
+                    />
+                    <img
+                        class="d-block d-lg-none mobileLogo"
+                        src="./images/mobileLogo.png"
+                        alt=""
+                    />
+                    <!-- Buttons Group Div -->
+                    <div class="buttonsGroup d-flex gap-2">
+                        <!-- Menu Btn -->
+                        <button
+                            class="menuBtn py-2 btn btn-secondary rounded-0"
+                        >
+                            <i class="bi bi-list"></i>
+                        </button>
+                        <!-- Home Btn -->
+                        <button class="homeBtn btn btn-secondary rounded-0">
+                            <i class="bi bi-house"></i>
+                            <span>Modules</span>
+                        </button>
+                        <!-- Logout Btn -->
+                        <button class="homeBtn d-none d-md-block btn btn-secondary rounded-0">
+                            <i class="bi bi-box-arrow-right"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+
+                    <!-- Search Btn -->
+                    <div class="searchBtnDiv d-none d-md-flex ms-4">
+                        <i class="bi bi-search bg-white p-2 text-black-50"></i>
+                        <input
+                            type="text"
+                            class="form-control rounded-0 border-0"
+                            placeholder="EMPCODE/ Bank Ac No"
+                        />
+                    </div>
+
+                    <!-- Last Login Div -->
+                    <div class="lastLoginDiv d-none d-md-flex flex-column text-nowrap">
+                        <span class="text-white-50">Last Login:</span>
+                        <span id="lastLoginDate"></span>
+                        <span id="lastLoginTime"></span>
+                    </div>
+                </div>
+
+                <!-- Right Div -->
+                <div class="right">
+                    <!-- Account Dropdown Btn -->
+                    <div class="dropdown">
+                        <button
+                            class="btn py-2 btn-secondary dropdown-toggle d-flex align-items-center"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            <div class="left">
+                                <i class="bi bi-person"></i>
+                                <span class="me-5 d-none d-md-inline"
+                                    >Sampath</span
+                                >
+                            </div>
+                        </button>
+
+                        <!-- Dropdown Menu -->
+                        <ul class="dropdown-menu w-auto">
+                            <!-- Profile -->
+                            <li>
+                                <div class="d-flex p-2 gap-3" role="button">
+                                    <i class="bi bi-person text-success"></i>
+                                    <span>Profile</span>
+                                </div>
+                            </li>
+
+                            <!-- Change Password -->
+                            <li>
+                                <div class="d-flex p-2 gap-3" role="button">
+                                    <i class="bi bi-key text-success"></i>
+                                    <span>Change Password</span>
+                                </div>
+                            </li>
+
+                            <!-- Logout -->
+                            <li>
+                                <div class="d-flex p-2 gap-3" role="button">
+                                    <i
+                                        class="bi bi-box-arrow-right text-success"
+                                    ></i>
+                                    <span>Logout</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body -->
+            <div class="body">
+                <!-- Content -->
+                <div class="content bg-white m-0 p-0 m-md-3 p-md-3 rounded-1">
+                    <!-- Tabs -->
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active">Expenditure</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Analytics Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">HR</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Daily Reports</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Vechile Hire (0)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">BRO (4)</a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab Content -->
+                    <div class="tabContent row">
+                        <!-- Tab content left -->
+                        <div class="left col-12 col-md-8 col-lg-9">
+                            <!-- Top bar -->
+                            <div
+                                class="topBar justify-content-md-between py-3 d-flex flex-wrap align-items-center justify-content-center"
+                            >
+                                <!-- Top bar left -->
+                                <div
+                                    class="left d-flex flex-wrap align-items-center justify-content-center"
+                                >
+                                    <!-- Quick search btn -->
+                                    <button class="btn btn-success">
+                                        <i class="bi bi-search"></i>
+                                        <span>Quick Search</span>
+                                    </button>
+
+                                    <!-- Day and time -->
+                                    <div class="dateTime ms-2">
+                                        <i class="bi bi-calendar"></i>
+                                        <span id="currentDate"></span>
+                                        <span id="currentTime"></span>
+                                    </div>
+                                </div>
+
+                                <!-- Top bar right -->
+                                <div
+                                    class="right d-flex justify-content-center my-2 flex-wrap align-items-center gap-3"
+                                >
+                                    <!-- Total Adj -->
+                                    <div class="totalAdj">
+                                        <span class="text-black-50"
+                                            >Tot adj:</span
+                                        >
+                                        <span
+                                            id="totalAdj"
+                                            class="text-black fw-semibold"
+                                            >152.32 Cr</span
+                                        >
+                                    </div>
+
+                                    <!-- Total Adj -->
+                                    <div class="totalCash">
+                                        <span class="text-black-50"
+                                            >Tot cash:</span
+                                        >
+                                        <span
+                                            id="totalCash"
+                                            class="text-black fw-semibold"
+                                            >120.32 Cr</span
+                                        >
+                                    </div>
+
+                                    <!-- Refresh Btn -->
+                                    <button
+                                        id="refreshBtn"
+                                        class="btn btn-light"
+                                        onclick="getAndUpdateDetails()"
+                                    >
+                                        <i class="bi bi-arrow-clockwise"></i>
+                                    </button>
+
+                                    <!-- Select -->
+                                    <select
+                                        name=""
+                                        id=""
+                                        class="form-select w-auto"
+                                    >
+                                        <option value="-1">
+                                            To Be Authorized
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Cards Section -->
+                            <div class="cardsSection row m-0 gap-3">
+                                <!-- Cards Section Left -->
+                                <div
+                                    class="left col-12 col-md col-lg p-0 shadow rounded"
+                                >
+                                    <!-- Cards Left -->
+                                    <div
+                                        class="d-flex overflow-auto flex-wrap row m-0"
+                                    >
+                                        <!-- PAO Card -->
+                                        <div
+                                            class="cardBody jcc col-6 col-md-6 col-lg-3 p-3 rounded-start"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/bank.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >PAO</span
+                                                >
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="PAOCardValue"
+                                                    >38.8</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(6158)</span
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <!-- PD Card -->
+                                        <div
+                                            class="cardBody col-6 col-md-6 col-lg-3 p-3"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/giving.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >PD (ROS + CAP.)</span
+                                                >
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="PDCardValue"
+                                                    >57.0</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(3094)</span
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <!-- PD Less Card -->
+                                        <div
+                                            class="cardBody p-3 col-6 col-md-6 col-lg-3"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/giving.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >PD (&lt;10L)
+                                                </span>
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="PDLESSCardValue"
+                                                    >30.1</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(10801)</span
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <!-- DTA Adj Card -->
+                                        <div
+                                            class="cardBody rounded-end p-3 col-6 col-md-6 col-lg-3"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/funding.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >DTA (Adj)
+                                                </span>
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="DTAADJCardValue"
+                                                    >40.9</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(147)</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cards Left 2 -->
+                                    <div class="d-flex flex-wrap row m-0">
+                                        <!-- DTA Cash Card-->
+                                        <div
+                                            class="cardBody col-6 col-md-6 col-lg-3 p-3 rounded-start"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/funding.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >DTA (Cash)</span
+                                                >
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="DTACASHCardValue"
+                                                    >29.7</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(178681)</span
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <!-- DWA Works Card -->
+                                        <div
+                                            class="cardBody col-6 col-md-6 col-lg-3 p-3"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/funding.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >DWA (Works)</span
+                                                >
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="DWAWORKSCardValue"
+                                                    >98.4</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(2503)</span
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <!-- DWA Est Card -->
+                                        <div
+                                            class="cardBody p-3 col-6 col-md-6 col-lg-3"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/funding.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >DWA (Est./Othr)
+                                                </span>
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="DWAESTCardValue"
+                                                    >15.5</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(13241)</span
+                                                >
+                                            </div>
+                                        </div>
+
+                                        <!-- Priority -->
+                                        <div
+                                            class="cardBody rounded-end p-3 col-6 col-md-6 col-lg-3"
+                                        >
+                                            <!-- Icon -->
+                                            <div
+                                                class="icon d-flex align-items-center"
+                                            >
+                                                <img
+                                                    src="./images/star.png"
+                                                    alt=""
+                                                />
+                                                <span class="ms-3 fw-semibold"
+                                                    >Priority
+                                                </span>
+                                            </div>
+
+                                            <!-- Value -->
+                                            <div class="value mt-2">
+                                                <span id="PRIORITYCardValue"
+                                                    >96.7</span
+                                                >
+                                                <span>Cr</span>
+                                                <span class="text-black-50"
+                                                    >(664)</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cards Section right -->
+                                <div
+                                    class="right shadow rounded col-12 m-0 col-md-3 col-lg-2 d-flex flex-column p-0"
+                                >
+                                    <!-- Regular Salary Card -->
+                                    <div
+                                        class="cardBody rounded p-2 d-flex align-items-center h-50 justify-content-start"
+                                    >
+                                        <img
+                                            src="./images/salary.png"
+                                            alt=""
+                                            class="left"
+                                        />
+
+                                        <!-- Values -->
+                                        <div
+                                            class="values d-flex flex-column ms-2"
+                                        >
+                                            <span>Regular Salary</span>
+                                            <div class="valueDiv">
+                                                <span id="SALARYCardValue">79.7</span>
+                                                <span style="font-size: 12px"
+                                                    >Cr</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pension Salary Card -->
+                                    <div
+                                        class="cardBody rounded p-2 d-flex align-items-center h-50 justify-content-start"
+                                    >
+                                        <img
+                                            src="./images/money.png"
+                                            alt=""
+                                            class="left"
+                                        />
+
+                                        <!-- Values -->
+                                        <div
+                                            class="values d-flex flex-column ms-2"
+                                        >
+                                            <span>Pension Salary</span>
+                                            <div class="valueDiv">
+                                                <span id="PENSIONSALARYCardValue">40.7</span>
+                                                <span style="font-size: 12px"
+                                                    >Cr</span
+                                                >
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Temporary Categories -->
+                            <div class="temporaryCategories mt-4">
+                                <div class="title">
+                                    <strong class=""
+                                        >Temporary Categories</strong
+                                    >
+                                </div>
+
+                                <!-- Cards Div -->
+                                <div class="cardsDiv">
+                                    <!-- Cards -->
+                                    <div class="cards row m-0">
+                                        <!-- COVID Def -->
+                                        <div
+                                            class="cardBody col-6 col-md-4 col-lg-2 d-flex flex-column"
+                                        >
+                                            <strong class="title">
+                                                COVID def. pay(Salaries)
+                                            </strong>
+                                            <span class="value my-3">
+                                                0.03 Cr.
+                                            </span>
+                                        </div>
+
+                                        <!-- CSS(Central) -->
+                                        <div
+                                            class="cardBody col-6 col-md-4 col-lg-2 d-flex flex-column"
+                                        >
+                                            <strong class="title">
+                                                CSS (Central)
+                                            </strong>
+                                            <span class="value my-3">
+                                                20.98 Cr.
+                                            </span>
+                                        </div>
+
+                                        <!-- CSS(State) -->
+                                        <div
+                                            class="cardBody col-6 col-md-4 col-lg-2 d-flex flex-column"
+                                        >
+                                            <strong class="title">
+                                                CSS (State)
+                                            </strong>
+                                            <span class="value my-3">
+                                                266.88 Cr.
+                                            </span>
+                                        </div>
+
+                                        <!-- Rythu Bandhu -->
+                                        <div
+                                            class="cardBody col-6 col-md-4 col-lg-2 d-flex flex-column"
+                                        >
+                                            <strong class="title">
+                                                Rythu Bandhu (Bill-Wise)
+                                            </strong>
+                                            <span class="value my-3">
+                                                37.5 Cr.
+                                            </span>
+                                        </div>
+
+                                        <!-- Admin of. Justice -->
+                                        <div
+                                            class="cardBody col-6 col-md-4 col-lg-2 d-flex flex-column"
+                                        >
+                                            <strong class="title">
+                                                Admin of. Justice
+                                            </strong>
+                                            <span class="value my-3">
+                                                10.32 Cr.
+                                            </span>
+                                        </div>
+
+
+                                        <!-- Medical And Health -->
+                                        <div
+                                            class="cardBody col-6 col-md-4 col-lg-2 d-flex flex-column"
+                                        >
+                                            <strong class="title">
+                                                Medical and Health
+                                            </strong>
+                                            <span class="value my-3">
+                                                54.82 Cr.
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab content Right -->
+                        <div class="right py-3 col-12 col-md-4 col-lg-3">
+                            <!-- Special Categories -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <strong class="card-title text-white"
+                                        >Special Categories</strong
+                                    >
+                                </div>
+                                <div class="card-body m-0 p-0 pb-3">
+                                    <table class="table-bordered table m-0">
+                                        <tr>
+                                            <th>Description</th>
+                                            <th class="text-end">Amount</th>
+                                        </tr>
+                                    </table>
+                                    <span class="text-black-50 ps-2"
+                                        >No Pending bills to approve</span
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading d-flex d-none align-items-center justify-content-center position-absolute w-100 vh-100 bg-white top-0 start-0" id="loading">
+            <img width="250px" src="http://static.demilked.com/wp-content/uploads/2016/06/gif-animations-replace-loading-screen-14.gif" alt="">
+        </div>
+    </body>
+</html>
