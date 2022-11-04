@@ -1,0 +1,41 @@
+.top_navbar .hamburger{
+    padding: 1px;
+}
+.modules{
+    margin-bottom:0px;
+}
+.content p{
+    padding: 0px;
+    margin: 0px;
+}
+.card {
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+    margin-left:5px;
+  }
+
+ li{
+    padding:10px;
+}
+.scaleList li :hover{
+    background: gray;
+}
+.sizeIcon {
+    position: absolute;
+
+    bottom: 20px;
+    right: 20px;
+}
+
+.sizeIcon button{
+    font:white;
+    border: 0ch;
+    margin:10px;
+}
+.sizeIcon .sizeDecrease{
+    width:20px;
+    height: 20px;
+    font-size: 0.5rem;
+}
+.sizeIcon .sizeIncrease{
+    
+}
