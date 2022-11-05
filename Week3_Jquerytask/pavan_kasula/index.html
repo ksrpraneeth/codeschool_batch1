@@ -13,6 +13,7 @@
       crossorigin="anonymous"
     />
     <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -28,8 +29,8 @@
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <!--------------------------------------------------------------------------------------------->
-  <body>
-    <div class="container-fluid bg-secondary bg-opacity-50"> 
+  <body class="fontchange">
+    <div class="container-fluid bg-secondary bg-opacity-50">
       <div class="header">
         <div class="row">
           <div
@@ -105,7 +106,7 @@
                 />
               </div>
 
-              <div class="right d-flex align-items-center ">
+              <div class="right d-flex align-items-center">
                 <div class="row text-white d-none d-lg-block px-2">
                   <h6 class="m-0 text-muted" style="font-size: 10px">
                     Last Login
@@ -211,19 +212,18 @@
       </div>
 
       <!---------------------------------------------------------------------------------------------->
-      <div class="bg-white mt-2">
+      <div class="bg-white mt-2 px-2">
         <div class="nav">
           <nav class="navbar navbar-expand-lg col-12 navbar w-100 p-2">
-            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                   <a class="nav-link" href="#">Expenditure</a>
                 </li>
                 <li class="nav-item active px-3">
-                    <a class="nav-link" href="#">Analytics Dashboard </a>
-                  </li>
-                <li class="nav-item px-3" >
+                  <a class="nav-link" href="#">Analytics Dashboard </a>
+                </li>
+                <li class="nav-item px-3">
                   <a class="nav-link" href="#">HR</a>
                 </li>
                 <li class="nav-item px-3">
@@ -239,20 +239,17 @@
             </div>
           </nav>
         </div>
-
-     
-
-    <div class="d-flex ">
-        <div class="px-2 d-flex flex-column col-8  justify-content-between">
-         <div class="d-flex justify-content-between"> 
-            <div class="left d-flex  align-items-center"> 
-                <div > 
+<!---------------Nav bar  -------------->
+        <div class="col-12">
+          <div class="col-8 full d-flex ">
+            <div class="left d-flex col-6 p-2">
+              <div > 
                 <button class="btn btn-success " style="font-size:0.8rem">
                   <i class="fa-solid fa-magnifying-glass"></i> Quick Search
                 </button>
               </div>
-              <div class="d-flex">
-                <div class="row text-dark d-none d-lg-block px-2">
+              <div class="">
+                <div class="row text-dark d-none d-lg-block px-2 d-flex">
                   
                   <h6
                   class="m-0 text-black"
@@ -266,10 +263,9 @@
               ></h6>
                 </div>
               </div>
+      
             </div>
-            
-              
-             <div class="right d-flex align-items-center"> 
+            <div class="right d-flex align-items-center"> 
               <div class="" style="font-size:13px"> 
                 <P> Tot adj: <b>4012.9cr </b> ,Tot cash: <b>2590cr</b> </P>
     
@@ -282,76 +278,96 @@
               &nbsp; &nbsp;
     
               <div class="border1">
-                <button class="btn btn-white dropdown-toggle" style="font-size:12px" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+                <div class="btn btn-white dropdown-toggle" style="font-size:12px" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
                  To Be Authorized
-                 
-    
-    
-    
-    
+                </div> 
+                </div>
             </div>
-            </div>
-         </div>
-
-        <!----------------------->
-
-        <div class="fonttable d-flex col-8"> 
-            <table class="col-11 table table-bordered ">
-                
-                <tbody>
-                  <tr>
-                    <td scope="row"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-bank iconcolor" viewBox="0 0 16 16">
-                        <path d="m8 0 6.61 3h.89a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5H15v7a.5.5 0 0 1 .485.38l.5 2a.498.498 0 0 1-.485.62H.5a.498.498 0 0 1-.485-.62l.5-2A.501.501 0 0 1 1 13V6H.5a.5.5 0 0 1-.5-.5v-2A.5.5 0 0 1 .5 3h.89L8 0ZM3.777 3h8.447L8 1 3.777 3ZM2 6v7h1V6H2Zm2 0v7h2.5V6H4Zm3.5 0v7h1V6h-1Zm2 0v7H12V6H9.5ZM13 6v7h1V6h-1Zm2-1V4H1v1h14Zm-.39 9H1.39l-.25 1h13.72l-.25-1Z"/>
-                      </svg>POA<br> 38.8 cr</td>
-                    <td> <i class='far fa-money-bill-alt iconcolor' style='font-size:24px'></i> PD (ROS+CAP.) <br> 57.0cr (3094)</td>
-                    <td> <i class='far fa-money-bill-alt iconcolor' style='font-size:24px'></i> PD ( 10L) <br> 30.1cr (10801)</td>
-                    <td><i class='fas fa-hand-holding-usd iconcolor' style='font-size:24px'></i> DTA (Adj) <br>40.9cr (147) </td>
-                  </tr>
-                  <tr>
-                    <td scope="row"><i class='fas fa-hand-holding-usd iconcolor' style='font-size:24px'></i>   DTA (Cash) <br>29.7cr (178681) </td>
-                    <td><i class='fas fa-hand-holding-usd iconcolor' style='font-size:24px'></i> DWA (Works) <br>29.7cr (178681)</td>
-                    <td><i class='fas fa-hand-holding-usd iconcolor' style='font-size:24px'></i> DWA (Est./Othr) <br>15.5cr (13421)</td>
-                    <td><i class="fa-solid fa-star iconcolor"></i> Priority <br> 96.7cr (664)</td>
-                  </tr>
-                 
-                </tbody>
-           &nbsp;
-                
-              </table>
-              <table class="col-2  table-bordered">
-                   
-                <tbody>
-                  <tr>
-                    <td>Regular salary</td>
-                   
-                  </tr>
-                  <tr>
-                    <td>Pension salary</td>
-                    
-                  </tr>
-                 
-                </tbody>
-              </table>
+          </div>
+          
+ <!------------------------------------------------------------------------------->
+          <div class="fontdortable d-flex "> 
+          <div class="w3-panel w3-card col-6 m-2 p-2 rounded-2"> 
+          <div class="d-flex "> 
+            <div  class="col-3  p-2 rightborder">  <span > <label> <img src="museum.png" height="25px" width="25px"> PAO </span> <br> <span>  <b class="abc">38.8 </b>cr (6158) </label> </span> </div>
+            <div class="col-3 p-2 rightborder">  <span > <label> <img src="pay1.png" height="25px" width="25px">PD (ROS + CAP) </span> <br> <span>  <b class="abc">57.0 </b>cr (3094) </label> </span> </div>
+            <div  class="col-3  p-2 rightborder">  <span> <label> <img src="pay1.png" height="25px" width="25px"> PD (10L) </span> <br> <span>  <b class="abc"> 38.8 </b>cr (6158) </label> </span> </div>
+            <div class="col-3 p-2 ">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DTA (Adj) </span> <br> <span>  <b class="abc">40.9 </b>cr (147) </label> </span> </div>
             
+
+        </div>
+        <div class=" d-flex ">
+          <div class="col-3 p-2 topborder">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DTA (cash) </span> <br> <span>  <b class="abc">29.7 </b>cr (178681) </label> </span> </div>
+          <div class="col-3 p-2 topborder">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DWA (Works) </span> <br> <span>  <b class="abc"> 98.4 </b>cr (2503) </label> </span> </div>
+          <div class="col-3 p-2 topborder">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DWA (Est.Othr) </span> <br> <span>  <b class="abc">15.5 </b>cr (13421) </label> </span> </div>
+          <div class="col-3 p-2 priorityborder">  <span > <label> <i class="fa-solid fa-star iconcolor"></i> Priority </span> <br> <span>  <b class="abc">96.7 </b>cr (664) </label> </span> </div>
+            
+        </div>
+         </div>
+        
+        &nbsp; &nbsp;
+        <div class="bg-warning bg-opacity-25 col-2  w3-panel w3-card m-2"> 
+          <div  class="p-2 mb-2">  <span > <label> <img src="cheque.png" height="28px" width="25px"> Regular Salary </span> <br> <span  class="abc px-5">  <b>79.7 </b>cr  </label> </span> </div>
+          <div class="p-2 priorityborder">  <span > <label> <img src="money.png" height="30px" width="35px">Pension Salary</span> <br> <span  class="abc px-5">  <b>  40.3 </b>cr </label> </span> </div>
+           </div> 
+           
+    </div>
+    <div>   <p class="color2 py-2 px-3" > <b>  Temporary Categories</b> </p> 
+    </div>
+    <div class=" d-flex temper p-3">
+      <div class="table3 bg-info bg-opacity-10">  <span class="" > <label class=" color2 m-3"> <b>COVID def <br> pay(salaries) </b>  </span> <br> <span>  <b class="abc  px-4">29.7cr </b> </label> </span> </div>
+      <div class=" tembor bg-info bg-opacity-10">  <span class="" > <label class="m-4 color2"> <b>  CSS (Central)</b></span> <br> <span>  <b class="abc  px-4"> 29.77cr </b>  </label> </span> </div>
+      <div class=" tembor bg-info bg-opacity-10">  <span class="" > <label class="m-4 color2"> <b>CSS (State)  </b> </span> <br> <span>  <b class="abc  px-2">29.77cr </b>  </label> </span> </div>
+      <div class="tembor bg-info bg-opacity-10">  <span class="" > <label class="m-3 color2"> <b>  Rythu Bandhu <br> (Bill-wise) </b> </span> <br> <span>  <b class="abc  px-4">29.77cr </b> </label> </span> </div>
+      <div class="tembor bg-info bg-opacity-10">  <span class="" > <label class="m-3 color2"> <b> Palle/Pattana <br> Pragathi  </b> </span> <br> <span>  <b class="abc  px-4">29.77cr </b>  </label> </span> </div>
+      <div class="tembor bg-info bg-opacity-10">  <span class="" > <label class="m-4 color2"> <b>Admin of Justice </b>  </span> <br> <span>  <b class="abc  p-4">29.77cr </b>  </label> </span> </div>
+      <div class="tembor bg-info bg-opacity-10">  <span class="" > <label class="m-3 color2"> <b>  Medical and <br> health</b></span> <br> <span>  <b class="abc  p-4 ">29.77cr </b>  </label> </span> </div>
+      
+
+        
+
+
+
+    </div>
+        </div>
+        <div> 
+          .
+        </div>
+        <div> 
+          .
+        </div>
+
+        <div> 
+          .
+        </div>
+
+        <div> 
+          .
+        </div>
+        <div> 
+          .
+        </div>
+        <div> 
+          .
+        </div>
+
+        <div> 
+          .
+        </div>
+
+        <div> 
+          .
+        </div>
 
 
 
         </div>
-      </div>
-      
-      <div class="col-4 px-2"> 
-        <ul class="list-group">
-            <li class="list-group-item special text-white ">Special Categories</li>
-            <li class="list-group-item">Description <li class="list-group-item">Amount</li>  </li> 
-            <li class="list-group-item">No pending bills to approve</li>
-           
-        </ul>
 
 
-
+      <!-----final------>
+      <div class="next d-none d-md-block  position-absolute  end-0  bottom-0  translate-middle-y p-2  text-white rounded-5" style="writing-mode:vertical-lr; transform: rotate(270deg);" > 
+        <b class="sidebtn rounded-2" > NEED HELP ??    </b>           
       </div>
     </div>
-    </div>
-</div>
   </body>
 </html>
