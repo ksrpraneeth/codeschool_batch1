@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IFMIS</title>
+
+    <!-- Boostrap files-->
+    <link rel="stylesheet" href="/Task-3/bootstrap.min.css">
+    <script src="/Task-3/fontawesome-all.min.js"></script>
+    <!-- Jquery files-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- font awesome files -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="/Task-3/fontawesome-all.min.js"></script>
+
+    <!--CSS -->
+    <link rel="stylesheet" href="/Task-3/css/styles.css" />
+
+    <!--JS -->
+    <script src="/Task-3/Js/main.js"></script>
+</head>
+
+<body>
+    <div class="main">
+
+        <div class="body text-white overflow-auto">
+            <!-- Header -->
+            <div class="header p-3 d-flex align-items-center justify-content-center justify-content-md-between">
+                <!-- Left -->
+                <div class="left d-flex align-items-center">
+                    <div class="" role="button">
+                        <i class="fa fa-list" style="font-size: 17px;"></i>
+                    </div>
+                    <img src="imgs/Pixelvide_logo.png" alt=""
+                        class="d-none mx-3 d-md-block" style="height: 3.5rem;"/>
+                </div>
+                <div class="">
+                    <div class="d-flex align-items-center px-2" role="button">
+                        <span>ADMIN</span>
+                        <i class="fa fa-angle-double-down mx-2" style="font-size:15px"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex">
+                <div id="sidebar" class="sidebar overflow-auto">
+                    <ul class="menu list-unstyled text-white gap-5">
+                        <li class="p-3"><i class="fa fa-home fa-2x mx-2"></i>Home</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-box  fa-2x mx-2"></i>METER/DCT</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-book fa-2x mx-2"></i>MAP VIEW</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>R TDT</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>BILLING DATA</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>REPORTS</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-users fa-2x mx-2"></i>INSTALLER</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-bell fa-2x mx-2"></i>METERS ALARM</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>TASK LOGS</li>  
+                        <HR></HR>
+                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>ORGANIZATIONS</li>  
+                    </ul>
+                </div>
+                <!-- Table Data -->
+                <div class="col-lg-9 col-md-7 col-12 content p-4 text-dark rounded-3">
+                    <div class="heirTable mt-3" id="heirTable">
+                        <div class="bg-white">
+                            <div class="status d-flex align-items-center justify-content-between mt-2">
+                                <div class="d-flex">
+                                    <p class="m-auto mx-2"> <i class="fa fa-cog fa-spin"></i><span
+                                            class="ms-2">INSTALLER</span></p>
+                                    <button class="btn btn-sm btn-info fw-bold m-2 rounded-2"
+                                        data-bs-toggle="modal" data-bs-target="#addUserData"> <i
+                                            class="fa fa-plus fa-fw" style="height: 15px;"></i>
+                                        Add</button>
+                                    <button class="btn refresh bg-secondary fw-bold m-2"><i
+                                            class="fa fa-spinner fa-spin" style="font-size:15px"></i>
+                                    </button>
+                                    <input type="number" value="" class="m-2">
+                                    <button class="btn refresh bg-secondary fw-bold m-2">Search
+                                    </button>
+                                </div>
+                            </div>
+                            <table class="table table-bordered border-1" id="user_data">
+                                <tr>
+                                    <th scope="col">#Id</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">First_Name</th>
+                                    <th scope="col">Last_Name</th>
+                                    <th scope="col">Avatar</th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal modal-lg fade" id="addUserData" tabindex="-1" aria-labelledby="addUserDataLeb"
+        aria-hidden="true">
+        <div class="modal-dialog rounded-0">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h6 class="fw-bold">Add Data</h6>
+                    <button data-bs-dismiss="modal" type="button" class="btn-close"  aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-3 d-flex flex-column gap-2">
+                    <ul class="alert d-none alert-danger" id="errorList">
+                    </ul>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-sm-6">
+                            <div class="inputdata">
+                                <label>Id/Serial Number
+                                    <span class="text-danger">*</span></label>
+                                <input type="number" placeholder="Id/Serial Number" class="form-control" id="idNumber" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-sm-6">
+                            <div class="inputdata">
+                                <label>Email Id
+                                    <span class="text-danger">*</span></label>
+                                <input type="email" placeholder="Enter your Email Id" class="form-control" id="emailId" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-sm-6">
+                            <div class="inputdata">
+                                <label>First Name
+                                    <span class="text-danger">*</span></label>
+                                <input type="text"  placeholder="Enter you First Name" class="form-control"
+                                    id="firstName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-sm-6">
+                            <div class="inputdata">
+                                <label>Last Name
+                                    <span class="text-danger">*</span></label>
+                                <input type="text" placeholder="Enter your Last Name" class="form-control" id="lastName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-sm-6">
+                            <div class="inputdata">
+                                <label>Image Url
+                                    <span class="text-danger">*</span></label>
+                                <div class="searchData d-flex">
+                                    <input type="text" placeholder="Enter Image Url" class="form-control"
+                                        id="urlImg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button"  data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button class="btn btn-primary" type="submit"  id="addData">
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
