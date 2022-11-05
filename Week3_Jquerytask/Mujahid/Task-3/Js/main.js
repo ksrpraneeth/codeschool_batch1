@@ -8,7 +8,7 @@ $(document).ready(function () {
             user_data += '<td>' + value.email + '</td>';
             user_data += '<td>' + value.first_name + '</td>';
             user_data += '<td>' + value.last_name + '</td>';
-            user_data += '<td>' + value.avatar + '</td>';
+            user_data += '<td>' + '<img src=value.avatar></img>' + '</td>';
             user_data += '</tr>';
         });
         $('#user_data').append(user_data);
