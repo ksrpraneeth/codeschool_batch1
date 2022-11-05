@@ -130,9 +130,13 @@ p {
 }
 
 .bankStatusPopup{
-    right: 0;
     transform: translate(100%);
     transition: all ease 0.5s;
+    @media screen and(max-height: 500px) {
+        &{
+            top: 80px;
+        }
+    }
     .body{
         .list-group{
             .list-group-item{

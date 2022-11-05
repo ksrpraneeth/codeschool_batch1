@@ -88,9 +88,13 @@ p {
 }
 
 .bankStatusPopup {
-  right: 0;
   transform: translate(100%);
   transition: all ease 0.5s;
+}
+@media screen and (max-height: 500px) {
+  .bankStatusPopup {
+    top: 80px;
+  }
 }
 .bankStatusPopup .body .list-group .list-group-item img {
   width: 35px;
