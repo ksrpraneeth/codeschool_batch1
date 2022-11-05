@@ -93,7 +93,7 @@ p {
 }
 @media screen and (max-height: 500px) {
   .bankStatusPopup {
-    top: 80px;
+    top: 0px;
   }
 }
 .bankStatusPopup .body .list-group .list-group-item img {

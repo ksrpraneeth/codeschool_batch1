@@ -134,7 +134,7 @@ p {
     transition: all ease 0.5s;
     @media screen and(max-height: 500px) {
         &{
-            top: 80px;
+            top: 0px;
         }
     }
     .body{
