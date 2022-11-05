@@ -11,6 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous"></script>
+    <script src=
+        "https://code.jquery.com/jquery-3.5.1.min.js">
+    </script>
     <link rel="stylesheet" href="./index.css">
     <script src="./index.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
@@ -130,27 +133,27 @@
                     </div>
                     <div class="scaleList align-items-center" style="list-style-type:none">
                             <li class="text-primary " style="background-color:rgb(171, 220, 236)">Scale Type</li>
-                            <li class="d-flex align-items-center">
+                            <li class="d-flex align-items-center" onclick="togglePopup()">
                                 <img src="https://th.bing.com/th/id/R.199f1e575200abc29cc5ca79825840ea?rik=vZPYTZxzxNhAFQ&riu=http%3a%2f%2fwww.ciidesign.in%2fimages%2fpartners-logo%2f400x300%2ftelangana-state-logo.jpg&ehk=HEBZGBIQf%2fRBhdYYAlyv2aIUdKgXH82%2bBD8oRHVNorc%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" style="width:40px;height:30px;padding-left:0px;">
                                 <p>State Scale</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center">
+                            <li class="d-flex align-items-center" onclick="togglePopup()">
                                 <img src="https://wallpaperaccess.com/full/1386158.png" alt="" style="width:30px;height:30px;padding-left:8px;">
                                 <p class="px-2">All Indian Services</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center">
+                            <li class="d-flex align-items-center" id="scaleListUGC" onclick="togglePopup()">
                                 <img src="https://th.bing.com/th/id/R.424b0f2b83b28d94e333628d93d34038?rik=49QY%2bKxof2xL4w&riu=http%3a%2f%2fwww.lpu.in%2fabout_lpu%2fimages%2faccreditation%2fugc1.jpg&ehk=MQQYaLq250dEuhfGhBPLGJEj7wpXZrAowZdDtkm322w%3d&risl=&pid=ImgRaw&r=0" alt="" style="width:40px;height:30px;">
                                 <p>UGC</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center">
+                            <li class="d-flex align-items-center" onclick="togglePopup()">
                                 <img src="https://cialive.in/wp-content/uploads/2020/05/aicte_logo.png" alt="" class="mx-1" style="width:30px;height:30px;">
                                 <p>UGC</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center">
+                            <li class="d-flex align-items-center" onclick="togglePopup()">
                                 <img src="https://th.bing.com/th/id/R.199f1e575200abc29cc5ca79825840ea?rik=vZPYTZxzxNhAFQ&riu=http%3a%2f%2fwww.ciidesign.in%2fimages%2fpartners-logo%2f400x300%2ftelangana-state-logo.jpg&ehk=HEBZGBIQf%2fRBhdYYAlyv2aIUdKgXH82%2bBD8oRHVNorc%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" style="width:40px;height:30px;padding-left:0px;">
                                 <p>Other Special Cases</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center">
+                            <li class="d-flex align-items-center" onclick="togglePopup()">
                                 <img src="https://logodix.com/logo/1969668.jpg" alt="" style="width:30px;height:30px;padding-left:5px;">
                                 <p class="m-2">Judicial</p>
                             </li><hr class="p-0 m-0">
@@ -167,9 +170,22 @@
             <div>
                 <div></div>
                 <div class="sizeIcon d-flex  bg-secondary ">
-                <button type="button"  class="sizeDecrease">-A</button>
-                <button type="button"  class="sizeIncrease">+A</button>
+                <button type="button"  class="sizeDecrease m-3 text-white ">-A</button>
+                <button type="button"  class="sizeIncrease text-white ">+A</button>
             </div>
+            </div>
+        </div>
+    </div>
+    <div class="popUp">
+        <div onclick="togglePopup()" class="close-btn">
+            ×
+        </div>
+        <p id="uGC">UGC</p>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="popUpLeft"></div>
+            <div class="popUpright d-flex">
+                <p class="px-2">Search Anything</p>
+                <input type="search" id="popUpSearch" placeholder="Search here....">
             </div>
         </div>
     </div>

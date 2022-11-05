@@ -30,12 +30,45 @@
     font:white;
     border: 0ch;
     margin:10px;
+    background-color: rgb(56, 59, 249);
 }
 .sizeIcon .sizeDecrease{
     width:20px;
     height: 20px;
-    font-size: 0.5rem;
+    font-size: 0.6rem;
+    padding: 0;
+    align-items: center;
+    top:10px;
 }
 .sizeIcon .sizeIncrease{
+    width:40px;
+    height: 40px;
+    font-size: 1rem;
+    margin-left:0px;
     
+}
+
+.popUp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 200px;
+    text-align: center;
+    background-color: #e8eae6;
+    box-sizing: border-box;
+    padding: 10px;
+    z-index: 100;
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color: black;
+    color: white;
+    border-radius: 20%;
+    padding: 4px;
 }

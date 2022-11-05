@@ -14,3 +14,8 @@ window.onload = function () {
     document.getElementById("displayDateTime").innerHTML =
       date + "<br>" + strTime;
   };
+
+
+function togglePopup() {
+    $(".popUp").toggle();
+}
