@@ -7,175 +7,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IFMIS</title>
 
-    <!-- Boostrap files-->
-    <link rel="stylesheet" href="/Task-3/bootstrap.min.css">
-    <script src="/Task-3/fontawesome-all.min.js"></script>
-    <!-- Jquery files-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
-        integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- font awesome files -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="/Task-3/fontawesome-all.min.js"></script>
+    <!-- Boostrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
-    <!--CSS -->
-    <link rel="stylesheet" href="/Task-3/css/styles.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="../Task-3/fontawesome-all.min.js"></script>
 
-    <!--JS -->
-    <script src="/Task-3/Js/main.js"></script>
+    <!-- Custom JS -->
+    <script src="./Js/main.js"></script>
 </head>
 
 <body>
     <div class="main">
+        <div id="sidebar" class="sidebar overflow-auto">
+            <div class="left d-flex align-items-center" style="cursor: pointer;">
+                <div class="" role="button">
+                </div>
+                <img src="./imgs/Pixelvide_logo.png" alt="" class="d-none mx-auto my-3 d-md-block" style="height: 3.5rem;" />
+            </div>
+            <ul class="menu list-unstyled text-white gap-5" style="cursor: pointer;">
+                <li class="px-3"><i class="fa fa-home fa-2x mx-2"></i>Home</li>
+                <hr>
+                <li class="px-3"><i class="fa fa-box  fa-2x mx-2"></i>METER/DCT</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-book fa-2x mx-2"></i>MAP VIEW</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-file fa-2x mx-2"></i>R TDT</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-file fa-2x mx-2"></i>BILLING DATA</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-file fa-2x mx-2"></i>REPORTS</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-users fa-2x mx-2"></i>INSTALLER</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-bell fa-2x mx-2"></i>METERS ALARM</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-file fa-2x mx-2"></i>TASK LOGS</li>
+                <HR>
+                </HR>
+                <li class="px-3"><i class="fa fa-file fa-2x mx-2"></i>ORGANIZATIONS</li>
+            </ul>
+        </div>
 
         <div class="body text-white overflow-auto">
-            <!-- Header -->
             <div class="header p-3 d-flex align-items-center justify-content-center justify-content-md-between">
-                <!-- Left -->
-                <div class="left d-flex align-items-center">
-                    <div class="" role="button">
-                        <i class="fa fa-list" style="font-size: 17px;"></i>
+                <div class="left d-flex align-items-center gap-2">
+                    <div class="menuBtn fs-3" id="sidebarTog" role="button">
+                        <i class="bi bi-list"></i>
                     </div>
-                    <img src="imgs/Pixelvide_logo.png" alt=""
-                        class="d-none mx-3 d-md-block" style="height: 3.5rem;"/>
                 </div>
-                <div class="">
-                    <div class="d-flex align-items-center px-2" role="button">
+
+                <div>
+                    <div class="ADMINBtn d-flex align-items-center px-2" role="button">
                         <span>ADMIN</span>
-                        <i class="fa fa-angle-double-down mx-2" style="font-size:15px"></i>
+                        <i class="bi bi-chevron-double-down ms-2"></i>
                     </div>
                 </div>
             </div>
-            <div class="d-flex">
-                <div id="sidebar" class="sidebar overflow-auto">
-                    <ul class="menu list-unstyled text-white gap-5">
-                        <li class="p-3"><i class="fa fa-home fa-2x mx-2"></i>Home</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-box  fa-2x mx-2"></i>METER/DCT</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-book fa-2x mx-2"></i>MAP VIEW</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>R TDT</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>BILLING DATA</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>REPORTS</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-users fa-2x mx-2"></i>INSTALLER</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-bell fa-2x mx-2"></i>METERS ALARM</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>TASK LOGS</li>  
-                        <HR></HR>
-                        <li class="p-3"><i class="fa fa-file fa-2x mx-2"></i>ORGANIZATIONS</li>  
-                    </ul>
+
+            <div class="container p-4 text-dark content ">
+                <div class="d-flex align-items-center gap-2">
                 </div>
-                <!-- Table Data -->
-                <div class="col-lg-9 col-md-7 col-12 content p-4 text-dark rounded-3">
-                    <div class="heirTable mt-3" id="heirTable">
-                        <div class="bg-white">
-                            <div class="status d-flex align-items-center justify-content-between mt-2">
-                                <div class="d-flex">
-                                    <p class="m-auto mx-2"> <i class="fa fa-cog fa-spin"></i><span
-                                            class="ms-2">INSTALLER</span></p>
-                                    <button class="btn btn-sm btn-info fw-bold m-2 rounded-2"
-                                        data-bs-toggle="modal" data-bs-target="#addUserData"> <i
-                                            class="fa fa-plus fa-fw" style="height: 15px;"></i>
-                                        Add</button>
-                                    <button class="btn refresh bg-secondary fw-bold m-2"><i
-                                            class="fa fa-spinner fa-spin" style="font-size:15px"></i>
-                                    </button>
-                                    <input type="number" value="" class="m-2">
-                                    <button class="btn refresh bg-secondary fw-bold m-2">Search
-                                    </button>
-                                </div>
-                            </div>
-                            <table class="table table-bordered border-1" id="user_data">
-                                <tr>
-                                    <th scope="col">#Id</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">First_Name</th>
-                                    <th scope="col">Last_Name</th>
-                                    <th scope="col"><img src="images/image1.jpg" alt="Avatar" id="profileImage">
-                                    </th>
-                                </tr>
-                            </table>
-                        </div>
+                <div class="status d-flex align-items-center justify-content-between mt-2">
+                    <div class="d-flex">
+                        <p class="m-auto mx-2"><i class="fa fa-spinner fa-spin" style="font-size:15px"></i><span
+                                class="ms-2">INSTALLER</span>
+                        </p>
+                        <div class="btn btn-sm btn-light fw-bold m-auto" data-bs-toggle="modal" data-bs-target="#serDataModal">Add Data </div>
+                        <input type="number" value="" class="m-2">
+                        <button class="btn refresh bg-secondary fw-bold m-2">Search
+                        </button>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="fw-bold fs-6">Data</p>
+                    <div class="bg-white">
+                        <table id="userData" class="table">
+                            <tr>
+                                <th>#Id</th>
+                                <th>Email</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Avatar/Image</th>
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal modal-lg fade" id="addUserData" tabindex="-1" aria-labelledby="addUserDataLeb"
+    <!-- MODAL -->
+    <div class="modal modal-lg fade" id="serDataModal"
         aria-hidden="true">
         <div class="modal-dialog rounded-0">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h6 class="fw-bold">Add Data</h6>
-                    <button data-bs-dismiss="modal" type="button" class="btn-close"  aria-label="Close"></button>
+                    <p class="title fw-bold p-0 m-0" style="font-weight: 900;">Fill details</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-3 d-flex flex-column gap-2">
+                <div class="modal-body p-3 d-flex flex-column gap-3">
+                    <!-- Errors -->
                     <ul class="alert d-none alert-danger" id="errorList">
                     </ul>
                     <div class="row justify-content-between">
                         <div class="col-12 col-sm-6">
-                            <div class="inputdata">
-                                <label>Id/Serial Number
+                            <div class="inputGroup">
+                                <label  >#Id / Serial Number
                                     <span class="text-danger">*</span></label>
-                                <input type="number" placeholder="Id/Serial Number" class="form-control" id="idNumber" />
+                                <input type="text" placeholder="Serial Number" class="form-control" id="idNum" />
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6">
+                            <div class="inputGroup">
+                                <label  >Email Id
+                                    <span class="text-danger">*</span></label>
+                                <input type="email" inputmode="Your Email Id" placeholder="Ente ryour Email Id" class="form-control" id="emailId" />
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-between">
                         <div class="col-12 col-sm-6">
-                            <div class="inputdata">
-                                <label>Email Id
+                            <div class="inputGroup">
+                                <label  >First Name
                                     <span class="text-danger">*</span></label>
-                                <input type="email" placeholder="Enter your Email Id" class="form-control" id="emailId" />
+                                <input type="text"  placeholder="Enter your First Name" class="form-control"
+                                    id="fName" />
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-between">
                         <div class="col-12 col-sm-6">
-                            <div class="inputdata">
-                                <label>First Name
+                            <div class="inputGroup">
+                                <label  >Last Name
                                     <span class="text-danger">*</span></label>
-                                <input type="text"  placeholder="Enter you First Name" class="form-control"
-                                    id="firstName" />
+                                <input type="text" placeholder="Enter your Last Name" class="form-control" id="lName" />
                             </div>
                         </div>
                     </div>
                     <div class="row justify-content-between">
                         <div class="col-12 col-sm-6">
-                            <div class="inputdata">
-                                <label>Last Name
+                            <div class="inputGroup">
+                                <label  >Img url
                                     <span class="text-danger">*</span></label>
-                                <input type="text" placeholder="Enter your Last Name" class="form-control" id="lastName" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row justify-content-between">
-                        <div class="col-12 col-sm-6">
-                            <div class="inputdata">
-                                <label>Image Url
-                                    <span class="text-danger">*</span></label>
-                                <div class="searchData d-flex">
-                                    <input type="text" placeholder="Enter Image Url" class="form-control"
-                                        id="urlImg" />
+                                <div class="searchInput d-flex">
+                                    <input type="text" placeholder="Ente img url" class="form-control"
+                                        id="imgUrl" />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button"  data-bs-dismiss="modal">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
                         Close
                     </button>
-                    <button class="btn btn-primary" type="submit"  id="addData">
+                    <button type="button" class="btn btn-primary" id="submitDataBtn">
                         Save
                     </button>
                 </div>
@@ -183,5 +186,4 @@
         </div>
     </div>
 </body>
-
 </html>

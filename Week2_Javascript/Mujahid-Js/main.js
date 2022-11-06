@@ -112,7 +112,7 @@ function validateForm(event) {
     // };
     // }
     if (/^-?\d+$/.test(partyAccNum) == false) {
-        errors.push("Party Account number must be numbers");
+        errors.push("Party Account number must be ...");
     }
     if (partyAccNum != conPartyAccNum) {
         errors.push("Party Account numbers should be same");

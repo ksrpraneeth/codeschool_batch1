@@ -8,77 +8,76 @@ $(document).ready(function () {
             user_data += '<td>' + value.email + '</td>';
             user_data += '<td>' + value.first_name + '</td>';
             user_data += '<td>' + value.last_name + '</td>';
-            user_data += '<td>' + '<img src=value.avatar></img>' + '</td>';
+            user_data += '<td> <img src=' + value.avatar + '</td>';
             user_data += '</tr>';
         });
-        $('#user_data').append(user_data);
-    });
-    function renderData() {
-        window.userData.forEach((user) => {
-            $("#user_data").append(`<tr>
-            <td>${user.id}</td>
-            <td>${user.email}</td>
-            <td>${user.first_name}</td>
-            <td>${user.last_name}</td>
-            <td>${user.avatar}</td>
-            </tr>`);
-        });
-    }
-    (function ($, window, document) {
-        $(() => {
-            window.userData = [];
-            window.ifscCodeValid = false;
-
-            $("#addData").click(() => {
-                var errorsElement = $("#errorList");
-                let errors = [];
-                errorsElement.addClass("d-none");
-                let idNumber = $("#idNumber").val();
-                let emailId = $("#emailId").val();
-                let firstName = $("#firstName").val();
-                let lastName = $("#lastName").val();
-                let urlImg = $("#urlImg").val();
-
-
-                if (idNumber.length == 5 || idNumber.length > 20) {
-                    errors.push(
-                        "Serial Number should be greater than 5"
-                    );
-                }
-
-                if (firstName.length == 0 || firstName.length == 20) {
-                    errors.push("Enter Valid Name");
-                }
-
-                if (firstName.length == 0) {
-                    errors.push("First name Number shouldn't be empty");
-                }
-
-                if (lastName.length == 0) {
-                    errors.push("Last Name shouldn't be empty");
-                }
-
-                if (errors.length > 0) {
-                    errorsElement.html("");
-
-                    errors.forEach((error) => {
-                        errorsElement.append(`<li>${error}</li>`);
-                    });
-
-                } else {
-                    bankData.push({ idNumber,emailId,number,lastName,ifscCode,});
-                    renderData()
-                    $("#addUserData").modal("hide");
-                    $("#idNumber").val("");
-                    $("#emailId").val("");
-                    $("#firstName").val("");
-                    $("#lastName").val("");
-                    $("#urlImg").val("");
-                }
-            });
-        });
+        $('#userData').append(user_data);
     });
 });
 
+(function ($, window, document) {
+    $(() => {
+        window.emptyData = [];
+        $("#submitDataBtn").click(() => {
+            var errorsElement = $("#errorList");
+            let errors = [];
+            errorsElement.addClass("d-none");
+            let id = $("#idNum").val();
+            let email = $("#emailId").val();
+            let fname = $("#fName").val();
+            let lName = $("#lName").val();
+            let url = $("#imgUrl").val();
 
+            if (id.length != 1 || isNaN(id) == true) {
+                errors.push("Plase enter the id in single digit");
+            }
 
+            if (email.length == 0 || email.length > 20) {
+                errors.push("Plase input your email id");
+            }
+
+            if (fname.length == 0 || fname.length > 20) {
+                errors.push("Please enter your first name");
+            }
+            
+            if (lName.length == 0 || lName.length > 20) {
+                errors.push("Please enter your Last name");
+            }
+
+            if (url.length == 0 || url.length > 500) {
+                errors.push("Should contain a url including http:");
+            }
+
+            if (errors.length > 0) {
+                errorsElement.html("");
+
+                errors.forEach((error) => {
+                    errorsElement.append(`<li>${error}</li>`);
+                });
+
+                errorsElement.removeClass("d-none");
+            } else {
+                emptyData.push({id,email,fname,lName,url,});
+                showData()
+                $("#serDataModal").modal("hide");
+                $("#idNum").val("");
+                $("#emailId").val("");
+                $("#fName").val("");
+                $("#lName").val("");
+                $("#imgUrl").val('<td> <img src=' + value.avatar + '</td>');
+            }
+        });
+
+        function showData() {
+            window.emptyData.forEach((bank) => {
+                $("#userData").append(`<tr>
+                <td>${bank.name}</td>
+                <td>${bank.email}</td>
+                <td>${bank.fname}</td>
+                <td>${bank.lName}</td>
+                <td>${bank.url}</td>
+                </tr>`);
+            });
+        }
+    });
+})(window.jQuery, window, document);
