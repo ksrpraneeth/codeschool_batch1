@@ -16,9 +16,14 @@
  li{
     padding:10px;
 }
-.scaleList li :hover{
-    background: gray;
+.scaleList  :hover{
+    background: rgb(178, 178, 178);
+
 }
+
+.hrAtGlance  :hover{
+    background: rgb(178, 178, 178);
+} 
 .sizeIcon {
     position: absolute;
 
@@ -53,10 +58,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 500px;
-    height: 200px;
-    text-align: center;
-    background-color: #e8eae6;
+    width: 800px;
+    height: 500px;
+    background-color: white;
     box-sizing: border-box;
     padding: 10px;
     z-index: 100;
@@ -67,8 +71,22 @@
     position: absolute;
     right: 20px;
     top: 20px;
-    background-color: black;
+    background-color:gray;
     color: white;
-    border-radius: 20%;
-    padding: 4px;
+    border-radius: 10%;
+    text-align: center;
+    width: 10px;
+    height: 20px;
+    margin: 0px;
+}
+
+.popUp table tr th{
+    width: 250px;;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.popUp table tr td{
+    padding-left: 30px;
+    padding-bottom: 10px;
 }

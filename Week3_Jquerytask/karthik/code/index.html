@@ -133,27 +133,27 @@
                     </div>
                     <div class="scaleList align-items-center" style="list-style-type:none">
                             <li class="text-primary " style="background-color:rgb(171, 220, 236)">Scale Type</li>
-                            <li class="d-flex align-items-center" onclick="togglePopup()">
+                            <li class="d-flex align-items-center" onclick="togglePopupStateScale()">
                                 <img src="https://th.bing.com/th/id/R.199f1e575200abc29cc5ca79825840ea?rik=vZPYTZxzxNhAFQ&riu=http%3a%2f%2fwww.ciidesign.in%2fimages%2fpartners-logo%2f400x300%2ftelangana-state-logo.jpg&ehk=HEBZGBIQf%2fRBhdYYAlyv2aIUdKgXH82%2bBD8oRHVNorc%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" style="width:40px;height:30px;padding-left:0px;">
                                 <p>State Scale</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center" onclick="togglePopup()">
+                            <li class="d-flex align-items-center" onclick="togglePopupAllIndiaServices()">
                                 <img src="https://wallpaperaccess.com/full/1386158.png" alt="" style="width:30px;height:30px;padding-left:8px;">
                                 <p class="px-2">All Indian Services</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center" id="scaleListUGC" onclick="togglePopup()">
+                            <li class="d-flex align-items-center" id="scaleListUGC" onclick="togglePopupUGC()">
                                 <img src="https://th.bing.com/th/id/R.424b0f2b83b28d94e333628d93d34038?rik=49QY%2bKxof2xL4w&riu=http%3a%2f%2fwww.lpu.in%2fabout_lpu%2fimages%2faccreditation%2fugc1.jpg&ehk=MQQYaLq250dEuhfGhBPLGJEj7wpXZrAowZdDtkm322w%3d&risl=&pid=ImgRaw&r=0" alt="" style="width:40px;height:30px;">
                                 <p>UGC</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center" onclick="togglePopup()">
+                            <li class="d-flex align-items-center" onclick="togglePopupAICTE()">
                                 <img src="https://cialive.in/wp-content/uploads/2020/05/aicte_logo.png" alt="" class="mx-1" style="width:30px;height:30px;">
-                                <p>UGC</p>
+                                <p>AICTE</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center" onclick="togglePopup()">
+                            <li class="d-flex align-items-center" onclick="togglePopupOtherSpecialCases()">
                                 <img src="https://th.bing.com/th/id/R.199f1e575200abc29cc5ca79825840ea?rik=vZPYTZxzxNhAFQ&riu=http%3a%2f%2fwww.ciidesign.in%2fimages%2fpartners-logo%2f400x300%2ftelangana-state-logo.jpg&ehk=HEBZGBIQf%2fRBhdYYAlyv2aIUdKgXH82%2bBD8oRHVNorc%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" style="width:40px;height:30px;padding-left:0px;">
                                 <p>Other Special Cases</p>
                             </li><hr class="p-0 m-0">
-                            <li class="d-flex align-items-center" onclick="togglePopup()">
+                            <li class="d-flex align-items-center" onclick="togglePopupJudicial()">
                                 <img src="https://logodix.com/logo/1969668.jpg" alt="" style="width:30px;height:30px;padding-left:5px;">
                                 <p class="m-2">Judicial</p>
                             </li><hr class="p-0 m-0">
@@ -167,8 +167,8 @@
                     <li>under Suspension</li>
                 </div>
             </div>
-            <div>
-                <div></div>
+            </div>
+            
                 <div class="sizeIcon d-flex  bg-secondary ">
                 <button type="button"  class="sizeDecrease m-3 text-white ">-A</button>
                 <button type="button"  class="sizeIncrease text-white ">+A</button>
@@ -180,14 +180,44 @@
         <div onclick="togglePopup()" class="close-btn">
             ×
         </div>
-        <p id="uGC">UGC</p>
+        <p id="uGC" class="align-items-start">UGC</p><hr>
         <div class="d-flex justify-content-between align-items-center">
             <div class="popUpLeft"></div>
             <div class="popUpright d-flex">
-                <p class="px-2">Search Anything</p>
+                <p class="px-2 m-0">Search Anything</p>
                 <input type="search" id="popUpSearch" placeholder="Search here....">
             </div>
-        </div>
+        </div><hr>
+        <table class="popUpData" id="popUpData">
+            <tr>
+                <th>S.No</th>
+                <th>id</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td id="uGCid1" ></td>
+                <td id="uGCeMail1"></td>
+                <td id="uGCfirstName1"></td>
+                <td id="uGClastName1"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td id="uGCid2"></td>
+                <td id="uGCeMail2"></td>
+                <td id="uGCfirstName2"></td>
+                <td id="uGClastName2"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td id="uGCid3"></td>
+                <td id="uGCeMail3"></td>
+                <td id="uGCfirstName3"></td>
+                <td id="uGClastName3"></td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
