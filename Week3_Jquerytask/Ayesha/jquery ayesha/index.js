@@ -1,3 +1,8 @@
+ // Hide sidebar
+ $("#sidebarToggler").click(() => {
+    $("#sidebar").toggleClass("hide");
+});
+
 $(document).ready(function()
 {
 $.ajax({
@@ -140,12 +145,12 @@ showSuccess(ifsc,'','ifscerror');
                             console.log(data);
     
                             // Ajax call completed successfully
-                            alert("Form Submited Successfully");
+                            $("#message").text("Form submitted successfully!");
                         },
                         error: function (data) {
                             console.log(data);
                             // Some error in ajax call
-                            alert("some Error");
+                            $("#message").text("Error!");
                         }
                     });
                 });
