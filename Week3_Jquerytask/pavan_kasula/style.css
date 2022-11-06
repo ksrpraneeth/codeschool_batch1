@@ -31,7 +31,7 @@ p{
   border:1px ;
   border-radius: 0px;
   border-style: dotted;
-  border-color:blue;
+  border-color:rgb(105, 105, 255);
 }
 
 .fontdortable
@@ -45,7 +45,7 @@ p{
   border:1px ;
   border-top-style: dotted;
   border-right-style: dotted;
-  border-color:blue;
+  border-color:rgb(120, 120, 255);
 
 }
 
@@ -53,7 +53,7 @@ p{
 {
   border:1px ;
   border-right-style: dotted;
-  border-color:blue;
+  border-color:rgb(115, 115, 255);
 }
 
 .priorityborder
@@ -61,7 +61,8 @@ p{
   border:1px ;
   border-top-style: dotted;
   
-  border-color:blue;
+  border-color:rgb(116, 116, 255);
+ 
 
 }
 
@@ -74,7 +75,7 @@ p{
 {
   border:1px;
   border-style:dotted;
-  border-color:rgba(0, 4, 255, 0.521);
+  border-color:rgba(91, 93, 233, 0.521);
 }
 
 .fontchange
@@ -109,4 +110,53 @@ font-size:18px;
   color: rgb(255, 255, 255);
   background-color: rgb(0, 39, 73);
 
+}
+
+.prio
+{
+  color: rgb(238, 255, 0);
+  font-size: medium;
+}
+
+.content {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  width: 350px;
+  text-align:start;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 10px;
+  z-index: 100;
+  display: none;
+  /*to hide popup initially*/
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  padding: 4px;
+}
+.fonting
+{
+  font-size: x-small;
+}
+
+.refreshcolor
+{
+  color: #751700;
+  
+}
+
+.fontsize1
+{
+  font-size: 5px;
+}
+.fontsize2
+{
+  font-size: 12px;
 }

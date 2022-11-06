@@ -20,6 +20,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
     <script src="script.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -37,7 +38,7 @@
             class="bg-image d-flex align-items-center justify-content-md-between justify-content-around"
             style="background-image: url('bg_city.jpeg')"
           >
-            <div class="col-3 left d-flex align-items-center">
+            <div class="col-3 d-none d-md-block left d-flex align-items-center">
               <img
                 class="w-75"
                 src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"
@@ -45,6 +46,16 @@
                 style=""
               />
             </div>
+              <div class="d-xs-block   d-lg-none  d-flex ms-5"> 
+                <img
+                 src="https://ifmis.telangana.gov.in/images/govt_logo.png"
+                   width="60px"
+                       height="60px"
+                       class=""
+                       alt="..." />
+                  <h3 class="text-white">IFMIS</h3>
+                </div>
+           
             <div class="gap"></div>
 
             <div class="col-6 center text-white d-flex align-items-center">
@@ -68,7 +79,7 @@
                 </button>
               </div>
 
-              <div class="px-1">
+              <div class="px-1 d-none d-md-block">
                 <button
                   type="button"
                   class="btn btn-secondary rounded-0 d-flex align-items-center"
@@ -96,6 +107,8 @@
               </div>
               &nbsp; &nbsp;
 
+
+             <div class="d-none d-md-block"> 
               <div class="align-items-center d-flex bg-white px-2">
                 <i class="fa-solid fa-magnifying-glass text-dark"></i>
                 <input
@@ -105,6 +118,7 @@
                   placeholder="EMPCODE/Bank Ac No"
                 />
               </div>
+            </div>
 
               <div class="right d-flex align-items-center">
                 <div class="row text-white d-none d-lg-block px-2">
@@ -112,7 +126,7 @@
                     Last Login
                   </h6>
                   <h6
-                    class="m-0"
+                    class="displayDateTime m-0 text-white"
                     style="font-size: 10px"
                     id="displayDateTime"
                   ></h6>
@@ -144,7 +158,7 @@
                   />
                 </svg>
 
-                <p class="m-0" style="font-size: 12px">(govt_demo)</p>
+                <p class="d-none d-md-block m-0" style="font-size: 12px">(govt_demo)</p>
               </button>
 
               <ul class="dropdown-menu rounded-0">
@@ -212,22 +226,229 @@
       </div>
 
       <!---------------------------------------------------------------------------------------------->
-      <div class="bg-white mt-2 px-2">
-        <div> 
-
-
-          
+      <div class="col-12 bg-white mt-2 px-3">
+        <div class="nav col-12">
+          <nav class="navbar navbar-expand-lg navbar">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="nav nav-tabs" style="font-size:larger">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Expenditure</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-black" href="#">Analytics Dashboard</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link text-black" href="#">HR</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-black" href="#">Daily Reports</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-black" href="#">Vehcle Hire(0)</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-black" href="#">BRO(4)s</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
         </div>
+
+        <!--------------------------------------->
+  <div class="col-12 d-md-flex">
+        <div class="row  col-12 col-md-8  d-md-flex justify-content-between">
+          <div class="left col-12 col-md-6 d-flex ">
+            <div> 
+              <button class="btn btn-success " style="font-size:15px">
+                <i class="fa-solid fa-magnifying-glass" ></i> Quick Search
+              </button>
+            </div>
+            
+              <div class="text-dark d-md-flex d-none d-lg-block px-2  ">
+                <i class="fa fa-calendar" ></i>
+
+                <label
+                class="m-0 text-black"
+                style="font-size:13px"
+                id="displayDate"
+              > </label>
+              <span class="text-dark" id="id12"> </span> 
+            </div>
+          
+          <div class="align-items-center">  
+              <label
+              class="m-0 text-black"
+              style="font-size: 13px"
+              id="displayTime"
+            ></label>
+
+             
+            </div>
+      
+          </div>
+          <div class="col-12 col-md-6 right d-flex"> 
+            <div class="" style="font-size:13px"> 
+              <p> Tot adj: <b id="totadj"> </b>cr &nbsp; ,Tot cash: <b id="totcash"> </b>cr </p>
+              
+              
+      
+      
+            </div>
+            &nbsp;
+            <div class="px-2 py-1 border-3" style="font-size:15px" onclick=" APICALL()" > 
+              <i class="p-1 border1 fa-solid fa-rotate" ></i>
+            </div>
+            &nbsp; &nbsp;
+      
+            <div class="">
+              <div class="border1 btn btn-white dropdown-toggle" style="font-size:12px" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+               To Be Authorized
+              </div> 
+              </div>
+          </div>
+         
+
+          <div class="col-12 fontdortable d-md-flex "> 
+            <div class="w3-panel w3-card  rounded-2 p-2 ms-3"> 
+            <div class="col-12 row"> 
+              <div  class="col-6 col-md-3  p-2 px-4 rightborder">  <span > <label> <img src="museum.png" height="25px" width="25px"> PAO </span> <br> <span>  <b class="abc" id="paoid"> </b> <b class="abc" >.3</b> cr (6158) </label> </span> </div>
+              <div class="col-6 col-md-3 p-2 px-2  rightborder">  <span > <label> <img src="pay1.png" height="25px" width="25px">PD (ROS + CAP) </span> <br> <span>  <b class="abc" id="rosid"> </b> <b class="abc" >.1</b> cr (3094) </label> </span> </div>
+              <div  class="col-6 col-md-3  p-2  px-4 rightborder">  <span> <label> <img src="pay1.png" height="25px" width="25px"> PD (10L) </span> <br> <span>  <b class="abc" id="pdid"> </b> <b class="abc" >.8</b> cr (6158) </label> </span> </div>
+              <div class="col-6 col-md-3 p-2 px-4 ">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DTA (Adj) </span> <br> <span>  <b class="abc" id="dtaid"> </b> <b class="abc" >.5</b> cr (147) </label> </span> </div>
+              
+        
+          </div>
+          <div class="col-12  row ">
+            <div class="col-6 col-md-3 p-2 topborder">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DTA (cash) </span>  <span> <br> <b class="abc" id="dtacash"> </b> <b class="abc" >.4</b> cr (178681) </label> </span> </div>
+            <div class="col-6 col-md-3 p-2 topborder">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DWA (Works) </span>  <span>  <b class="abc" id="dwaworks">  </b> <b class="abc" >.6</b> cr (2503) </label> </span> </div>
+            <div class="col-6 col-md-3 p-2 topborder">  <span > <label> <img src="money (2).png" height="30px" width="35px"> DWA (Est.Othr) </span> <br> <span>  <b class="abc" id="dwaest"> </b> <b class="abc" >.7</b> cr (13421) </label> </span> </div>
+            <div class="col-6 col-md-3 p-3 priorityborder">  <span > <label> <i class="fa-solid fa-star iconcolor prio "></i> Priority </span> <br> <span>  <b class="abc" id="priority"> </b> <b class="abc" >.9</b> cr (664) </label> </span> </div>
+              
+          </div>
+           </div>
+          
+          &nbsp; &nbsp;
+          <div class="col-12 col-md-2 bg-warning bg-opacity-25 col-2  w3-panel w3-card ms-3 p-2"> 
+            <div  class="col-12 mb-3">  <span > <label> <img src="cheque.png" height="28px" width="25px"> Regular Salary </span>  <span  class="abc px-4">  <b id="regsal"></b> <b class="abc" >.1</b> cr  </label> </span> </div>
+            <div class="col-12 py-2 priorityborder">  <span > <label> <img src="money.png" height="30px" width="35px">Pension Salary</span>  <span  class="abc px-4">  <b id="pensal"> </b> <b class="abc" >.9</b> cr </label> </span> </div>
+             </div> 
+             
+        </div>
+
+        <div class="col-12">
+          <div>   <p class="color2 py-2 px-3" > <b>  Temporary Categories</b> </p> 
+          </div>
+          <div class=" d-md-flex temper p-3">
+
+            <div class="table3 bg-info bg-opacity-10"> <p  class="m-4 color2"> <b> COVID def <br> pay (salaries) </b>  </p>  <p class="abc  p-2"> <span id="TC1"></span> cr</p> </div>
+            <div class="table3 bg-info bg-opacity-10"> <p  class="m-4 color2"> <b> CSS (State) </b>  </p>  <p class="abc  p-4"> <span id="TC2"></span> cr</p> </div>
+            <div class="table3 bg-info bg-opacity-10"> <p  class="m-4 color2"> <b> Rythu Bandhu <br> (Bill-wise) </b>  </p>  <p class="abc  p-2"> <span id="TC3"></span> cr</p> </div>
+            <div class="table3 bg-info bg-opacity-10"> <p  class="m-4 color2"> <b> Palle/Pattana <br> Pragathi  </b>  </p>  <p class="abc  p-2"> <span id="TC4"></span> cr</p> </div>
+            <div class="table3 bg-info bg-opacity-10"> <p  class="m-4 color2"> <b> Admin of Justice </b>  </p>  <p class="abc  p-4"> <span id="TC5"></span> cr</p> </div>
+            <div class="table3 bg-info bg-opacity-10"> <p  class="m-4 color2"> <b>Medical and <br> health</b>  </p>  <p class="abc  p-2"> <span id="TC6"></span> cr</p> </div>
+
+
+          </div>
+        </div>
+          
+
+        </div>
+        &nbsp;
+        <div class="col-4 d-none d-md-block"> 
+          <ul class="list-group w3-card">
+              <li class="list-group-item special text-white ">Special Categories</li>
+              <li class="list-group-item">Description <li class="list-group-item">Amount</li></li> 
+              <li class="list-group-item">No pending bills to approve</li>
+             
+          </ul>
+      
+      
+      
+        </div>
+      
+
+        
+
+
+      </div>
+
+        <!----navbar end -->
         <!------------------------------------------------------------------------------------------------------------------------------------------>
 
         <div
           class="next d-none d-md-block position-fixed end-0 bottom-0 translate-middle-y p-2 text-white rounded-5"
           style="writing-mode: vertical-rl; transform: rotate(270deg)"
         >
-          <b class="sidebtn rounded-2 p-3">
+          <b class="sidebtn rounded-2 p-3" role="button" onclick="togglePopup()">
             <i class="fa-solid fa-building-columns"></i> BanK Status
           </b>
         </div>
+        <div class="content fonting w3-card-2">
+          <div onclick="togglePopup()" class="close-btn" role="button">
+              ×
+          </div>
+
+       <span class="d-flex align-items-baseline">
+         <h3>Bank Status</h3> &nbsp; 
+        <p class="refreshcolor fonting" style="font-style:italic">Refresh for the latest</p> &nbsp;
+       <img src="reload.png" height="30px" width="28px" onclick=" APICALL()" >
+       </span>  
+       
+
+        <div class="d-flex bg-warning bg-opacity-25">
+          <div class="left px-3"> <img src="cheque.png" height="40px" width="40px"></div> &nbsp;
+          <div class="right">
+              <label class="fontsize2">Approved today</label> <br> 
+              <label class="fontsize1">(VIEW DETAILS)</label> <br> 
+              <label> Cash</label> <b id="POP1" > </b>  <b> .71</b> <label> Cr Adj <b>0 </b> Cr </label> 
+           </div>
+           
+                
+      </div>
+      <div class="d-flex">
+          <div class="left px-3"> <img src="like.png" height="40px" width="40px"></div>
+          <div class="right">
+              <label class="fontsize2">READY FOR PAYMENT</label><br> 
+              <label> <b id="POP2"></b> <b> .84</b>Cr </label> 
+           </div>
+           
+                
+      </div>
+  
+      <div class="d-flex">
+          <div class="left px-3"> <img src="rupee.png" height="40px" width="40px"></div>
+          <div class="right">
+              <label class="fontsize2">SENT TO BANK</label> <br> 
+              <label> <b id="POP3"> </b>  <b> .45</b> Cr </label> 
+           </div>
+           
+                
+      </div>
+      <div class="d-flex">
+          <div class="left px-3"> <img src="museum.png" height="40px" width="40px"></div>
+          <div class="right">
+              <label class="fontsize2">AT THE BANK</label> <br> 
+              <label> <b id="POP4"> </b>  <b> .59</b> Cr </label> 
+           </div>
+           
+                
+      </div>
+    
+      <div class="d-flex">
+          <div class="left px-3"> <img src="cheque.png" height="40px" width="40px"></div>
+          <div class="right">
+              <label class="fontsize2">PAID TODAY</label> <br> 
+              <label> <b id="POP5"> </b> <b> .72</b> Cr </label> 
+           </div>
+           
+                
+      </div>
+          
+          
+      </div>
+
         <!------------------------------------------------------------------------------------------------------------------------->
       </div>
     </div>
