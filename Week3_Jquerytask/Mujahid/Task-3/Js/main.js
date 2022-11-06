@@ -13,11 +13,25 @@ $(document).ready(function () {
         });
         $('#userData').append(user_data);
     });
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#userData tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
 });
+
 
 (function ($, window, document) {
     $(() => {
         window.emptyData = [];
+
+        $("#sidebarToggler").click(() => {
+            $("#sidebar").toggleClass("hide");
+        });
+        
         $("#submitDataBtn").click(() => {
             var errorsElement = $("#errorList");
             let errors = [];
@@ -32,20 +46,36 @@ $(document).ready(function () {
                 errors.push("Plase enter the id in single digit");
             }
 
-            if (email.length == 0 || email.length > 20) {
-                errors.push("Plase input your email id");
+            if (email == '') {
+                $('#emailId').next().show();
+                return false;
             }
+
+            if (IsEmail(email) == false) {
+                $('#invalid_email').show();
+                return false;
+            }
+
 
             if (fname.length == 0 || fname.length > 20) {
                 errors.push("Please enter your first name");
             }
-            
+
             if (lName.length == 0 || lName.length > 20) {
                 errors.push("Please enter your Last name");
             }
 
             if (url.length == 0 || url.length > 500) {
                 errors.push("Should contain a url including http:");
+            }
+
+            function IsEmail(email) {
+                var regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if (!regex.test(email)) {
+                    errors.push("Please enter your Email");
+                } else {
+                    return true;
+                }
             }
 
             if (errors.length > 0) {
@@ -57,7 +87,7 @@ $(document).ready(function () {
 
                 errorsElement.removeClass("d-none");
             } else {
-                emptyData.push({id,email,fname,lName,url,});
+                emptyData.push({ id, email, fname, lName, url, });
                 showData()
                 $("#serDataModal").modal("hide");
                 $("#idNum").val("");
@@ -71,7 +101,7 @@ $(document).ready(function () {
         function showData() {
             window.emptyData.forEach((bank) => {
                 $("#userData").append(`<tr>
-                <td>${bank.name}</td>
+                <td>${bank.id}</td>
                 <td>${bank.email}</td>
                 <td>${bank.fname}</td>
                 <td>${bank.lName}</td>

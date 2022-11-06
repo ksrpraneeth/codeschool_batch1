@@ -1,51 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700;900&display=swap');
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&family=Roboto:wght@300;500;700;900&display=swap');
 
 * {
     font-family: 'Roboto', sans-serif;
-        font-size: 14px;
+    font-weight: 500;
+    font-size: 13px;
+
 }
 
+body {
+    margin: 0 !important;
 
-p {
-    margin: 0;
+}
+
+.main {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.main .hide {
+    margin-left: -250px;
 }
 
 .main .sidebar {
+    background-color: #092852;
     min-width: 250px;
     max-width: 250px;
-    background-color: #092852;
-}
-
-.main .sidebar .sidebarHeader {
-    border-bottom: solid 1px gray;
-}
-
-.main .sidebar .sidebarHeader i {
-    font-size: 50px;
+    transition: all ease 0.5s;
 }
 
 .main .body {
     width: 100%;
-    background-color: lightgray;
+    background-color: rgb(228, 216, 216);
 }
 
 .main .body .header {
-    background-color: #051a37;
+    background-color: #041d41;
+}
+
+
+.main .body .header .left img {
+    width: 200px;
+}
+
+
+.main .body .header .right .logoutBtn:hover {
+    background-color: #092852;
+    transition: all ease 0.3s;
 }
 
 
 
-.modal .modal-header {
-    background-color: #e4e4e4;
+
+.main .body .content .section .right .warning {
+    background-color: #f9f796;
+    color: brown;
+    text-align: center;
 }
+
 
 .modal .modal-header .title {
-    color: #0d4694;
-}
-
-.modal .modal-content {
-    font-weight: 500;
+    color: #124996;
 }
 
 .modal .modal-content input {
@@ -53,21 +69,12 @@ p {
     border-radius: 0 !important;
 }
 
-.modal .modal-footer button {
-    font-size: 12px;
-}
-.main {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-}
-@media (max-width: 786px) {
+@media (max-width: 768px) {
     .sidebar {
-        margin-left: -260px;
+        margin-left: -250px;
     }
 
     .hide {
         margin-left: 0px !important;
     }
 }
-
