@@ -28,10 +28,11 @@
 <body>
     <div class="main">
         <div id="sidebar" class="sidebar overflow-auto">
-            <div class="left d-flex align-items-center" style="cursor: pointer;">
+            <div class="sidebarHeader left d-flex align-items-center" style="cursor: pointer;">
                 <div class="" role="button">
                 </div>
-                <img src="./imgs/Pixelvide_logo.png" alt="" class="d-none mx-auto my-3 d-md-block" style="height: 3.5rem;" />
+                <img src="./imgs/Pixelvide_logo.png" alt="" class="d-none mx-auto my-3 d-md-block"
+                    style="height: 3.5rem;" />
             </div>
             <ul class="menu list-unstyled text-white gap-5" style="cursor: pointer;">
                 <li class="px-3"><i class="fa fa-home fa-2x mx-2"></i>Home</li>
@@ -68,122 +69,127 @@
             <div class="header p-3 d-flex align-items-center justify-content-center justify-content-md-between">
                 <div class="left d-flex align-items-center gap-2">
                     <div class="menuBtn fs-3" id="sidebarTog" role="button">
-                        <i class="bi bi-list"></i>
+                        <div class="menuBtn fs-3" id="sidebarToggler" role="button">
+                            <i class="bi bi-list" style="font-size: 30px;"></i></div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="ADMINBtn d-flex align-items-center px-2" role="button">
+                            <span>ADMIN</span>
+                            <i class="bi bi-chevron-double-down ms-2"></i>
+                        </div>
                     </div>
                 </div>
 
-                <div>
-                    <div class="ADMINBtn d-flex align-items-center px-2" role="button">
-                        <span>ADMIN</span>
-                        <i class="bi bi-chevron-double-down ms-2"></i>
+                <div class="container p-4 text-dark content ">
+                    <div class="d-flex align-items-center gap-2">
                     </div>
-                </div>
-            </div>
-
-            <div class="container p-4 text-dark content ">
-                <div class="d-flex align-items-center gap-2">
-                </div>
-                <div class="status d-flex align-items-center justify-content-between mt-2">
-                    <div class="d-flex">
-                        <p class="m-auto mx-2"><i class="fa fa-spinner fa-spin" style="font-size:15px"></i><span
-                                class="ms-2">INSTALLER</span>
-                        </p>
-                        <div class="btn btn-sm btn-light fw-bold m-auto" data-bs-toggle="modal" data-bs-target="#serDataModal">Add Data </div>
-                        <input type="number" value="" class="m-2">
-                        <button class="btn refresh bg-secondary fw-bold m-2">Search
-                        </button>
+                    <div class="status d-flex align-items-center justify-content-between mt-2">
+                        <div class="d-flex">
+                            <p class="m-auto mx-2"><i class="fa fa-spinner fa-spin" style="font-size:15px"></i><span
+                                    class="ms-2">INSTALLER</span>
+                            </p>
+                            <div class="btn btn-sm btn-light fw-bold m-auto" data-bs-toggle="modal"
+                                data-bs-target="#serDataModal">Add Data </div>
+                            <input id="myInput" type="text" placeholder="Search.." class="m-2">
+                            <button class="btn refresh bg-secondary fw-bold m-2">Search
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-                <div>
-                    <p class="fw-bold fs-6">Data</p>
-                    <div class="bg-white">
-                        <table id="userData" class="table">
-                            <tr>
-                                <th>#Id</th>
-                                <th>Email</th>
-                                <th>First Name</th>
-                                <th>Last Name</th>
-                                <th>Avatar/Image</th>
-                            </tr>
-                        </table>
+                    <div>
+                        <p class="fw-bold fs-6">Data</p>
+                        <div class="bg-white">
+                            <table id="userData" class="table">
+                                <tr>
+                                    <th>#Id</th>
+                                    <th>Email</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Avatar/Image</th>
+                                </tr>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- MODAL -->
-    <div class="modal modal-lg fade" id="serDataModal"
-        aria-hidden="true">
-        <div class="modal-dialog rounded-0">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <p class="title fw-bold p-0 m-0" style="font-weight: 900;">Fill details</p>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-3 d-flex flex-column gap-3">
-                    <!-- Errors -->
-                    <ul class="alert d-none alert-danger" id="errorList">
-                    </ul>
-                    <div class="row justify-content-between">
-                        <div class="col-12 col-sm-6">
-                            <div class="inputGroup">
-                                <label  >#Id / Serial Number
-                                    <span class="text-danger">*</span></label>
-                                <input type="text" placeholder="Serial Number" class="form-control" id="idNum" />
-                            </div>
-                        </div>
-                        <div class="col-12 col-sm-6">
-                            <div class="inputGroup">
-                                <label  >Email Id
-                                    <span class="text-danger">*</span></label>
-                                <input type="email" inputmode="Your Email Id" placeholder="Ente ryour Email Id" class="form-control" id="emailId" />
-                            </div>
-                        </div>
+        <!-- MODAL -->
+        <div class="modal modal-lg fade" id="serDataModal" aria-hidden="true">
+            <div class="modal-dialog rounded-0">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p class="title fw-bold p-0 m-0" style="font-weight: 900;">Fill details</p>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="row justify-content-between">
-                        <div class="col-12 col-sm-6">
-                            <div class="inputGroup">
-                                <label  >First Name
-                                    <span class="text-danger">*</span></label>
-                                <input type="text"  placeholder="Enter your First Name" class="form-control"
-                                    id="fName" />
+                    <div class="modal-body p-3 d-flex flex-column gap-3">
+                        <!-- Errors -->
+                        <ul class="alert d-none alert-danger" id="errorList">
+                        </ul>
+                        <div class="row justify-content-between">
+                            <div class="col-12 col-sm-6">
+                                <div class="inputGroup">
+                                    <label>#Id / Serial Number
+                                        <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Serial Number" class="form-control" id="idNum" />
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6">
+                                <div class="inputGroup">
+                                    <label for="email">Email Id
+                                        <span class="email text-danger">*</span></label>
+                                    <input type="text" placeholder="Ente ryour Email Id" class="form-control"
+                                        id="emailId" />
+
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-between">
-                        <div class="col-12 col-sm-6">
-                            <div class="inputGroup">
-                                <label  >Last Name
-                                    <span class="text-danger">*</span></label>
-                                <input type="text" placeholder="Enter your Last Name" class="form-control" id="lName" />
+                        <div class="row justify-content-between">
+                            <div class="col-12 col-sm-6">
+                                <div class="inputGroup">
+                                    <label>First Name
+                                        <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter your First Name" class="form-control"
+                                        id="fName" />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row justify-content-between">
-                        <div class="col-12 col-sm-6">
-                            <div class="inputGroup">
-                                <label  >Img url
-                                    <span class="text-danger">*</span></label>
-                                <div class="searchInput d-flex">
-                                    <input type="text" placeholder="Ente img url" class="form-control"
-                                        id="imgUrl" />
+                        <div class="row justify-content-between">
+                            <div class="col-12 col-sm-6">
+                                <div class="inputGroup">
+                                    <label>Last Name
+                                        <span class="text-danger">*</span></label>
+                                    <input type="text" placeholder="Enter your Last Name" class="form-control"
+                                        id="lName" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-between">
+                            <div class="col-12 col-sm-6">
+                                <div class="inputGroup">
+                                    <label>Img url
+                                        <span class="text-danger">*</span></label>
+                                    <div class="searchInput d-flex">
+                                        <input type="text" placeholder="Ente img url" class="form-control"
+                                            id="imgUrl" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        Close
-                    </button>
-                    <button type="button" class="btn btn-primary" id="submitDataBtn">
-                        Save
-                    </button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Close
+                        </button>
+                        <button type="button" class="btn btn-primary" id="submitDataBtn">
+                            Save
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 </body>
+
 </html>
