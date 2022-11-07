@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IFMIS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <script src="/fontawesome-all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/stylep.css" />
+    <!-- Index JS -->
+    <script src="/Js/main.js"></script>
+</head>
+
+<body style="background-color: lightgray">
+    <!-- Main Body -->
+    <div class="w-100 h-100 position-absolute main text-white m-0 d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar p-0 overflow-auto h-100 position-fixed" id="sidebar">
+            <div class="userlogo m-auto">
+                <i class="fa fa-user fa-fw fa-2x" style="margin: 10px 6.3rem;"></i>
+                <p class="pa text-warning ">Full Name</p>
+                <p class="pa text-warn  ing ">(XXXX)</p>
+                <p class="pb text text-secondary">View Profile</p>
+                <p class="pb text text-secondary">Change Password</p>
+            </div>
+            <hr class="my-3" />
+
+            <!-- Menu -->
+            <div class="menu">
+                <!-- Menu List -->
+                <ul class="list-unstyled">
+                    <li class="px-4 py-2">PPO Acceptance</li>
+                    <li class="px-4 py-2">Print Grat./Comm. Bll</li>
+                    <li class="px-4 py-2">Generate Grat./Comm. Blls</li>
+                    <li class="px-4 py-2">Pension Master</li>
+                    <li class="px-4 py-2">Close Pay Bank</li>
+                    <li class="px-4 py-2">Arrear Bills</li>
+                    <li class="px-4 py-2">Sp to Fp Conversions</li>
+                    <li class="px-4 py-2">PPO Search</li>
+                    <li class="px-4 py-2">Pension Check</li>
+                    <li class="px-4 py-2 dropend dropdown-toggle" data-bs-toggle="dropdown">Income Tax <span></span>
+                    </li>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        <li><a class="dropdown-item" href="#">First</a></li>
+                        <li><a class="dropdown-item" href="#">Second</a></li>
+                        <li><a class="dropdown-item" href="#">Third</a></li>
+                    </ul>
+                    <li class="px-4 py-2">Accept Transfer</li>
+                    <li class="px-4 py-2">Transfer</li>
+                    <li class="px-4 py-2">Approve Bank Details</li>
+                    <li class="px-4 py-2">Pension Reports</li>
+                    <li class="px-4 py-2">Fore Close Recovery</li>
+                    <li class="px-4 py-2">Pay Bills Scrollaround</li>
+                    <li class="px-4 py-2">Open Pay Bank</li>
+                    <li class="px-4 py-2 dropend dropdown-toggle" data-bs-toggle="dropdown">PRC
+                        <span></span>
+                    </li>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                        <li><a class="dropdown-item" href="#">First</a></li>
+                        <li><a class="dropdown-item" href="#">Second</a></li>
+                        <li><a class="dropdown-item" href="#">Third</a></li>
+                    </ul>
+                </ul>
+            </div>
+        </div>
+        <!-- Sidebar End -->
+
+        <!-- Body Start -->
+        <div class="body position-relative p-0" id="body">
+            <!-- Header -->
+            <div class="header w-100 text-white p-2 d-flex justify-content-between">
+                <!-- Left -->
+                <div class="left d-flex">
+                    <!-- Menu Btn strt-->
+                    <div class="menuBtn d-none d-md-flex align-items-center">
+                        <i class="fa fa-bars" style="font-size:24px; cursor:pointer;" onclick="toggleSidebar();"></i>
+                    </div>
+                    <!-- Menu Btn close-->
+
+                    <img class="my-auto mx-2" src="/imgs/logo.png" alt="IFIMISLOGO" style="height: 40px;" />
+
+                    <!-- Modules Btn -->
+                    <button class="btn mod text-white btn-sm rounded-3 m-auto" style="height: 3rem;">
+                        <i class="fas fa-boxes m-1"></i>
+                        <span>Modules</span>
+                    </button>
+                </div>
+
+                <!-- Right -->
+                <div class="right d-flex mx-0 m-auto" style="font-size: 10px; text-align:center;">
+                    <div role="button" class="userinfo mx-0 mt-1 mx-md-4 rounded-3 d-flex align-items-center"
+                        style="height: 3rem;">
+                        <div class="btn right mb-1 text-white collapseTab">
+                            <i class="fas fa-sign-out-alt mx-1" style="font-size: 1rem;"></i>
+                            <p class="" id="demo" onclick="change_text()">Logout</p>
+                            <script>
+                                function change_text() {
+                                    document.getElementById("demo").innerHTML = "LogIn";
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header End -->
+
+            <!-- Main Content -->
+            <div class="container-fluid mainContent text-dark float-left p-2">
+                <div class="row">
+                    <div class="">
+                        <div class=" btn text-white p-0 btn-group dropleft " type="button">
+                            <li class="px-4 py-2  dropdown-toggle list-unstyled" data-bs-toggle="dropdown">Back
+                            </li>
+                        </div>
+                        <span class="ms-2">Hajara Bee / XXXXXXXXX</span>
+                        <div class="mt-3">
+                            <strong>Pension Details</strong>
+
+                        </div>
+                    </div>
+                    <div class="col-6  pensionDetails bg-white rounded-2 p-2">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm  text-white  p-1 m-0">
+                                    <p class="labels text-secondary">PPO ID:</p>
+                                    <p class="labels mb-3 text-dark"><strong>XXXXX</strong></p>
+                                    <p class="labels text-secondary">PENSION COTEGORY:</p>
+                                    <p class="labels mb-3 text-dark"><strong>Civil Pension</strong></p>
+                                    <p class="labels text-secondary">PENSION START DATE:</p>
+                                    <p class="labels mb-3 text-dark"><strong>XXXXX</strong></p>
+                                    <p class="labels text-secondary">SCLAE TYPE:</p>
+                                    <p class="labels mb-3 text-dark"><strong>State scale</strong></p>
+                                    <p class="labels text-secondary">PCR:</p>
+                                    <p class="labels mb-3 text-dark"><strong>2008</strong></p>
+                                    <p class="labels text-secondary">FAMILY PENSIONAER:</p>
+                                    <p class="labels mb-3 text-dark"><strong>XXXXX</strong></p>
+                                    <p class="labels text-secondary">PRESENT DATE:</p>
+                                    <p class="labels mb-3 text-dark"><strong>6432.00</strong></p>
+                                </div>
+                                <div class="col-sm  text-white  p-1 m-0">
+                                    <p class="labels text-secondary">PRO NUMBER:</p>
+                                    <p class="labels mb-3 text-dark"><strong>XXXXX</strong></p>
+                                    <p class="labels text-secondary">DATE OF RETIREMENT:</p>
+                                    <p class="labels mb-3 text-dark"><strong>XXXXX</strong></p>
+                                    <p class="labels text-secondary">EFP UPTO:</p>
+                                    <p class="labels mb-3 text-dark"><strong>XXXXX</strong></p>
+                                    <p class="labels text-secondary">STATE:</p>
+                                    <p class="labels mb-3 text-dark"><strong>KARNATAKA</strong></p>
+                                    <p class="labels text-secondary">FP DOD:</p>
+                                    <p class="labels mb-3 text-dark"><strong>-</strong></p>
+                                    <p class="labels text-secondary">HOA:</p>
+                                    <p class="labels mb-3 text-dark"><strong>8793001080D00000000NVN</strong></p>
+                                    <p class="labels text-secondary">CVP AMOUNT:</p>
+                                    <p class="labels mb-3 text-dark"><strong>0.0</strong></p>
+
+                                </div>
+                                <div class="col-sm  text-white  p-1 m-0">
+                                    <p class="labels text-secondary">PENSION TYPE:</p>
+                                    <p class="labels mb-3 text-info"><strong>Family Pension</strong></p>
+                                </div>
+                                <div class=" fpdata text-whitep-1 m-0 p-0 rounded-3">
+                                    <p class="labels text-secondary">NFP (NORMAL SERVICE PENSION):</p>
+                                    <p class="labels mb-3"><strong>0 (Comp:-0.00) (TG:- 0.00) (AP:- 0.00)</strong></p>
+                                    <p class="labels text-secondary">EFP (ENHANCED FAMILY PENSION):</p>
+                                    <p class="labels mb-3"><strong>0 (Comp:-0.00) (TG:-0.00) (AP: 0.00)</strong></p>
+                                    <p class="labels text-secondary">FP (FAMILY PENSION)</p>
+                                    <p class="labels mb-3"><strong>6432 (Comp:-0.00) (TG: 0.00) (AP: 0.00)</strong></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-4 float-left">
+                        <div class="status right d-flex"> <strong class="right">Status</strong>
+                            <p class="mx-2 text-success"><i class="fa fa-edit"></i>Edit</p>
+                        </div>
+                        <div class="d-flex">
+                            <button class="btn me-2 bg-warning text-danger border-danger">Temporary Stop</button>
+                            <button class="btn mx-2 bg-light text-info border-info">Add legal heir</button>
+                        </div>
+                        <p class="text-danger" style="font-size: 0.8rem;">Reason: 02 death of service pensionaer</p>
+                        <div class="my-1">
+                            <strong>Pension Details</strong>
+                        </div>
+                        <div class="sidedetails container bg-white">
+                            <div class="row">
+                                <div class="col-sm  text-white  p-1 m-0">
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">PENSIONER NAME::</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>XXXXX</strong>
+                                    </p>
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">DATE OF BIRTH:</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>07-10-1925</strong></p>
+                                </div>
+                                <div class="col-sm  text-white  p-1 m-0">
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">GENDER</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>MALE</strong>
+                                    </p>
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">AGE</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>97 Years</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="my-1">
+                            <strong>Pension Info</strong><span style="font-size:10px;">(update/edit)</span>
+                        </div>
+                        <div class="sidedetails container bg-white">
+                            <div class="row">
+                                <div class="col-sm  text-white  p-1 m-1">
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">FAMILY PENSION:</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;">
+                                        <strong>ELIGIBLE</strong>
+                                    </p>
+                                </div>
+                                <div class=" text-white  p-1 m-1">
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">EMPLYOEE ID:</p>
+                                    <div class="col-lg-5 col-md-8 col-sm-12 d-flex">
+                                        <input class="form-control" type="text" placeholder="Enter your Employee Id"/>
+                                        <button type="button" class="btn btn-success ms-2">
+                                            Search
+                                        </button>
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="my-1">
+                            <strong>Contact Info</strong>
+                        </div>
+                        <div class="sidedetails container bg-white">
+                            <div class="row">
+                                <div class="col-sm  text-white  p-1 m-1">
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">PHONE:</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>tel</strong>
+                                    </p>
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">EMAIL:</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>email</strong></p>
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">DATE OF BIRTH:</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>07-10-1925</strong></p>
+                                </div>
+                                <div class="col-sm  text-white  p-1 m-0">
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">GENDER</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>MALE</strong>
+                                    </p>
+                                    <p class="labels text-secondary" style="font-size: 0.7rem;">AGE</p>
+                                    <p class="labels mb-3 text-dark" style="font-size: 0.7rem;"><strong>97 Years</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+<!-- NFP (NORMAL SERVICE PENSION):
+o (Comp:-0.00) (TG:- 0.00) (AP:- 0.00)
+EFP (ENHANCED FAMILY PENSION):
+0 (Comp:-0.00) (TG:-0.00) (AP: 0.00)
+FP (FAMILY PENSION)
+6432 (Comp:-0.00) (TG: 0.00) (AP: 0.00) -->
+</body>
+
+</html>

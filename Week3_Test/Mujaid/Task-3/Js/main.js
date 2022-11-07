@@ -16,6 +16,25 @@ $(document).ready(function () {
 });
 
 
+function toggleSidebar() {
+    var sidebar = document.getElementById("sidebar");
+    var body = document.getElementById("body");
+
+    if (window.sidebarShowing == true) {
+        sidebar.style.left = "-250px";
+        body.style.left = "0px";
+        body.style.width = "100%";
+        window.sidebarShowing = false;
+    } else {
+        sidebar.style.left = "0px";
+        body.style.left = "250px";
+        body.style.width = "calc(100% - 250px)";
+        window.sidebarShowing = true;
+    }
+}
+
+
+
 // let id = (id) => document.getElementById(id)
 // let partyaccountnumber = id("partyaccountnumber"),
 //     errorMsg = document.getElementById("error");
@@ -112,7 +131,7 @@ function validateForm(event) {
     // };
     // }
     if (/^-?\d+$/.test(partyAccNum) == false) {
-        errors.push("Party Account number must be ...");
+        errors.push("Party Account number must be numbers");
     }
     if (partyAccNum != conPartyAccNum) {
         errors.push("Party Account numbers should be same");
