@@ -37,7 +37,7 @@ body .Tab .menu ul .active {
     background-color: #324a5f;
 } 
 body .body .header {
-    background: url(navbarBG.jpg) 0 0 no-repeat white;
+    background: url(/navbarBG.jpg) 0 0 no-repeat white;
     background-size: cover;
 }
 
