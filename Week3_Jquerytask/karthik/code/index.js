@@ -16,53 +16,27 @@ window.onload = function () {
   };
 
 
-function togglePopupUGC() {
+function togglePopup() {
     $(".popUp").toggle();
 }
 
-$("document").ready(()=>{
-  $.ajax({
-      url:'https://reqres.in/api/users?page=1 ',
-      dataType:'json',
-      success:function Ugc(data){
-          $("#uGCid1").html(data.data[0].id)
-          $("#uGCeMail1").html(data.data[0].email)
-          $("#uGCfirstName1").html(data.data[0].first_name)
-          $("#uGClastName1").html(data.data[0].last_name)
-          $("#uGCid2").html(data.data[1].id)
-          $("#uGCeMail2").html(data.data[1].email)
-          $("#uGCfirstName2").html(data.data[1].first_name)
-          $("#uGClastName2").html(data.data[1].last_name)
-          $("#uGCid3").html(data.data[2].id)
-          $("#uGCeMail3").html(data.data[2].email)
-          $("#uGCfirstName3").html(data.data[2].first_name)
-          $("#uGClastName3").html(data.data[2].last_name) 
-      }
-  });
-});
+function scaleState(index){
+  $.get("https://reqres.in/api/users?page=" + index, function(data, status){
+    updateTable(data.data)
+    togglePopup()
+  })
+}
 
-function togglePopupStateScale() {
-  $(".popUp").toggle();
+function updateTable(tableData){
 
+  tableData.forEach((data, index) => {
+    $("#popUpData").append(`<tr>
+    <td>${index+1}</td>
+    <td>${data.id}<td>
+    <td>${data.email}<td>
+    <td>${data.first_name}<td>
+    <td>${data.last_name}<td>
+    </tr>`)
+  })
 
-$("document").ready(()=>{
-  $.ajax({
-      url:'https://reqres.in/api/users?page=2 ',
-      dataType:'json',
-      success:function scaleState(data){
-          $("#stateScaleId1").html(data.data[0].id)
-          $("#stateScaleEMail1").html(data.data[0].email)
-          $("#stateScaleFirstName1").html(data.data[0].first_name)
-          $("#stateScaleLastName1").html(data.data[0].last_name)
-          $("#stateScaleId2").html(data.data[1].id)
-          $("#stateScaleEMail2").html(data.data[1].email)
-          $("#stateScaleFirstName2").html(data.data[1].first_name)
-          $("#stateScaleLastName2").html(data.data[1].last_name)
-          $("#stateScaleId3").html(data.data[2].id)
-          $("#stateScaleEMail3").html(data.data[2].email)
-          $("#stateScaleFirstName3").html(data.data[2].first_name)
-          $("#stateScaleLastName3").html(data.data[2].last_name) 
-      }
-  });
-});
 }

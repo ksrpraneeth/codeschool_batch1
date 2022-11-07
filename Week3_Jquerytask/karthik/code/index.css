@@ -21,7 +21,7 @@
 
 }
 
-.hrAtGlance  :hover{
+.hrAtGlance  li:hover{
     background: rgb(178, 178, 178);
 } 
 .sizeIcon {
