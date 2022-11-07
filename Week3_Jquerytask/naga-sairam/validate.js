@@ -19,27 +19,49 @@ window.onload=function(){
         $(".showpopup").toggle();
     }
 
-    $("document").ready(() =>{
-        $.ajax({
-          url: 'https://randomuser.me/api/',
-          dataType: 'json',
-          success: function(data) {
+  //  $("document").ready(() =>{
+  //       $.ajax({
+  //         url: 'https://reqres.in/api/users?page=1 ',
+  //         dataType: 'json',
+  //         success: function idpopshow(data) {
       
-          $("#UGCid1").html(data.results[0].id); 
+  //         $("#UGCid1").html(data.results[0].id); 
      
-        $("#emailid1").html(data.results[0].emailid)
-        $("#firstname1").html(data.results[0].firstname)
-        $("#lastname1").html(data.results[0].lastname)
-        $("#UGCid2").html(data.results[1].id); 
-        $("#emailid2").html(data.results[1].emailid)
-        $("#firstname2").html(data.results[1].firstname)
-        $("#lastname2").html(data.results[1].lastname)
-        $("#UGCid3").html(data.results[2].id); 
-        $("#emailid3").html(data.results[2].emailid)
-        $("#firstname3").html(data.results[2].firstname)
-        $("#lastname").html(data.results[2].lastname)
+  //       $("#email1").html(data.results[0].email)
+  //       $("#firstname1").html(data.results[0].first_name)
+  //       $("#lastname1").html(data.results[0].last_name)
+  //       $("#gender1").html(data.results[0].gender)
+  //       $("#UGCid2").html(data.results[1].id); 
+  //       $("#email2").html(data.results[1].email)
+  //       $("#firstname2").html(data.results[1].first_name)
+  //       $("#lastname2").html(data.results[1].last_name)
+  //       $("#gender2").html(data.results[1].gender)
+  //       $("#UGCid3").html(data.results[2].id) 
+  //       $("#email3").html(data.results[2].email)
+  //       $("#firstname3").html(data.results[2].first_name)
+  //       $("#lastname").html(data.results[2].last_name)
+  //       $("#gender3").html(data.results[2].gender)
+  //         }
+  //       });
+  //     });
       
-          }
-        });
-      });
+      function employeeType(index){
+        $.get("https://reqres.in/api/users?page=" + index, function(data, status){
+          updateTable(data.data)
+          togglePopup()
+        })
+      }
       
+      
+      function updateTable(tableData){
+      
+        tableData.forEach((data, index) => {
+          $("#popshow").append(`<tr>
+          <td>${index+1}</td>
+          <td>${data.id}<td>
+          <td>${data.email}<td>
+          <td>${data.first_name}<td>
+          <td>${data.last_name}<td>
+          </tr>`)
+        })
+      }
