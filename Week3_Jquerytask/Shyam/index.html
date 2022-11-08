@@ -30,7 +30,7 @@
                 </div>    
             </div>
         </div>   
-        <div class="d-flex row">
+        <div class="d-flex row" style="height: 100%;">
             <div class=" col-2  list-unstyled text-white Menu">
                 <ul class="items">
                     <li class="list">HOME</li><hr>
@@ -57,11 +57,11 @@
                               </svg>
                         </div>
                         <div class="mx-2 mt-2">
-                            <input type="text" placeholder=""  value="" class="rounded-1 ">
+                            <input type="text" placeholder=""  value="" class="rounded-1 " id="search">
                         <button type="submit"><i class="fa fa-search"></i>Search</button>
                         </div>
                     </div>
-                <table class="table table-bordered mt-4 mx-3" id="">
+                <table class="table table-bordered mt-4 mx-3" id="myTable">
                     <tr>
                         <th >#</th>
                         <th>FirstName</th>
@@ -69,9 +69,6 @@
                         <th>Gmail</th>
                         <th>Image</th> 
                     </tr>
-                    <tbody id="myTable">
-
-                    </tbody>
                 </table>
             </div>
         </div>
@@ -86,7 +83,9 @@
           </button>
         </div>
         <div class="modal-body">
-          <form id="registration_form">
+            
+            <div id="errorid"></div>
+          <form  id="registration_form" method="post">
             <div class="form-group d-flex mt-3 justify-content-between">
                     <label  class="mt-1">FirstName:</label>
                     <input type="text" class="form-control" id="fname" placeholder="Enter Your FirstName">
@@ -111,7 +110,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button type="submit"  class="btn btn-primary" id="tosave">Save changes</button>
         </div>
       </div>
     </div>
