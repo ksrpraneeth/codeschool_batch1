@@ -4,6 +4,7 @@ include_once "./../classes/response.php";
 include_once "./../classes/ifscCode.php";
 include_once "./../classes/validationErrors.php";
 
+// Parameters from the post
 $parameters = [
 	"partyAccNum" => "Party Account Number",
 	"conPartyAccNum" => "Confirm Party Account Number",
@@ -15,18 +16,28 @@ $parameters = [
 	"purpose" => "Purpose",
 	"partyAmount" => "Party Amount"
 ];
+
+// Creating a new validation errors class
 $parameterErrors = new ValidationErrors();
+
+// checkk if we got all parameters required to validate
 foreach ($parameters as $element => $elementValue) {
+
+	// Checking element if isset
 	if (!isset($_POST[$element])) {
+		// If not set pushing error
 		$parameterErrors->pushError("notFoundErrors", $elementValue);
 	}
 }
+
+// If you have errors sending reponse as errors
 if (count($parameterErrors->getErrors()) > 0) {
 	$reponseObj = new Response();
 	echo $reponseObj->setResponse(false, "Parametrs Not Found", $parameterErrors->getErrors())->getResponse();
 	exit;
 }
-// Validating data
+
+// Getting data in variables
 $partyAccNum = $_POST['partyAccNum'];
 $conPartyAccNum = $_POST['conPartyAccNum'];
 $partyName = $_POST['partyName'];

@@ -18,6 +18,21 @@ window.onload = () => {
 	// Getting hoa's
 	getHoaFromApi()
 	getExpenditureTypes()
+
+	// Error Types and respective containers and input id's
+	window.errorTypes = {
+		"partyAccNum": {"container": "partyAccNumErrors", "inputId": "partyAccNum"},
+		"conPartyAccNum": {"container": "conPartyAccNumErrors", "inputId": "conPartyAccNum"},
+		"partyName": {"container":"partyNameErrors", "inputId": "partyName"},
+		"ifscErrorDiv": {"container":"ifscErrorDiv", "inputId": "IFSCCode"},
+		"headOfAccount": {"container": "headOfAccountErrors", "inputId": "headOfAccount"},
+		"expenditureType": {"container": "expenditureTypeErrors", "inputId": "expenditureType"},
+		"purposeType": {"container": "purposeTypeErrors", "inputId": "purposeType"},
+		"purpose": {"container":"purposeErrors", "inputId": "purpose"},
+		"partyAmount": {"container":"partyAmountErrors", "inputId": "partyAmount"},
+		"mainErrors": {"container": "errors"},
+		"notFoundErrors": {"container":"errors"}
+	}
 };
 
 // Function: updateDate()
@@ -302,6 +317,7 @@ function validateForm(event) {
 
     // Hiding errors at start
     $("#ifscErrorDiv").text("")
+	hideAllErrors()
 
     // Getting form data
     var partyAccNum = document.getElementById("partyAccNum").value;
@@ -352,32 +368,34 @@ function validateForm(event) {
     });
 }
 
+// Function: showErrors()
+// Description: This function is called when to show errors
+// Parameters: {errors: array of errors}
 function showErrors(errors){
-	// Error Types from Response and their error containers
-	let errorTypes = {
-		"partyAccNum": {"container": "partyAccNumErrors", "inputId": "partyAccNum"},
-		"conPartyAccNum": {"container": "conPartyAccNumErrors", "inputId": "conPartyAccNum"},
-		"partyName": {"container":"partyNameErrors", "inputId": "partyName"},
-		"ifscErrorDiv": {"container":"ifscErrorDiv", "inputId": "IFSCCode"},
-		"headOfAccount": {"container": "headOfAccountErrors", "inputId": "headOfAccount"},
-		"expenditureType": {"container": "expenditureTypeErrors", "inputId": "expenditureType"},
-		"purposeType": {"container": "purposeTypeErrors", "inputId": "purposeType"},
-		"purpose": {"container":"purposeErrors", "inputId": "purpose"},
-		"partyAmount": {"container":"partyAmountErrors", "inputId": "partyAmount"},
-		"mainErrors": {"container": "errors"},
-		"notFoundErrors": {"container":"errors"}
-	}
-
+	var errorTypes = window.errorTypes;
 	// Making every error containers empty
 	$(".errorsDiv").each(function(){
 		$(this).html("")
 	})
 
+	// Making input normal
+	$(".is-invalid").each(function(){
+		$(this).removeClass("is-invalid")
+	})
+
 	// Going through array of errors
 	for(var errorsTypeFromErrors in errors){
+
+		// Getting errors of error type
 		errors[errorsTypeFromErrors].forEach((error) => {
+
+			// Append errors in containers
 			$("#" + errorTypes[errorsTypeFromErrors].container).append(`<span class="alert alert-danger m-0">-> ${error}</span>`);
+
+			// Checking if inputid exists
 			if(errorTypes[errorsTypeFromErrors].inputId){
+
+				// Showing error layout to input's
 				$("#" + errorTypes[errorsTypeFromErrors].inputId).addClass("is-invalid")
 			}
 		})
@@ -388,6 +406,29 @@ function showErrors(errors){
         scrollTop: $("#errors").offset().top
     }, 0);
 
+}
+
+// Function: hideAllErrors()
+// Description: This function is called when to hide errors
+// Parameters: {none}
+function hideAllErrors(){
+	// Removing all errors from all containers
+	$(".errorsDiv").each(function(){
+		$(this).html("")
+	})
+
+	// Making input normal
+	$(".is-invalid").each(function(){
+		$(this).removeClass("is-invalid")
+	})
+}
+
+// Function: hideError()
+// Description: Hiding error and if has input
+// Parameters: {inputid: elementID, container: container ID}
+function hideError(inputId, container){
+    $("#" + container).html("")
+    $("#" + inputId).removeClass("is-invalid");
 }
 
 // Function: headOfAccountChanged
@@ -421,7 +462,7 @@ function expenditureTypeChanged(selected) {
 			data = JSON.parse(data);
 
 			// Making select empty options
-			$("#purposeType").html("<option>Select</option>")
+			$("#purposeType").html("<option value='' class='d-none'>Select</option>")
 
 			// Looping through purpose types
 			data.data.forEach((purposeType, index) => {
