@@ -1,0 +1,27 @@
+[
+	{
+		"id": 1,
+		"expenditure": "Capital Expenditure",
+		"purposeTypes":[
+			"Maintain current levels of operation within the organization",
+			"Expenses to permit future expansion"
+		]
+	},
+	{
+		"id": 2,
+		"expenditure": "Revenue Expenditure",
+		"purposeTypes": [
+			"Sales costs or All expenses incurred by the firm that are directly tied to the manufacture and selling of its goods or services.",
+			"All expenses incurred by the firm to guarantee the smooth operation"
+		]
+	},
+	{
+		"id": 3,
+		"expenditure": "Deferred Revenue Expenditure",
+		"purposeTypes": [
+			"Exorbitant Advertising Expenditures",
+			"Unprecedented Losses",
+			"Development and Research Cost"
+		]
+	}
+]

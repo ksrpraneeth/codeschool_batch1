@@ -14,6 +14,10 @@ window.onload = () => {
     // Initializing the files
     window.filesUploaded = [];
     window.validateData = new FormData();
+
+	// Getting hoa's
+	getHoaFromApi()
+	getExpenditureTypes()
 };
 
 // Function: updateDate()
@@ -169,161 +173,9 @@ function partyAmountChanged(value) {
     }
 }
 
-// function numberToEnglish(n) {
-//     var string = n.toString(),
-//         units,
-//         tens,
-//         scales,
-//         start,
-//         end,
-//         chunks,
-//         chunksLen,
-//         chunk,
-//         ints,
-//         i,
-//         word,
-//         words,
-//         and = "and";
-
-//     /* Remove spaces and commas */
-//     string = string.replace(/[, ]/g, "");
-
-//     /* Is number zero? */
-//     if (parseInt(string) === 0) {
-//         return "zero";
-//     }
-
-//     /* Array of units as words */
-//     units = [
-//         "",
-//         "one",
-//         "two",
-//         "three",
-//         "four",
-//         "five",
-//         "six",
-//         "seven",
-//         "eight",
-//         "nine",
-//         "ten",
-//         "eleven",
-//         "twelve",
-//         "thirteen",
-//         "fourteen",
-//         "fifteen",
-//         "sixteen",
-//         "seventeen",
-//         "eighteen",
-//         "nineteen",
-//     ];
-
-//     /* Array of tens as words */
-//     tens = [
-//         "",
-//         "",
-//         "twenty",
-//         "thirty",
-//         "forty",
-//         "fifty",
-//         "sixty",
-//         "seventy",
-//         "eighty",
-//         "ninety",
-//     ];
-
-//     /* Array of scales as words */
-//     scales = [
-//         "",
-//         "thousand",
-//         "million",
-//         "billion",
-//         "trillion",
-//         "quadrillion",
-//         "quintillion",
-//         "sextillion",
-//         "septillion",
-//         "octillion",
-//         "nonillion",
-//         "decillion",
-//         "undecillion",
-//         "duodecillion",
-//         "tredecillion",
-//         "quatttuor-decillion",
-//         "quindecillion",
-//         "sexdecillion",
-//         "septen-decillion",
-//         "octodecillion",
-//         "novemdecillion",
-//         "vigintillion",
-//         "centillion",
-//     ];
-
-//     /* Split user argument into 3 digit chunks from right to left */
-//     start = string.length;
-//     chunks = [];
-//     while (start > 0) {
-//         end = start;
-//         chunks.push(string.slice((start = Math.max(0, start - 3)), end));
-//     }
-
-//     /* Check if function has enough scale words to be able to stringify the user argument */
-//     chunksLen = chunks.length;
-//     if (chunksLen > scales.length) {
-//         return "";
-//     }
-
-//     /* Stringify each integer in each chunk */
-//     words = [];
-//     for (i = 0; i < chunksLen; i++) {
-//         chunk = parseInt(chunks[i]);
-
-//         if (chunk) {
-//             /* Split chunk into array of individual integers */
-//             ints = chunks[i].split("").reverse().map(parseFloat);
-
-//             /* If tens integer is 1, i.e. 10, then add 10 to units integer */
-//             if (ints[1] === 1) {
-//                 ints[0] += 10;
-//             }
-
-//             /* Add scale word if chunk is not zero and array item exists */
-//             if ((word = scales[i])) {
-//                 words.push(word);
-//             }
-
-//             /* Add unit word if array item exists */
-//             if ((word = units[ints[0]])) {
-//                 words.push(word);
-//             }
-
-//             /* Add tens word if array item exists */
-//             if ((word = tens[ints[1]])) {
-//                 words.push(word);
-//             }
-
-//             /* Add 'and' string after units or tens integer if: */
-//             if (ints[0] || ints[1]) {
-//                 /* Chunk has a hundreds integer or chunk is the first of multiple chunks */
-//                 if (ints[2] || (!i && chunksLen)) {
-//                     words.push(and);
-//                 }
-//             }
-
-//             /* Add hundreds word if array item exists */
-//             if ((word = units[ints[2]])) {
-//                 words.push(word + " hundred");
-//             }
-//         }
-//     }
-
-//     return words.reverse().join(" ");
-// }
-
-// Function: numberToEnglish
-// Description: Changes Number to Words
-// Parameters: { n: number }
-// Reference: https://stackoverflow.com/questions/14766951/transform-numbers-to-words-in-lakh-crore-system#:~:text=%2F%2F%20numToWords%20%3A%3A%20(Number%20a,'thirty'%2C%20'forty'
-
+// Function numberToEnglish()
+// Description: Changes number to English letters
+// Parameters: {p}
 function numberToEnglish(price) {
     var sglDigit = [
             "Zero",
@@ -445,21 +297,14 @@ function numberToEnglish(price) {
 // Description: Validating form
 // Parameters: { event: form event }
 function validateForm(event) {
-    // Initialize the errors
-    var errors = [];
-
     // Preventing form submission
     event.preventDefault();
 
-    // Getting errors alert refernece
-    var errorsText = document.getElementById("errors");
-
     // Hiding errors at start
-    errorsText.classList.add("d-none");
-    $("#ifscErrorDiv").addClass("d-none")
+    $("#ifscErrorDiv").text("")
 
     // Getting form data
-    var partyAccNum = document.getElementById("partyAccNo").value;
+    var partyAccNum = document.getElementById("partyAccNum").value;
     var conPartyAccNum = document.getElementById("conPartyAccNum").value;
     var partyName = document.getElementById("partyName").value;
     var IFSCCode = document.getElementById("IFSCCode").value;
@@ -472,100 +317,21 @@ function validateForm(event) {
     var purpose = document.getElementById("purpose").value;
     var partyAmount = document.getElementById("partyAmount").value;
 
-    // // Party Account Number Validation
-    // if (partyAccNum.length < 12 || partyAccNum.length > 22) {
-    //     errors.push(
-    //         "Party Account number must be between 12 and 22 characters long"
-    //     );
-    // }
-    // if (/^-?\d+$/.test(partyAccNum) == false) {
-    //     errors.push("Party Account number must be numbers");
-    // }
-
-    // // Confirm Party Account Number Validation
-    // if (partyAccNum != conPartyAccNum) {
-    //     errors.push("Party Account numbers should be same");
-    // }
-
-    // // Party Name Validation
-    // var format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    // if (format.test(partyName)) {
-    //     errors.push("Party Name shouldn't have special characters");
-    // }
-    // if (partyName == "") {
-    //     errors.push("Party Name shouldn't be empty");
-    // }
-
-    // // IFSC Code Validation
-    // if (IFSCCode.length != 11) {
-    //     errors.push("IFSC Code should be 11 characters");
-    // }
-    // if (/^[a-zA-Z()]+$/.test(IFSCCode)) {
-    //     errors.push("IFSC Code first four letters should be alphabets");
-    // }
-    // if (IFSCCode.charAt(4) != "0") {
-    //     errors.push("IFSC Code should contain 0 at 5th character");
-    // }
-    // if (bankName == "XXXXX") {
-    //     errors.push("IFSC Code is Wrong");
-    // }
-
-    // // Head of account
-    // if (headOfAccount == "-1") {
-    //     errors.push("Please select Head of Account!");
-    // }
-
-    // // Expenditure Type
-    // if (expenditureType == "-1") {
-    //     errors.push("Please select Expenditure Type!");
-    // }
-
-    // // Purpose Validation
-    // if (purpose.length > 500) {
-    //     errors.push("Purpose should be less than 500 characters");
-    // }
-    // if (purpose == "") {
-    //     errors.push("Purpose shouldn't be empty");
-    // }
-
-    // // Party Amount
-    // if (partyAmount == "") {
-    //     errors.push("Party Amount shouldn't be empty");
-    // }
-
-    // if (errors.length == 0) {
-
-    // } else {
-    //     errorsText.innerHTML = "";
-
-    //     errors.forEach((element) => {
-    //         errorsText.innerHTML += "* " + element + "<br />";
-    //     });
-
-    //     errorsText.classList.remove("d-none");
-    //     errorsText.scrollIntoView();
-    // }
-
     var formData = {
         partyAccNum,
         conPartyAccNum,
         partyName,
         IFSCCode,
-        bankName,
-        bankBranch,
         headOfAccount,
-        balance,
-        loc,
         expenditureType,
         purpose,
         partyAmount,
-        type: "VALIDATE",
     };
     for (data in formData) {
         window.validateData.append(data, formData[data]);
     }
     $.ajax({
-        url: "validate.php",
+        url: "./api/validate.php",
         type: "POST",
         data: window.validateData,
         processData: false,
@@ -574,63 +340,94 @@ function validateForm(event) {
         success: function (res) {
             res = JSON.parse(res);
             if (res.status == true) {
-                alert("Form Submitted Successfully!");
+                alert(res.message);
             } else {
-                if(res.error){
-                    errorsText.innerHTML = "* " + res.error;
-                    errorsText.classList.remove("d-none");
-                    errorsText.scrollIntoView();
-                    return;
-                }
-                let errors = JSON.parse(res.errors);
-                errorsText.innerHTML = "";
-                errors.forEach((element) => {
-                    errorsText.innerHTML += "* " + element + "<br />";
-                });
-                errorsText.classList.remove("d-none");
-                errorsText.scrollIntoView();
+                let errors = res.data;
+
+				showErrors(errors)
             }
         },
-        error: function (res) {},
     });
+}
+
+function showErrors(errors){
+	// Error Types from Response and their error containers
+	let errorTypes = {
+		"partyAccNum": {"container": "partyAccNumErrors", "inputId": "partyAccNum"},
+		"conPartyAccNum": {"container": "conPartyAccNumErrors", "inputId": "conPartyAccNum"},
+		"partyName": {"container":"partyNameErrors", "inputId": "partyName"},
+		"ifscErrorDiv": {"container":"ifscErrorDiv", "inputId": "IFSCCode"},
+		"headOfAccount": {"container": "headOfAccountErrors", "inputId": "headOfAccount"},
+		"expenditureType": {"container": "expenditureTypeErrors", "inputId": "expenditureType"},
+		"purpose": {"container":"purposeErrors", "inputId": "purpose"},
+		"partyAmount": {"container":"partyAmountErrors", "inputId": "partyAmount"},
+		"mainErrors": {"container": "errors"},
+		"notFoundErrors": {"container":"errors"}
+	}
+
+	// Making every error containers empty
+	$(".errorsDiv").each(function(){
+		$(this).html("")
+	})
+
+	// Going through array of errors
+	for(var errorsTypeFromErrors in errors){
+		errors[errorsTypeFromErrors].forEach((error) => {
+			$("#" + errorTypes[errorsTypeFromErrors].container).append(`<span class="alert alert-danger m-0">${error}</span>`);
+			errorTypes[errorsTypeFromErrors].inputId ?
+			$("#" + errorTypes[errorsTypeFromErrors].inputId).append(`<span class="alert alert-danger m-0">${error}</span>`)
+			:
+			null
+			;
+		})
+	}
+
+	// Scrolling to main error container
+	$('html, body').animate({
+        scrollTop: $("#errors").offset().top
+    }, 0);
+
 }
 
 // Function: headOfAccountChanged
 // Description: Get's data from selected head of account
 // Parameters: { event: event, element: select element }
 function headOfAccountChanged(event, element) {
-    // Gettting details from
-    var balance =
-        event.target.options[event.target.selectedIndex].dataset.balance;
-    var loc = event.target.options[event.target.selectedIndex].dataset.loc;
-
-    // Setting balance and loc
-    document.getElementById("balance").innerHTML = balance;
-    document.getElementById("loc").innerHTML = loc;
+    $.ajax({
+		url: "./api/getHoaDetails.php",
+		method: "POST",
+		data: {id: element.value},
+		success: (data) => {
+			data = JSON.parse(data);
+			if(data.status == true){
+				$("#balance").text(data.data.balance)
+				$("#loc").text(data.data.loc)
+			}
+		}
+	})
 }
 
 // Function: expenditureTypeChanged
 // Description: Expenditure type changed
 // Parameters: { selected: string }
 function expenditureTypeChanged(selected) {
-    switch (selected) {
-        case "opt1":
-            document.getElementById("purposeType").innerHTML =
-                "<option>Maintain current levels of operation within the organization</option>" +
-                "<option>Expenses to permit future expansion</option>";
-            break;
-        case "opt2":
-            document.getElementById("purposeType").innerHTML =
-                "<option>Sales costs or All expenses incurred by the firm that are directly tied to the manufacture and selling of its goods or services.</option>" +
-                "<option>All expenses incurred by the firm to guarantee the smooth operation</option>";
-            break;
-        case "opt3":
-            document.getElementById("purposeType").innerHTML =
-                "<option>Exorbitant Advertising Expenditures</option>" +
-                "<option>Unprecedented Losses</option>";
-            "<option>Development and Research Cost</option>";
-            break;
-    }
+    $.ajax({
+		url: "./api/getPurposeTypes.php",
+		method: "POST",
+		data: {"id": selected},
+		success: function(data){
+			// JSON parse Data
+			data = JSON.parse(data);
+
+			// Making select empty options
+			$("#purposeType").html("<option>Select</option>")
+
+			// Looping through purpose types
+			data.data.forEach((purposeType, index) => {
+				$("#purposeType").append(`<option value="${index}">${purposeType}</option>`)
+			})
+		}
+	})
 }
 
 // Function: ifscCodeChanged()
@@ -646,11 +443,11 @@ function ifscCodeChanged() {
 
     // IFSC Code checking and updating bank name and branch
     $.post(
-        "validate.php",
-        { ifscCode: IFSCCode, type: "GETIFSCCODE" },
+        "./api/getIfscCode.php",
+        { ifscCode: IFSCCode },
         (data, status) => {
             // Hiding error
-            $("#ifscErrorDiv").addClass("d-none")
+            $("#ifscErrorDiv").text("")
 
             data = JSON.parse(data);
             if (data.status == true) {
@@ -659,7 +456,6 @@ function ifscCodeChanged() {
             } else {
                 if(data.error){
                     $("#ifscErrorDiv").text(data.error);
-                    $("#ifscErrorDiv").removeClass("d-none")
                 }
             }
         }
@@ -721,4 +517,50 @@ function removeFile(index) {
 
     // Rendering the file list
     renderFiles();
+}
+
+// Function: getHoaFromApi()
+// Description: Gettig hoa list from api
+// Parameters: None
+function getHoaFromApi(){
+
+	// Ajax call
+	$.ajax({
+		url: "./api/getHoa.php",
+		method: "GET",
+		success: (data) => {
+			data = JSON.parse(data);
+			data.data.forEach((hoa) => {
+
+				// appending options to select
+				$("#headOfAccount").append(`<option value='${hoa.id}'>${hoa.hoa}</option>`)
+			})
+		},
+		error: (xhr, status, err) => {
+			console.log(err)
+		}
+	})
+}
+
+
+// Function: getExpenditureTypes()
+// Description: Gettig Expenditure types list from api
+// Parameters: None
+function getExpenditureTypes(){
+	// Ajax call
+	$.ajax({
+		url: "./api/getExpenditureType.php",
+		method: "GET",
+		success: (data) => {
+			data = JSON.parse(data);
+			if(data.status == true){
+				data.data.forEach((expenditure) => {
+					// appending options to select
+					$("#expenditureType").append(`<option value='${expenditure.id}'>${expenditure.expenditure}</option>`)
+				})
+			} else {
+				alert("Something went Wrong, Please try again!")
+			}
+		}
+	})
 }

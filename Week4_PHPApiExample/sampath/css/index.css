@@ -175,3 +175,17 @@ input[type="number"] {
     font-weight: bold;
     margin-left: 5px;
 }
+.errors span{
+	display: block;
+	padding: 20px!important;
+	background-color: #f8d7da!important;
+	color: #842029!important;
+	margin-bottom: 10px!important;
+}
+
+.errorsDiv span{
+	background-color: transparent;
+	padding: 0;
+	border: none;
+	color: red;
+}
