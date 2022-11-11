@@ -314,6 +314,7 @@ function validateForm(event) {
     var balance = document.getElementById("balance").innerHTML;
     var loc = document.getElementById("loc").innerHTML;
     var expenditureType = document.getElementById("expenditureType").value;
+    var purposeType = document.getElementById("purposeType").value;
     var purpose = document.getElementById("purpose").value;
     var partyAmount = document.getElementById("partyAmount").value;
 
@@ -324,6 +325,7 @@ function validateForm(event) {
         IFSCCode,
         headOfAccount,
         expenditureType,
+		purposeType,
         purpose,
         partyAmount,
     };
@@ -359,6 +361,7 @@ function showErrors(errors){
 		"ifscErrorDiv": {"container":"ifscErrorDiv", "inputId": "IFSCCode"},
 		"headOfAccount": {"container": "headOfAccountErrors", "inputId": "headOfAccount"},
 		"expenditureType": {"container": "expenditureTypeErrors", "inputId": "expenditureType"},
+		"purposeType": {"container": "purposeTypeErrors", "inputId": "purposeType"},
 		"purpose": {"container":"purposeErrors", "inputId": "purpose"},
 		"partyAmount": {"container":"partyAmountErrors", "inputId": "partyAmount"},
 		"mainErrors": {"container": "errors"},
@@ -373,12 +376,10 @@ function showErrors(errors){
 	// Going through array of errors
 	for(var errorsTypeFromErrors in errors){
 		errors[errorsTypeFromErrors].forEach((error) => {
-			$("#" + errorTypes[errorsTypeFromErrors].container).append(`<span class="alert alert-danger m-0">${error}</span>`);
-			errorTypes[errorsTypeFromErrors].inputId ?
-			$("#" + errorTypes[errorsTypeFromErrors].inputId).append(`<span class="alert alert-danger m-0">${error}</span>`)
-			:
-			null
-			;
+			$("#" + errorTypes[errorsTypeFromErrors].container).append(`<span class="alert alert-danger m-0">-> ${error}</span>`);
+			if(errorTypes[errorsTypeFromErrors].inputId){
+				$("#" + errorTypes[errorsTypeFromErrors].inputId).addClass("is-invalid")
+			}
 		})
 	}
 

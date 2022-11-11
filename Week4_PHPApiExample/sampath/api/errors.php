@@ -13,3 +13,4 @@ define("EXPENDITURE_NOT_SELECTED_ERROR", "Please select Expenditure Type");
 define("PURPOSE_NULL_ERROR", "Purpose is required");
 define("PURPOSE_LENGTH_ERROR", "Purpose shouldn't be more than 500 characters");
 define("PARTY_AMOUNT_NULL_ERROR", "Party Amount is required");
+define("PURPOSE_TYPE_NOT_SELECTED_ERROR", "Purpose Type is required");

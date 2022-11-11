@@ -11,6 +11,7 @@ $parameters = [
 	"IFSCCode" => "IFSC Code",
 	"headOfAccount" => "Head of Account",
 	"expenditureType" => "Expenditure Type",
+	"purposeType" => "Purpose Type",
 	"purpose" => "Purpose",
 	"partyAmount" => "Party Amount"
 ];
@@ -32,6 +33,7 @@ $partyName = $_POST['partyName'];
 $IFSCCode = $_POST['IFSCCode'];
 $headOfAccount = $_POST['headOfAccount'];
 $expenditureType = $_POST['expenditureType'];
+$purposeType = $_POST['purposeType'];
 $purpose = $_POST['purpose'];
 $partyAmount = $_POST['partyAmount'];
 
@@ -69,6 +71,11 @@ if ($statusOfIfscCodeCheck == false) {
 // Head of account validation
 if ($headOfAccount == "") {
 	$errors->pushError("headOfAccount", HOD_NOT_SELECTED_ERROR);
+}
+
+// Purpose Type validation
+if ($purposeType == "") {
+	$errors->pushError("purposeType", PURPOSE_TYPE_NOT_SELECTED_ERROR);
 }
 
 // Expenditure Type Validation
