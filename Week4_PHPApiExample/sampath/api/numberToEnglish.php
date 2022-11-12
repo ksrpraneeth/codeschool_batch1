@@ -36,7 +36,7 @@ $tens = [
 	"ninty"
 ];
 
-$postFixes = ["hundred", "thousand", "lakh", "crore"];
+$postFixes = ["hundred", "thousand", "lakhs", "crores"];
 
 // checking if number exists in post
 if (isset($_POST['number'])) {
@@ -127,7 +127,7 @@ if (isset($_POST['number'])) {
 							if($tempIndex > 8){
 								if(strlen($text) == 0){
 									while($tempIndex > 8){
-										$text .= " crore";
+										$text .= " crores";
 										$tempIndex = $tempIndex - 4;
 									}
 								}
