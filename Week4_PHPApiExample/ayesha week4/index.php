@@ -18,7 +18,8 @@
     <!-- Font Awesome JS -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
-
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -118,7 +119,7 @@
             </p>
     
             <!-- Form control-->
-           
+           <div class="form p-20">
                 <div class="line"></div>
                 <div class="form-check form-check-inline">
                     <label for="form-check-input" class="col-form-label">Transaction type:</label>
@@ -141,6 +142,7 @@
                            value="option3">
                     <label class="form-check-label" for="inlineRadio3">PD account to other</label>
                 </div>
+                <div id="error"></div>
     
                 <!-- partyaccount-->
                 <div class="line"></div>
@@ -188,8 +190,9 @@
                         <input type="text" id="bankcode" name="bankcode" class="form-control" placeholder="Enter IFSC Code">
                     </div>
                     <div id="e_bankcode" class="text-danger"></div>
+                    <!--Search button-->
                     <div class="col-md-4 lg-4" style="padding: 20px;">
-                        <button class="btn btn-primary" type="submit">Search</button>
+                        <button id="search" class="btn btn-primary" type="submit" onclick="getifsc()">Search</button>
                     </div>
                     </div>
                     <!--bank name-->
@@ -224,7 +227,7 @@
                             class="form-select"
                             placeholder="Select"
                             id="headOfAccount"
-                            onchange="headOfAccountChanged(event, this)"
+                            onchange="accountChange()"
                         >
                             <option class="d-none" value="-1">
                                 Select
@@ -250,20 +253,7 @@
                             >
                                 2071011170004320000NVN
                             </option>
-                            <option
-                                value="8342001170004002000NVN"
-                                data-balance="1056400"
-                                data-loc="34000"
-                            >
-                                8342001170004002000NVN
-                            </option>
-                            <option
-                                value="2204000030006300303NVN"
-                                data-balance="123465400"
-                                data-loc="5000"
-                            >
-                                2204000030006300303NVN
-                            </option>
+                    
                         </select>
                     </div>
                 </div>
@@ -341,7 +331,7 @@
                     <div class="col-md-6 lg-6">
                         <textarea class="form-control" rows="3" id="purpose" name="purpose"  placeholder="Max 500 characters"></textarea>
                     </div>
-                    <div id="e_purpose"></div>
+                    <div id="e_purpose" class="text-danger"></div>
                 </div>
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-6 lg-6">
@@ -373,32 +363,65 @@
                         <button class="btn btn-primary" type="submit">+ADD</button>
                     </div>
                     <div class="line"></div>
-                    <button type="submit" id="submit" class="btn btn-primary" value="submit">Next</button>
-    
+                 
+                    <button type="submit" id="submitBtn" class="btn btn-primary" value="submit">Next</button>
+                    </div>
                 </div>
-       
-    
-    
         </div>
-    
-    
-        
-        
-    
-    </div>
+   
     
             
 
-    <!-- jQuery CDN - Slim version (=without AJAX) -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    
     <!-- jQuery Custom Scroller CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
 
     <script type="text/javascript" src="java2.js"></script>
-    </body>
+    
+    <!--ifsc code-->
+    <script>
+function getifsc(){
+	bankcode = $('#bankcode').val();
+	$.ajax({
+		method:'POST',
+		data:{'bankcode':bankcode},
+		url:'bankvalidate.php',
+		success:function(msg){
+            var response= JSON.parse(msg);
+			//console.log(msg);
+            if(response.status==true){
+            $('#bankname').html(response.data.CITY);
+            $('#bankbranch').html(response.data.BRANCH);
+        }else{
+            $('#e_bankcode').html(response.error);
+        }
+		}
+	});
+}
+//head of account
+function accountChange(){
+    headOfAccount=$("#headOfAccount").val();
+    $.ajax({
+        method:"POST",
+        data:{'headOfAccount':headOfAccount},
+        url:'hoa.php',
+        success:function(data)
+        {
+            var response=JSON.parse(data);
+            if(response.status==true){
+        console.log(124);
+        $('#balance').html(response.data);
+            $('#loc').html(data);
+            }else{
+                $('#balance').html(response.error);
+            }
+        }
+    });
+}
+
+
+
+</script>
+</body>
 </html>
         
