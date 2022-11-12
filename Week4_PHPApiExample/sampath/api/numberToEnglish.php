@@ -53,24 +53,38 @@ if (isset($_POST['number'])) {
 	if (!ctype_digit($number)) {
 		die($reponseObj->setResponse(false, "Only numbers are accepted!")->getResponse());
 	}
+
+	// If number is zero sending zero
 	if ($number == 0) {
 		die($reponseObj->setResponse(true, "success", "zero")->getResponse());
 	}
+
+	// if number is less than 20 sending from array
 	if ($number < 20) {
 		die($reponseObj->setResponse(true, "success", $ones[$number - 1])->getResponse());
 	} else {
 		// Getting number length
 		$numberLength = strlen((string) $number);
 
+		// Initializing return text
 		$text = "";
+
 		// Looping through digits from backwards
 		for ($i = $numberLength - 1; $i >= 0; $i--) {
+
+			// Getting present digit
 			$digit = (int) ((string) $number)[$i];
+
+			// Getting next digit
 			$digitAfter = -1;
-			$reverseIndex = $numberLength - $i - 1;
 			if ($i - 1 >= 0) {
 				$digitAfter = (int) (((string) $number)[$i - 1]);
 			}
+
+			// Reverse Index
+			$reverseIndex = $numberLength - $i - 1;
+
+			// Going through serverIndex
 			switch ($reverseIndex) {
 				// Getting digit
 				case 0:
