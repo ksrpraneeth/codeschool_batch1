@@ -1,20 +1,11 @@
 <?php
-include "./../classes/response.php";
-$json = file_get_contents('./../hoa.json');
+include_once "./../classes/response.php";
+include_once "./../data/hoa.php";
 
-// Decoding json data
-$jsonData = json_decode($json, true);
+// Getting keys of HOA
+$hoaList = array_keys(HOA);
 
-// Creating the reponse object
-$data = [];
-
-// Getting hoa from data
-foreach($jsonData["accounts"] as $hoa){
-	$data[] = array("id" => $hoa['id'], "hoa" => $hoa["hoa"]);
-}
-
-// Sending reposne
-$reponseObj = new Response();
-echo $reponseObj->setResponse(true, null, $data)->getResponse();
-
+// Sending it to frontend
+$responseObj = new Response();
+echo $responseObj->setResponse(true, "success", $hoaList)->getResponse();
 ?>

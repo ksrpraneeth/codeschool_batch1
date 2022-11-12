@@ -488,10 +488,10 @@ function getHoaFromApi() {
 		method: "GET",
 		success: (data) => {
 			data = JSON.parse(data);
-			data.data.forEach((hoa) => {
+			data.data.forEach((hoa, index) => {
 				// appending options to select
 				$("#headOfAccount").append(
-					`<option value='${hoa.id}'>${hoa.hoa}</option>`
+					`<option value='${index}'>${hoa}</option>`
 				);
 			});
 		},
