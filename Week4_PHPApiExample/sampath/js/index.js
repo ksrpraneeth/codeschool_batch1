@@ -253,6 +253,7 @@ function validateForm(event) {
 	for (data in formData) {
 		window.validateData.append(data, formData[data]);
 	}
+	showLoading();
 	$.ajax({
 		url: "./api/validate.php",
 		type: "POST",
@@ -260,15 +261,16 @@ function validateForm(event) {
 		processData: false,
 		contentType: false,
 		enctype: "multipart/form-data",
-		success: function (res) {
+		ajax: false,
+		success: async function (res) {
 			res = JSON.parse(res);
 			if (res.status == true) {
 				alert(res.message);
 			} else {
 				let errors = res.data;
-
 				showErrors(errors);
 			}
+			hideLoading();
 		},
 	});
 }
