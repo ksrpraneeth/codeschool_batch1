@@ -290,7 +290,7 @@
                             class="form-select"
                             placeholder="Select"
                             id="expenditureType"
-                            onchange="expenditureTypeChanged(this.value)"
+                            onchange="expenditureSelect()"
                         >
                             <option class="d-none" value="-1">
                                 Select
@@ -410,14 +410,35 @@ function accountChange(){
             var response=JSON.parse(data);
             if(response.status==true){
         console.log(124);
-        $('#balance').html(response.data);
-            $('#loc').html(data);
+        $('#balance').html(response.data.balance);
+            $('#loc').html(response.data.loc);
             }else{
                 $('#balance').html(response.error);
             }
         }
     });
 }
+
+//expenditure
+function expenditureSelect(){
+    expenditureType=$("#expenditureType").val();
+    $.ajax({
+        method:"POST",
+        data:{'expenditureType':expenditureType},
+        url:'expenditure.php',
+        success:function(message)
+        {
+        var response=JSON.parse(message);
+        console.log("ds");
+            if(response.status==true){
+        $('#purposeType').val(message);
+            }else{
+                $('#purposeType').html(response.error);
+            }
+        }
+    });
+}
+      
 
 
 

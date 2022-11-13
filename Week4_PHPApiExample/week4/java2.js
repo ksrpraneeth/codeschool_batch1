@@ -50,5 +50,20 @@ $(document).ready(function () {
     });
 });
 
+function expenditureSelect(){
+    expenditureType=$("#expenditureType").val();
+    $.ajax({
+        method:"POST",
+        data:{'expenditureType':expenditureType},
+        url:'expenditure.php',
+        success:function(message)
+        {
+            
+        console.log(124);
+       
+        }
+    });
+}
+
 
     

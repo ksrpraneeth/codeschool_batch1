@@ -1,7 +1,7 @@
 <?php
    $balances = [
     "0853001020002000000NVN" => [
-"balance" => 000000,
+"balance" => 200000,
 "loc" => 5000,
 ],
 "8342001170004001000NVN"=> [
@@ -13,8 +13,8 @@
         "loc"=> 40000,
     ]
     ];
-   $headOfAccount = $_POST['data']['headOfAccount'];
-   if(array_key_exists($headOfAccount, $balances){
+   $headOfAccount = $_POST['headOfAccount'];
+   if(array_key_exists($headOfAccount, $balances)){
     $data= $balances[$headOfAccount];
     echo json_encode(['status'=>true,'data'=>$data]);
    }
