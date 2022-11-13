@@ -317,12 +317,10 @@
                             placeholder="Select"
                             id="purposeType"
                         >
-                            <option class="d-none" value="">
-                                Select
-                            </option>
-                        </select>
-                    </div>
+                            </select>
+                            <p id="e_purposeType"></p>
                 </div>
+                            </div>
 
                 <div class="input-control row align-items-center">
                     <div class="col-sm-12 md-6 lg-6">
@@ -420,24 +418,31 @@ function accountChange(){
 }
 
 //expenditure
-function expenditureSelect(){
-    expenditureType=$("#expenditureType").val();
-    $.ajax({
-        method:"POST",
-        data:{'expenditureType':expenditureType},
-        url:'expenditure.php',
-        success:function(message)
-        {
-        var response=JSON.parse(message);
-        console.log("ds");
-            if(response.status==true){
-        $('#purposeType').val(message);
-            }else{
-                $('#purposeType').html(response.error);
-            }
+function expenditureSelect() {
+            expenditureType = $("#expenditureType").val();
+            $("#e_purposeType").html('');
+            $('#purposeType').find('option').remove();
+            $.ajax({
+                method: "POST",
+                data: {'expenditureType': expenditureType},
+                url: 'expenditure.php',
+                success: function (result) {
+                    result = JSON.parse(result);
+                    console.log('see',result);
+                    if(result.status==false){
+                        $("#e_purposeType").html(result.error);
+                    }else{
+                        console.log(result.data);
+                        $('#purposeType').append(`<option value="0">Select</option>`);
+                        for (let i=0;i<result.data.length;i++){
+                            let optionText = result.data[i];
+                            let optionValue = result.data[i];
+                            $('#purposeType').append(`<option value="${optionValue}">${optionText}</option>`);
+                        }
+                    }
+                }
+            });
         }
-    });
-}
       
 
 
