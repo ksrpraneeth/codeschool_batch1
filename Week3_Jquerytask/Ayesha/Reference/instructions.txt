@@ -1,0 +1,14 @@
+Reference Api: https://reqres.in/
+
+
+1. Replicate the main.jpeg Image using HTML, CSS, Bootstrap, Javascript and Jquery
+2. Fill the pensioner details section with the sample api data.
+3. On click of Add Legal Heir button Open the modal and write the form as popup_modal.png
+4. Validate Date in the modale popup
+      a. Name should not contain special characters
+      b. Relation should be drop down (Father, Mother, Brother etc.,)
+      c. Bank Ac no (Min 12 and Max 22)
+      d. Bank Ac no and Confirm Bank Ac no Should match
+      e. Ifsc should be like (XXXX0000000) (11 Characters)
+      f. Prefill Bank details on search of IFSCCOde (From list)
+      i. On click of Save Implement one post Ajax call
