@@ -252,8 +252,9 @@
                             <div class="col-lg-5 col-md-8 col-sm-12">
                                 <!-- <input class="form-control" type="password" inputmode="numeric"
                                     placeholder="Enter A/C no" id="partyAccNo" /> -->
-                                    <input type="text" name="name" placeholder="Enter A/C no" id="partyAccNo"  value="<?php if (isset($name)) echo $name ?>"> 
-	                                <span class="error"><?php if (isset($nameError)) echo $nameError ?></span><br>
+                                    <input class="form-control" type="number" inputmode="numeric"
+                                    placeholder="Enter your party A/C no" id="partyaccount" />	                                
+                                    <span class="error"><?php if (isset($nameError)) echo $nameError ?></span><br>
                                 <!-- <p class="errormessg" id="error">
                                     </p>
                                     <script>
