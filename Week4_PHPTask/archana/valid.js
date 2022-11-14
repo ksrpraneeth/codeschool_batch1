@@ -1,8 +1,11 @@
 
 $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
-    $('#sidebar').toggleClass('active');
- });
+        $('#sidebar').toggleClass('active');
+    });
+    $("#bankcode").blur(function () { 
+        getifsc();
+    });
  });
 //normal form validation
 

@@ -183,7 +183,7 @@
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input type="text" class="form-control" name="IfscCode" placeholder="Enter IFSC Code" value=""/>
+              <input type="text" class="form-control" name="IfscCode" id="bankcode" placeholder="Enter IFSC Code" value=""/>
             </div>
           </div>
         </div>
@@ -192,7 +192,7 @@
           <div class="col-xs-8">
             <div class="form-inline">
               <div class="col-md-5 col-sm-9">
-                <span class="input-group-addon">xxxxx<i class="glyphicon glyphicon-lock"></i></span>
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               </div>
             </div>
           </div>
@@ -202,7 +202,8 @@
           <div class="col-xs-8">
             <div class="form-inline">
               <div class="col-md-5 col-sm-9">
-                <span class="input-group-addon"> xxxxxx<i class="glyphicon glyphicon-lock"></i></span>
+                <span class="input-group-addon"> <i class="glyphicon glyphicon-lock"></i></span>
+            
               </div>
             </div>
           </div>
@@ -326,7 +327,76 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
     integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
     crossorigin="anonymous"></script>
+     <!-- jQuery Custom Scroller CDN -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
   <script type="text/javascript" src="valid.js"></script>
+  <!--ifsc code-->
+  <script>
+  function getifsc(){
+	bankcode = $('#bankcode').val();
+	$.ajax({
+		method:'POST',
+		data:{'ifsc':bankcode},
+		url:'ifsc.php',
+		success:function(msg){
+            var response= JSON.parse(msg);
+			//console.log(msg);
+            if(response.status==true){
+            $('#bankname').html(response.data.CITY);
+            $('#bankbranch').html(response.data.BRANCH);
+        }else{
+            $('#e_bankcode').html(response.error);
+        }
+		}
+	});
+}
+//head of account
+function accountChange(){
+    headOfAccount=$("#headOfAccount").val();
+    $.ajax({
+        method:"POST",
+        data:{'headOfAccount':headOfAccount},
+        url:'hoa.php',
+        success:function(data)
+        {
+            var response=JSON.parse(data);
+            if(response.status==true){
+        console.log(124);
+        $('#balance').html(response.data.balance);
+            $('#loc').html(response.data.loc);
+            }else{
+                $('#balance').html(response.error);
+            }
+        }
+    });
+}
+
+//expenditure
+function expenditureSelect() {
+            expenditureType = $("#expenditureType").val();
+            $("#e_purposeType").html('');
+            $('#purposeType').find('option').remove();
+            $.ajax({
+                method: "POST",
+                data: {'expenditureType': expenditureType},
+                url: 'expen.php',
+                success: function (result) {
+                    result = JSON.parse(result);
+                    console.log('see',result);
+                    if(result.status==false){
+                        $("#e_purposeType").html(result.error);
+                    }else{
+                        console.log(result.data);
+                        $('#purposeType').append(`<option value="0">Select</option>`);
+                        for (let i=0;i<result.data.length;i++){
+                            let optionText = result.data[i];
+                            let optionValue = result.data[i];
+                            $('#purposeType').append(`<option value="${optionValue}">${optionText}</option>`);
+                        }
+                    }
+                }
+            });
+        }
+</script>
 </body>
 </html>
-//
