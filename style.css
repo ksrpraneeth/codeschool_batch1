@@ -1,0 +1,48 @@
+div.Info{
+  width:600px;
+  background-color: rgb(56, 117, 209);
+  padding:30px
+}
+.Register div{
+  
+  padding: 5px;
+}
+.Register div label{
+  
+  padding: 5px;
+}
+#message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+
+/* Add a green text color and a checkmark when the requirements are right */
+.valid {
+  color: green;
+}
+
+.valid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10004;";
+}
+
+/* Add a red text color and an "x" icon when the requirements are wrong */
+.invalid {
+  color: red;
+}
+
+.invalid:before {
+  position: relative;
+  left: -35px;
+  content: "&#10006;";
+}
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}

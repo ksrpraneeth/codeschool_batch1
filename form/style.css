@@ -1,0 +1,80 @@
+@import "http://fonts.googleapis.com/css?family=Droid+Serif";
+/* Above line is to import Google font style */
+.maindiv{
+margin:0 auto;
+width:980px;
+height:500px;
+background:#fff;
+padding-top:20px;
+font-size:14px
+}
+.title{
+width:500px;
+height:70px;
+text-shadow:2px 2px 2px #cfcfcf;
+font-size:16px;
+text-align:center;
+font-family:'Droid Serif',serif
+}
+.form_div{
+width:70%;
+float:left
+}
+form{
+width:440px;
+border:1px dashed #ccc;
+padding:10px 30px 40px;
+background-color:#f0f8ff;
+font-family:'Droid Serif',serif
+}
+form h2{
+text-align:center;
+text-shadow:2px 2px 2px #cfcfcf
+}
+textarea{
+width:250px;
+height:60px;
+border-radius:1px;
+box-shadow:0 0 1px 2px #123456;
+margin-top:10px;
+padding:5px;
+border:none
+}
+.input{
+width:250px;
+height:15px;
+border-radius:1px;
+box-shadow:0 0 1px 2px #123456;
+margin-top:10px;
+padding:5px;
+border:none;
+margin-bottom:20px
+}
+.submit{
+color:#fff;
+border-radius:3px;
+background:#1F8DD6;
+padding:5px;
+margin-top:40px;
+border:none;
+width:100px;
+height:30px;
+box-shadow:0 0 1px 2px #123456;
+font-size:16px
+}
+.error{
+color:red
+}
+.radio{
+width:15px;
+height:15px;
+border-radius:1px;
+margin-top:10px;
+padding:5px;
+border:none;
+margin-bottom:20px
+}
+.formget{
+float:right;
+margin-top:85px
+}
