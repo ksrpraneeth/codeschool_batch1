@@ -87,8 +87,30 @@ $("#headofAccount").change(function () {
 
 });
 
-//input data
-("#Expendituretype").change(function(){
+// //input data
+// ("#Expendituretype").change(function(){
+//   let Expendituretype = $("#Expendituretype").val()
+//   $.ajax({
+//       url : "Expendituretype.php",
+//       method:"POST",
+      
+//       data:{
+//         Expendituretype,
+//       },
+//       success:(data) => {
+//            data = JSON.parse(data);
+//            var ar="";
+//            console.log(data.Purposetype)
+//            for(var i = 0; i < data.length; i++) {
+//             ar += "<option value='" + data[i] + "'>" + data[i] + "</option>";
+//         }
+//         $("select['#Purposetype']").append('<option>'+data[i]+'</option');
+//       }
+//       })
+//     })
+
+
+$("#Expendituretype").change(function(){
   let Expendituretype = $("#Expendituretype").val()
   $.ajax({
       url : "Expendituretype.php",
@@ -97,14 +119,20 @@ $("#headofAccount").change(function () {
       data:{
         Expendituretype,
       },
+
+      
       success:(data) => {
-           data = JSON.parse(data);
-           var ar="";
-           console.log(data.Purposetype)
-           for(var i = 0; i < data.length; i++) {
-            ar += "<option value='" + data[i] + "'>" + data[i] + "</option>";
-        }
-        $("select['#Purposetype']").append('<option>'+data[i]+'</option');
-      }
-      })
-    })
+         
+          data = JSON.parse(data);
+          console.log(data.Purposetype)
+          var array2=data.Purposetype;
+          $("#Purposetype").html('');
+          for (var i=0;i<array2.length;i++){
+              $("#Purposetype").append('<option>'+array2[i]+'</option')
+          }
+          //    $("#purposetype").html(Option);
+            
+      },
+    });
+
+  });
