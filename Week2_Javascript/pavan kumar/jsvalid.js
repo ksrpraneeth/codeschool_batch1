@@ -28,7 +28,7 @@ function login()
         }
       }
 const hamberger = document.getElementById('click_hambergur');
-hamberger.onclick = function sidebar(){
+hamberger.onclick = function(){
   var x=document.getElementById('side_Nav');
   if (x.classList.contains('open_sidebar'))
   {
@@ -65,7 +65,7 @@ const listOfBank = [
   {
     bankName: "hijk",
     ifsc: "HIJK0123456",
-    brachName: "Miyapur"
+    brachName: "Miypur"
   },
   {
     bankName: "lmno",
@@ -169,7 +169,7 @@ const validateComformAcc = (errorArray) => {
     return errorArray.push("**Enter Confirm Account No,")
   }
   else if (accountNumber.value !== cAccountNumber.value){
-    return errorArray.push("** Account Number not Matched,")
+    return errorArray.push("** Account Numbet not Matched,")
   }
   else {
     errorArray = []
@@ -328,4 +328,3 @@ form.addEventListener('submit', function (e) {
       }
       document.getElementById("output").innerHTML = string;
     }
-
