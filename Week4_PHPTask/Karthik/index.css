@@ -1,0 +1,59 @@
+.sidebar{
+    background: rgb(17, 53, 90);
+    border:0px;
+    color:white;
+}
+.sidebar li{
+    padding: 5px;
+    border-left:solid 2px transparent;
+}
+
+.sidebar  li:hover{
+    background-color: gray;
+}
+.sidebar .active{
+    border-left:solid 5px yellow;
+    background-color: gray;
+
+}
+.right select option{
+    text-align: center;
+    size: absolute;
+}
+ .dropdown ul li p{
+    text-align: center;
+    margin-left:5px;
+ }
+
+
+
+.sidebar{
+	background: rgb(5, 68, 104);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 225px;
+	height: 100%;
+	padding: 20px 0;
+	transition: all 0.5s ease;
+}
+.Content{
+	width: calc(100% - 225px);
+	left: 225px;
+	transition: all 0.5s ease;
+}
+
+body.active .sidebar{
+	left: -225px;
+}
+
+body.active .Content{
+	left: 0;
+	width: 100%!important;
+}
+
+.Content .top_navbar .hamburger{
+    padding: 1px;
+}
+
+
