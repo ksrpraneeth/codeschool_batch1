@@ -1,0 +1,24 @@
+ -On Click of logout text should be changed to login and vice versa.
+- Party Account number
+        Should be min 12 and max 22 digits
+        Can have zero in the begining
+        Should only contain numbers
+-Confirm Party Account number
+        Should be same as party account number
+-Party Name
+        Should not have special characters
+-IFSC Code 
+        It should be 11 characters long.
+        The first four characters should be upper case alphabets.
+        The fifth character should be 0.
+        The last six characters usually numeric, but can also be alphabetic.
+-Bank Name & Bank Branch
+        Prefil name and branch based on IFSC code . Names need not be original names.
+-Purpose
+        Max 500 Characters
+-Party Amount 
+        Should not be in fractions.
+-Head of Account validations
+-Side bar open close onclick of hamburger button
+-Expenditure and Purpose validations
+-Show date and time
