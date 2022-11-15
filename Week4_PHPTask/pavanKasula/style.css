@@ -1,0 +1,34 @@
+.next{
+     
+    background-color:rgb(17,53,90)
+    
+}
+
+.errorid {
+
+    border: 10px; 
+    border-color: blue;
+    background-color: rgb(240, 146, 146);
+    
+}
+.er {
+    padding: 0px;
+    
+    color: white;
+  }
+  
+.closebtn {
+    margin-left: 15px;
+    color: rgb(0, 0, 0);
+    background-color: #c8ebff;
+   
+    float: left;
+    font-size: 12px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: rgb(76, 0, 255);
+  }
