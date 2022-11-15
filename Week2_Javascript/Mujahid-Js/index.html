@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css" />
     <title>IFMIS</title>
     <script src="main.js"></script>
@@ -76,8 +77,8 @@
                         <!-- <div class="menubar"></div>
                         <div class="menubar"></div>
                         <div class="menubar"></div> -->
-                        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-                            <i class="fa fa-bars fa-2x m-1"></i>
+                        <a href="javascript:void(0);" class="" onclick="myFunction()">
+                            <i class="fa fa-bars fa-2x m-1 icon"></i>
                         </a>
                         <!-- MENU BAR LOGO -->
                     </div>
@@ -187,7 +188,7 @@
                 <!-- FORMS START -->
 
                 <div class="Form p-2 m-4">
-                    <div class="errors alert alert-warning d-none unstyled p-4 m-1" style="font-size: 0.8rem;"
+                    <div class="errors alert alert-warning d-none unstyled my-3 shadow" style="font-size: 0.8rem;"
                         id="errors"></div>
 
                     <form action="#" name="partyForm" onsubmit="validateForm(event)">
@@ -243,10 +244,20 @@
                         <!-- Account Number strt -->
                         <div class="inputGroup align-items-center py-4 row">
                             <div class="col-lg-2 col-md-3 col-sm-12">
-                                <p class="">
+                                <p id="partyaccnumber">
                                     Party Account Number<span class="text-danger">*</span>
                                 </p>
                             </div>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#partyaccnumber").focus(function () {
+                                        $(this).css("background-color", "yellow");
+                                    });
+                                    $("#partyaccnumber").blur(function () {
+                                        $(this).css("background-color", "green");
+                                    });
+                                });
+                            </script>
                             <div class="col-lg-5 col-md-8 col-sm-12">
                                 <input class="form-control" type="password" inputmode="numeric"
                                     placeholder="Enter A/C no" id="partyAccNo" />
@@ -341,7 +352,7 @@
                             <div class="col-lg-5 col-md-8 col-sm-12">
                                 <select name="" class="form-select" placeholder="Select" id="headOfAccount"
                                     onchange="headOfAccountChanged(event, this)">
-                                    <option class="d-none" value="-1">
+                                    <option class="d-none">
                                         Select
                                     </option>
                                     <option value="0853001020002000000NVN" data-balance="1000000" data-loc="5000">
