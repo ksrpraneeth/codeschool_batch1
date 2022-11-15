@@ -21,12 +21,21 @@ $("document").ready(function () {
         partyAccountnumber,
         confirmpartyAccountNumber,
         partyName,
+        ifsccode,
+        Partyname,
+        purpose,
 
       },
 
       success: (data) => {
 
         data = JSON.parse(data);
+
+        rr = [""];
+        for(i=0;i<data.length;i++){
+           errors +="<li>" + data[i]+"</br>";
+           document.getElementById("errorsid").innerHTML = rr;
+        }
         console.log(data)
         $("#errorsid").text(data.messagesArray);
 

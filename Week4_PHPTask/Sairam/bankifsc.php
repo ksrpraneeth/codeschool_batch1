@@ -24,7 +24,7 @@ array_push($resultArray,  "Please enter ifsccode");
             "bankName" => "icici",
             "bankbranch" => "bengalore"];
         }
- if (preg_match("/[A-Z]{4}[0][0-9]{6}/", $bankifsccode)) {
+ if (preg_match("/[a-z]{4}[0][0-9]{6}/", $bankifsccode)) {
  //array_push($resultArray, "ifsccode should be 11digits");
     $resultArray = [
             "Errors" => "",
