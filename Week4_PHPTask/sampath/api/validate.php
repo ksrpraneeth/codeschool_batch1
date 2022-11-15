@@ -26,7 +26,7 @@ foreach ($parameters as $element => $elementValue) {
 	// Checking element if isset
 	if (!isset($_POST[$element])) {
 		// If not set pushing error
-		$parameterErrors->pushError("notFoundErrors", $elementValue);
+		$parameterErrors->pushError("notFoundErrors", $elementValue . " Not found in data incoming!");
 	}
 }
 
