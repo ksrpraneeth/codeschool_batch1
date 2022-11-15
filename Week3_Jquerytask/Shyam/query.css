@@ -1,0 +1,11 @@
+.Menu{
+    height: 100%;
+    background:  rgba(32, 45, 82, 0.973);
+}
+.items{
+    list-style: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+.list{
+    padding: 10px;
+}
