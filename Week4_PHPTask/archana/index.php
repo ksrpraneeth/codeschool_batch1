@@ -151,7 +151,7 @@
           <div class="col-md-5 col-sm-8">
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-              <input type="number" class="form-control" id="partyaccount" name="AcNum" placeholder="Enter A/c No" value=""  />
+              <input type="number" class="form-control" id="partyaccount" name="AcNum" placeholder="Enter A/c No" value="" require />
             </div>
           </div>
           <div class=e_partyaccount>dd</div>
@@ -184,6 +184,7 @@
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               <input type="text" class="form-control" name="IfscCode" id="bankcode" placeholder="Enter IFSC Code" value=""/>
+              <button type="button" class="btn btn-primary align-item-end" onclick="Search()">Search</button><br>
             </div>
           </div>
         </div>
@@ -214,13 +215,13 @@
           <label class="control-label col-sm-3"><b>Head of Account* :</b> <span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
             <div class="form-inline m-2 ">
-              <select style="height:25px; width:200px;" onchange="inputChange(this)">
+              <select style="height:25px; width:200px;" onchange="accountChange(this)" id="headOfAccount">
                 <option> Search </option>
-                <option value="1">0853001020002000000NVN </option>
-                <option value="2">8342001170004001000NVN </option>
-                <option value="3">2071011170004320000NVN </option>
-                <option value="4">8342001170004002000NVN </option>
-                <option value="5"> 2204000030006300303NVN</option>
+                <option value="0853001020002000000NVN">0853001020002000000NVN </option>
+                <option value="8342001170004001000NVN">8342001170004001000NVN </option>
+                <option value="2071011170004320000NVN">2071011170004320000NVN </option>
+                <option value="8342001170004002000NVN">8342001170004002000NVN </option>
+                <option value="2204000030006300303NVN">2204000030006300303NVN </option>
               </select>
             </div>
           </div>
@@ -260,7 +261,9 @@
           <div class="col-md-8 col-sm-9">
             <div class="form-inline m-2 p-2"><label>
                 <select style="height:25px; width:200px;" id="purposeType">
-                  <option> Search </option>
+                  <option value="">select</c>
+                  <option value="option1"> Maintain current levels of operation within the organization",</option>
+                  <option value="option2"> "Expenses to permit future expansion</option>
                 </select>
             </div>
           </div>
@@ -342,10 +345,10 @@
             var response= JSON.parse(msg);
 			//console.log(msg);
             if(response.status==true){
-            $('#bankname').html(response.data.CITY);
-            $('#bankbranch').html(response.data.BRANCH);
+            $('#bankname').val(response.data.CITY);
+            $('#bankbranch').val(response.data.BRANCH);
         }else{
-            $('#e_bankcode').html(response.error);
+            $('#e_bankcode').val(response.error);
         }
 		}
 	});
@@ -361,11 +364,11 @@ function accountChange(){
         {
             var response=JSON.parse(data);
             if(response.status==true){
-        console.log(124);
-        $('#balance').html(response.data.balance);
-            $('#loc').html(response.data.loc);
+          console.log(124);
+          $('#Balance').val(response.data.balance);
+            $('#Loc').val(response.data.loc);
             }else{
-                $('#balance').html(response.error);
+                $('#Balance').val(response.error);
             }
         }
     });
@@ -374,7 +377,7 @@ function accountChange(){
 //expenditure
 function expenditureSelect() {
             expenditureType = $("#expenditureType").val();
-            $("#e_purposeType").html('');
+            $("#e_purposeType").val('');
             $('#purposeType').find('option').remove();
             $.ajax({
                 method: "POST",

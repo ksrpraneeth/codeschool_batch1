@@ -1,14 +1,14 @@
 <?php
 $expenditure = [
-    "opt1" => [
+    "option1" => [
         "Maintain current levels of operation within the organization",
         "Expenses to permit future expansion"
     ],
-    "opt2" => [
+    "option2" => [
         "Sales costs or All expenses incurred by the firm that are directly tied to the manufacture and selling of its goods or services",
         "All expenses incurred by the firm to guarantee the smooth operation"
     ],
-    "opt3" => [
+    "option3" => [
         "Exorbitant Advertising Expenditure",
         "Unprecedented Losses",
         "Development and Research Cost"
