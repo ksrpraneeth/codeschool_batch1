@@ -1,0 +1,95 @@
+CREATE TABLE "Guest Details"(
+    "id" INTEGER NOT NULL,
+    "First Name" VARCHAR(50) NOT NULL,
+    "Last Name" VARCHAR(50) NOT NULL,
+    "Email" VARCHAR(50) NOT NULL,
+    "Phone Number" INTEGER NOT NULL,
+    "Address" VARCHAR(50) NOT NULL,
+    "id_Portal" INTEGER NOT NULL
+);
+CREATE INDEX "guest details_id_portal_index" ON
+    "Guest Details"("id_Portal");
+ALTER TABLE
+    "Guest Details" ADD PRIMARY KEY("id");
+CREATE TABLE "Portal"(
+    "id" INTEGER NOT NULL,
+    "Hotel Info" TEXT NOT NULL,
+    "Rooms Data" VARCHAR(50) NOT NULL,
+    "id_Room" INTEGER NOT NULL
+);
+CREATE INDEX "portal_id_room_index" ON
+    "Portal"("id_Room");
+ALTER TABLE
+    "Portal" ADD PRIMARY KEY("id");
+CREATE TABLE "Reservation"(
+    "id" INTEGER NOT NULL,
+    "Reservation date" DATE NOT NULL,
+    "Check In date" DATE NOT NULL,
+    "Check Out Date" DATE NOT NULL,
+    "Total Price of room" INTEGER NOT NULL,
+    "Number of People" INTEGER NOT NULL,
+    "id_Room" INTEGER NOT NULL,
+    "id_Payment" INTEGER NOT NULL,
+    "id_Guest Details" INTEGER NOT NULL,
+    "id_Reservation Catalog" INTEGER NOT NULL
+);
+ALTER TABLE
+    "Reservation" ADD PRIMARY KEY("id");
+CREATE TABLE "Payment/Invoice"(
+    "id" INTEGER NOT NULL,
+    "Name" VARCHAR(50) NOT NULL,
+    "Amount Paid" INTEGER NOT NULL,
+    "Amount Pending" INTEGER NOT NULL,
+    "Cancelld" VARCHAR(50) NOT NULL
+);
+ALTER TABLE
+    "Payment/Invoice" ADD PRIMARY KEY("id");
+CREATE TABLE "Room"(
+    "id" INTEGER NOT NULL,
+    "id_Room Type" INTEGER NOT NULL,
+    "id_Room catalog" INTEGER NOT NULL
+);
+ALTER TABLE
+    "Room" ADD PRIMARY KEY("id");
+CREATE TABLE "Room Catalog"(
+    "id" INTEGER NOT NULL,
+    "Room Number" INTEGER NOT NULL,
+    "Total number of rooms" INTEGER NOT NULL,
+    "Room Description" VARCHAR(50) NOT NULL,
+    "Floor Number" INTEGER NOT NULL,
+    "Food Facility" TEXT NOT NULL
+);
+ALTER TABLE
+    "Room Catalog" ADD PRIMARY KEY("id");
+CREATE TABLE "Room Type"(
+    "id" INTEGER NOT NULL,
+    "Room Name" TEXT NOT NULL,
+    "Room Status" VARCHAR(50) NOT NULL
+);
+ALTER TABLE
+    "Room Type" ADD PRIMARY KEY("id");
+CREATE TABLE "Reservation catalog"(
+    "id" INTEGER NOT NULL,
+    "Check in" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL,
+    "Check Out" TIMESTAMP(0) WITHOUT TIME ZONE NOT NULL
+);
+ALTER TABLE
+    "Reservation catalog" ADD PRIMARY KEY("id");
+ALTER TABLE
+    "Room" ADD CONSTRAINT "room_id_room type_foreign" FOREIGN KEY("id_Room Type") REFERENCES "Room Type"("id");
+ALTER TABLE
+    "Room" ADD CONSTRAINT "room_id_room catalog_foreign" FOREIGN KEY("id_Room catalog") REFERENCES "Room Catalog"("id");
+ALTER TABLE
+    "Reservation" ADD CONSTRAINT "reservation_id_reservation catalog_foreign" FOREIGN KEY("id_Reservation Catalog") REFERENCES "Reservation catalog"("id");
+ALTER TABLE
+    "Guest Details" ADD CONSTRAINT "guest details_id_portal_foreign" FOREIGN KEY("id_Portal") REFERENCES "Portal"("id");
+ALTER TABLE
+    "Portal" ADD CONSTRAINT "portal_id_room_foreign" FOREIGN KEY("id_Room") REFERENCES "Room Type"("id");
+ALTER TABLE
+    "Guest Details" ADD CONSTRAINT "guest details_id_portal_foreign" FOREIGN KEY("id_Portal") REFERENCES "Reservation"("id");
+ALTER TABLE
+    "Reservation" ADD CONSTRAINT "reservation_id_room_foreign" FOREIGN KEY("id_Room") REFERENCES "Room"("id");
+ALTER TABLE
+    "Reservation" ADD CONSTRAINT "reservation_id_payment_foreign" FOREIGN KEY("id_Payment") REFERENCES "Payment/Invoice"("id");
+ALTER TABLE
+    "Reservation" ADD CONSTRAINT "reservation_id_guest details_foreign" FOREIGN KEY("id_Guest Details") REFERENCES "Guest Details"("id");
