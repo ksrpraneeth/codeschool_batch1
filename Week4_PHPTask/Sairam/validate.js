@@ -31,13 +31,11 @@ $("document").ready(function () {
 
         data = JSON.parse(data);
 
-        rr = [""];
+        errors = [""];
         for(i=0;i<data.length;i++){
-           errors +="<li>" + data[i]+"</br>";
-           document.getElementById("errorsid").innerHTML = rr;
-        }
-        console.log(data)
-        $("#errorsid").text(data.messagesArray);
+           errors +="<li>" + data[i]+"</li>";
+          }
+          document.getElementById("errorsid").innerHTML = errors;
 
       },
 
