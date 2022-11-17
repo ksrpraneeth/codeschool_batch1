@@ -1,0 +1,36 @@
+Create database schema of the Task Manager to manage the tasks, activities, and comments of the application users. The Task Manager application built using this database design can be used to store the tasks associated with the users. The same application can be used to manage the task activities and comments or notes.
+Schema needs to support a wide range of characters so use CHARACTER SET utf8mb4 while creating schema.
+
+Tables List:
+	user
+	task
+	task_meta
+	tag
+	task_tag
+	activity
+	comment
+
+User Table => this table is to store user information like (Role Id, Firstname, Middle Name, Lastname, Mobile, email, Password, Registered At, Last Login) and to manage their own profiles.
+
+Task Table => It stores the tasks information
+Columns will be as (Id, User Id(Foreign key with user.id), Created By(Foreign key with user.id), Updated By(Foreign key with user.id), Title, Description, Status, Hours, Created At, Updated At, Planned Start Date, Planned End Date, Actual Start Date, Actual End Date, Content).
+Status column is to track the status of the task. The status of the task can be New, In-Progress, or Completed.
+
+Task Meta Table => It stores additional information about tasks.
+Columns => Id, Task Id (foreign key with Task.Id), Key, Content
+
+Tag Table => It stores the task tags
+Columns => Id, Title, Slug
+
+Task Tag Table => It stores the task and tasktags mapping
+Columns => Task Id(foreign key with Task.Id), Tag Id(foreign key with Tag.Id)
+
+Activity Table => It stores the task activities required to complete the task
+Columns => 
+Id, User Id(Foreign key with user.id), Task Id(Foreign key with Task.id), Created By(Foreign key with user.id), Updated By(Foreign key with user.id), Title, Description, Status, Hours, Created At, Updated At, Planned Start Date, Planned End Date, Actual Start Date, Actual End Date, Content
+
+Comment Table => It stores the task and activity comments.
+Columns => Id, Task Id(Foreign key with Task.id), Activity Id(Foreign key with Activity.id), Title, Created At, Updated At, Content
+
+
+Insert sample data in all tables. 
