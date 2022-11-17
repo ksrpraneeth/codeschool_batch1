@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFMIS</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" 
+    crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
+    crossorigin="anonymous"></script>
+    <script src=
+        "https://code.jquery.com/jquery-3.5.1.min.js">
+    </script>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./index.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+
+</head>
+<body>
+    <div class="container-fluid p-0 bg-secondary">
+        <div class="header  w-100 align-items-center">
+            <div class="bg-image w-100 h-100 py-2" style="background-image:url('./bg.jpeg'); background-color:rgb(17, 53, 90)">
+                <div class=" d-flex justify-content-between align-items-center">
+                <div class="left d-flex">
+                    <img class="image-fluid  mx-2 my-1" src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"  alt="" style="padding:px;width:50px;height:40px;width:200px;padding-right:50px;" >
+                    <div class="top_navbar mx-2 my-1 bg-secondary rounded-1" style="width:40px;height:40px;padding:8px;margin-bottom:10px;">
+                        <div class="hamburger text-white px-1 ">
+                                <i class="fas fa-bars" id="hamburger"></i>
+                        </div>
+                    </div>
+                <div class="modules my-1 px-1 p-0 align-items-center  d-flex  rounded-1" style="background-color:rgba(149, 145, 145, 0.614)">
+                    <i class="fa-solid fa-house text-white "></i>
+                    <div class="text-white ">
+                      <p class="m-0 p-0" style="font-size:0.9rem">
+                          Modules 
+                      </p>
+                    </div>
+                </div>
+                    <button type="button"  class="logout d-flex bg-secondary border-0 bg-opacity-25 text-white align-items-center  rounded-1 m-1 mx-2 "> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                            <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                        </svg>
+                          <p class="p-2 m-0" id="log1" style="font-size:0.9rem">Logout</p>
+                    </button>  
+                <button class="d-flex align-items-center mx-2 border-0 rounded-1 my-1 text-secondary"><i class="fa-solid fa-magnifying-glass "></i>
+                EMPCODE/Bank Ac No</button>
+                <div class="dateTime text-white d-none d-lg-block align-items-center" style="font-size:0.8rem;width:100px;height:50px;">
+                    <p  class="m-0 p-0 text-secondary"> Last Login</p>
+                    <p id="displayDateTime"  class="p-0 m-0" style="font-size:0.7rem">
+                    </p>
+                </div>
+                  
+                </div>
+              <div class="dropdown align-items-center justify-content-center  d-flex bg-secondary bg-opacity-75  rounded-2" style="font-size: 0.8rem" > 
+              <button class="btn  dropdown-toggle d-flex p-0 align-items-center justify-content-between" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="width:200px"> 
+              <div class="icon text-white bg-secondary py-2 px-1">
+                  <i class="bi text-white bi-person m-0"></i>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                    </svg>
+                  </div>
+                    <div class="text-white align-items-center d-none d-lg-block bg-secondary px-1 m-0 " style="font-size:0.8rem"> 
+                      <p class="m-0">(govt_demo)</p>
+                   </div> 
+                  </button>
+                  <ul class="dropdown-menu  text-white">
+                    <li><a class="dropdown-item  d-flex align-items-center" href="#">
+                      <i class="bi text-white bi-person m-0 "></i>
+                      <svg class="text-success" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg><br>
+                      <P class="m-0 mx-2">Profile</P>
+                    </a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#">
+                      <svg class="text-success" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                        <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+                        <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                      </svg>
+                      <p class="m-0 mx-2">Change Password</p></a></li>
+                    <li><a class="dropdown-item d-flex align-items-center"  href="#">
+                      <svg class=text-success
+                       xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                        <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                    </svg>
+                     <p class="m-0 mx-2" id="log">Logout</p></a></li>
+                  </ul>
+                    </div> 
+                </div>
+                
+                </div>
+                </div>
+        
+        <div class="content bg-white m-2">
+            <div class="d-flex  align-items-center justify-content-between px-3" style="padding-top:20px">
+                <p>Expenditure</p>
+                <p>Analytics Dashboard</p>
+                <p>HR</p>
+                <p>Daily Reports</p>
+                <p>Vehicle Hire(0)</p>
+                <p>BRO</p>
+                <p></p>
+                <p></p>
+                <p></p>
+            </div>
+            <hr class="mx-3 my-4">
+            <div class="row d-lg-flex ">
+                <div class="scaleType col-lg-6   border-0">
+                    <div class="d-flex  align-items-center justify-content-between my-1" style="font-size:0.9rem">
+                        <div class="scaleTypeLeft">
+                            <div class="d-flex">
+                                 <h6 class="p-1 m-0">EMPLOYEE CATEGORIZATION</h6>
+                                 <p class="m-0 p-0 text-success text-center">(working)</p>
+                            </div>
+                        </div>
+                        <div class="scaleTypeRight d-flex">
+                                <input type="search" id="scaleTypeSearch" class="m-2 rounded-3" placeholder="EMPCODE/Bank Ac No">
+                                <div class="scaleTypeDownload d-flex m-2 card align-items-center">
+                                    <p class="m-0 px-2 align-items-center" style="font-size:0.8rem"><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                                      </svg>Download Emp</p>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="scaleList align-items-center" style="list-style-type:none">
+                            <li class="text-primary " style="background-color:rgb(171, 220, 236)">Scale Type</li>
+                            <li class="d-flex align-items-center" onclick="scaleType('1')">
+                                <img src="https://th.bing.com/th/id/R.199f1e575200abc29cc5ca79825840ea?rik=vZPYTZxzxNhAFQ&riu=http%3a%2f%2fwww.ciidesign.in%2fimages%2fpartners-logo%2f400x300%2ftelangana-state-logo.jpg&ehk=HEBZGBIQf%2fRBhdYYAlyv2aIUdKgXH82%2bBD8oRHVNorc%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" style="width:40px;height:30px;padding-left:0px;">
+                                <p>State Scale</p>
+                                <p class="rowCount" onload="count()"></p>
+                            </li><hr class="p-0 m-0">
+                            <li class="d-flex align-items-center" onclick="scaleType('2')">
+                                <img src="https://wallpaperaccess.com/full/1386158.png" alt="" style="width:30px;height:30px;padding-left:8px;">
+                                <p class="px-2">All Indian Services</p>
+                                <p class="rowCount" onload="count()"></p>
+                            </li><hr class="p-0 m-0">
+                            <li class="d-flex align-items-center"  onclick="scaleType('3')">
+                                <img src="https://th.bing.com/th/id/R.424b0f2b83b28d94e333628d93d34038?rik=49QY%2bKxof2xL4w&riu=http%3a%2f%2fwww.lpu.in%2fabout_lpu%2fimages%2faccreditation%2fugc1.jpg&ehk=MQQYaLq250dEuhfGhBPLGJEj7wpXZrAowZdDtkm322w%3d&risl=&pid=ImgRaw&r=0" alt="" style="width:40px;height:30px;">
+                                <p>UGC</p>
+                                <p class="rowCount" onload="count()"></p>
+                            </li><hr class="p-0 m-0">
+                            <li class="d-flex align-items-center" onclick="scaleType('0')">
+                                <img src="https://cialive.in/wp-content/uploads/2020/05/aicte_logo.png" alt="" class="mx-1" style="width:30px;height:30px;">
+                                <p>AICTE</p>
+                                <p class="rowCount" onload="count()"></p>
+                            </li><hr class="p-0 m-0">
+                            <li class="d-flex align-items-center" onclick="scaleType('5')">
+                                <img src="https://th.bing.com/th/id/R.199f1e575200abc29cc5ca79825840ea?rik=vZPYTZxzxNhAFQ&riu=http%3a%2f%2fwww.ciidesign.in%2fimages%2fpartners-logo%2f400x300%2ftelangana-state-logo.jpg&ehk=HEBZGBIQf%2fRBhdYYAlyv2aIUdKgXH82%2bBD8oRHVNorc%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="" style="width:40px;height:30px;padding-left:0px;">
+                                <p>Other Special Cases</p>
+                                <p class="rowCount" onload="count()"></p>
+                            </li><hr class="p-0 m-0">
+                            <li class="d-flex align-items-center" onclick="scaleType('6')">
+                                <img src="https://logodix.com/logo/1969668.jpg" alt="" style="width:30px;height:30px;padding-left:5px;">
+                                <p class="m-2">Judicial</p>
+                                <p class="rowCount" onload="count()"></p>
+                            </li><hr class="p-0 m-0">
+                    </div>
+                </div>
+                <div class="hrAtGlance col-lg-6  border-0 shadow-3" style="list-style-type:none" style="margin-left:0px;height:500px;">
+                    <h6 class="p-3 m-0" style="height:50px">HR AT GLANCE</h6>
+                    <ul class="m-0 list-unstyled">
+                    <li class="text-primary " style="background-color:rgb(171, 220, 236)">Scale Type</li>
+                    <li>Total Sanction Cadre Strength</li>
+                    <li>Total Working</li>
+                    <li>under Suspension</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="popUp">
+        <div onclick="togglePopup()" class="close-btn">
+            x
+        </div>
+        <p id="uGC" class="align-items-start">UGC</p><hr>
+        <div class="d-flex justify-content-between align-items-center">
+            <div class="popUpLeft"></div>
+            <div class="popUpright d-flex">
+                <p class="px-2 m-0">Search Anything</p>
+                <input type="search" id="popUpSearch" placeholder="Search here....">
+            </div>
+        </div><hr>
+        <table class="popUpData" id="popUpData">
+            <tr>
+                <th>S.No</th>
+                <th>id</th>
+                <th>Email</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
