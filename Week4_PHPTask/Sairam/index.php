@@ -11,8 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
- 
-    <script src="validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <title>Document</title>
 </head>
 
@@ -195,7 +194,7 @@
               </div>
             </div>
 
-           <p id="errorid"></p>  
+           <p id="errorsid"></p>  
 
         
           
@@ -223,30 +222,31 @@
             </div>
 
       
-            <p id="errorid"></p> 
+            <p id="errorsid"></p> 
               <div class="row mb-1 p-3 d-flex">
                 <label class="col-md-3 col-form-label"><b>PartyAccountno*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-12 col-md-5 d-lg-flex align-items-center">
-                  <input type="tel" onkeypress="return" class="form-control" id="pAccountno" placeholder="Enter A/c No">
+                  <input type="tel" onkeypress="return" class="form-control" id="partyAccountNumber" placeholder="Enter A/c No">
                 </div>
+            
               </div>
 
               <div class=" row  mb-1 p-3 d-flex">
                 <label class="col-md-3 col-form-label"><b>Confirm party Account No*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5  d-lg-flex align-items-center">
-                   <input type="text" class="form-control" id="cfmaccountno"
+                   <input type="text" class="form-control" id="confirmpartyAccountNumber"
                     placeholder="confirm A/c no">
                 </div>
               </div>
 
             
                 <div class="row mb-1 p-3  d-flex">
-                  <label class="col-md-3 "><b> party name*</b></label>
+                  <label class="col-md-3 "><b> partyname*</b></label>
                   <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                   <div class=" col-12 col-md-5  d-lg-flex align-items-center">
-                   <input type="text" class="form-control" id="pname"
+                   <input type="text" class="form-control" id="partyName"
                       placeholder="Enter party name">
                   </div>
                 </div>
@@ -257,16 +257,12 @@
 
               <div class="bg-info  bg-opacity-25" style="margin:5px">
                 <div class="row mb-1 p-3 d-flex">
-                  <label class="col-12 col-md-3 col-form-label"><b> Bank IFSC code*</b></label>
+                  <label class="col-12 col-md-3 col-form-label"><b> bankifsccode*</b></label>
                   <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                   <div class=" col-12 col-md-5 d- lg-flex align-items-center">
-<<<<<<< HEAD
-                  <input type="ifsccode" class="form-control" id="code" placeholder="Enter ifsc code">
-=======
-                  <input type="text" class="form-control" id="ifsccode" placeholder="Enter ifsc code">
->>>>>>> 4bbdb27e1b9e40602d776c9f62acfd5e3cefac43
+                  <input type="text" class="form-control" id="bankifsccode" placeholder="Enter ifsc code">
                       <div class="input-group-append"> 
-                        <button class=" btn btn-outline-secondary btn-primary text-white d-flex" onclick="ifsccodeinput()" type="submit">Search</button>
+                        <button class=" btn btn-outline-secondary btn-primary text-white d-flex" id="search"  type="button">Search</button>
                       </div>
                   </div>
                 </div>
@@ -296,11 +292,11 @@
 
              
                 <div class="row mb-1 p-3 d-flex">
-                  <label class="col-md-3 "><b> Head of account*</b></label>
+                  <label class="col-md-3 "><b> Headofaccount*</b></label>
                   <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                   <div class="col-md-5 d-lg-flex align-items-center">
-                    <select class="form-select" id="hoa" onchange="fill()" placeholder="select">  
-                      <option value="select"></option>
+                    <select class="form-select" id="headofAccount"  placeholder="select">  
+                      <option value="">Select</option>
                   
                       <option value="0853001020002000000NVN">
                         0853001020002000000NVN
@@ -316,9 +312,7 @@
               </option>
                       </select>
                   </div>
-                </div>
-             
-               
+                </div> 
   
               <div class="row mb-1 p-3 d-flex">
                 <label class="col-md-3 col-form-label"><b>Balance (inRs*)</b></label>
@@ -338,20 +332,10 @@
   
   
               <div class="row mb-1 p-3 d-flex">
-                <label class="col-md-3 "><b> Expenditure type*</b></label>
+                <label class="col-md-3 "><b> Expendituretype*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-<<<<<<< HEAD
-                  <select name="" class="form-select" id="Expendituretype" placeholder="select">  
-                    <option class="d-none">
-                      Select
-                    </option>
-                    <option value="option 1">capital Expenditure</option>
-                    <option value="option 1">Revenue Expenditure</option>
-                    <option value="option 1">Deffered Revenue Expenditure</option>
-                  </select>
-=======
-                 <select name="" class="form-select form-select-sm" id="input" placeholder="select" onchange="random_function()">  
+                 <select name="" class="form-select form-select-sm" id="Expendituretype" placeholder="select" onchange="random_function()">  
                   <option>
                     Select
                   </option>
@@ -359,21 +343,15 @@
                   <option >Revenue Expenditure</option>
                   <option >Deffered Revenue Expenditure</option>
                 </select>
->>>>>>> 4bbdb27e1b9e40602d776c9f62acfd5e3cefac43
                 </div>
               </div>
 
               <div class="row mb-1 p-3 d-flex">
-                <label class="col-md-3 "><b> Purpose type*</b></label>
+                <label class="col-md-3 "><b> Purposetype*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-<<<<<<< HEAD
-                  <select class="form-select" id="purposetype" placeholder="select">  
-                    <option>Select</option>
-=======
-                  <select class="form-select  form-select-sm" id="output" placeholder="select">  
-                    <option></option>
->>>>>>> 4bbdb27e1b9e40602d776c9f62acfd5e3cefac43
+                  <select class="form-select  form-select-sm" id="Purposetype" placeholder="select">  
+                    <option selected="selected"></option>
                     </select>
                 </div>
               </div>
@@ -382,11 +360,7 @@
                 <label class="col-md-3 "><b> purpose*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-<<<<<<< HEAD
-                 <input type="text" class="form-control" id="purpose"placeholder="enter purpose here">
-=======
-                 <input type="text" class="form-control" id="purpose1" placeholder="enter purpose here" maxlength="500">
->>>>>>> 4bbdb27e1b9e40602d776c9f62acfd5e3cefac43
+                 <input type="text" class="form-control" id="purpose" placeholder="enter purpose here" maxlength="500">
                 </div>
               </div>
 
@@ -394,11 +368,7 @@
                 <label class="col-md-3 "><b> party Amount in Rs*</b></label>
                 <b class="col-12 col-md-1 d-none d-lg-block">:</b>
                 <div class="col-md-5 d-lg-flex align-items-center">
-<<<<<<< HEAD
-                 <input type="text" class="form-control" id="partyAmount"placeholder="select">
-=======
-                 <input type="text" class="form-control" id="pAmount"placeholder="select"  oninput=" numberToWords()">
->>>>>>> 4bbdb27e1b9e40602d776c9f62acfd5e3cefac43
+                 <input type="text" class="form-control" id="partyAmount"placeholder="select"  oninput=" numberToWords()">
                 </div>
               </div>
   
@@ -407,11 +377,7 @@
                 <label class="col-md-3 col-form-label"> <b>Party Amount in Words </b></label>
                 <div class="col-md-6 d-lg-flex align-items-center">
                   <label  class="col-12 col-md-2">: &nbsp; &nbsp;</label>
-<<<<<<< HEAD
-                  <label id="pAmount">xxxxxx</label>
-=======
                   <label id="partyAmountWords1"></label>
->>>>>>> 4bbdb27e1b9e40602d776c9f62acfd5e3cefac43
                 </div>
               </div>
   
@@ -432,7 +398,7 @@
                 <hr>
                 <div class="d-flex justify-content-center">
               
-              <button type="submit" onclick="nextvalid()" name="submit"  class="btn btn-primary pull-right">Submit</button>
+              <button type="submit" id="submit" name="submit"  class="btn btn-primary pull-right">Submit</button>
               </div>
             </form>
          
@@ -440,6 +406,7 @@
     </div>
   </div>
   </div>
+  <script src="validate.js"></script>
 </body>
 
 </html>

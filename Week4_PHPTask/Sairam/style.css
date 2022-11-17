@@ -1,0 +1,18 @@
+.sidebar ul li:hover{
+    background-color: gray;
+}
+
+.sidebar .active{
+    border-left:solid 5px yellow;
+    background-color: gray;
+}
+.sidebar ul li{
+   padding: 5px;
+   margin-left: 2px; 
+}
+.close_sidebar{
+    display: none !important;
+}
+.open_sidebar{
+    display: block !important;
+}
