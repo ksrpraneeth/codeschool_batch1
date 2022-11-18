@@ -112,6 +112,18 @@ JOIN roomtype ON roomtype.id = room.number_of_rooms
 SELECT room_status_name, room_status_date
 FROM roomstatus
 WHERE (room_status_date = '2022-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2017-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2018-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2019-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2020-10-12')
 
 -- 3rd Query // Query for Customer name and his check in ,out date with room numbers and room types 
 
@@ -123,6 +135,18 @@ JOIN roomtype ON roomtype.id = bookings.id
 SELECT room_status_name, room_status_date
 FROM roomstatus
 WHERE (room_status_date = '2022-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2017-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2018-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2019-10-12')
+SELECT room_status_name, room_status_date
+FROM roomstatus
+WHERE (room_status_date = '2020-10-12')
 
 -- 5th Query // Query for customer check in date
 SELECT guest_name, check_out
