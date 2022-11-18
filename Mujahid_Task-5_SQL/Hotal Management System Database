@@ -148,6 +148,34 @@ SELECT room_status_name, room_status_date
 FROM roomstatus
 WHERE (room_status_date = '2020-10-12')
 
--- 5th Query // Query for customer check in date
-SELECT guest_name, check_out
-FROM bookings
+-- 5th Query // Query for total(count of) customer check out on a perticular date
+SELECT 
+   COUNT(check_out) 
+FROM 
+   bookings
+WHERE
+   (check_out='2022-10-15');
+SELECT 
+   COUNT(check_out) 
+FROM 
+   bookings
+WHERE
+   (check_out='2017-10-15');
+SELECT 
+   COUNT(check_out) 
+FROM 
+   bookings
+WHERE
+   (check_out='2018-10-15');
+SELECT 
+   COUNT(check_out) 
+FROM 
+   bookings
+WHERE
+   (check_out='2019-10-15');
+SELECT 
+   COUNT(check_out) 
+FROM 
+   bookings
+WHERE
+   (check_out='2020-10-15');
