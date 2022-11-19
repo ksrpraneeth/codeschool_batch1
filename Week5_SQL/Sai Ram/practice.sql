@@ -90,3 +90,14 @@ SELECT e.employeeid,e.firstname,e.lastname,count(p.project_id) from employeedeta
 
 SELECT e.employeeid,e.firstname,e.lastname,ea.salary from employeedetails e, employee_attendance ea where e.employeeid = ea.employeeid group by
  e. employeeid  order by salary  desc; 
+ 
+1)select e.employeeid,e.firstname,e.Lastname,count(p.project_id) from employeedetails e,  projects p where e.employeeid =p.employeeid group by e.employeeid;
+2)Select employeeid,date,presentstatus from employee_attendance order by date desc;
+3)SELECT employeeid,employeename,salary
+FROM employeesalary order by salary desc;
+4)SELECT e.employeeid,e.firstname,e.lastname,p.project_id from employeedetails e, projects p where e.employeeid = p.employeeid order by project_id desc;
+5)SELECT employeeid,max(presentstatus)from employee_attendance group by employeeid;
+6)SELECT employeeid,employename,salary from employeesalary order by salary desc limit 1;
+
+
+SELECT e.employeeid,e.firstname,e.lastname,presentstatus,date from employeedetails e, employee_attendance where presentstatus = 'absent';
