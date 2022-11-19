@@ -9,20 +9,20 @@ if(array_key_exists('partyAccount',$_POST)){
 
 
 if(strlen($partyAccount) == "0"){
-    array_push($errorsArray, "Account Number is required");
+    array_push($errorsArray, "Please Enter Party Account Number");
      
      }
  if(strlen($partyAccount )<12 || strlen($partyAccount )>22){
-    array_push($errorsArray, "Account Number contains atleast 12digits");
+    array_push($errorsArray, "Party Account Number Contains Atleast 12 Digits");
 
 }
  if(!preg_match("/[0-9]/",$partyAccount)){
-    array_push($errorsArray, "partyAccount Name should not contains characters");
+    array_push($errorsArray, "Party Account Name should not contains characters");
    // echo json_encode($errors);
     // return;
  }
 }else{
-   array_push($errorsArray,"plase enter partyAccount Number");
+   array_push($errorsArray,"Please Enter Party Account Number");
 }
 
 
@@ -32,10 +32,10 @@ if(strlen($partyAccount) == "0"){
    // echo json_encode($errors);
    // return;
  if($partyAccount != $confirmPartyAccount){
-    array_push($errorsArray, "Account Number and Party Account Number should be same");
+    array_push($errorsArray, "Confirm Party Account Number and Party Account Number should be same");
 }
  }else{
-   array_push($errorsArray, "plase enter confirmpartyAccount Number");
+   array_push($errorsArray, "Please Enter Confirm Party Account Number");
  }
 
  if(array_key_exists('partyName',$_POST)){
@@ -44,13 +44,13 @@ if(strlen($partyAccount) == "0"){
     //echo json_encode($errors);
     // return;
  if(strlen($partyName) == "0"){
-    array_push($errorsArray, "partyName is required");
+    array_push($errorsArray, "Party Name is required");
 }
  if (!preg_match("/[a-zA-Z]/", $partyName)) {
     array_push($errorsArray, "Party Name should not have Spaces and Special Characters");
  }
 }else{
-   array_push($errorsArray, "plase enter partyName");
+   array_push($errorsArray, "Please Enter Party Name");
 }
 if(array_key_exists('ifscCode',$_POST)){
    $ifscCode = $_POST["ifscCode"];
@@ -58,15 +58,15 @@ if(array_key_exists('ifscCode',$_POST)){
 
 
 if(strlen($ifscCode) != 11){
-    array_push($errorsArray, "ifscCode should contains 11 digits");
+    array_push($errorsArray, "Ifsc Code should contains 11 digits");
      //return;
 }
 if(!preg_match("/[A-Z]{4}[0][0-9A-Za-z]{6}/",$ifscCode)){
-    array_push($errorsArray, "Enter ifscCode in valid format");
+    array_push($errorsArray, "Enter Ifsc Code in valid format");
 //return;
  }
 }else{
-   array_push($errorsArray, "Please Enter ifscCode in valid format");
+   array_push($errorsArray, "Please Enter Ifsc Code in valid format");
 }
  if(array_key_exists('purpose',$_POST)){
    $purpose = $_POST["purpose"]; 
@@ -74,13 +74,13 @@ if(!preg_match("/[A-Z]{4}[0][0-9A-Za-z]{6}/",$ifscCode)){
     //echo json_encode($errors);
     //return;
  if(strlen($purpose) =="0"){
-    array_push($errorsArray, "purpose is required");
+    array_push($errorsArray, "Purpose is required");
  }
  if(strlen($purpose) > 500){
-    array_push($errorsArray,"purpose is lessthan 500 characters");
+    array_push($errorsArray,"Purpose is lessthan 500 characters");
 }
  }else{
-   array_push($errorsArray, "plase enter purpose");
+   array_push($errorsArray, "Please Enter Purpose");
  }
 //print_r($errorsArray);
 echo json_encode($errorsArray);
