@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script> 
+  </head>
+
+  <body class="fontfor">
+    <div
+      class="container-fluid col-12 p-5 d-flex"
+      style="background-image: url(bg12.jpg)"
+    >
+      <div class="left col-5 bg-primary p-5 d-none d-md-block">
+        <img src="logo.png" height="80px" width="120px" /> <br />
+        <span class="text-white">MedAsset Recovery</span>
+        <h4 class="text-white py-3">The future of subgation claims recovery</h4>
+
+        &nbsp;
+
+        <h6 class="text-white py-3">E-Sign Act Disclosure and Consent</h6>
+        <p class="text-white">
+          Before proceeding you must confirm that you have read and agree to the
+          terms of the Electronic signature Act Disclosure available at the Link
+          below
+        </p>
+
+        <p type="link" class="text-white">E-Sign Act Disclosure</p>
+        &nbsp; &nbsp; &nbsp;
+        <img class="opacity-25" src="doc.png" height="350px" width="300px" />
+      </div>
+
+      <!-------------------------------------------------------------------------------------------->
+      <div class="right col-12 col-md-7 bg-white">
+        <div class="p-5">
+          <div class="col-12 d-flex">
+            <div class="col-8"><h2>Register</h2></div>
+
+            <div class="col-6 float-right align-items-center">
+              <span> Already have an acoount </span>
+              <button type="button" class="btn btn-link">Login</button>
+            </div>
+          </div>
+
+          <!-------------------------------------------------------------------------------->
+          &nbsp;
+          <div>
+            <form>
+              <h6>Your Basic Information</h6>
+              <div class="col-12 d-md-flex py-1">
+                <div class="form-group col-12 col-md-6">
+                  <label class="py-1" for="exampleInputEmail1"
+                    >First Name</label
+                  >
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="fisrtName"
+                      placeholder="Enter First Name"
+                      style="font-size: 13px"
+                    />
+                    <p class="text-danger" id="firstnameprojector"> </p>
+                  </div>
+                </div>
+                <div class="form-group col-12 col-md-6  px-md-2">
+                  <label class="py-1" for="exampleInputEmail1">Last Name</label>
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="lastName"
+                      aria-describedby="lastName"
+                      placeholder="Enter Last Name"
+                      style="font-size: 13px"
+                    />
+                    <p class="text-danger" id="lastnameprojector"> </p>  
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 d-md-flex py-1">
+                <div class="form-group col-12 col-md-6">
+                  <label class="py-1" for="exampleInputEmail1">Email</label>
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="email"
+                      placeholder="Enter Email"
+                      style="font-size: 13px"
+                    />
+                    <p class="text-danger" id="emailprojector" > </p> 
+                  </div>
+                </div>
+                <div class="form-group col-12 col-md-6  px-md-2">
+                  <label class="py-1" for="exampleInputEmail1">Phone</label>
+                  <div class="col-12">
+                    <input
+                      type="text"
+                      class="form-control form-control-sm"
+                      id="phoneNumber"
+                      placeholder="Enter Phone number"
+                      style="font-size: 13px"
+                    />
+                    <p class="text-danger" id="phonenumberprojector" > </p> 
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 d-md-flex py-1">
+                <div class="form-group col-12 col-md-6">
+                  <label class="py-1" for="exampleInputEmail1"
+                    >Registered Country</label
+                  >
+                  <div class="col-12">
+                    <select
+                    id="registraionselect"
+                    class="form-select form-select-sm col-12"
+                    aria-label=".form-select-sm example"
+                    style="font-size: 13px"
+                    onchange="registrationValid()"
+                  >
+                    <option selected value="0">Select</option>
+                    <option value="1">India</option>
+                    <option value="2">United States</option>
+                    <option value="3">England</option>
+                    <option value="4">Russia</option>
+                    <option value="5">Germany</option>
+
+                  </select>
+                  
+                  </div>
+                </div>
+
+                <div class="form-group col-12 col-md-6  px-md-2">
+                  <label class="py-1" for="exampleInputEmail1"
+                    >Registration Number</label
+                  >
+                  <div class="col-12 d-flex">  
+                    <label
+                      type="text"
+                      class="col-2 form-control form-control-sm w-25"
+                      id="RegistrationNumber"
+                      style="font-size: 13px">
+                  </label>
+                  <input
+                  type="text"
+                  class="col-8 form-control form-control-sm w-75"
+                  id="fisrtName"
+                  placeholder="Enter number"
+                  style="font-size: 13px"
+                />
+
+
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!------------------------------------------------------------------------------------------------------------>
+          &nbsp;
+          <div>
+            <form>
+              <h6>Law Firm info</h6>
+
+              <div class="form-group col-12">
+                <label class="py-1" for="exampleInputEmail1">Law Firm</label>
+                <div class="col-12">
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="lawfirm"
+                    placeholder="Enter Law Firm"
+                    style="font-size: 13px"
+                  />
+                  <p class="text-danger" id="lawfirmprojector" > </p> 
+                </div>
+              </div>
+
+              <div id="address" class="d-md-flex py-2">
+                <div class="form-group col-12 col-md-6">
+                  <label class="py-1" for="exampleInputEmail1">Address</label>
+
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="add"
+                    placeholder="Enter Address"
+                    style="font-size: 13px"
+                  />
+                  <p class="text-danger" id="addprojector" > </p> 
+                </div>
+
+                <div class="d-md-flex">
+                  <div class="form-group col-12 col-md-6 px-md-2">
+                    <label class="py-1" for="exampleInputEmail1">Zip</label>
+
+                    <input
+                      type="text"
+                      class="form-control form-control-sm col-12"
+                      id="zip"
+                      placeholder="Enter Zip"
+                      style="font-size: 13px"
+                    />
+                    <p class="text-danger" id="zipprojector" > </p> 
+                  </div>
+
+                  <div class="col-12 col-md-6">
+                    <label class="col-12 py-1" for="exampleInputEmail1"
+                      >State</label
+                    >
+                    <select
+                      class="form-select form-select-sm col-12"
+                      aria-label=".form-select-sm example"
+                      style="font-size: 13px"
+                    >
+                      <option selected>Select</option>
+                      <option value="1">NY</option>
+                      <option value="2">CA</option>
+                      <option value="3">NJ</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!------------------------------------------------------=====================================================================================-->
+
+          
+            &nbsp;
+            <h6>Choose your Password</h6>
+
+            <div class="col-12 d-md-flex">
+              <div class="form-group col-12 col-md-6 ">
+                <label class="py-1" for="exampleInputEmail1">Password</label>
+
+                <input
+                  type="password"
+                  class="form-control form-control-sm"
+                  id="NewPassword"
+                  placeholder="Enter Password"
+                  style="font-size: 13px"
+                />
+              </div>
+              <div class="form-group col-12 col-md-6 px-md-2">
+                <label class="py-1" for="exampleInputEmail1"
+                  >Confirm Password</label
+                >
+
+                <input
+                  type="password"
+                  class="form-control form-control-sm"
+                  id="Confirm Password"
+                  aria-describedby="lastName"
+                  placeholder="Enter Confirm Password"
+                  style="font-size: 13px"
+                />
+              </div>
+            </div>
+            <!-------------------------------------------------------------------->
+            
+          <!-------------------Last Register  Button-->
+          &nbsp;
+        <div id="passwordvalidabox" >  
+
+          <div class="d-md-flex col-12" >
+          <div id="Length" class=" glyphicon glyphicon-remove px-2 col-md-5 col-12">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            Must be at least 7 charcters
+          </div>
+          &nbsp;
+          <div id="UpperCase" class="glyphicon glyphicon-remove px-2 col-md-7 col-12">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            Must have atleast 1 upper case character
+          </div>
+        </div>
+
+          <div class="d-md-flex"> 
+          <div id="Numbers" class=" glyphicon glyphicon-remove px-2 col-md-6 col-12">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            Must have atleast 1 numeric character
+          </div> 
+          <div id="Symbols" class="glyphicon glyphicon-remove px-2 col-md-6 col-12">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+              <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+            </svg>
+            Must have atleast 1 special character
+          </div>
+        </div>
+
+        <div id="LowerCase" class="glyphicon glyphicon-remove px-2 col-md-6 col-12">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+          </svg>
+          Must have atleast 1 lower case character
+        </div>
+      </div>
+      
+
+          <!------------------Line---------------------------------------------------------------------------------------------------------->
+          <hr />
+          <div class="d-md-flex">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <div class="col-12 col-md-6 d-flex" style="font-size: 15px">
+              <label>
+                I've confirmthat i have read and agree to the
+                <label class="text-info"> terms of the E-sign</label> Act
+                Discloure above
+              </label>
+            </div>
+            &nbsp; &nbsp; &nbsp;
+
+            <div class="col-md-4 col-12 align-items-center px-2" id="buttonbox">
+              <button
+                type="button"
+                class="btn btn-primary rounded-0"
+                style="width: 200px"
+                onclick="PasswordValidation()"
+              >
+                Register
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

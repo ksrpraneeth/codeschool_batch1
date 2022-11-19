@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="test.js"></script>
+    <link rel="stylesheet" href="test1.css">
+</head>
+<body>
+    <header>
+        <div class="container container-fluid">
+                <form class="rounded-3 form mx-4"  onsubmit="validation(event)">
+                    <dv class="row">
+                    <div class=" col-7">
+                        <div class="left my-2">
+                            <img src="https://download.logo.wine/logo/Google/Google-Logo.wine.png" alt="" class="logo">
+                         </div>
+                        <div class="">
+                            <h5>Create Your Google Account</h5>
+                            <h6">to continue to Gmail</h6>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col ">
+                              <input type="text" class="form-control" placeholder="First name" aria-label="First name" id="firstname">
+                            </div>
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" id="lastname">
+                            </div>
+                        </div>
+                        <div class="col-12 mt-4 d-flex">
+                            <input type="text" class="form-control"  placeholder="Username &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;@gmail.com" id="username"> 
+                        </div>
+                        <p>you can use letters,numbers & periods</p>
+                            <div class="col">
+                              <input type="password" class="form-control" placeholder="Password" id="password" aria-label="Password">
+                            </div>
+                            <div class="col">
+                              <input type="password" class="form-control" placeholder="Confirm" id="password1" aria-label="Confirm">
+                            </div>
+                            <a>Use 8 or more characters with a mix of letters,numbers & symbols</a>
+                            <div class="form-check mx-2">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  <b>Show Password</b>
+                                </label>
+                            </div><br>
+                            <P class="text-primary">Sign in instead</P>
+                            <button type="submit" class="btn btn-primary btn-sm w-50" onclick="validation()" >Next</button>
+                    </div>
+                    <div class=" col-3 d-flex">
+                        <img src="https://ssl.gstatic.com/accounts/signup/glif/account.svg" alt="" width="300px">
+                    </div>
+                </dv>
+                    
+                </form>    
+        </div>
+    </header>        
+</body>
+</html>
