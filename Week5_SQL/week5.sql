@@ -10,7 +10,7 @@ CREATE TABLE username(
   registeredAt DATE NOT NULL,
   lastLogin TIME NULL DEFAULT NULL
   );
-  INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(1,'AP9','Archaana','Sindu','Archana789','archanasindu2001@gmail.com','Sindu789@',09-10-22,11:30AM);
+ --- INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(1,'AP9','Archaana','Sindu','Archana789','archanasindu2001@gmail.com','Sindu789@',09-10-22,11:30AM);
   INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(2,'TL9','Ravi','Sabbi','Ravi987','Ravi2001@gmail.com','Ravi789@','10-10-22','12:30AM');
   INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(3,'M9','Shivani','Chapala','Shivanichapala','shivani2001@gmail.com','Shivani789@','11-10-22','1:30AM');
    ALTER TABLE
