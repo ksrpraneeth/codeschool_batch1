@@ -6,8 +6,8 @@ CREATE DATABASE HOTEL_PIXEL;
 --->Step -2
 --> Creating Rooms
 CREATE TABLE Rooms(
-    Room_No VARCHAR(40) REFERENCES Room_Type(Room_no) NOT NULL ,
-    Room_Type_ID VARCHAR(30) NOT NULL,
+    Room_No VARCHAR(40) REFERENCES Room_Type(Room_no) NOT NULL  ,
+    Room_Type_ID VARCHAR(30) NOT NULL UNIQUE,
 );
 
 INSERT INTO
@@ -49,12 +49,12 @@ VALUES
 ---> Creating Room Types
 
 CREATE TABLE Room_Type(
-    Room_Type_ID VARCHAR(30) NOT NULL,
-    Room_Type VARCHAR(30) NOT NULL,
-    Room_no VARCHAR(30) PRIMARY KEY NOT NULL,
-    Price VARCHAR(30) NOT NULL,
-    Floor_ID VARCHAR(30) NOT NULL
-);
+    Room_Type_ID VARCHAR(30) NOT NULL UNIQUE,
+    Room_Type VARCHAR(30) NOT NULL ,
+    Room_no VARCHAR(30) PRIMARY KEY NOT NULL UNIQUE,
+    Price VARCHAR(30) NOT NULL ,
+    Floor_ID VARCHAR(30) NOT NULL 
+); 
 
 INSERT INTO
     Room_Type
@@ -120,12 +120,12 @@ VALUES
 ---> Creating Staff Details
 
 CREATE TABLE Staff_Details(
-    Staff_ID VARCHAR(25) PRIMARY KEY NOT NULL,
+    Staff_ID VARCHAR(25) PRIMARY KEY NOT NULL UNIQUE,
     Staff_Name VARCHAR(25) NOT NULL,
     Staff_Gender VARCHAR(10) NOT NULL,
     Staff_Position VARCHAR(25) NOT NULL,
-    staf_Contact_Number VARCHAR(30) NOT NULL,
-    Staff_EmailID VARCHAR(25) NOT NULL
+    staf_Contact_Number VARCHAR(30) NOT NULL UNIQUE,
+    Staff_EmailID VARCHAR(25) NOT NULL UNIQUE
 );
 
 INSERT INTO
@@ -218,13 +218,13 @@ VALUES
 ---->Creating Guest  table 
 
 CREATE TABLE Guest_Details(
-    Guest_ID VARCHAR(25) PRIMARY KEY NOT NULL,
+    Guest_ID VARCHAR(25) PRIMARY KEY NOT NULL UNIQUE,
     Guest_First_Name VARCHAR(25) NOT NULL,
     Guest_Last_Name VARCHAR(25) NOT NULL,
     Guest_Gender VARCHAR(25) NOT NULL,
     Guest_ID_Proof VARCHAR(25) NOT NULL,
     Guest_Email VARCHAR(30) NOT NULL,
-    Guest_Address VARCHAR(30) NOT NULL
+    Guest_Address VARCHAR(30) NOT NULL 
 );
 
 INSERT INTO
@@ -322,7 +322,7 @@ VALUES
 ---->Creating Payment Details
 
 CREATE TABLE Payment_Details(
-    Payment_ID VARCHAR(25) PRIMARY KEY NOT NULL,
+    Payment_ID VARCHAR(25) PRIMARY KEY NOT NULL UNIQUE,
     Payment_Type VARCHAR(25) NOT NULL,
     Amount VARCHAR(25) NOT NULL, 
     Amount_in_Detail VARCHAR(30) NOT NULL
@@ -368,13 +368,13 @@ VALUES
 ---> Creating Booking Details
 
     CREATE TABLE Booking_Details(
-    Booking_ID VARCHAR(10) PRIMARY KEY NOT NULL,
+    Booking_ID VARCHAR(10) PRIMARY KEY NOT NULL UNIQUE,
     Guest_ID VARCHAR(25) REFERENCES Guest_Detials(Guest_ID) NOT NULL,
     Room_No VARCHAR(40) REFERENCES Room_Type(Room_No) NOT NULL,
     Staff_ID VARCHAR(25) REFERENCES Staff_Details(Staff_ID) NOT NULL,
     Arrival_Date DATE NOT NULL,
     Departurte_Date DATE NOT NULL,
-    Payment_ID VARCHAR(25) REFERENCES Payment_Details(Payment_ID) NOT NULL
+    Payment_ID VARCHAR(25) REFERENCES Payment_Details(Payment_ID) NOT NULL UNIQUE
 );
 
 INSERT INTO
