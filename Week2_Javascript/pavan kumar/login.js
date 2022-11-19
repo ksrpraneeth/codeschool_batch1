@@ -28,8 +28,7 @@ function login()
         }
       }
 const hamberger = document.getElementById('click_hambergur');
-hamberger.onclick = function(){
-  console.log('pavan');
+hamberger.onclick = function sidebar(){
   var x=document.getElementById('side_Nav');
   if (x.classList.contains('open_sidebar'))
   {
@@ -66,7 +65,7 @@ const listOfBank = [
   {
     bankName: "hijk",
     ifsc: "HIJK0123456",
-    brachName: "Miypur"
+    brachName: "Miyapur"
   },
   {
     bankName: "lmno",
@@ -83,8 +82,6 @@ const onClickSearch = () => {
   listOfBank.map(each => {
     console.log(ifscCode.value)
     if (each.ifsc === ifscCode.value){
-      console.log('pavn',each.bankName)
-      console.log('pavn',each.brachName)
       // bankValue += each.bankName 
       // branchValue += each.brachName 
       document.getElementById("bankName").innerHTML = each.bankName;
@@ -172,7 +169,7 @@ const validateComformAcc = (errorArray) => {
     return errorArray.push("**Enter Confirm Account No,")
   }
   else if (accountNumber.value !== cAccountNumber.value){
-    return errorArray.push("** Account Numbet not Matched,")
+    return errorArray.push("** Account Number not Matched,")
   }
   else {
     errorArray = []
@@ -331,3 +328,4 @@ form.addEventListener('submit', function (e) {
       }
       document.getElementById("output").innerHTML = string;
     }
+

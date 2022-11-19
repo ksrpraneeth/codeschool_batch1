@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link href="https://css.gg/boy.css" rel="stylesheet" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="validform.js"> </script>
+ 
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  </head>
+  <style>
+    *{
+        font-size:0.8rem;
+
+
+    }
+  </style>
+  <!---- ----------------------------------------------------------------------------------------------------------->
+  <div style="font-size:12px">
+  
+    <div class="container-fluid p-0 ">
+      <div class="row m-0">
+        <div
+          class="d-none d-block d-lg-block col-lg-2 border-0 d-flex flex-column p-0"
+          style="background-color: rgb(17, 53, 90)"
+        >
+          <img
+            class="w-100"
+            src="https://d20exy1ygbh3sg.cloudfront.net/fms/images/newUi/ifmis-logo.png"
+            alt=""
+            style="padding: 10px"
+          />
+          <hr class="text-secondary" />
+
+          <div class="index" style="background-color: rgb(28, 57, 104)"></div>
+
+          <div class="w3-bar-block w3-light-grey w3-card">
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Home</a
+            >
+            <div
+              class="w3-dropdown-hover"
+              style="background-color: rgb(17, 53, 90)"
+            >
+              <button
+                class="w3-button text-white"
+                style="background-color: rgb(17, 53, 90)"
+              >
+                Master
+                <i
+                  class="fa fa-caret-down"
+                  style="background-color: rgb(17, 53, 90)"
+                ></i>
+              </button>
+
+              <div
+                class="w3-dropdown-content w3-bar-block"
+                style="background-color: rgb(17, 53, 90)"
+              ></div>
+
+              <button
+                class="w3-button text-white"
+                style="background-color: rgb(17, 53, 90)"
+              >
+                Transcations
+                <i
+                  class="fa fa-caret-down"
+                  style="background-color: rgb(17, 53, 90)"
+                ></i>
+              </button>
+            </div>
+
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Reports</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Return Cheque Generation</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Forest Transcations</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Forest Transcations Reports</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >E-Kuber Returns Received List
+            </a>
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >E-Kuber Return Challan Print</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >UTR Search</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Failed Transactions (ACK Reject)</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Cheque Status Report</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Rejected Cheques due to FinYear End
+            </a>
+            <a
+              href="#"
+              
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >FinYear New Cheques Report</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >PD Budget Check</a
+            >
+            <a
+              href="#"
+              class="w3-bar-item w3-button text-white"
+              style="background-color: rgb(17, 53, 90)"
+              >Update Receipts Used Amount</a
+            >
+          </div>
+        </div>
+        <!----SIDEBAR-------------------------------------------->
+
+        <div class="col col-lg-10 p-0">
+          <div class="container-fluid bg-secondary bg-opacity-25">
+            <div class="row">
+              <div
+                class="bg-image d-flex align-items-center justify-content-md-between justify-content-around"
+                style="background-image: url('bg_city.jpeg')"
+              >
+                <div class="left d-flex align-items-center">
+                  <div class="d-xs-block d-lg-none">
+                    <div
+                      class="bg-image d-flex"
+                      style="background-image: url('bg_city.jpeg')"
+                    >
+                      <img
+                        src="https://ifmis.telangana.gov.in/images/govt_logo.png"
+                        width="80px"
+                        height="80px"
+                        class=""
+                        alt="..."
+                      />
+                      <h1 class="text-white">IFMIS</h1>
+                    </div>
+                  </div>
+
+                  <div class="text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="30"
+                      height="30"
+                      fill="currentColor"
+                      class="bi bi-filter-left"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M2 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm0-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"
+                      />
+                    </svg>
+                  </div>
+
+                  <div
+                    class="text-bg-light bg-opacity-25 align-items-center px-2 d-flex rounded-1"
+                  >
+                    <div class="text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-boxes"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M7.752.066a.5.5 0 0 1 .496 0l3.75 2.143a.5.5 0 0 1 .252.434v3.995l3.498 2A.5.5 0 0 1 16 9.07v4.286a.5.5 0 0 1-.252.434l-3.75 2.143a.5.5 0 0 1-.496 0l-3.502-2-3.502 2.001a.5.5 0 0 1-.496 0l-3.75-2.143A.5.5 0 0 1 0 13.357V9.071a.5.5 0 0 1 .252-.434L3.75 6.638V2.643a.5.5 0 0 1 .252-.434L7.752.066ZM4.25 7.504 1.508 9.071l2.742 1.567 2.742-1.567L4.25 7.504ZM7.5 9.933l-2.75 1.571v3.134l2.75-1.571V9.933Zm1 3.134 2.75 1.571v-3.134L8.5 9.933v3.134Zm.508-3.996 2.742 1.567 2.742-1.567-2.742-1.567-2.742 1.567Zm2.242-2.433V3.504L8.5 5.076V8.21l2.75-1.572ZM7.5 8.21V5.076L4.75 3.504v3.134L7.5 8.21ZM5.258 2.643 8 4.21l2.742-1.567L8 1.076 5.258 2.643ZM15 9.933l-2.75 1.571v3.134L15 13.067V9.933ZM3.75 14.638v-3.134L1 9.933v3.134l2.75 1.571Z"
+                        />
+                      </svg>
+                    </div>
+                    &nbsp;
+                    <div class="text-white " >
+                      <h4 style="font-size:10px">Modules</h4>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="right d-flex align-items-center">
+                  <div class="row text-white d-none d-lg-block">
+                    <h6 class="m-0 text-muted" style="font-size:10px">Last Login</h6>
+                    <h6 class="m-0" style="font-size:10px" id="displayDateTime">
+                    <?php echo date("d-M-Y") ?>
+                     </h6>
+                     <h6 class="m-0" style="font-size:10px" id="displayDateTime">
+                  
+                  <?php
+                    date_default_timezone_set("Asia/kolkata");
+                    echo date("h:i:a") 
+                    ?>
+                     </h6>
+                     
+                    
+                  </div> &nbsp;
+                 
+                   
+                    <div class="dropdown ">
+                    <button class="btn btn-secondary dropdown-toggle d-flex align-items-center p-0 m-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        
+                        <svg  class="p-1 m-1 " xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                          <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                        </svg> 
+
+                        <p class="m-0" style="font-size:8px">
+                        WELCOME M.USHASREE <br> (23031014097)</p> 
+                    </button>
+                    <ul class="dropdown-menu rounded-0">
+                      <li>  
+                        <a class="dropdown-item d-flex" href="#"> 
+                          <svg  class="p-0 m-0 d-flex text-success " xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                            <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                          </svg>
+                          Profile</a></li>
+                      <li><a class="dropdown-item d-flex" href="#"> 
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-key text-success" viewBox="0 0 16 16">
+                          <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8zm4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5z"/>
+                          <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                        </svg> 
+                        Change password</a></li>
+                      <li><a class="dropdown-item" onclick="login()" href="#">
+                        <svg class="text-success" xmlns="http://www.w3.org/2000/svg" width="16" height="16"   viewBox="0 0 16 16">
+                          <path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"/>
+                          <path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"/>
+                        </svg>
+                        <p id="log">Logout</p></a></li>
+                    </ul>
+                  </div> 
+                 
+
+                  &nbsp;  
+                  <div class="d-none d-lg-block ">
+                    <button
+                    
+                      type="button"
+                      class="btn  d-flex btn-secondary border-0  text-white  p-1  m-0 rounded-1"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-box-arrow-right"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"
+                        />
+                        <path
+                          fill-rule="evenodd"
+                          d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"
+                        />
+                      </svg>
+                      &nbsp;
+                      <p id="log1">Logout</p> 
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!---- ----------------------------------------------------------------------------------------------------------->
+        <div class="bg-white"> 
+         <div
+              class="bar-block white  border-0  d-none d-lg-block"
+            >
+              <div
+            
+              class="text-bg-success bg-opacity-10 align-items-center d-flex text-primary"
+              >
+                &nbsp;
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="28"
+                  height="28"
+                  fill="currentColor"
+                  class="bi bi-credit-card-2-front-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2.5 1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h2a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-2zm0 3a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm3 0a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z"
+                  />
+                </svg>
+                 
+                  &nbsp; <b  class="px-1 p-2"> issue cheque (E-Kuber Cheque from 01/03/2019)</b>
+                
+              </div>
+            </div>
+
+            <!---- ----------------------------------------------------------------------------------------------------------->
+            <div class="p-2 bar-block border-3">
+              <div class="text-bg-warning bg-opacity-25 p-2 rounded-2">
+                <h5>&nbsp; <b> Points to be remember</b></h5>
+
+                <div class="m-4">
+                  <ul class="list-unstyled">
+                    <ul>
+                      <li>
+                        note that all cheques which are approved from
+                        DDOChecker/ Officer/Govt from 01/03/2019 shall get paid
+                        through E-kuber which is a Core Banking Solution of RBI.
+                      </li>
+                      <li>
+                        There is no need to present the cheques at the Bank for
+                        these cheques which got approved after 01/03/2019.
+                      </li>
+                      <li>
+                        Please give correct account details as it is when the
+                        Account was opened.
+                      </li>
+                      <li>
+                        Make sure there is no "Your self' or 'Self" in the
+                        account names while issuing cheques. Such cheques get
+                        auto-rejected by the E-Kuber
+                      </li>
+                      <li>
+                        Please check the exact length of the Bank Account Number
+                        and NO special characters are to be entered, which leads
+                        to auto-rejection.
+                      </li>
+                      <li>
+                        Finally, in multiple party cheques please do not enter
+                        the same party details in the same chequeno which will
+                        be considered as a duplicacy transaction and gets
+                        auto-rejeted.
+                      </li>
+                      <li>
+                        This is just a one-time procedure to get your Party
+                        details corrected and once when corrected the same
+                        details can be re-used for smooth transactions.
+                      </li>
+                      <li>
+                        PD-to-PD cheques shall be adjusted in treasury itself in
+                        the regular procedure.
+                      </li>
+                    </ul>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <!---- ----------------------------------------------------------------------------------------------------------->
+            <div class="er px-5 col-6 " > 
+              <p id="Errors"
+                class="text-white bg-danger bg-opacity bg-opacity-75 px-5 rounded-5" >  
+
+            </p></div> 
+            
+            <div class="p-4">
+
+           <form>    <div>
+                <div
+                  class="bg-secondary bg-opacity-10 col-12 col-md-12 p-1 d-lg-flex align-items-lg-center" >
+                  <div class="d-flex col-12 col-md-2 px-2">
+                    <h5 style="font-size:14px"> Transcation Type <b class="text-danger"> *</b></h5>
+                  </div>
+                  <div class="d-flex col-12 col-md-10">
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="singleParty"
+                        value="option1"
+                        checked
+                      />
+                      <label class="form-check-label"  
+                        >Single-Party</label>
+                    </div>
+
+
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="multipleParties"
+                        value="option2"
+                      />
+                      <label class="form-check-label" 
+                        >Multiple Parties</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="pdAccountToPD"
+                        value="option1"
+                      />
+                      <label class="form-check-label" 
+                        >PD Account to PD Account</label
+                      >
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="inlineRadioOptions"
+                        id="pdAccountsToOther"
+                        value="option2"
+                      />
+                      <label class="form-check-label form-select-sm"
+                        >PD Account to others</label
+                      >
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group col-12 d-lg-flex p-2">
+                  <label class="col-12 col-lg-2">
+                    Party Account No <b class="text-danger"> *</b></label
+                  >
+                  <div class="col-12 col-lg-4 align-items-center d-flex">
+                    <label class="d-none d-lg-block">: </label
+                    > &nbsp;
+                    <input 
+                    type="text" 
+                    
+                     class="form-control form-select-sm"  
+                     placeholder="Enter A/C No"  
+                     id="partyAccountNum"/>
+
+                  </div>
+                </div>
+
+                <div class="form-group col-12 d-lg-flex p-2">
+                  <label class="col-12 col-lg-2">
+                    Confirm Party Account No<b class="text-danger"> *</b></label
+                  >
+                  <div class="col-12 col-lg-4 align-items-center d-flex">
+                    <label class="d-none d-lg-block">: </label
+                    > &nbsp;
+                    <input class="form-control form-select-sm "
+                     
+                      placeholder="Enter A/C No" 
+                       id="confirmPartyACnum" />
+                  </div>
+                </div>
+
+                <div class="form-group d-lg-flex p-2">
+                  <label class="col-12 col-lg-2" >
+                    Party Name<b class="text-danger"> *</b></label
+                  >
+                  <div class="col-12 col-lg-4 align-items-center d-flex">
+                    <label class="d-none d-lg-block">: </label>&nbsp;
+                    <input
+                      class="form-control form-select-sm"
+                      placeholder="Enter  Party Name"
+                      id="partyName"
+                      name="folderName"  
+                      
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="bg-secondary p-2 bg-opacity-10 col-md-6 rounded-2">
+             
+                  <div class="input-group align-items-center d-lg-flex">
+                    <label class="col-12 col-lg-4" for="bank id ">
+                      Bank IFSC Code
+                    </label>
+                    <div class="input-group-append col-12 col-lg-8 d-flex">
+                      <label class="d-none d-lg-block">: </label>
+                      <input
+                        class="form-control form-select-sm"
+                        placeholder="Enter IFSC Code"
+                        id="bankIFSCCode"
+                      />
+                    
+                      &nbsp;
+                      <button
+                        class="btn btn-outline-secondary btn-primary text-white"
+                        type="button" 
+                        id="search"
+                      
+                        
+                      >
+                        Search
+                      </button>
+                     
+                    </div>
+                    <p class="text-danger" id="bankIFSCCodeErr" > </P>
+                  </div>
+                  &nbsp;
+
+                  <div class="d-lg-flex p-2">
+                    <label class="col-12 col-lg-4"> Bank Name</label>
+                    <div class="col-12 col-lg-8 d-lg-flex">
+                      <label class="d-none d-lg-block">: </label>
+                      <label id="bankName"></label>
+                    </div>
+                  </div>
+
+                  <div class="d-lg-flex p-2">
+                    <label class="col-12 col-lg-4"> Bank Branch</label>
+                    <div class="col-12 col-lg-8 d-lg-flex">
+                      <label class="d-none d-lg-block">: </label>
+                      <label id="bankBranch"></label>
+                    </div>
+                  </div>
+               
+              </div>
+<!-----  -------------------------------------------------------------------- -->
+              <div class="d-lg-flex p-2">
+                <label class="col-12 col-lg-2"> Head of the Account </label>
+                <div class="col-12 col-lg-4 d-flex">
+                  <label class="d-none d-lg-block">: </label>&nbsp;
+                  <select  id="headOftheAccount" 
+                  class="form-select form-select-sm"
+                    >
+                    <option> select</option>
+                    <option value="0853001020002000000NVN">0853001020002000000NVN</option>
+                    <option value="8342001170004001000NVN">8342001170004001000NVN</option>
+                    <option value="2071011170004320000NVN ">2071011170004320000NVN </option>
+                    <option value="8342001170004002000NVN ">8342001170004002000NVN </option>
+                    <option value="2204000030006300303NVN ">2204000030006300303NVN </option>
+                    
+                
+                    
+                  </select>
+                </div>
+              </div>
+
+              <div class="d-lg-flex p-2">
+                <label class="col-12 col-lg-2">
+                  Balance (in Rs)<b class="text-danger"> *</b></label
+                >
+                <div class="col-12 col-lg-4 d-lg-flex">
+                  <label class="d-none d-lg-block">: </label>&nbsp;&nbsp;
+                  <label id="balance">  </label>
+                  
+                </div>
+              </div>
+
+              <div class="d-lg-flex p-2">
+                <label class="col-12 col-lg-2"
+                  >LOC (in Rs)<b class="text-danger"> *</b>
+                </label>
+
+                <div class="col-12 col-lg-4 d-lg-flex">
+                  <label class="d-none d-lg-block">: </label>&nbsp;
+                  <label id="LOC"> </label>
+                  
+                </div>
+              </div>
+
+              <form name="form1" id="select1"  >
+                <div class="d-flex m-2"> 
+                <label class="col-12 col-lg-2 ">Expenditure type</label>
+                <div class="col-12 col-lg-4 d-flex">
+                  <label class="d-none d-lg-block">: </label>
+                  &nbsp;
+                  <select 
+                  class="form-select form-select-sm" 
+                  name="select1"
+                   id="expenditureType" 
+                   
+                   >
+
+                    <option value="0">Select </option>
+                     <option value="1">Capital Expenditure</option> 
+                     <option value="2">Revenue Expenditure</option> 
+                    <option value="3">Deferred Revenue Expenditure</option> 
+ 
+                  </select>
+                  
+
+
+                     
+                 </div>    
+                </div>
+              
+
+              <div class="d-lg-flex p-2">
+                <label class="col-12 col-lg-2" for=""> Purpose type </label>
+                <div class="col-12 col-lg-4 d-flex">
+                  <label class="d-none d-lg-block">: </label>&nbsp;
+                  <select class="form-select form-select-sm"
+                   name="select2" 
+                   id="purposeType"  
+                   name='purposeType'> 
+                  </select>
+                  <option value="" selected="selected"> </option> 
+
+                 
+                </div>
+              </div>
+            </form>
+
+              <div class="form-group p-0 d-lg-flex p-2">
+                <label class="col-12 col-lg-2" type="text">
+                   Purpose <b class="text-danger"> *</b></label
+                >
+                <div class="col-12 col-lg-4 align-items-center d-flex">
+                  <label class="d-none d-lg-block">: </label>&nbsp;
+                   <input
+                    class="form-control form-control-sm"
+                    placeholder="Enter Purpose here"
+                    id="purpose"
+                    maxlength="500"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group p-2 d-lg-flex">
+                <label class="col-12 col-md-2">
+                  Party amount (in Rs.)<b class="text-danger"> * </b></label
+                >
+                <div class="col-12 col-md-4 align-items-center d-lg-flex">
+                  <label class="d-none d-lg-block">: </label>&nbsp; 
+                  <input
+                    class="form-control form-control-sm"
+                    placeholder="Enter Party Amount"
+                    id="partyAmount"
+                    
+                  />
+                </div>
+              </div>
+
+              <div class="d-lg-flex p-2">
+                <label class="col-12 col-md-2"> Party Amount in Words </label>
+                <div class="col-12 col-md-4 d-lg-flex">
+                  <label class="d-none d-lg-block">: </label>&nbsp;
+                  <label id="partyAmountInWords" oninput="partyamount"> </label>
+                </div>
+              </div>
+
+              <div class="form-group d-lg-flex align-items-center row p-2">
+                <label class="col-12 col-md-2"> Upload Documents </label>
+                <div class="col-12 col-md-4 d-flex align-items-center">
+                  <label class="d-none d-lg-block">: </label>&nbsp;
+                  <input
+                    class="form-control form-select-sm"
+                    type="file"
+                    multiple
+                    id="uploadDocuments"
+                    
+                    />
+                  &nbsp;
+                  <button 
+                  class="btn btn-primary"
+                   onclick="Multiplefiles()" >+ADD</button>
+                </div>
+              </div>
+              <div class="row">
+                <p class="col-12 col-md-2"></p>
+                <h6 class="col-12 col-md-5" style="font-size:12px">
+                  Note:Documents of Cheque (Letters/G.O.etc)can be uploaded here
+                </h6> <ul id="filesList"> </ul>
+              </div>
+              
+
+              <div class="d-flex my-3 justify-content-center">
+                <button
+                  type="button "
+                  id="next"
+                  class="btn btn-primary align-items-center"
+                >
+                  NEXT
+                  
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="15"
+                    fill="currentColor"
+                    class="bi bi-chevron-double-right"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z"
+                    />
+                  </svg>
+                </button>
+              </form>  
+              </div > 
+
+                <div class="*  next d-none d-md-block  position-absolute  end-0  bottom-0  translate-middle-y p-2  text-white rounded-5" 
+                style="writing-mode:vertical-lr; transform: rotate(270deg);" > 
+                  NEED HELP ??              
+                </div>
+              
+                 
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div> 
+  </body>
+</html>

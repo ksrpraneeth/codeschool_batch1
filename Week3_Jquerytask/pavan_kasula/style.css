@@ -1,0 +1,162 @@
+p{
+  margin:0;
+}
+
+.border1{
+  border: 1px; 
+  border-radius: 5px; 
+  border-style: solid;
+  border-color: black;
+  
+}
+
+.special
+{
+  background-color: rgb(0, 5, 73);
+  
+}
+
+.iconcolor
+{
+  color: rgb(0, 68, 255);
+}
+
+.fonttable
+{
+  font-size:x-small;
+}
+
+.tables
+{
+  border:1px ;
+  border-radius: 0px;
+  border-style: dotted;
+  border-color:rgb(105, 105, 255);
+}
+
+.fontdortable
+{
+  font-size:13px;
+  
+}
+
+.topborder
+{
+  border:1px ;
+  border-top-style: dotted;
+  border-right-style: dotted;
+  border-color:rgb(120, 120, 255);
+
+}
+
+.rightborder
+{
+  border:1px ;
+  border-right-style: dotted;
+  border-color:rgb(115, 115, 255);
+}
+
+.priorityborder
+{
+  border:1px ;
+  border-top-style: dotted;
+  
+  border-color:rgb(116, 116, 255);
+ 
+
+}
+
+.temper
+{
+  font-size:smaller;
+  
+}
+.tembor
+{
+  border:1px;
+  border-style:dotted;
+  border-color:rgba(91, 93, 233, 0.521);
+}
+
+.fontchange
+{
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.table3
+{
+  border:1px;
+  border-color:rgb(101, 124, 255);
+  border-top-style: dotted;
+  border-right-style: dotted;
+  border-bottom-style: dotted;
+
+}
+ 
+.color2
+{
+  color: rgb(45, 123, 168);   
+  
+}
+
+.abc
+{
+
+font-size:18px;
+}
+
+.sidebtn
+{
+  color: rgb(255, 255, 255);
+  background-color: rgb(0, 39, 73);
+
+}
+
+.prio
+{
+  color: rgb(238, 255, 0);
+  font-size: medium;
+}
+
+.content {
+  position: fixed;
+  bottom: 0%;
+  right: 0%;
+  width: 350px;
+  text-align:start;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 10px;
+  z-index: 100;
+  display: none;
+  /*to hide popup initially*/
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border-radius: 50%;
+  padding: 4px;
+}
+.fonting
+{
+  font-size: x-small;
+}
+
+.refreshcolor
+{
+  color: #751700;
+  
+}
+
+.fontsize1
+{
+  font-size: 5px;
+}
+.fontsize2
+{
+  font-size: 12px;
+}

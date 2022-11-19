@@ -1,11 +1,20 @@
-function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-        x.style.display = "none";
-    } else {
-        x.style.display = "block";
-    }
-}
+$(document).ready(function () {
+    $(".form-control, ").click(function () {
+        $(this).css("background-color", "#e0b76a");
+    });
+    $(".form-control, #balance").blur(function () {
+        $(this).css("background-color", "lightgray");
+    });
+    $(document).ready(function () {
+        $("#errors").on("click", function () {
+            $(this).hide();
+        });
+    });
+    $(".icon").mouseenter(function (){
+        alert("It will toggle the sidebar");  
+    })
+});
+
 
 // let id = (id) => document.getElementById(id)
 // let partyaccountnumber = id("partyaccountnumber"),
@@ -35,6 +44,14 @@ function myFunction() {
 //     }
 // }
 
+function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
 function toggleSidebar() {
     var menu = document.getElementById("menu");
     var body = document.getElementById("body");
@@ -77,92 +94,76 @@ function validateForm(event) {
     }
     // const usernameEl = document.querySelector('#partyAccNo');
 
-// const form = document.querySelector(#signup)
+    // const form = document.querySelector(#signup)
 
-// const partyAccountNumber = () => {
-//     const min = 12;
-//     const max = 24;
+    // const partyAccountNumber = () => {
+    //     const min = 12;
+    //     const max = 24;
 
-//     const accnumber = accnumberEI.value.trim();
-//     if (!isRequired(accnumber)) {
-//         showError(accnumber, 'Account Number cannot be empty')
-//     } else if (!isBetween(accnumberEI, `Account number must be between ${min} and ${max} characters`)) {
-//         else {
-//         showSuccess(accnumberEI);
-//         valid = true;
-//     }
-//     return valid;
-// };
-// }
-    if (/^-?\d+$/.test(partyAccNum) == false) 
-    {
-        errors.push("Party Account number must be numbers");
+    //     const accnumber = accnumberEI.value.trim();
+    //     if (!isRequired(accnumber)) {
+    //         showError(accnumber, 'Account Number cannot be empty')
+    //     } else if (!isBetween(accnumberEI, `Account number must be between ${min} and ${max} characters`)) {
+    //         else {
+    //         showSuccess(accnumberEI);
+    //         valid = true;
+    //     }
+    //     return valid;
+    // };
+    // }
+    if (/^-?\d+$/.test(partyAccNum) == false) {
+        errors.push("Party Account number must be ...");
     }
-
-    if (partyAccNum != conPartyAccNum) 
-    {
+    if (partyAccNum != conPartyAccNum) {
         errors.push("Party Account numbers should be same");
     }
 
     var format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
-    if (format.test(partyName)) 
-    {
+    if (format.test(partyName)) {
         errors.push("Party Name shouldn't have special characters");
     }
-    if (partyName == "") 
-    {
+    if (partyName == "") {
         errors.push("Party Name shouldn't be empty");
     }
 
-    if (IFSCCode.length != 11) 
-    {
+    if (IFSCCode.length != 11) {
         errors.push("IFSC Code should be 11 characters");
     }
-    if (/^[a-zA-Z()]+$/.test(IFSCCode)) 
-    {
+    if (/^[a-zA-Z()]+$/.test(IFSCCode)) {
         errors.push("IFSC Code first four letters should be alphabets");
     }
-    if (IFSCCode.charAt(4) != "0") 
-    {
+    if (IFSCCode.charAt(4) != "0") {
         errors.push("IFSC Code should contain 0 at 5th character");
     }
-    if (bankName == "XXXXX") 
-    {
+    if (bankName == "XXXXX") {
         errors.push("IFSC Code is Wrong");
     }
 
-    if (headOfAccount == "-1") 
-    {
+    if (headOfAccount == "-1") {
         errors.push("Please select Head of Account!");
     }
 
-    if (expenditureType == "-1") 
-    {
+    if (expenditureType == "-1") {
         errors.push("Please select Expenditure Type!");
     }
 
-    if (purpose.length > 500) 
-    {
+    if (purpose.length > 500) {
         errors.push("Purpose should be less than 500 characters");
     }
-    if (purpose == "") 
-    {
+    if (purpose == "") {
         errors.push("Purpose shouldn't be empty");
     }
 
-    if (partyAmount == "") 
-    {
+    if (partyAmount == "") {
         errors.push("Party Amount shouldn't be empty");
     }
 
-    if (errors.length == 0) 
-    {
+    if (errors.length == 0) {
         return;
     }
     errorsText.innerHTML = "";
 
-    errors.forEach((element) => 
-    {
+    errors.forEach((element) => {
         errorsText.innerHTML += "* " + element + "<br />";
     });
 
@@ -170,14 +171,12 @@ function validateForm(event) {
     errorsText.scrollIntoView();
 }
 
-function partyAmountChanged(value) 
-{
+function partyAmountChanged(value) {
     if (value.length == "0") {
         document.getElementById("partyAmountInWords").innerHTML = "";
         return;
     }
-    if (isFinite(value)) 
-    {
+    if (isFinite(value)) {
         var text = numberToEnglish(value);
         if (text.slice(0, 3) == "and") {
             text = text.slice(3, text.length);
@@ -217,7 +216,6 @@ function expenditureTypeChanged(selected) {
 }
 
 function ifscCodeChanged(IFSCCode) {
-    // Variables
     var bankName = document.getElementById("bankName");
     var bankBranch = document.getElementById("bankBranch");
 

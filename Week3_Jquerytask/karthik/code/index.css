@@ -1,0 +1,92 @@
+.top_navbar .hamburger{
+    padding: 1px;
+}
+.modules{
+    margin-bottom:0px;
+}
+.content p{
+    padding: 0px;
+    margin: 0px;
+}
+.card {
+    box-shadow: 0 0 10px 0 rgba(100, 100, 100, 0.26);
+    margin-left:5px;
+  }
+
+ li{
+    padding:10px;
+}
+.scaleList  :hover{
+    background: rgb(178, 178, 178);
+
+}
+
+.hrAtGlance  li:hover{
+    background: rgb(178, 178, 178);
+} 
+.sizeIcon {
+    position: absolute;
+
+    bottom: 20px;
+    right: 20px;
+}
+
+.sizeIcon button{
+    font:white;
+    border: 0ch;
+    margin:10px;
+    background-color: rgb(56, 59, 249);
+}
+.sizeIcon .sizeDecrease{
+    width:20px;
+    height: 20px;
+    font-size: 0.6rem;
+    padding: 0;
+    align-items: center;
+    top:10px;
+}
+.sizeIcon .sizeIncrease{
+    width:40px;
+    height: 40px;
+    font-size: 1rem;
+    margin-left:0px;
+    
+}
+
+.popUp{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 500px;
+    background-color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    z-index: 100;
+    display: none;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background-color:gray;
+    color: white;
+    border-radius: 10%;
+    text-align: center;
+    width: 10px;
+    height: 20px;
+    margin: 0px;
+}
+
+.popUp table tr th{
+    width: 250px;;
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
+
+.popUp table tr td{
+    padding-left: 30px;
+    padding-bottom: 10px;
+}
