@@ -7,6 +7,8 @@ CREATE TABLE hotel(
     hotel_address VARCHAR(50) NOT NULL
 );
 
+
+-----
 insert into hotel (hotel_name,phone_number,hotel_address) VALUES ('mshotel',651544151,'AshokNagar');
 
 CREATE TABLE room(
