@@ -1,6 +1,6 @@
 <?php
 echo $_SERVER['REQUEST_METHOD'];
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") { /////
 
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -10,8 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     /*if (!isset($_POST['firstName'])) {
         echo "Please enter First Name";
-    }
-    if (!isset($_POST['lastName'])) {
+    }  bv    if (!isset($_POST['lastName'])) {
         echo "Please enter Last Name";
     }
     if (!isset($_POST['email'])) {
