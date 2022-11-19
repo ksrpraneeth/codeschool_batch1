@@ -1,0 +1,210 @@
+--GUEST TABLE
+CREATE TABLE Guest (
+  id PRIMARY KEY,
+  First_Name VARCHAR(50) NOT NULL,
+  Last_Name VARCHAR(50) NOT NULL,
+  Phone_Number INTEGER NOT NULL,
+  city VARCHAR(50) NOT NULL
+);
+INSERT INTO
+  Guest (First_Name, Last_Name, Phone_Number, city)
+VALUES
+  -- Sample data
+  ('G1', 'A', 'Ram', 11111, 'HYD1'),
+  ('G2', 'B', 'sham', 22222, 'HYD2'),
+  ('G3', 'C', 'Raj', 33333, 'HYD3'),
+  ('G4', 'D', 'Raju', 44444, 'HYD4'),
+  ('G5', 'E', 'Dan', 55555, 'HYD5')
+  
+  
+  
+  
+   -- ROOM STATUS TABLE
+  CREATE TABLE RoomStatus (
+    id SERIAL PRIMARY KEY,
+    room_status_name VARCHAR(50) NOT NULL,
+    room_status_date DATE
+  );
+-- SAMPLE DATA
+INSERT INTO
+  RoomStatus (room_status_name, room_status_date)
+VALUES
+  ('Occupied', '2022-10-12'),
+  ('Unoccupied', '2017-10-12'),
+  ('Occupied', '2018-10-12'),
+  ('Unoccupied', '2019-10-12'),
+  ('Occupied', '2020-10-12')
+  
+  
+  
+  
+   -- ROOM TYPE DATA
+  CREATE TABLE RoomInfo (
+    id SERIAL PRIMARY KEY,
+    Room_Type_ID VARCHAR(30) NOT NULL UNIQUE,
+    roomtype_name VARCHAR(50) NOT NULL,
+    room_No INTEGER NOT NULL
+  );
+--SAMPLE DATA
+INSERT INTO
+  RoomInfo (Room_Type_ID, roomtype_name, room_No)
+VALUES
+  ('F11', 'Ultra Luxurous', '101'),
+  ('F12', 'Luxurious', '102'),
+  ('F13', 'Premium', '103'),
+  ('F14', 'Premium', '104'),
+  ('F15', 'Average - Budget Friendly', '105') ('F23', 'Luxurious', '103'),
+  ('F24', 'Premium', '104'),
+  ('F25', 'Average - Budget Friendly', '105') 
+  
+  
+  
+  -- ROOM TABLE
+  CREATE TABLE Room (
+    id SERIAL PRIMARY KEY,
+    room_status_id INTEGER NOT NULL REFERENCES RoomStatus(id) ON DELETE CASCADE,
+    Room_Catalog VARCHAR(50)
+  );
+--SAMPLE DATA
+INSERT INTO
+  Room(room_status_id, Room_Catalog)
+VALUES
+  (1, 'ABCD1'),
+  (2, 'ABCD2'),
+  (3, 'ABCD3'),
+  (5, 'ABCD4'),
+  (4, 'ABCD5') 
+  
+  
+  
+  -- BOOKINGS TABLE
+  CREATE TABLE Bookings (
+    id SERIAL PRIMARY KEY,
+    guest_id INTEGER NOT NULL REFERENCES Guest(id) ON DELETE CASCADE,
+    room_No INTEGER NOT NULL REFERENCES Room(room_No) ON DELETE CASCADE,
+    booking_date DATE,
+    Check_in DATE,
+    Check_Out DATE,
+    Number_of_Guests INTEGER NOT NULL
+  );
+--SAMPLE DATA
+INSERT INTO
+  bookings(
+    guest_id,
+    room_No,
+    booking_date,
+    Check_in,
+    Check_Out,
+    Number_of_Guests
+  )
+VALUES
+  (
+    'G1',
+    101,
+    '2022-10-10',
+    '2022-10-12',
+    '2022-10-15',
+    3
+  ),
+  (
+    'G2',
+    102,
+    '2017-10-10',
+    '2017-10-12',
+    '2017-10-15',
+    2
+  ),
+  (
+    'G3',
+    103,
+    '2018-10-10',
+    '2018-10-12',
+    '2018-10-15',
+    5
+  ),
+  (
+    'G4',
+    104,
+    '2019-10-10',
+    '2019-10-12',
+    '2019-10-15',
+    5
+  ),
+  (
+    'G5',
+    105,
+    '2020-10-10',
+    '2020-10-12',
+    '2020-10-15',
+    2
+  )
+
+
+
+
+
+-- Queries
+-- 1st Query // Query for How many types of rooms and total room numbers
+SELECT
+  roomtype_name,
+  COUNT(roomtype_name)
+FROM
+  RoomInfo
+GROUP BY
+  roomtype_name;
+
+
+-- 2nd Query // Query for how many rooms are occupied on a perticular date
+SELECT
+  room_No,
+  Room_Type_ID,
+  roomtype_name,
+  Check_in as On_date
+FROM
+  bookings,
+  RoomInfo
+WHERE
+  (Check_in = '2017-10-12') 
+  
+  
+  -- 3rd Query // Query for Customer name and his check in ,out date with room numbers and room types
+SELECT
+  First_Name,
+  Last_Name,
+  city,
+  check_out,
+  Check_in,
+  booking_date
+FROM
+  Guest
+  JOIN Bookings ON Bookings.id = Guest.id 
+  
+  
+  -- 4th Query // Querry for how many rooms are avilable on a perticular date
+SELECT
+  room_No,
+  roomtype_name,
+  Room_Type_ID
+FROM
+  bookings as bg,
+  roomInfo as ri
+WHERE
+  bg.room_No = ri.room_No
+  AND Check_in not between '2022-10-12'
+  and '2020-10-15';
+
+
+-- 5th Query // Query for total(count of) customer check out on a perticular date
+SELECT
+  First_Name,
+  Last_Name,
+  roomtype_name,
+  Room_Type_ID,
+  room_No,
+  check_out
+FROM
+  guest as gst,
+  bookings as bkg,
+  roomInfo as ri
+WHERE
+  gst.guest_id = bkg.id
