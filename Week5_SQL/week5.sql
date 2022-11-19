@@ -10,11 +10,11 @@ CREATE TABLE username(
   registeredAt DATE NOT NULL,
   lastLogin TIME NULL DEFAULT NULL
   );
- --- INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(1,'AP9','Archaana','Sindu','Archana789','archanasindu2001@gmail.com','Sindu789@',09-10-22,11:30AM);
+  INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(1,'AP9','Archaana','Sindu','Archana789','archanasindu2001@gmail.com','Sindu789@',09-10-22,11:30AM);
   INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(2,'TL9','Ravi','Sabbi','Ravi987','Ravi2001@gmail.com','Ravi789@','10-10-22','12:30AM');
   INSERT INTO (id,roleId,firstName,lastName,username,email,password,RegisteredAt,lastLogin) Values(3,'M9','Shivani','Chapala','Shivanichapala','shivani2001@gmail.com','Shivani789@','11-10-22','1:30AM');
    ALTER TABLE
-        Task Meta Table ADD PRIMARY KEY(Iid);
+        TaskMetaTable ADD PRIMARY KEY(Iid);
   CREATE TABLE Task(
   id INT Primary key,
   userId INT ,
@@ -36,7 +36,7 @@ INSERT INTO(id,userId,createdBy,UpdatedBy,title,description,Status,hours,Created
 INSERT INTO(id,userId,createdBy,UpdatedBy,title,description,Status,hours,CreatedAt,updatedAt,plannedStartDate,plannedEndDate) values(10,'M9','Tejaa','kumar','Peaceful Life','Being Happy is self responsibility',24-10-23,11-09-20);
  ALTER TABLE
     Tag Table ADD PRIMARY KEY(Id);
- CREATE TABLE Taskmeta(
+ CREATE TABLE TaskmetaTable(
 id INT Primary key,
   key VARCHAR(40) NULL DEFAULT NULL,
   CONTENT VARCHAR(50) NULL DEFAULT NULL ,
@@ -83,7 +83,7 @@ CREATE TABLE TagTables(
    INSERT INTO(id,userId,TaskId,createdBy,UpdatedBy,title,description,Status,hours,CreatedAt,updatedAt,plannedStartDate,plannedEndDate) values(10,'AP9','Shiva','varma','Thought Life','Being Happy is self responsibility',4-1-22,10-10-22);
    INSERT INTO(id,userId,createdBy,UpdatedBy,title,description,Status,hours,CreatedAt,updatedAt,plannedStartDate,plannedEndDate) values(12,'TL9','Nandu','Kumar','Normal Life','Being Happy is self responsibility',14-10-23,12-11-21);
    INSERT INTO(id,userId,createdBy,UpdatedBy,title,description,Status,hours,CreatedAt,updatedAt,plannedStartDate,plannedEndDate) values(10,'M9','Tejaa','kumar','Peaceful Life','Being Happy is self responsibility',24-10-23,11-09-20);
-CREATE TABLE Comments(
+CREATE TABLE Comment(
   id int primary key,
   TaskId int,
   Activityid int,
