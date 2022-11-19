@@ -1,7 +1,7 @@
 <?php
 $array = [];
 if(!array_key_exists('headOfAccount',$_POST)){
-    array_push($array,"plase select headOfAccount");
+    array_push($array,"please select headOfAccount");
 }
  $headOfAccount = $_POST['headOfAccount'];
 switch($headOfAccount){
