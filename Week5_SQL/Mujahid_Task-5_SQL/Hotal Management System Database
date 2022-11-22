@@ -1,4 +1,4 @@
-CREATE TABLE Guest_Details(
+CREATE TABLE Guest(
     G_ID VARCHAR(25) PRIMARY KEY NOT NULL UNIQUE,
     G_First_Name VARCHAR(25) NOT NULL,
     G_Last_Name VARCHAR(25) NOT NULL,
@@ -7,7 +7,7 @@ CREATE TABLE Guest_Details(
     G_CIty VARCHAR(30) NOT NULL 
 );
 INSERT INTO
-  guest_details
+  Guest
 VALUES
   (
     'G1',
@@ -47,14 +47,14 @@ VALUES
   )
 
 
-  CREATE TABLE Payment_Details(
+  CREATE TABLE Payment_Invoices(
     Payment_ID VARCHAR(25) PRIMARY KEY NOT NULL UNIQUE,
     Payment_Type VARCHAR(25) NOT NULL,
     Amount VARCHAR(25) NOT NULL, 
     Discount INTEGER NOT NULL
 );
 INSERT INTO
-  Payment_Details
+  Payment_Invoices
 VALUES
   	('PXXX1', 'ONLINE', '5000', '500'),
     ('PXXX2', 'CASH', '15000', '1500'),
@@ -95,9 +95,9 @@ VALUES
 
 CREATE TABLE Room_Reservations(
   Rs_ID SERIAL PRIMARY KEY,
-  G_ID VARCHAR(25) REFERENCES guest_details(g_id) NOT NULL,
+  G_ID VARCHAR(25) REFERENCES Guest(g_id) NOT NULL,
   R_No VARCHAR(40) REFERENCES room_info(room_no) NOT NULL,
-  P_ID VARCHAR(25) REFERENCES payment_Details(payment_id) NOT NULL UNIQUE,
+  P_ID VARCHAR(25) REFERENCES Payment_Invoices(payment_id) NOT NULL UNIQUE,
   reservation_date DATE,
   Check_in DATE,
   Check_Out DATE
@@ -158,7 +158,7 @@ SELECT
   Room_Type,
   Room_Type_ID
 FROM
-  guest_details AS gsd,
+  Guest AS gsd,
   room_reservations AS rrst,
   room_info AS Rif
 WHERE
@@ -207,7 +207,7 @@ SELECT
   Room_Type_ID,
   check_out
 FROM
-  guest_details AS gsd,
+  Guest AS gsd,
   room_reservations AS rrst,
   room_info AS Rif
 WHERE
