@@ -1,203 +1,225 @@
---GUEST TABLE
-CREATE TABLE Guest (
-  id PRIMARY KEY,
-  First_Name VARCHAR(50) NOT NULL,
-  Last_Name VARCHAR(50) NOT NULL,
-  Phone_Number INTEGER NOT NULL,
-  city VARCHAR(50) NOT NULL
+CREATE TABLE Guest_Details(
+    G_ID VARCHAR(25) PRIMARY KEY NOT NULL UNIQUE,
+    G_First_Name VARCHAR(25) NOT NULL,
+    G_Last_Name VARCHAR(25) NOT NULL,
+    G_Gender VARCHAR(25) NOT NULL,
+    G_Email VARCHAR(30) NOT NULL,
+    G_CIty VARCHAR(30) NOT NULL 
 );
 INSERT INTO
-  Guest (First_Name, Last_Name, Phone_Number, city)
-VALUES
-  -- Sample data
-  ('G1', 'A', 'Ram', 11111, 'HYD1'),
-  ('G2', 'B', 'sham', 22222, 'HYD2'),
-  ('G3', 'C', 'Raj', 33333, 'HYD3'),
-  ('G4', 'D', 'Raju', 44444, 'HYD4'),
-  ('G5', 'E', 'Dan', 55555, 'HYD5')
-
-
-
-CREATE TABLE RoomInfo(
-    Room_ID VARCHAR(30) NOT NULL UNIQUE,
-    Room_Type_Id VARCHAR(40) REFERENCES Roomtype(Room_no) NOT NULL,
-);
-INSERT INTO
-    Rooms
-VALUES
-    ('101', 'F01');
-    ('102', 'F02');
-    ('103', 'F03');
-    ('202', 'F04');
-    ('201', 'F05');
-    ('302', 'F02');
-    ('201', 'F05');
-
-
-
-  CREATE TABLE Roomtype (
-    Id VARCHAR(40) REFERENCES RoomInfo(Room_No) NOT NULL,
-    Room_Type VARCHAR(30) NOT NULL ,
-    Room_No VARCHAR(30) PRIMARY KEY NOT NULL UNIQUE,
-    Price VARCHAR(30) NOT NULL ,
-    Floor_No VARCHAR(30) NOT NULL 
-  );
-
-INSERT INTO
-    Room_Type
-VALUES
-('F01', 'Ultra_Luxurous', '101', '125000', '1');
-('F01', 'Luxurious', '102', '50000', '1');
-('F01', 'Luxurious', '103', '5000', '1');
-('F02', 'Premium', '201', '20000', '2');
-('F02', 'Premium', '202', '20000', '2');
-('F02', 'Luxurious', '203', '50000', '2');
-('F03', 'Premium', '302', '20000', '3');
-('F03', 'Budget_Friendly', '302', '10000', '3');
-('F03', 'Budget_Friendly', '201', '10000', '3');
-('F04', 'Budget Friendly', '101', '10000', '3')
-  
-  
-  
-  -- BOOKINGS TABLE
-  CREATE TABLE Bookings (
-    id SERIAL PRIMARY KEY,
-    guest_id INTEGER NOT NULL REFERENCES Guest(id) ON DELETE CASCADE,
-    room_No INTEGER NOT NULL REFERENCES RoomInfo(Room_ID) ON DELETE CASCADE,
-    booking_date DATE,
-    Check_in DATE,
-    Check_Out DATE,
-    Number_of_Guests INTEGER NOT NULL
-  );
---SAMPLE DATA
-INSERT INTO
-  bookings(
-    guest_id,
-    room_No,
-    booking_date,
-    Check_in,
-    Check_Out,
-    Number_of_Guests
-  )
+  guest_details
 VALUES
   (
     'G1',
-    101,
-    '2022-10-10',
-    '2022-10-12',
-    '2022-10-15',
-    3
-  ),
-  (
+    'A',
+    'Ram',
+    'Male',
+    'Aram@gmail.com',
+    'Hyd'
+  ), (
     'G2',
-    102,
-    '2017-10-10',
-    '2017-10-12',
-    '2017-10-15',
-    2
-  ),
-  (
+    'A',
+    'Rani',
+    'Female',
+    'Arani@gmail.com',
+    'MUM'
+  ), (
     'G3',
-    103,
-    '2018-10-10',
-    '2018-10-12',
-    '2018-10-15',
-    5
-  ),
-  (
+    'B',
+    'Ram',
+    'Male',
+    'Bram@gmail.com',
+    'MUM'
+  ), (
     'G4',
-    201,
-    '2019-10-10',
-    '2019-10-12',
-    '2019-10-15',
-    5
-  ),
-  (
+    'B',
+    'Rani',
+    'Female',
+    'Aram@gmail.com',
+    'Hyd'
+  ), (
     'G5',
-    202,
-    '2020-10-10',
-    '2020-10-12',
-    '2020-10-15',
-    2
+    'c',
+    'Ram',
+    'Male',
+    'Cram@gmail.com',
+    'DELHI'
   )
 
 
+  CREATE TABLE Payment_Details(
+    Payment_ID VARCHAR(25) PRIMARY KEY NOT NULL UNIQUE,
+    Payment_Type VARCHAR(25) NOT NULL,
+    Amount VARCHAR(25) NOT NULL, 
+    Discount INTEGER NOT NULL
+);
+INSERT INTO
+  Payment_Details
+VALUES
+  	('PXXX1', 'ONLINE', '5000', '500'),
+    ('PXXX2', 'CASH', '15000', '1500'),
+    ('PXXX3', 'ONLINE', '25000', '2500'),
+    ('PXXX4', 'CASH', '35000', '3500'),
+    ('PXXX5', 'ONLINE', '45000', '4500')
+
+CREATE TABLE Room_Info(
+    Room_No VARCHAR(30) PRIMARY KEY NOT NULL UNIQUE,
+    Room_Type_ID VARCHAR(30) NOT NULL UNIQUE,
+    Room_Type VARCHAR(30) NOT NULL ,
+    Room_Price INTEGER NOT NULL ,
+    Floor_No INTEGER NOT NULL 
+);
+INSERT INTO
+    Room_Info
+VALUES
+('001', 'R001', 'Luxurious', 50000, 00),
+('002', 'R002', 'Premium', 25000, 00),
+('101', 'R003', 'Budget_Friendly', 10000, 01),
+('102', 'R004', 'Luxurious', 50000, 01),
+('201', 'R005', 'Budget_Friendly', 10000, 02)
+
+CREATE TABLE Rooms(
+    Room_Type_Id VARCHAR(30) NOT NULL UNIQUE,
+    Room_No VARCHAR(40) REFERENCES Room_Info(Room_No) NOT NULL  
+);
+
+INSERT INTO
+    Rooms
+VALUES
+    ('R001', '001'),
+    ('R002', '001'),
+    ('R003', '101'),
+    ('R004', '201'),
+    ('R005', '101')
+        
+
+CREATE TABLE Room_Reservations(
+  Rs_ID SERIAL PRIMARY KEY,
+  G_ID VARCHAR(25) REFERENCES guest_details(g_id) NOT NULL,
+  R_No VARCHAR(40) REFERENCES room_info(room_no) NOT NULL,
+  P_ID VARCHAR(25) REFERENCES payment_Details(payment_id) NOT NULL UNIQUE,
+  reservation_date DATE,
+  Check_in DATE,
+  Check_Out DATE
+);
+INSERT INTO
+    Room_Reservations(G_ID,R_No,P_ID,reservation_date,Check_in,Check_Out)
+VALUES
+('G1', '001','PXXX1', '2022-11-22','2022-11-24','2022-11-26'),
+('G2', '002','PXXX2', '2021-11-22','2021-11-24','2021-11-26'),
+('G3', '101','PXXX3', '2020-11-22','2020-11-24','2020-11-26'),
+('G4', '101','PXXX4', '2019-11-22','2019-11-24','2019-11-26'),
+('G5', '201','PXXX5', '2018-11-22','2018-11-24','2018-11-26')
 
 
-
--- Queries
--- 1st Query // Query for How many types of rooms and count .
--- output - room and types 
+-- 1st Query // Query for How many types of rooms and count output - room and types 
 SELECT
-  room_type,
-  COUNT(room_type)
+  Room_Type,
+  COUNT(Room_Type)
 FROM
-  room_type
+  Room_Info
 GROUP BY
-  room_type;
+  Room_Type;
 
+  --Query Result
+room_type	count
+Luxurious	2
+Budget_Friendly	2
+Premium	1
 
 
 -- 2nd Query // Query for how many rooms are occupied on a perticular date
 SELECT
-  Room_No,
-  Room_Type_ID,
-  Room_Type
-FROM
-  bookings as bg,
-  Roomtype as rtp
-WHERE
-  (bg.Room_No=rtp.room_no Check_in = '2017-10-12') 
+  room_type_id,
+  room_no,
+  room_type
+from
+  room_reservations	 as r_rst,
+  room_info as r_if
+where
+  r_rst.R_No = r_if.room_no
+  and check_in = '2022-11-24'
 
 
-  
-  
-  -- 3rd Query // Query for Customer details with his check in ,out date with room numbers and room types
+--Query Result
+room_type_id	room_no	room_type
+R001	001	Luxurious
+
+
+
+-- 3rd Query // Query for Customer details with his check in ,out date with room numbers and room types
 SELECT
-  First_Name,
-  Last_Name,
-  city,
+  g_first_name,
+  g_last_name,
+  g_city,
   check_out,
   Check_in,
-  booking_date,
   Room_No,
   Room_Type,
   Room_Type_ID
 FROM
-  Guest AS gst, bookings bg, Roomtype rty
-  WHERE 
-  bg.Guest_ID = gst.Guest_ID and bg.Room_No = rty.Room_No ; 
-
-
-  
-  
-  -- 4th Query // Querry for how many rooms are avilable on a perticular dates
-SELECT
-  Room_No,
-  Room_Type,
-  Room_Type_ID
-FROM
-  bookings as bg,
-  Roomtype as rty
+  guest_details AS gsd,
+  room_reservations AS rrst,
+  room_info AS Rif
 WHERE
-  bg.room_No = rty.room_No
-  AND Check_in not between '2022-10-12'
-  AND '2020-10-15';
+  rrst.G_ID = gsd.G_ID 
+  and rrst.r_no = Rif.Room_No;
 
+  --OUTPUT
+  --Query Result
 
+  g_first_name	g_last_name	g_city	check_out	check_in	room_no	room_type	room_type_id
+A	Ram	Hyd	2022-11-26T00:00:00.000Z	2022-11-24T00:00:00.000Z	001	Luxurious	R001
+A	Rani	MUM	2021-11-26T00:00:00.000Z	2021-11-24T00:00:00.000Z	002	Premium	R002
+B	Ram	MUM	2020-11-26T00:00:00.000Z	2020-11-24T00:00:00.000Z	101	Budget_Friendly	R003
+B	Rani	Hyd	2019-11-26T00:00:00.000Z	2019-11-24T00:00:00.000Z	101	Budget_Friendly	R003
+c	Ram	DELHI	2018-11-26T00:00:00.000Z	2018-11-24T00:00:00.000Z	201	Budget_Friendly	R005
 
--- 5th Query // Query for customer checking out date on date how many are checkedouts .
+-- 4th Query // Querry for how many rooms are avilable on a perticular dates
+SELECT
+  room_no,
+  Room_Type,
+  Room_Type_ID
+FROM
+  room_info as r_if,
+  room_reservations AS r_rst
+WHERE
+  r_rst.r_No = r_if.room_No
+  AND Check_in != '2021-11-24';
+
+  --O/P
+  --Query Result
+
+room_no	room_type	room_type_id
+001	Luxurious	R001
+101	Budget_Friendly	R003
+101	Budget_Friendly	R003
+201	Budget_Friendly	R005
+
+-- 5th Query // Query for customer checking out date and how many are checkedouts .
 
 SELECT
-  First_Name,
-  Last_Name,
-  roomtype_name,
+  g_first_name,
+  g_last_name,
+  g_city,
+  Room_No,
+  Room_Type,
   Room_Type_ID,
-  room_No,
   check_out
 FROM
-  guest as gst,
-  bookings as bkg,
-  Roomtype as rty
+  guest_details AS gsd,
+  room_reservations AS rrst,
+  room_info AS Rif
 WHERE
-  gst.guest_id = bkg.guest_id 
+  rrst.G_ID = gsd.G_ID 
+  and rrst.r_no = Rif.Room_No; 
+
+--OUTPUT
+--Query Result
+
+g_first_name	g_last_name	g_city	room_no	room_type	room_type_id	check_out
+A	Ram	Hyd	001	Luxurious	R001	2022-11-26T00:00:00.000Z
+A	Rani	MUM	002	Premium	R002	2021-11-26T00:00:00.000Z
+B	Ram	MUM	101	Budget_Friendly	R003	2020-11-26T00:00:00.000Z
+B	Rani	Hyd	101	Budget_Friendly	R003	2019-11-26T00:00:00.000Z
+c	Ram	DELHI	201	Budget_Friendly	R005	2018-11-26T00:00:00.000Z
