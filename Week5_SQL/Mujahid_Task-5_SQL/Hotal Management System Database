@@ -72,25 +72,29 @@ CREATE TABLE Room_Info(
 INSERT INTO
     Room_Info
 VALUES
-('001', 'R001', 'Luxurious', 50000, 00),
-('002', 'R002', 'Premium', 25000, 00),
-('101', 'R003', 'Budget_Friendly', 10000, 01),
-('102', 'R004', 'Luxurious', 50000, 01),
+('001', 'R001', 'Ultra Luxurious', 50000, 00),
+('002', 'R002', 'Luxurious', 25000, 00),
+('101', 'R003', 'Normal', 10000, 01),
+('102', 'R004', 'Premium', 50000, 01),
 ('201', 'R005', 'Budget_Friendly', 10000, 02)
 
 CREATE TABLE Rooms(
-    Room_Type_Id VARCHAR(30) NOT NULL UNIQUE,
-    Room_No VARCHAR(40) REFERENCES Room_Info(Room_No) NOT NULL  
+    Room_Type_Id VARCHAR(30) NOT NULL,
+    Room_No VARCHAR(40) REFERENCES Room_Info(Room_No) NOT NULL,
+    Room_Type VARCHAR(40) REFERENCES Room_Info(Room_No) NOT NULL  
 );
 
 INSERT INTO
     Rooms
 VALUES
-    ('R001', '001'),
-    ('R002', '001'),
-    ('R003', '101'),
-    ('R004', '201'),
-    ('R005', '101')
+    ('R001', '001', 'Ultra Luxurious'),
+    ('R002', '002', 'Luxurious'),
+    ('R003', '101', 'Normal'),
+    ('R004', '201','Premium'),
+    ('R005', '101' ,'Budget_Friendly'),
+    ('R003', '101' ,'Normal'),
+    ('R004', '201','Premium'),
+    ('R005', '101', 'Luxurious')
         
 
 CREATE TABLE Room_Reservations(
@@ -112,39 +116,34 @@ VALUES
 ('G5', '201','PXXX5', '2018-11-22','2018-11-24','2018-11-26')
 
 
--- 1st Query // Query for How many types of rooms and count output - room and types 
+-- 1st Query // Query for How many types of rooms and count output 
 SELECT
-  Room_Type,
-  COUNT(Room_Type)
+  Room_No,
+  COUNT(Room_No) as Count_Of_Rooms
 FROM
-  Room_Info
+  Rooms
 GROUP BY
-  Room_Type;
+  Room_No;
 
   --Query Result
-room_type	count
-Luxurious	2
-Budget_Friendly	2
-Premium	1
+Query Result
+room_no	count_of_rooms
+201	1
+001	2
+101	2
 
 
 -- 2nd Query // Query for how many rooms are occupied on a perticular date
 SELECT
   room_type_id,
-  room_no,
-  room_type
-from
-  room_reservations	 as r_rst,
-  room_info as r_if
+  room_type,
+  room_no
+FROM
+  room_reservations	as r_rst,
+  rooms as r_if
 where
   r_rst.R_No = r_if.room_no
   and check_in = '2022-11-24'
-
-
---Query Result
-room_type_id	room_no	room_type
-R001	001	Luxurious
-
 
 
 -- 3rd Query // Query for Customer details with his check in ,out date with room numbers and room types
@@ -158,11 +157,11 @@ SELECT
   Room_Type,
   Room_Type_ID
 FROM
-  Guest AS gsd,
+  guest_details AS gsd,
   room_reservations AS rrst,
-  room_info AS Rif
+  rooms AS Rif
 WHERE
-  rrst.G_ID = gsd.G_ID 
+  rrst.G_ID = gsd.G_ID
   and rrst.r_no = Rif.Room_No;
 
   --OUTPUT
@@ -181,7 +180,7 @@ SELECT
   Room_Type,
   Room_Type_ID
 FROM
-  room_info as r_if,
+  rooms as r_if,
   room_reservations AS r_rst
 WHERE
   r_rst.r_No = r_if.room_No
@@ -209,7 +208,7 @@ SELECT
 FROM
   Guest AS gsd,
   room_reservations AS rrst,
-  room_info AS Rif
+  rooms AS Rif
 WHERE
   rrst.G_ID = gsd.G_ID 
   and rrst.r_no = Rif.Room_No; 
