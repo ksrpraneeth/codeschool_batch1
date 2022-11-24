@@ -1,0 +1,12 @@
+.mainDiv {
+  background-color: #073b4c !important;
+}
+.mainDiv .left .formDiv {
+  background-color: white;
+}
+.mainDiv .left .logo img {
+  width: 40px;
+}
+.mainDiv .left .logo .logoText span {
+  font-size: 12px;
+}
