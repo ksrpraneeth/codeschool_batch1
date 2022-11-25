@@ -228,7 +228,7 @@
       <!---------------------------------------------------------------------------------------------->
       <div class="col-12 bg-white mt-2 px-3">
         <div class="nav col-12">
-          <nav class="navbar navbar-expand-lg navbar">
+          <nav class="navbar navbar-expand navbar">
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav nav-tabs" style="font-size:larger">
                 <li class="nav-item">
@@ -288,44 +288,103 @@
             </div>
       
           </div>
-          <div class="col-6 right d-flex"> 
-            <div class="" style="font-size:13px"> 
-              <p> Tot adj: <b id="totadj"> </b>cr &nbsp; ,Tot cash: <b id="totcash"> </b>cr </p>
+          <div class="row col-12 col-md-6 right d-flex"> 
+            <div class="col-12 col-md-6 d-flex" style="font-size:13px"> 
+                                       <p> Tot adj: <b id="totadj"> </b>cr  ,Tot cash: <b id="totcash"> </b>cr </p>
               
-              
-      
-      
             </div>
             &nbsp;
-            <div class="px-2 py-1 border-3" style="font-size:15px" onclick=" APICALL()" > 
+            
+            <div class="col-12 col-md-1 px-2 py-1 border-3" style="font-size:15px" onclick=" APICALL()" > 
               <i class="p-1 border1 fa-solid fa-rotate" ></i>
             </div>
             &nbsp; &nbsp;
-      
-            <div class="">
-              <div class="border1 btn btn-white dropdown-toggle" style="font-size:12px" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
+
+            
+              <div class="col-md-auto border1 btn btn-white dropdown-toggle" style="font-size:12px" type="button" id="dropdownMenuButton" data-toggle="dropdown" >
                To Be Authorized
               </div> 
-              </div>
+              
           </div>
+        
          
 
           <div class="row m-0 fontdortable d-md-flex "> 
-            <div class="col-md-8 w3-panel w3-card  rounded-2 p-2 ms-3"> 
+            <div class="col-12 col-md-8 w3-panel w3-card  rounded-2 p-2 ms-3"> 
             <div class="row"> 
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <img src="museum.png" height="28px" width="25px"> <p>PAO</p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="paoid"></b> <b class="abc" >.3</b> cr  </div>  </div>
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <img src="pay1.png" height="28px" width="25px"> <p>PD (ROS + CAP)</p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="rosid"></b> <b class="abc" >.1</b> cr  </div>  </div>
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <img src="pay1.png" height="28px" width="25px"> <p>PD (10L) </p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="pdid"></b> <b class="abc" >.8</b> cr  </div>  </div>
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <img src="money (2).png" height="28px" width="25px"> <p>DTA (Adj)</p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="dtaid"></b> <b class="abc" >.5</b> cr  </div>  </div>
+            <div  class="col-6 col-md-3 text-align-center p-1"> 
+              <div class="d-flex justify-content-center align-items-center">
+                 <img src="museum.png" height="28px" width="25px"> <p>PAO</p>  </div> 
+                  <div class="d-flex justify-content-center"> 
+                     <b class="abc" id="PAO"></b>
+                      <b class="abc" >.3</b> cr  
+                    </div>
+                    </div>
+            <div  class="col-6 col-md-3 text-align-center p-1"> 
+              <div class="d-flex justify-content-center align-items-center"> 
+                <img src="pay1.png" height="28px" width="25px"> 
+                <p>PD (ROS + CAP)</p>  </div>
+                  <div class="d-flex justify-content-center"> 
+                     <b class="abc" id="pdRosCap"></b>
+                      <b class="abc" >.1</b> cr 
+                     </div> 
+                     </div>
+            <div  class="col-6 col-md-3 text-align-center p-1"> 
+              <div class="d-flex justify-content-center align-items-center">
+                 <img src="pay1.png" height="28px" width="25px"> 
+                 <p>PD (10L) </p>  </div> 
+                  <div class="d-flex justify-content-center"> 
+                     <b class="abc" id="Pdl"></b>
+                      <b class="abc" >.8</b> cr 
+                     </div> 
+                     </div>
+            <div  class="col-6 col-md-3 text-align-center p-1"> 
+              <div class="d-flex justify-content-center align-items-center">
+                 <img src="money (2).png" height="28px" width="25px"> 
+                 <p>DTA (Adj)</p>  </div> 
+                  <div class="d-flex justify-content-center"> 
+                     <b class="abc" id="DTAadj"></b> 
+                     <b class="abc" >.5</b> cr 
+                     </div> 
+                     </div>
 
 
           </div>
           <div class="row">
           
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <img src="money (2).png" height="28px" width="25px"> <p>DTA (cash)</p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="dtacash"></b> <b class="abc" >.4</b> cr  </div>  </div>
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <img src="money (2).png" height="28px" width="25px"> <p>  DWA (Works)</p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="dwaworks"></b> <b class="abc" >.9</b> cr  </div>  </div>
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <img src="money (2).png" height="28px" width="25px"> <p> DWA (Est.Othr) </p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="dwaest"></b> <b class="abc" >.7</b> cr  </div>  </div>
-            <div  class="col-6 col-md-3 text-align-center p-1"> <div class="d-flex justify-content-center align-items-center"> <i class="fa-solid fa-star iconcolor prio "></i> <p> Priority </p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="priority"></b> <b class="abc" >.2</b> cr  </div>  </div>
+            <div  class="col-6 col-md-3 text-align-center p-1">
+               <div class="d-flex justify-content-center align-items-center"> 
+                <img src="money (2).png" height="28px" width="25px"> 
+                <p>DTA (cash)</p>  </div>  
+                <div class="d-flex justify-content-center">  
+                  <b class="abc" id="dtaCash"></b> <b class="abc" >.4</b> cr  
+                </div> 
+                 </div>
+
+            <div  class="col-6 col-md-3 text-align-center p-1"> 
+              <div class="d-flex justify-content-center align-items-center">
+                 <img src="money (2).png" height="28px" width="25px"> <p>  DWA (Works)</p>  </div> 
+                  <div class="d-flex justify-content-center"> 
+                     <b class="abc" id="dwaWorks"></b> 
+                     <b class="abc" >.9</b> cr
+                      </div> 
+                     </div>
+            <div  class="col-6 col-md-3 text-align-center p-1">
+               <div class="d-flex justify-content-center align-items-center"> 
+                <img src="money (2).png" height="28px" width="25px"> <p> DWA (Est.Othr) </p>  </div>
+                  <div class="d-flex justify-content-center">  
+                    <b class="abc" id="dwaEst"></b>
+                     <b class="abc" >.7</b> cr  
+                    </div>
+                    </div>
+            <div  class="col-6 col-md-3 text-align-center p-1">
+               <div class="d-flex justify-content-center align-items-center"> 
+                <i class="fa-solid fa-star iconcolor prio "></i> <p> Priority </p>  </div> 
+                 <div class="d-flex justify-content-center">  
+                  <b class="abc" id="Priority"></b>
+                   <b class="abc" >.2</b> cr 
+                   </div> 
+                   </div>
 
           </div>
            </div>
@@ -333,8 +392,24 @@
           &nbsp; &nbsp;
           <div class="col-12 col-md-2 bg-warning bg-opacity-25   w3-panel w3-card text-align-center"> 
             
-            <div  class="col-6 col-md-3 px-5"> <div class="d-flex justify-content-center align-items-center"> <img src="cheque.png" height="28px" width="25px"> <p> Regular  Salary</p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="regsal"></b> <b class="abc" >.1</b> cr  </div>  </div>
-            <div  class="col-6 col-md-3 px-5"> <div class="d-flex justify-content-center align-items-center"> <img src="money.png" height="28px" width="25px"> <p>Pension Salary </p>  </div>  <div class="d-flex justify-content-center">  <b class="abc" id="pensal"></b> <b class="abc" >.7</b> cr  </div>  </div>
+            <div  class="col-6 col-md-3 px-5">
+               <div class="d-flex justify-content-center align-items-center">
+                <img src="cheque.png" height="28px" width="25px"> 
+                <p> Regular  Salary</p>  </div> 
+                 <div class="d-flex justify-content-center">
+                    <b class="abc" id="regularSalary"></b> 
+                    <b class="abc" >.1</b> cr 
+                   </div> 
+                   </div>
+            <div  class="col-6 col-md-3 px-5"> 
+              <div class="d-flex justify-content-center align-items-center"> 
+                <img src="money.png" height="28px" width="25px"> 
+                <p>Pension Salary </p>  </div>
+                  <div class="d-flex justify-content-center"> 
+                     <b class="abc" id="pensionSalary"></b> 
+                     <b class="abc" >.7</b> cr  
+                    </div>
+                      </div>
             
  
              </div> 
@@ -346,12 +421,35 @@
           </div>
           <div class="d-md-flex temper p-3">
 
-            <div class=" table3 bg-info bg-opacity-10 d-flex flex-column justify-content-between w-50"> <div class="py-2">  <p  class="color2"> <b> COVID def <br> pay (salaries) </b>  </p> </div> <div  class="py-2" >  <p class="abc"> <span id="TC1"></span> cr</p> </div> </div> 
-            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50"> <div class="">  <p  class="color2"> <b>CSS (State) </b>  </p> </div> <div>  <p class="abc"> <span id="TC2"></span> cr</p> </div> </div> 
-            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50"> <div class="">  <p  class="color2"> <b> Rythu Bandhu  (Bill-wise </b>  </p> </div> <div>  <p class="abc"> <span id="TC3"></span> cr</p> </div> </div> 
-            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50"> <div class="py-2">  <p  class="color2"> <b> Palle/Pattana <br> Pragathi</b>  </p> </div> <div class="py-2">  <p class="abc"> <span id="TC4"></span> cr</p> </div> </div> 
-            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50"> <div class="">  <p  class="color2"> <b>  Admin of Justice  </b>  </p> </div> <div>  <p class="abc"> <span id="TC5"></span> cr</p> </div> </div> 
-            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50"> <div class="">  <p  class="color2"> <b> Medical and <br> health </b>  </p> </div> <div>  <p class="abc"> <span id="TC6"></span> cr</p> </div> </div> 
+            <div class=" table3 bg-info bg-opacity-10 d-flex flex-column justify-content-between w-50"> 
+              <div class="py-2">  <p  class="color2"> <b> COVID def <br> pay (salaries) </b>  </p> </div> 
+              <div  class="py-2" >  <p class="abc"> <span id="covidDef"></span> cr</p> </div>
+             </div> 
+
+            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50"> 
+              <div class="">  <p  class="color2"> <b>CSS (State) </b>  </p> </div> 
+              <div>  <p class="abc"> <span id="cssState"></span> cr</p> </div> 
+            </div>
+
+            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50">
+               <div class="">  <p  class="color2"> <b> Rythu Bandhu  (Bill-wise </b>  </p> </div>
+                <div>  <p class="abc"> <span id="rythuBandhu"></span> cr</p> </div> 
+              </div> 
+
+            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50">
+               <div class="py-2">  <p  class="color2"> <b> Palle/Pattana <br> Pragathi</b>  </p> </div> 
+               <div class="py-2">  <p class="abc"> <span id="pallePattana"></span> cr</p> </div> 
+              </div> 
+
+            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50">
+               <div class="">  <p  class="color2"> <b>  Admin of Justice  </b>  </p> </div> 
+               <div>  <p class="abc"> <span id="adminOfJustice"></span> cr</p> </div>
+             </div> 
+
+            <div class="table3 bg-info bg-opacity-10 d-flex flex-column justify-content-around w-50">
+               <div class="">  <p  class="color2"> <b> Medical and <br> health </b>  </p> </div>
+                <div>  <p class="abc"> <span id="medicalAndHealth"></span> cr</p> </div>
+               </div> 
 
             
 
@@ -383,7 +481,7 @@
         <!------------------------------------------------------------------------------------------------------------------------------------------>
 
         <div
-          class="next d-none d-md-block position-fixed end-0 bottom-0 translate-middle-y p-2 text-white rounded-5"
+          class="next  position-fixed end-0 bottom-0 translate-middle-y p-2 text-white rounded-5"
           style="writing-mode: vertical-rl; transform: rotate(270deg)"
         >
           <b class="sidebtn rounded-2 p-3" role="button" onclick="togglePopup()">
@@ -407,7 +505,7 @@
           <div class="right">
               <label class="fontsize2">Approved today</label> <br> 
               <label class="fontsize1">(VIEW DETAILS)</label> <br> 
-              <label> Cash</label> <b id="POP1" > </b>  <b> .71</b> <label> Cr Adj <b>0 </b> Cr </label> 
+              <label> Cash</label> <b id="approvedToday" > </b>  <b> .71</b> <label> Cr Adj <b>0 </b> Cr </label> 
            </div>
            
                 
@@ -416,7 +514,7 @@
           <div class="left px-3"> <img src="like.png" height="25px" width="25px"></div>
           <div class="right">
               <label class="fontsize2">Ready For Payment</label><br> 
-              <label> <b id="POP2"></b> <b> .84</b>Cr </label> 
+              <label> <b id="readyForPayment"></b> <b> .84</b>Cr </label> 
            </div>
            
                 
@@ -426,7 +524,7 @@
           <div class="left px-3"> <img src="rupee.png" height="25px" width="25px"></div>
           <div class="right">
               <label class="fontsize2">Sent To Bank</label> <br> 
-              <label> <b id="POP3"> </b>  <b> .45</b> Cr </label> 
+              <label> <b id="sentToBank"> </b>  <b> .45</b> Cr </label> 
            </div>
            
                 
@@ -435,7 +533,7 @@
           <div class="left px-3"> <img src="museum.png" height="25px" width="25px"></div>
           <div class="right">
               <label class="fontsize2">At The Bank</label> <br> 
-              <label> <b id="POP4"> </b>  <b> .59</b> Cr </label> 
+              <label> <b id="theBank"> </b>  <b> .59</b> Cr </label> 
            </div>
            
                 
@@ -445,7 +543,7 @@
           <div class="left px-3"> <img src="cheque.png" height="25px" width="25px"></div>
           <div class="right">
               <label class="fontsize2">Paid Today</label> <br> 
-              <label> <b id="POP5"> </b> <b> .72</b> Cr </label> 
+              <label> <b id="paidToday"> </b> <b> .72</b> Cr </label> 
            </div>
            
                 

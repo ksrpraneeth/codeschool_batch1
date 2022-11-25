@@ -59,31 +59,35 @@ function APICALL()
     dataType: "json",
     success: function (data) {
    
-      $("#regsal").html(data[0]);
-      $("#pensal").html(data[1]);
-      $("#paoid").html(data[2]);
-      $("#rosid").html(data[3]);
-      $("#dtaid").html(data[4]);
-      $("#pdid").html(data[5]);
+      $("#regularSalary").html(data[0]);
+      $("#pensionSalary").html(data[1]);
+
+
+      $("#PAO").html(data[2]);
+      $("#pdRosCap").html(data[3]);
+      $("#Pdl").html(data[4]);
+      $("#DTAadj").html(data[5]);
+
+
       $("#dta").html(data[6]);
 
-      $("#dtacash").html(data[7]);
-      $("#dwaworks").html(data[8]);
-      $("#dwaest").html(data[9]);
-      $("#priority").html(data[10]);
+      $("#dtaCash").html(data[7]);
+      $("#dwaWorks").html(data[8]);
+      $("#dwaEst").html(data[9]);
+      $("#Priority").html(data[10]);
 
-      $("#TC1").html(data[11]);
-      $("#TC2").html(data[12]);
-      $("#TC3").html(data[13]);
-      $("#TC4").html(data[14]);
-      $("#TC5").html(data[15]);
-      $("#TC6").html(data[16]);
+      $("#covidDef").html(data[11]);
+      $("#cssState").html(data[12]);
+      $("#rythuBandhu").html(data[13]);
+      $("#pallePattana").html(data[14]);
+      $("#adminOfJustice").html(data[15]);
+      $("#medicalAndHealth").html(data[16]);
 
-      $("#POP1").html(data[17]);
-      $("#POP2").html(data[18]);
-      $("#POP3").html(data[19]);
-      $("#POP4").html(data[20]);
-      $("#POP5").html(data[21]);
+      $("#approvedToday").html(data[17]);
+      $("#readyForPayment").html(data[18]);
+      $("#sentToBank").html(data[19]);
+      $("#theBank").html(data[20]);
+      $("#paidToday").html(data[21]);
    
       
     },
