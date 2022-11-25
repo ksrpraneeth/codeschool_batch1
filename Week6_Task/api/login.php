@@ -1,6 +1,7 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/response.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/user.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/session.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
 session_start();
 
@@ -21,8 +22,14 @@ if ($username == '' || $password == '') {
 } else {
     $loginResponse = (new User())->login($username, $password);
     if ($loginResponse["status"] == true) {
-        $_SESSION["userDetails"] = (new Encryption)->encrypt($loginResponse["data"]["id"]);
-        echo (new Response(true, "Success"))->getJSONResponse();
+        $sessionResponse = (new Session())->addToken(session_id(), $loginResponse["data"]["id"]);
+        if ($sessionResponse["status"] == true) {
+            $_SESSION["userDetails"] = (new Encryption)->encrypt($loginResponse["data"]["id"]);
+            $_SESSION["userName"] = $loginResponse["data"]["name"];
+            echo (new Response(true, "Success"))->getJSONResponse();
+        } else {
+            echo (new Response(false, $sessionResponse["message"]))->getJSONResponse();
+        }
     } else {
         echo (new Response(false, $loginResponse["message"]))->getJSONResponse();
     }

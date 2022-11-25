@@ -109,3 +109,14 @@ CREATE TABLE IF NOT EXISTS bill_deductions(
     deduction_type_id INTEGER REFERENCES deduction_types(id) NOT NULL,
     amount INTEGER NOT NULL
 );
+
+
+-- ========================= SESSION ==========================
+
+CREATE TABLE IF NOT EXISTS sessions(
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id) NOT NULL,
+    session_id VARCHAR(255) NOT NULL UNIQUE,
+    expiry_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    createadDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

@@ -32,8 +32,7 @@ class DBConnection
             $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             return (new Response(true, "Success", $resultSet))->getResponse();
-
-        } catch (\PDOException$e) {
+        } catch (\PDOException $e) {
             return (new Response(false, "DB Error: " . $e->getMessage()))->getResponse();
         }
     }
@@ -52,8 +51,20 @@ class DBConnection
             $resultSet = $statement->fetch(PDO::FETCH_ASSOC);
 
             return (new Response(true, "Success", $resultSet))->getResponse();
+        } catch (\PDOException $e) {
+            return (new Response(false, "DB Error: " . $e->getMessage()))->getResponse();
+        }
+    }
 
-        } catch (\PDOException$e) {
+    public function insertSingle($query, $parameters)
+    {
+        try {
+            $pdo = (new DBConnection())->getPdo();
+
+            $statement = $pdo->prepare($query);
+            $statement->execute($parameters);
+            return (new Response(true, "Success"))->getResponse();
+        } catch (\PDOException $e) {
             return (new Response(false, "DB Error: " . $e->getMessage()))->getResponse();
         }
     }

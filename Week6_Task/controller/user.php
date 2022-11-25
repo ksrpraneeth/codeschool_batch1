@@ -5,7 +5,7 @@ class User
 {
     public function login($username, $password)
     {
-        $query = "SELECT id FROM users WHERE username=? AND password=?";
+        $query = "SELECT id, name FROM users WHERE username=? AND password=?";
         $queryResponse = (new DBConnection())->selectSingle($query, [$username, md5($password)]);
 
         if ($queryResponse["data"] == false) {

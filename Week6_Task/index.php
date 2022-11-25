@@ -1,7 +1,10 @@
 <?php
 
 session_start();
-if(!isset($_POST[""]))
+if (isset($_SESSION["userDetails"])) {
+    header("Location: dashboard.php");
+    die();
+}
 
 ?>
 
@@ -53,25 +56,15 @@ if(!isset($_POST[""]))
                 >
                     <!-- Logo -->
                     <div
-                        class="logo d-flex align-items-center justify-content-center border-bottom pb-3 w-100"
+                        class="logo d-flex align-items-center pb-1 w-100"
                     >
                         <img
                             src="https://ifmis.telangana.gov.in/images/govt_logo.png"
                             alt=""
                         />
-
-                        <!-- Logo Text -->
-                        <div
-                            class="logoText d-flex flex-column justify-content-center ms-2 text-center"
-                        >
-                            <h4 class="m-0 fw-bold text-black">IFMIS</h4>
-                            <span class="text-black-50"
-                                >&copy; Governament of Telangana</span
-                            >
-                        </div>
                     </div>
                     <!-- Header -->
-                    <div class="header mt-4">
+                    <div class="header mt-2">
                         <h3 class="fw-smeibold">Login</h3>
                         <span class="text-black-50"
                             >Login using username and password</span
@@ -79,7 +72,7 @@ if(!isset($_POST[""]))
                     </div>
 
                     <!-- Form -->
-                    <form onsubmit="return false" class="mt-4">
+                    <form onsubmit="return false" class="">
                         <div class="mainErrorDiv text-danger">
                             <span id="mainErrorText"></span>
                         </div>
@@ -132,8 +125,6 @@ if(!isset($_POST[""]))
         </div>
 
         <!-- Loading -->
-        <?php 
-            include_once $_SERVER['DOCUMENT_ROOT'] . "/inc/loading.php";
-        ?>
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/inc/loading.php"; ?>
     </body>
 </html>

@@ -75,11 +75,16 @@ $("document").ready(() => {
                 data = JSON.parse(data);
                 if (data.status == false) {
                     showError("mainError", data.message);
+                    hideLoading();
                 } else {
                     window.location.href = "./dashboard.php";
+                    hideLoading();
                 }
             },
+            error: () => {
+                showError("mainError", "Something went wrong!");
+                hideLoading();
+            },
         });
-        hideLoading();
     });
 });
