@@ -1,8 +1,8 @@
 <?php
 include 'response.php';
-include 'db.php';
+include 'dbconnection.php';
 
-if (!array_key_exists('email', $_POST)) {
+if (!array_key_exists('email',$_POST)) {
     $response['status'] = false;
     $response['message'] = "Please enter a valid email address";
     echo json_encode($response);
@@ -14,7 +14,7 @@ if (!array_key_exists('password', $_POST)) {
     echo json_encode($response);
     return;
 }
-
+$pdo = getDbConnection();
 $statement = $pdo->prepare("select * from users where email =? and password= ?");
 $statement->execute([$_POST['email'], md5($_POST['password'])]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
