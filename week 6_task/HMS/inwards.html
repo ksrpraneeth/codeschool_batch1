@@ -39,7 +39,7 @@
                             <label for="patient">SelectPatient:</label>
                         </div>
                         <div class="col-4">
-                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                            <button type="button" class="btn dropdown-toggle" id="patients" data-bs-toggle="dropdown">
                                 select
                             </button>
                         </div>
@@ -49,7 +49,7 @@
                             <label for="doctor">SelectDoctor:</label>
                         </div>
                         <div class="col-4">
-                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                            <button type="button" class="btn dropdown-toggle" id="doctors" data-bs-toggle="dropdown">
                                 select
                             </button>
                         </div>
@@ -59,7 +59,7 @@
                             <label for="Room">SelectRoom:</label>
                         </div>
                         <div class="col-4">
-                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                            <button type="button" class="btn dropdown-toggle" id="rooms" data-bs-toggle="dropdown">
                                 select
                             </button>
                         </div>
@@ -69,7 +69,7 @@
                             <label for="disease">SelectDisease:</label>
                         </div>
                         <div class="col-4">
-                            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                            <button type="button" class="btn dropdown-toggle" id="disease" data-bs-toggle="dropdown">
                                 select
                             </button>
                         </div>
@@ -79,5 +79,23 @@
         </div>
     </div>
 </body>
+<script>
+    $("#patients").click(function (){
+
+        $.ajax({
+            type:"POST",
+            url:"getmasterlist.php",
+            success: function(responseData){
+                responseData = JSON.parse(responseData);
+
+                    alert(responseData.message);
+                
+            },
+            error: function(){
+ 
+            }
+        })
+    });
+ </script>
 
 </html>
