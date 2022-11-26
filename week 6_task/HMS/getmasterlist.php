@@ -19,4 +19,18 @@ $roomsSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 $inwards = $pdo->prepare('select id,disease from diseases');
 $statement->execute([]);
-$inwardsSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+$diseaseSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+$resultSet= array("patientSet=>[]","doctorsSet=>[]","roomsSet=>[]","diseaseSet=>[]");
+if (count($resultSet) == 0) {
+    $response['status'] = false;
+    $response['message'] = "No data found ";
+    echo json_encode($response);
+    return;
+}
+
+$response['status'] = true;
+$response['message'] = "select data";
+$response['data'] = $resultSet;
+echo json_encode($response);
+
