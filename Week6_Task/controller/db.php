@@ -63,7 +63,8 @@ class DBConnection
 
             $statement = $pdo->prepare($query);
             $statement->execute($parameters);
-            return (new Response(true, "Success"))->getResponse();
+            $data = $statement->fetch(PDO::FETCH_ASSOC);
+            return (new Response(true, "Success", $data))->getResponse();
         } catch (\PDOException $e) {
             return (new Response(false, "DB Error: " . $e->getMessage()))->getResponse();
         }

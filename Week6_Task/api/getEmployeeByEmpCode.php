@@ -15,7 +15,7 @@ if ($empCode == '') {
 
 $getEmployeeResponse = (new Employee())->getEmployeeByEmpCode($empCode);
 if ($getEmployeeResponse["data"] == false) {
-    $getEmployeeResponse["data"] = null;
+    $getEmployeeResponse["data"] = [];
     $getEmployeeResponse["message"] = "No Employees Found";
 }
 echo json_encode($getEmployeeResponse);

@@ -15,7 +15,7 @@ if ($bankAcNo == '') {
 
 $getEmployeeResponse = (new Employee())->getEmployeeByBankAcNo($bankAcNo);
 if ($getEmployeeResponse["data"] == false) {
-    $getEmployeeResponse["data"] = null;
+    $getEmployeeResponse["data"] = [];
     $getEmployeeResponse["message"] = "No Employees Found";
 }
 echo json_encode($getEmployeeResponse);

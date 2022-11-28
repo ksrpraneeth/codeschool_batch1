@@ -6,7 +6,7 @@ class Billid
 {
     public function getUserBillids($userID)
     {
-        $query = "SELECT * FROM bill_ids WHERE user_id = ?";
+        $query = "SELECT id, name FROM bill_ids WHERE user_id = ?";
         $queryResponse = (new DBConnection())->select($query, [$userID]);
         return $queryResponse;
     }

@@ -45,9 +45,9 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
     <script src="./assets/js/module.js"></script>
 </head>
 
-<body class="bg bg-light vh-100 d-flex flex-column">
+<body class="bg bg-black bg-opacity-10 vh-100 d-flex flex-column">
     <!-- Header -->
-    <div class="header border-bottom bg-white p-3 d-flex align-items-center justify-content-between">
+    <div class="header bg-white p-3 d-flex align-items-center justify-content-between">
         <!-- Left of Header -->
         <div class="left d-flex align-items-center">
             <!-- Brand -->
@@ -108,7 +108,7 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
     <div class="body d-flex h-100 d-flex">
 
         <!-- Sidebar -->
-        <div class="sidebar bg-white border position-absolute h-100">
+        <div class="sidebar bg-white border-top position-absolute h-100">
 
             <!--   Menu     -->
             <ul class="list-unstyled text-black m-0 d-flex flex-column">

@@ -4,7 +4,7 @@ class Response
     private $status;
     private $message;
     private $data;
-    public function __construct($status = false, $message = "", $data = null)
+    public function __construct($status = false, $message = "", $data = [])
     {
         $this->status = $status;
         $this->message = $message;
