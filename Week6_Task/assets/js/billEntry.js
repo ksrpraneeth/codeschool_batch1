@@ -28,19 +28,22 @@ function ajaxCall(url, type, data) {
     });
 }
 
-function submitBill() {
+async function submitBill() {
     let bills = window.SupplementaryBillClass.getBills();
-    ajaxCall("/api/submitBill.php", "POST", {
+    showLoading();
+    await ajaxCall("/api/submitBill.php", "POST", {
         bills: JSON.stringify(bills),
         totalEarnings: window.SupplementaryBillClass.totalEarnings,
-        totalDeductions: window.SupplementaryBillClass.totalDeductions
+        totalDeductions: window.SupplementaryBillClass.totalDeductions,
     }).then((response) => {
-        if(response.status == true){
-            alert("Inserted Successfully")
+        if (response.status == true) {
+            alert("Inserted Successfully");
+            window.location.reload();
         } else {
             alert("Please check....");
         }
     });
+    hideLoading();
 }
 
 function onload() {
@@ -96,7 +99,6 @@ function onload() {
         }
 
         getBill(index) {
-            
             return this.sBills[index];
         }
 
@@ -702,11 +704,15 @@ function submitForm() {
     } else if (form.month == "" || form.year == "") {
         showMainError("Please Check the Month and Year");
     } else {
-        window.SupplementaryBillClass.addBill(
-            new window.BillClass(CurrentEmployeeBillDetails)
-        );
-        $("#newEmpBillModal").modal("toggle");
-        window.empSearchFilterClass.emptyForm();
+        if (new Date(form.month + "/01/" + form.year) > new Date()) {
+            showMainError("Date should not be future");
+        } else {
+            window.SupplementaryBillClass.addBill(
+                new window.BillClass(CurrentEmployeeBillDetails)
+            );
+            $("#newEmpBillModal").modal("toggle");
+            window.empSearchFilterClass.emptyForm();
+        }
     }
 }
 

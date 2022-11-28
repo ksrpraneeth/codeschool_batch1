@@ -113,7 +113,18 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
             <!--   Menu     -->
             <ul class="list-unstyled text-black m-0 d-flex flex-column">
                 <!-- Home -->
-                <li onclick="gotoMenu('0')" class="p-2 d-flex align-items-center" role="button">
+                
+                <li onclick="gotoMenu('0')" 
+                    class="
+                        p-2 
+                        d-flex 
+                        align-items-center
+                        <?php 
+                            if($_GET["menuId"] == 0){
+                                echo "bg-secondary bg-opacity-10";
+                            }
+                        ?>
+                        " role="button">
                     <span class="">Home</span>
                 </li>
                 <!-- Getting Menu From Database -->
@@ -121,13 +132,24 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
                 $moduleMenuResponse = (new Modules())->getModuleMenu($_GET['id']);
                 if ($moduleMenuResponse["status"]) {
                     foreach ($moduleMenuResponse["data"] as $menuOption) {
-                        echo '<li
+                        if($menuOption["id"] == $_GET["menuId"]){
+                            echo '<li
+                            onclick="gotoMenu(\'' . $menuOption["id"] . '\')"
+                            class="p-2 d-flex align-items-center bg-black bg-opacity-10"
+                            role="button"
+                            >
+                                <span class="">' . $menuOption["name"] . '</span>
+                            </li>';
+                        } else {
+                            echo '<li
                             onclick="gotoMenu(\'' . $menuOption["id"] . '\')"
                             class="p-2 d-flex align-items-center"
                             role="button"
                             >
                                 <span class="">' . $menuOption["name"] . '</span>
                             </li>';
+                        }
+                        
                     }
                 }
                 ?>
