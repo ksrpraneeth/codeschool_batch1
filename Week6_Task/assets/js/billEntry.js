@@ -1,87 +1,17 @@
-$("document").ready(() => {
-    onload();
-    $("#empCodeInput").on("keypress", function (e) {
-        if (e.which == 13) {
-            window.empSearchFilterClass.setEmpCode(e.target.value);
-        }
-    });
+$("document").ready(async () => {
 
-    $("#empBankAcNo").on("keypress", function (e) {
-        if (e.which == 13) {
-            window.empSearchFilterClass.setBankAcNo(e.target.value);
-        }
-    });
-});
-
-function ajaxCall(url, type, data) {
-    return new Promise((resolve, reject) => {
-        $.ajax({
-            url,
-            type,
-            data,
-            success: (response) => {
-                response = JSON.parse(response);
-                resolve(response);
-            },
-            error: () => reject(""),
-        });
-    });
-}
-
-async function submitBill() {
-    let bills = window.SupplementaryBillClass.getBills();
-    showLoading();
-    await ajaxCall("/api/submitBill.php", "POST", {
-        bills: JSON.stringify(bills),
-        totalEarnings: window.SupplementaryBillClass.totalEarnings,
-        totalDeductions: window.SupplementaryBillClass.totalDeductions,
-    }).then((response) => {
-        if (response.status == true) {
-            alert("Inserted Successfully");
-            window.location.reload();
-        } else {
-            alert("Please check....");
-        }
-    });
-    hideLoading();
-}
-
-function onload() {
-    window.CurrentEmployeeBillDetails = {
-        empId: "",
-        empName: "",
-        empCode: "",
-        earnings: [],
-        deductions: [],
-        month: "",
-        year: "",
-        earningsTotal: 0,
-        deductionsTotal: 0,
-    };
-
-    window.BillClass = class BillClass {
-        constructor({
-            empId,
-            empName,
-            empCode,
-            earnings,
-            deductions,
-            month,
-            year,
-            earningsTotal,
-            deductionsTotal,
-        }) {
-            this.empId = empId;
-            this.empName = empName;
-            this.empCode = empCode;
-            this.earnings = earnings;
-            this.deductions = deductions;
-            this.month = month;
-            this.year = year;
-            this.earningsTotal = earningsTotal;
-            this.deductionsTotal = deductionsTotal;
-            this.total = parseInt(earningsTotal) - parseInt(deductionsTotal);
-        }
+    window.cleanCurrentBill = () => {
+        window.currentBill = {
+            empId: "",
+            empName: "",
+            empCode: "",
+            earnings: new Array(),
+            deductions: new Array(),
+            month: "",
+            year: "",
+            earningsTotal: 0,
+            deductionsTotal: 0,
+        };
     };
 
     window.SupplementaryBillClass = new (class SupplementaryBillClass {
@@ -92,6 +22,7 @@ function onload() {
         }
 
         addBill(bill) {
+            bill.total = bill.earningsTotal - bill.deductionsTotal;
             this.sBills.push(bill);
             this.renderSBills();
             this.totalEarnings += bill.earningsTotal;
@@ -189,7 +120,7 @@ function onload() {
         }
     };
 
-    window.empSearchFilterClass = new (class EmpSearchFilter {
+    window.formClass = new (class FormClass {
         constructor() {
             this.filterTypes = {
                 billId: "billIDSelectDiv",
@@ -197,105 +128,334 @@ function onload() {
                 bankAcNo: "bankAcNoDiv",
             };
             this.currentFilter = "";
-            this.billIds = [];
             this.billIdsFetchedFromDatabase = false;
-            this.currentBillId = null;
-
-            // Elements
-            this.employeeDiv = $("#employeeDiv");
-            this.employeeInput = $("#employee");
 
             this.billIdDiv = $("#billIDSelectDiv");
-            this.billIdInput = $("#billId");
+            this.billId = $("#billId");
 
-            this.empCodeInput = $("#empCode");
+            this.empCodeDiv = $("#empCodeDiv");
+            this.empCode = $("#empCodeInput");
+
+            this.empAcNoDiv = $("#bankAcNoDiv");
+            this.empAcNo = $("#empBankAcNo");
+
+            this.employeeDiv = $("#employeeDiv");
+            this.employee = $("#employee");
+            this.employeeSelectIsEmpty = false;
+
+            this.detailsDiv = $("#detailsDiv");
+
+            this.monthAndYear = $("#billMonthYearDiv");
+            this.earnings = $("#earnings");
+            this.deductions = $("#deductions");
+
+            this.earningsData = $("#earningsData");
+            this.deductionsData = $("#deductionsData");
+
+            this.earningsAmount = $("#earningAmount");
+            this.deductionsAmount = $("#deductionAmount");
+
+            this.totalEarnings = $("#totalEarnings");
+            this.totalDeductions = $("#totalDeductions");
+            this.total = $("#total");
         }
 
         setFilter(type) {
-            if (this.currentFilter === type) {
+            if (this.currentFilter == type) {
                 return false;
             }
+            this.currentFilter = type;
+
+            // Making Filters Empty
+            this.billId.val("");
+            this.empCode.val("");
+            this.empAcNo.val("");
+
+            // Making all filters hide
             Object.values(this.filterTypes).forEach((filterDiv) => {
                 $("#" + filterDiv).addClass("d-none");
             });
-            if (type == "billId") {
-                this.loadBillIds();
-            }
-            $("#" + this.filterTypes[type]).removeClass("d-none");
-            this.billIdInput.val("");
-            this.currentFilter = type;
-        }
-
-        async loadBillIds() {
-            if (this.billIdsFetchedFromDatabase) {
-                return;
-            } else {
-                showLoading();
-                await ajaxCall("/api/getUserBillids.php", "POST", {}).then(
-                    ({ status, message, data }) => {
-                        if (data.length == 0) {
-                            this.showError("No Bill ID's found");
-                        } else {
-                            this.billIdInput.html(`
-                                <option value="" hidden>Select</option>
-                            `);
-                            data.forEach((billId) => {
-                                this.billIdInput.append(`
-                                    <option value="${billId.id}">${billId.name}</option>
-                                `);
-                            });
-                            this.billIds = data;
-                            this.billIdsFetchedFromDatabase = true;
-                        }
-                    }
-                );
-                hideLoading();
-            }
+            $("#" + this.filterTypes[this.currentFilter]).removeClass("d-none");
+            this.hideEmployeeDiv();
+            this.hideDetailsDiv();
         }
 
         setBillId(billId) {
-            if (billId == null) {
-                return;
-            }
-            this.currentBillId = billId;
-            if (billId != "") {
-                this.loadEmployees("billId");
-            }
+            window.apiCalls.loadEmployees("billId", billId);
         }
 
         setEmpCode(empCode) {
-            if (empCode == "") {
-                this.showError("Please enter a employee code");
-            } else {
-                this.empCode = empCode;
-                this.loadEmployees("empCode");
-            }
+            window.apiCalls.loadEmployees("empCode", empCode);
         }
 
-        setBankAcNo(empBankAcNo) {
-            if (empBankAcNo == "") {
-                this.showError("Please enter a Employee Bank Account Number");
-            } else {
-                this.empBankAcNo = empBankAcNo;
-                this.loadEmployees("empBankAcNo");
-            }
+        setBankAcNo(bankAcNo) {
+            window.apiCalls.loadEmployees("empBankAcNo", bankAcNo);
         }
 
-        async loadEmployees(type) {
+        setEmployee(element) {
+            let empId = $(element).val();
+            let empName = element.options[element.selectedIndex].dataset.name;
+            let empCode =
+                element.options[element.selectedIndex].dataset.empcode;
+
+            // Saving it in global class
+            window.currentBill.empId = empId;
+            window.currentBill.empName = empName;
+            window.currentBill.empCode = empCode;
+
+            // show Details Div
+            this.showDetailsDiv();
+
+            // Load Employee Earnings and Deductions
+            window.apiCalls.loadAddings(empId);
+
+            // Showing details div
+            this.showDetailsDiv();
+        }
+
+        hideEmployeeDiv() {
+            this.employeeDiv.addClass("d-none");
+            this.employee.val("");
+            window.cleanCurrentBill();
+            this.hideDetailsDiv();
+        }
+
+        showEmployeeDiv() {
+            this.employeeDiv.removeClass("d-none");
+        }
+
+        hideDetailsDiv() {
+            this.detailsDiv.addClass("d-none");
+            this.monthAndYear.val("");
+            this.earnings.val("");
+            this.deductions.val("");
+        }
+
+        showDetailsDiv() {
+            this.detailsDiv.removeClass("d-none");
+        }
+
+        setMontAndYear(monthAndYear) {
+            if (monthAndYear == "") {
+                window.currentBill.month = "";
+                window.currentBill.year = "";
+                showMainError("Please Check Month and Year");
+                return;
+            }
+            monthAndYear = new Date(monthAndYear);
+            window.currentBill.month = monthAndYear.getMonth() + 1;
+            window.currentBill.year = monthAndYear.getFullYear();
+        }
+
+        addEarning() {
+            let earningId = this.earnings.val();
+            let earningName = $("#earnings option:selected").text();
+            let earningAmount = parseInt(this.earningsAmount.val());
+
+            if (earningId == "") {
+                showMainError("Please Check Earning Type");
+                return false;
+            }
+            if (!earningAmount) {
+                showMainError("Please Check Earning Amount");
+                return false;
+            }
+
+            // Making Input empty
+            this.earningsAmount.val("");
+            this.earnings.val("");
+
+            // Setting Global Variable
+            window.currentBill.earnings.push({
+                id: earningId,
+                text: earningName,
+                amount: earningAmount,
+            });
+            window.currentBill.earningsTotal += earningAmount;
+
+            // Rendering Earnings Table
+            this.renderEarningsTable();
+        }
+
+        renderEarningsTable() {
+            $("#earningsData").html("");
+            window.currentBill.earnings.forEach((earning, index) => {
+                this.earningsData.append(`
+                    <tr>
+                        <td>${earning.text}</td>
+                        <td><input onchange='window.formClass.changeEarningAmount(${index}, this)'
+                        class="form-control"
+                        type="text"
+                        onkeypress="return /[0-9]/i.test(event.key)"
+                        value="${earning.amount}"
+                        placeholder="Enter ${earning.text} Amount"/>
+                        </td>
+                    </tr>
+                `);
+            });
+            this.calculateTotal();
+        }
+
+        addDeduction() {
+            let deductionId = this.deductions.val();
+            let deductionName = $("#deductions option:selected").text();
+            let deductionAmount = parseInt(this.deductionsAmount.val());
+            let deductionTotal = window.currentBill.deductionsTotal;
+            let earningsTotal = window.currentBill.earningsTotal;
+            let total = earningsTotal - deductionTotal - deductionAmount;
+            if (deductionId == "") {
+                showMainError("Please Check Deduction Type");
+                return false;
+            }
+            if (!deductionAmount) {
+                showMainError("Please Check Deduction Amount");
+                return false;
+            }
+            if (total < 0) {
+                showMainError("Total Should Not Be Negative");
+                return false;
+            }
+            this.deductionsAmount.val("");
+            this.deductions.val("");
+
+            // Setting Global Variable
+            window.currentBill.deductions.push({
+                id: deductionId,
+                text: deductionName,
+                amount: deductionAmount,
+            });
+            window.currentBill.deductionsTotal += deductionAmount;
+
+            // Rendering Deductions Table
+            this.renderDeductionsTable();
+        }
+
+        renderDeductionsTable() {
+            $("#deductionsData").html("");
+            window.currentBill.deductions.forEach((deduction, index) => {
+                this.deductionsData.append(`
+                    <tr>
+                        <td>${deduction.text}</td>
+                        <td><input onchange='window.formClass.changeDeductionAmount(${index}, this)'
+                        class="form-control"
+                        type="text"
+                        onkeypress="return /[0-9]/i.test(event.key)"
+                        value="${deduction.amount}"
+                        placeholder="Enter ${deduction.text} Amount"/>
+                        </td>
+                    </tr>
+                `);
+            });
+            this.calculateTotal();
+        }
+
+        changeEarningAmount(index, element) {
+            let amount = parseInt($(element).val());
+            let earningsTotal = window.currentBill.earningsTotal;
+            let deductionsTotal = window.currentBill.deductionsTotal;
+            let indexAmount = parseInt(
+                window.currentBill.earnings[index].amount
+            );
+            let total = earningsTotal - indexAmount + amount - deductionsTotal;
+            if (!amount) {
+                showMainError("Please Check Amount");
+                element.value = indexAmount;
+                return false;
+            }
+            if (total < 0) {
+                showMainError("Total Should Not Be Negative");
+                element.value = indexAmount;
+                return false;
+            }
+            window.currentBill.earnings[index].amount = amount;
+            window.currentBill.earningsTotal =
+                earningsTotal - indexAmount + amount;
+            this.renderEarningsTable();
+        }
+
+        changeDeductionAmount(index, element) {
+            let amount = parseInt($(element).val());
+            let earningsTotal = window.currentBill.earningsTotal;
+            let deductionsTotal = window.currentBill.deductionsTotal;
+            let indexAmount = parseInt(
+                window.currentBill.deductions[index].amount
+            );
+            let total =
+                earningsTotal - amount - (deductionsTotal - indexAmount);
+            if (!amount) {
+                showMainError("Please Check Amount");
+                element.value = indexAmount;
+                return false;
+            }
+            if (total < 0) {
+                showMainError("Total Should Not Be Negative");
+                element.value = indexAmount;
+                return false;
+            }
+            window.currentBill.deductions[index].amount = amount;
+            window.currentBill.deductionsTotal =
+                deductionsTotal - indexAmount + amount;
+            this.renderDeductionsTable();
+        }
+
+        calculateTotal() {
+            this.totalDeductions.text(window.currentBill.deductionsTotal);
+            this.totalEarnings.text(window.currentBill.earningsTotal);
+            this.total.text(
+                window.currentBill.earningsTotal -
+                    window.currentBill.deductionsTotal
+            );
+        }
+
+        clearForm() {
+            this.hideEmployeeDiv();
+            $('input[name="billIdFilter"]:checked').prop("checked", false);
+            this.setFilter("");
+        }
+    })();
+
+    window.apiCalls = new (class APICallsClass {
+        async getBillIds() {
+            await $.ajax({
+                type: "POST",
+                url: "/api/getUserBillids.php",
+                dataType: "JSON",
+                async: false,
+                success: function (response) {
+                    if (response.data.length == 0) {
+                        showMainError("No Module ID's Found");
+                    } else {
+                        let bills = response.data;
+                        window.formClass.billId.html(`
+                            <option value="" hidden>Select</option>
+                        `);
+                        bills.forEach((billId) => {
+                            window.formClass.billId.append(`
+                                <option value="${billId.id}">${billId.name}</option>
+                            `);
+                        });
+                    }
+                    window.formClass.billIdsFetchedFromDatabase = true;
+                    return false;
+                },
+            });
+        }
+
+        async loadEmployees(type, id) {
             let url = "";
             let data = {};
             switch (type) {
                 case "billId":
                     url = "/api/getEmployeesByBillID.php";
-                    data = { billId: this.currentBillId };
+                    data = { billId: id };
                     break;
                 case "empCode":
                     url = "/api/getEmployeeByEmpCode.php";
-                    data = { empCode: this.empCode };
+                    data = { empCode: id };
                     break;
                 case "empBankAcNo":
                     url = "/api/getEmployeeByBankAcNo.php";
-                    data = { bankAcNo: this.empBankAcNo };
+                    data = { bankAcNo: id };
                     break;
             }
 
@@ -306,438 +466,101 @@ function onload() {
                 await ajaxCall(url, "POST", data).then(
                     ({ status, message, data }) => {
                         if (data.length == 0) {
-                            this.showError("No Employees found!");
-                            this.loadEmployeeOptions([]);
-                            this.employeeDiv.addClass("d-none");
-                            this.hideDetailsDiv();
+                            showMainError("No Employees found!");
+                            window.formClass.employee.html(``);
+                            window.formClass.hideEmployeeDiv();
                         } else {
-                            this.loadEmployeeOptions(data);
-                            this.employeeDiv.removeClass("d-none");
-                            this.hideDetailsDiv();
+                            window.formClass.employee.html(`
+                                <option value="" hidden>Select</option>
+                            `);
+                            data.forEach((employee) => {
+                                window.formClass.employee.append(`
+                                    <option 
+                                        data-name="${employee.name}" 
+                                        data-empcode="${employee.emp_code}"
+                                        value="${employee.id}"
+                                    >
+                                        ${employee.name} - ${employee.emp_code}
+                                    </option>
+                                `);
+                            });
+                            window.formClass.showEmployeeDiv();
                         }
                     }
                 );
                 hideLoading();
             }
-            this.setEmployee();
         }
 
-        loadEmployeeOptions(options) {
-            this.employeeInput.html(`<option value="" hidden>Select</option>`);
-            options.forEach((option) => {
-                this.employeeInput.append(`
-                    <option 
-                        data-name="${option.name}" 
-                        data-empCode="${option.emp_code}" 
-                        value="${option.id}"
-                    >
-                        ${option.name} - ${option.emp_code}</option>
-                `);
-            });
-        }
-
-        setEmployee() {
-            let element = $("#employee").find(":selected");
-            if (element.val() == "") {
-                $("#btnNext").prop("disabled", true);
-                return;
-            }
-            let employeeDetails = {
-                id: element.val(),
-                name: element.data("name"),
-                empCode: element.data("empcode"),
-            };
-            this.currentEmployee = employeeDetails;
-            window.CurrentEmployeeBillDetails["empId"] = employeeDetails.id;
-            window.CurrentEmployeeBillDetails["empName"] = employeeDetails.name;
-            window.CurrentEmployeeBillDetails["empCode"] =
-                employeeDetails.empCode;
-
-            window.earningsClass.loadEarnings(employeeDetails.id);
-            window.earningsClass.loadDeductions(employeeDetails.id);
-            $("#btnNext").prop("disabled", false);
-            this.hideDetailsDiv();
-            this.showDetailsDiv();
-        }
-
-        showDetailsDiv() {
-            $("#detailsDiv").removeClass("d-none");
-        }
-
-        hideDetailsDiv() {
-            $("#detailsDiv").addClass("d-none");
-            $("#monthAndYear").val("");
-            $("#earnings").html("");
-            $("#deductions").html("");
-            $("#earningsData").html("");
-            $("#dedctionsData").html("");
-            window.earningsClass.makeEarningClassEmpty();
-        }
-
-        emptyForm() {
-            $('input[name="billIdFilter"]:checked').prop("checked", false);
-            $("#billId").val("");
-            $("#empCodeInput").val("");
-            $("#empBankAcNo").val("");
-            this.hideDetailsDiv();
-            $("#employee").val("");
-            $("#employeeDiv").addClass("d-none");
-            $("#" + this.filterTypes[this.currentFilter]).addClass("d-none");
-            this.currentFilter = "";
-            window.CurrentEmployeeBillDetails = {
-                empId: "",
-                empName: "",
-                empCode: "",
-                earnings: [],
-                deductions: [],
-                month: "",
-                year: "",
-                earningsTotal: 0,
-                deductionsTotal: 0,
-            };
-        }
-
-        showError(msg) {
-            showMainError(msg);
-        }
-    })();
-
-    window.MonthAndYearClass = new (class MonthAndYearClass {
-        constructor() {
-            this.currentMonth = "";
-            this.currentYear = "";
-
-            this.monthAndYearElement = $("#monthAndYear");
-        }
-
-        setMonthAndYear() {
-            let monthAndYear = this.monthAndYearElement.val();
-            if (monthAndYear == "") {
-                window.CurrentEmployeeBillDetails["month"] = "";
-                window.CurrentEmployeeBillDetails["year"] = "";
-                return;
-            } else {
-                let date = new Date(monthAndYear);
-                this.currentMonth = date.getMonth() + 1;
-                this.currentYear = date.getFullYear();
-
-                window.CurrentEmployeeBillDetails["month"] = this.currentMonth;
-                window.CurrentEmployeeBillDetails["year"] = this.currentYear;
-
-                $("#btnNext").prop("disabled", false);
-            }
-        }
-    })();
-
-    window.earningsClass = new (class EarningsClass {
-        constructor() {
-            this.earnings = new Array();
-            this.deductions = new Array();
-            this.earningsInput = $("#earnings");
-            this.earningAmountInput = $("#earningAmount");
-
-            this.deductionsInput = $("#deductions");
-            this.deductionAmountInput = $("#deductionAmount");
-
-            this.earningsTotal = 0;
-            this.deductionsTotal = 0;
-        }
-
-        async loadEarnings(empId) {
+        async loadAddings(empId) {
             showLoading();
             await ajaxCall("/api/getEmployeeEarnings.php", "POST", {
                 empId,
             }).then(({ status, message, data }) => {
                 if (data.length == 0) {
-                    this.setEarningTypesOptions([]);
-                    this.showError("No Earning Types found with this employee");
+                    showMainError("No Earning Types found with this employee");
                 } else {
-                    this.setEarningTypesOptions(data);
+                    window.formClass.earnings.html(`
+                        <option value="" hidden>Select</option>
+                    `);
+
+                    data.forEach((earning) => {
+                        window.formClass.earnings.append(`
+                            <option value="${earning.id}">${earning.name}</option>
+                            `);
+                    });
                 }
             });
-            hideLoading();
-        }
 
-        async loadDeductions(empId) {
-            showLoading();
             await ajaxCall("/api/getEmployeeDeductions.php", "POST", {
                 empId,
             }).then(({ status, message, data }) => {
                 if (data.length == 0) {
-                    this.setDeductionTypesOptions([]);
-                    this.showError(
+                    showMainError(
                         "No Deduction Types found with this employee"
                     );
                 } else {
-                    this.setDeductionTypesOptions(data);
+                    window.formClass.deductions.html(`
+                    <option value="" hidden>Select</option>
+                    `);
+
+                    data.forEach((deduction) => {
+                        window.formClass.deductions.append(`
+                            <option value="${deduction.id}">${deduction.name}</option>
+                            `);
+                    });
                 }
             });
             hideLoading();
-        }
-
-        setEarningTypesOptions(options) {
-            $("#earnings").html(`
-                <option value="">Select</option>
-            `);
-
-            options.forEach((option) => {
-                $("#earnings").append(`
-                    <option value="${option.id}">${option.name}</option>
-                `);
-            });
-        }
-
-        setDeductionTypesOptions(options) {
-            $("#deductions").html(`
-                <option value="">Select</option>
-            `);
-
-            options.forEach((option) => {
-                $("#deductions").append(`
-                    <option value="${option.id}">${option.name}</option>
-                `);
-            });
-        }
-
-        addEarning() {
-            let earningId = this.earningsInput.val();
-            let earningText = $("#earnings option:selected").text();
-            let earningAmount = this.earningAmountInput.val();
-
-            this.earningAmountInput.val("");
-            this.earningsInput.val("");
-            if (earningId == "") {
-                this.showError("Please Select Valid Earning Type");
-                return;
-            }
-            if (earningAmount == "") {
-                this.showError("Please Enter Earning Amount");
-                return;
-            }
-            if (window.CurrentEmployeeBillDetails.earnings) {
-                window.CurrentEmployeeBillDetails.earnings.push({
-                    id: earningId,
-                    text: earningText,
-                    amount: earningAmount,
-                });
-            } else {
-                window.CurrentEmployeeBillDetails.earnings = [
-                    {
-                        id: earningId,
-                        text: earningText,
-                        amount: earningAmount,
-                    },
-                ];
-            }
-            this.renderEarningsTable();
-            this.totalAll();
-        }
-
-        async addDeduction() {
-            let deductionId = this.deductionsInput.val();
-            let deductionText = $("#deductions option:selected").text();
-            let deductionAmount = parseInt(this.deductionAmountInput.val());
-
-            if (
-                window.CurrentEmployeeBillDetails.earningsTotal -
-                    (deductionAmount +
-                        window.CurrentEmployeeBillDetails.deductionsTotal) <
-                0
-            ) {
-                this.showError("Total Should not be negative!");
-                return;
-            }
-
-            this.deductionsInput.val("");
-            this.deductionAmountInput.val("");
-            if (deductionId == "") {
-                this.showError("Please Select Valid Deduction Type");
-                return;
-            }
-            if (deductionAmount == "") {
-                this.showError("Please Enter Deduction Amount");
-                return;
-            }
-            if (window.CurrentEmployeeBillDetails.deductions) {
-                window.CurrentEmployeeBillDetails.deductions.push({
-                    id: deductionId,
-                    text: deductionText,
-                    amount: deductionAmount,
-                });
-            } else {
-                window.CurrentEmployeeBillDetails.deductions = [
-                    {
-                        id: deductionId,
-                        text: deductionText,
-                        amount: deductionAmount,
-                    },
-                ];
-            }
-            this.renderDeductionsTable();
-            this.totalAll();
-        }
-
-        totalAll() {
-            $("#totalDeductions").text(
-                window.CurrentEmployeeBillDetails.deductionsTotal
-            );
-            $("#totalEarnings").text(
-                window.CurrentEmployeeBillDetails.earningsTotal
-            );
-            $("#total").text(
-                window.CurrentEmployeeBillDetails.earningsTotal -
-                    window.CurrentEmployeeBillDetails.deductionsTotal
-            );
-        }
-
-        renderEarningsTable() {
-            $("#earningsData").html("");
-            window.CurrentEmployeeBillDetails.earningsTotal = 0;
-            window.CurrentEmployeeBillDetails.earnings.forEach(
-                (earning, index) => {
-                    window.CurrentEmployeeBillDetails.earningsTotal += parseInt(
-                        earning.amount
-                    );
-                    $("#earningsData").append(`
-                    <tr>
-                        <td>${earning.text}</td>
-                        <td><input onchange='window.earningsClass.changeEarningAmount(${index}, this)'
-                        class="form-control"
-                        type="text"
-                        onkeypress="return /[0-9]/i.test(event.key)"
-                        value="${earning.amount}"
-                        placeholder="Enter ${earning.text} Amount"/>
-                        </td>
-                    </tr>
-                `);
-                }
-            );
-        }
-
-        renderDeductionsTable() {
-            $("#deductionsData").html("");
-            window.CurrentEmployeeBillDetails.deductionsTotal = 0;
-            window.CurrentEmployeeBillDetails.deductions.forEach(
-                (deduction, index) => {
-                    window.CurrentEmployeeBillDetails.deductionsTotal +=
-                        parseInt(deduction.amount);
-                    $("#deductionsData").append(`
-                    <tr>
-                        <td>${deduction.text}</td>
-                        <td><input onchange='window.earningsClass.changeDeductionAmount(${index}, this)'
-                        class="form-control"
-                        type="text"
-                        onkeypress="return /[0-9]/i.test(event.key)"
-                        value="${deduction.amount}"
-                        placeholder="Enter ${deduction.text} Amount"/>
-                        </td>
-                    </tr>
-                `);
-                }
-            );
-        }
-
-        showError(message) {
-            showMainError(message);
-        }
-
-        makeEarningClassEmpty() {
-            window.CurrentEmployeeBillDetails.earnings = [];
-            window.CurrentEmployeeBillDetails.deductions = [];
-            window.CurrentEmployeeBillDetails.earningsTotal = 0;
-            window.CurrentEmployeeBillDetails.deductionsTotal = 0;
-            this.renderEarningsTable();
-            this.renderDeductionsTable();
-            this.totalAll();
-        }
-
-        renderAll() {
-            showLoading();
-            this.renderEarningsTable();
-            this.renderDeductionsTable();
-            this.totalAll();
-            hideLoading();
-        }
-
-        changeEarningAmount(index, element) {
-            if (element.value == "") {
-                element.value =
-                    window.CurrentEmployeeBillDetails.earnings[index].amount;
-                this.showError("Please enter valid Amount");
-                return;
-            }
-            if (
-                parseInt(element.value) +
-                    parseInt(window.CurrentEmployeeBillDetails.earningsTotal) -
-                    parseInt(
-                        window.CurrentEmployeeBillDetails.earnings[index].amount
-                    ) -
-                    parseInt(
-                        window.CurrentEmployeeBillDetails.deductionsTotal
-                    ) <
-                0
-            ) {
-                element.value =
-                    window.CurrentEmployeeBillDetails.earnings[index].amount;
-                this.showError("Total Should not be negative!");
-                return;
-            }
-            window.CurrentEmployeeBillDetails.earnings[index].amount =
-                element.value;
-            this.renderAll();
-        }
-
-        changeDeductionAmount(index, element) {
-            if (element.value == "") {
-                element.value =
-                    window.CurrentEmployeeBillDetails.deductions[index].amount;
-                this.showError("Please enter valid Amount");
-                return;
-            }
-            let parsedEarning = parseInt(
-                window.CurrentEmployeeBillDetails.earningsTotal
-            );
-            let parsedDeduction = parseInt(
-                window.CurrentEmployeeBillDetails.deductionsTotal
-            );
-            let parsedCurrent = parseInt(
-                window.CurrentEmployeeBillDetails.earnings[index].amount
-            );
-            if (
-                parsedEarning -
-                    (parseInt(element.value) -
-                        (parsedDeduction - parsedCurrent)) <
-                0
-            ) {
-                element.value =
-                    window.CurrentEmployeeBillDetails.deductions[index].amount;
-                this.showError("Total Should not be negative!");
-                return;
-            }
-            window.CurrentEmployeeBillDetails.deductions[index].amount =
-                element.value;
-            this.renderAll();
         }
     })();
-}
-
-function submitForm() {
-    let form = window.CurrentEmployeeBillDetails;
-    if (form.empId == "" || form.empName == "" || form.empCode == "") {
-        showMainError("Please Check Employee");
-    } else if (form.month == "" || form.year == "") {
-        showMainError("Please Check the Month and Year");
-    } else {
-        if (new Date(form.month + "/01/" + form.year) > new Date()) {
-            showMainError("Date should not be future");
-        } else {
-            window.SupplementaryBillClass.addBill(
-                new window.BillClass(CurrentEmployeeBillDetails)
-            );
-            $("#newEmpBillModal").modal("toggle");
-            window.empSearchFilterClass.emptyForm();
+    window.apiCalls.getBillIds();
+    $("#empCodeInput").on("keypress", function (e) {
+        if (e.which == 13) {
+            window.formClass.setEmpCode(e.target.value);
         }
-    }
+    });
+
+    $("#empBankAcNo").on("keypress", function (e) {
+        if (e.which == 13) {
+            window.formClass.setBankAcNo(e.target.value);
+        }
+    });
+});
+
+function ajaxCall(url, type, data) {
+    return new Promise((resolve, reject) => {
+        $.ajax({
+            url,
+            type,
+            data,
+            success: (response) => {
+                response = JSON.parse(response);
+                resolve(response);
+            },
+            error: () => reject(""),
+        });
+    });
 }
 
 function showMainError(message) {
@@ -750,4 +573,38 @@ function showMainError(message) {
         $("#errorText").text("");
         $("#errorDiv").addClass("d-none");
     }, 3000);
+}
+
+function submitForm() {
+    let form = window.currentBill;
+    if (form.empId == "" || form.empName == "" || form.empCode == "") {
+        showMainError("Please Check Employee");
+    } else if (form.month == "" || form.year == "") {
+        showMainError("Please Check the Month and Year");
+    } else {
+        if (new Date(form.month + "/01/" + form.year) > new Date()) {
+            showMainError("Date should not be future");
+        } else {
+            window.SupplementaryBillClass.addBill(form);
+            window.formClass.clearForm();
+        }
+    }
+}
+
+async function submitBill() {
+    let bills = window.SupplementaryBillClass.getBills();
+    showLoading();
+    await ajaxCall("/api/submitBill.php", "POST", {
+        bills: JSON.stringify(bills),
+        totalEarnings: window.SupplementaryBillClass.totalEarnings,
+        totalDeductions: window.SupplementaryBillClass.totalDeductions,
+    }).then((response) => {
+        if (response.status == true) {
+            alert("Inserted Successfully");
+            window.location.reload();
+        } else {
+            alert("Please check....");
+        }
+    });
+    hideLoading();
 }

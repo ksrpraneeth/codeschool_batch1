@@ -38,19 +38,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                 <div class="label">Search Filter Type</div>
                 <div class="filters d-flex gap-3 my-3">
                     <div class="form-check">
-                        <input onclick="window.empSearchFilterClass.setFilter('billId')" value="billId" class="form-check-input" type="radio" name="billIdFilter" id="billIdFilterOption" />
+                        <input onclick="window.formClass.setFilter('billId')" value="billId" class="form-check-input" type="radio" name="billIdFilter" id="billIdFilterOption" />
                         <label class="form-check-label" for="billIdFilterOption">
                             Bill ID
                         </label>
                     </div>
                     <div class="form-check">
-                        <input onclick="window.empSearchFilterClass.setFilter('empCode')" value="empCode" class="form-check-input" type="radio" name="billIdFilter" id="empCodeFilterOption" />
+                        <input onclick="window.formClass.setFilter('empCode')" value="empCode" class="form-check-input" type="radio" name="billIdFilter" id="empCodeFilterOption" />
                         <label class="form-check-label" for="empCodeFilterOption">
                             EmpCode
                         </label>
                     </div>
                     <div class="form-check">
-                        <input onclick="window.empSearchFilterClass.setFilter('bankAcNo')" value="bankAcNo" class="form-check-input" type="radio" name="billIdFilter" id="bankAcNoFilterOption" />
+                        <input onclick="window.formClass.setFilter('bankAcNo')" value="bankAcNo" class="form-check-input" type="radio" name="billIdFilter" id="bankAcNoFilterOption" />
                         <label class="form-check-label" for="bankAcNoFilterOption">
                             Bank Ac No
                         </label>
@@ -64,7 +64,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                 <div class="filterInput d-none" id="billIDSelectDiv">
                     <div class="label">Select Bill ID</div>
                     <div class="input">
-                        <select name="" id="billId" class="form-select" onchange="window.empSearchFilterClass.setBillId(this.value)"></select>
+                        <select name="" id="billId" class="form-select" onchange="window.formClass.setBillId(this.value)"></select>
                     </div>
                 </div>
 
@@ -88,20 +88,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
             <!-- Employee -->
             <div class="employeeDiv mt-3 d-none" id="employeeDiv">
                 <div class="label">Select Employee</div>
-                <select onchange="window.empSearchFilterClass.setEmployee()" class="form-select" name="" id="employee"></select>
+                <select onchange="window.formClass.setEmployee(this)" class="form-select" name="" id="employee"></select>
             </div>
             <div class="text-danger" id="sectionEmpSearchError"></div>
         </div>
 
         <!-- Details Div -->
         <div id="detailsDiv" class="d-none mt-3">
-            <div id="earningsDivError" class="text-danger"></div>
             <div id="billMonthYearDiv" class="">
                 <div class="billMonthYear">
                     <div class="label">
                         <span>Select Month and Year</span>
                     </div>
-                    <input type="month" name="" id="monthAndYear" class="form-control" onchange="window.MonthAndYearClass.setMonthAndYear()" />
+                    <input type="month" name="" id="monthAndYear" class="form-control" onchange="window.formClass.setMontAndYear(this.value)" />
                 </div>
             </div>
 
@@ -111,15 +110,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                     <div class="input">
                         <select name="" id="earnings" class="form-select"></select>
                     </div>
-                    <div class="earningAmountDiv mt-2 row m-0 col-12 col-md-6 col-md-8 gap-1">
+                    <div class="earningAmountDiv mt-2 row m-0 col-12 gap-1">
                         <div class="col-9 p-0">
                             <input type="text" id="earningAmount" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" placeholder="Earnings Amount" />
                         </div>
-                        <button class="btn btn-success col-2" onclick="window.earningsClass.addEarning()">
+                        <button class="btn btn-success col-2" onclick="window.formClass.addEarning()">
                             Add
                         </button>
                     </div>
-                    <div id="earningsTable" class="col-12 col-md-8 col-lg-6 mt-3">
+                    <div id="earningsTable" class="col-12 mt-3">
                         <table class="table table-bordered">
                             <thead>
                                 <tr class="bg-primary bg-opacity-10">
@@ -146,15 +145,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                     <div class="input">
                         <select name="" id="deductions" class="form-select"></select>
                     </div>
-                    <div class="deductionAmountDiv row mt-2 m-0 col-12 col-md-6 col-md-8 gap-1">
+                    <div class="deductionAmountDiv row mt-2 m-0 col-12 gap-1">
                         <div class="col-9 p-0">
                             <input type="text" id="deductionAmount" onkeypress="return /[0-9]/i.test(event.key)" class="form-control" placeholder="Deductions Amount" />
                         </div>
-                        <button class="btn btn-success col-2" onclick="window.earningsClass.addDeduction()">
+                        <button class="btn btn-success col-2" onclick="window.formClass.addDeduction()">
                             Add
                         </button>
                     </div>
-                    <div id="deductionsTable" class="col-12 col-md-8 col-lg-6 mt-3">
+                    <div id="deductionsTable" class="col-12 mt-3">
                         <table class="table table-bordered">
                             <thead>
                                 <tr class="bg-danger bg-opacity-10">
