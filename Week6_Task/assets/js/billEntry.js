@@ -383,6 +383,7 @@ function onload() {
             $("#employee").val("");
             $("#employeeDiv").addClass("d-none");
             $("#" + this.filterTypes[this.currentFilter]).addClass("d-none");
+            this.currentFilter = '';
             window.CurrentEmployeeBillDetails = {
                 empId: "",
                 empName: "",
@@ -397,13 +398,7 @@ function onload() {
         }
 
         showError(msg) {
-            if (window.errorTimeOut) {
-                clearTimeout(window.errorTimeOut);
-            }
-            $("#sectionEmpSearchError").text(msg);
-            window.errorTimeOut = setTimeout(function () {
-                $("#sectionEmpSearchError").text("");
-            }, 1500);
+            showMainError(msg);
         }
     })();
 
@@ -643,14 +638,7 @@ function onload() {
         }
 
         showError(message) {
-            if (window.errorTimeOut) {
-                clearTimeout(window.errorTimeOut);
-            }
-            $("#earningsDivError").text(message);
-            window.errorTimeOut = setTimeout(function () {
-                $("#earningsDivError").text("");
-            }, 1500);
-            $("#earningsDivError").scroll();
+            showMainError(message);
         }
 
         makeEarningClassEmpty() {
@@ -678,6 +666,18 @@ function onload() {
                 this.showError("Please enter valid Amount");
                 return;
             }
+            if (
+                parseInt(element.value) +
+                    window.CurrentEmployeeBillDetails.earningsTotal -
+                    window.CurrentEmployeeBillDetails.earnings[index].amount -
+                    window.CurrentEmployeeBillDetails.deductionsTotal <
+                0
+            ) {
+                element.value =
+                    window.CurrentEmployeeBillDetails.earnings[index].amount;
+                this.showError("Total Should not be negative!");
+                return;
+            }
             window.CurrentEmployeeBillDetails.earnings[index].amount =
                 element.value;
             this.renderAll();
@@ -688,6 +688,19 @@ function onload() {
                 element.value =
                     window.CurrentEmployeeBillDetails.deductions[index].amount;
                 this.showError("Please enter valid Amount");
+                return;
+            }
+            if (
+                window.CurrentEmployeeBillDetails.earningsTotal -
+                    (parseInt(element.value) +
+                        (window.CurrentEmployeeBillDetails.deductionsTotal -
+                            window.CurrentEmployeeBillDetails.earnings[index]
+                                .amount)) <
+                0
+            ) {
+                element.value =
+                    window.CurrentEmployeeBillDetails.deductions[index].amount;
+                this.showError("Total Should not be negative!");
                 return;
             }
             window.CurrentEmployeeBillDetails.deductions[index].amount =
@@ -717,5 +730,13 @@ function submitForm() {
 }
 
 function showMainError(message) {
-    $("#mainErorr").text(message);
+    if (window.errorTimeOut) {
+        clearTimeout(window.errorTimeOut);
+    }
+    $("#errorText").text(message);
+    $("#errorDiv").removeClass("d-none");
+    window.errorTimeOut = setTimeout(function () {
+        $("#errorText").text("");
+        $("#errorDiv").addClass("d-none");
+    }, 3000);
 }
