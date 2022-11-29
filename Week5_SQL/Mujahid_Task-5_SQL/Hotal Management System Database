@@ -79,9 +79,9 @@ VALUES
 ('201', 'R005', 'Budget_Friendly', 10000, 02)
 
 CREATE TABLE Rooms(
-    Room_Type_Id VARCHAR(30) NOT NULL,
+    Room_Type_Id VARCHAR(30) REFERENCES Room_Info(Room_Type_ID) NOT NULL NOT NULL,
     Room_No VARCHAR(40) REFERENCES Room_Info(Room_No) NOT NULL,
-    Room_Type VARCHAR(40) REFERENCES Room_Info(Room_No) NOT NULL  
+    Room_Type VARCHAR(40) REFERENCES Room_Info(Room_Type) NOT NULL  
 );
 
 INSERT INTO
