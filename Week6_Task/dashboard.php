@@ -65,7 +65,7 @@ checkSession()
                 <li>
                     <button class="btn">
                         <i class="bi bi-boxes"></i>
-                        <span class="d-none d-sm-block">Modules</span>
+                        <span class="d-none d-sm-inline">Modules</span>
                     </button>
                 </li>
 
