@@ -42,164 +42,164 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
     <link rel="stylesheet" href="./assets/css/module.css" />
 
     <!-- Dashboard JS -->
-    <script src="./assets/js/module.js"></script>
-</head>
+        <script src="./assets/js/module.js"></script>
+    </head>
 
-<body class="bg bg-black bg-opacity-10 vh-100 d-flex flex-column">
-    <!-- Header -->
-    <div class="header bg-white p-3 d-flex align-items-center justify-content-between">
-        <!-- Left of Header -->
-        <div class="left d-flex align-items-center">
-            <!-- Brand -->
-            <div class="brand d-flex align-items-center">
-                <!-- Logo Image -->
-                <div class="logo">
-                    <img width="40px" src="./assets/images/logo.png" alt="" />
+    <body class="bg bg-black bg-opacity-10 vh-100 d-flex flex-column">
+        <!-- Header -->
+        <div class="header bg-white p-3 d-flex align-items-center justify-content-between">
+            <!-- Left of Header -->
+            <div class="left d-flex align-items-center">
+                <!-- Brand -->
+                <div class="brand d-flex align-items-center">
+                    <!-- Logo Image -->
+                    <div class="logo">
+                        <img width="40px" src="./assets/images/logo.png" alt="" />
+                    </div>
+
+                    <!-- Logo Text -->
+                    <div class="logoText ms-2 flex-column justify-content-center d-none d-sm-flex">
+                        <h5 class="m-0 fw-bold">IFMIS</h5>
+                        <span class="fs-12">&copy; Governament of India</span>
+                    </div>
                 </div>
 
-                <!-- Logo Text -->
-                <div class="logoText ms-2 flex-column justify-content-center d-none d-sm-flex">
-                    <h5 class="m-0 fw-bold">IFMIS</h5>
-                    <span class="fs-12">&copy; Governament of India</span>
-                </div>
+                <!-- Mobile Menu Btn -->
+                <button class="btn ms-2 fs-3 d-block d-md-none" id="mobileMenuBtn">
+                    <i class="bi bi-list"></i>
+                </button>
             </div>
 
-            <!-- Mobile Menu Btn -->
-            <button class="btn ms-2 fs-3 d-block d-md-none" id="mobileMenuBtn">
-                <i class="bi bi-list"></i>
-            </button>
-        </div>
-
-        <!-- Right -->
-        <div class="right">
-            <!-- Menu -->
-            <ul class="list-unstyled m-0 d-flex">
-                <!-- Modules Button -->
-                <li>
-                    <button class="btn" onclick="location.href='dashboard.php'">
-                        <i class="bi bi-boxes"></i>
-                        <span class="d-none d-sm-inline">Modules</span>
-                    </button>
-                </li>
-
-                <!-- Profile Button -->
-                <li>
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            <i class="bi bi-person"></i>
-                            <span><?= $_SESSION["userName"] ?></span>
+            <!-- Right -->
+            <div class="right">
+                <!-- Menu -->
+                <ul class="list-unstyled m-0 d-flex">
+                    <!-- Modules Button -->
+                    <li>
+                        <button class="btn" onclick="location.href='dashboard.php'">
+                            <i class="bi bi-boxes"></i>
+                            <span class="d-none d-sm-inline">Modules</span>
                         </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="dropdown-item" role="button" onclick="location.href='logout.php'">
-                                    <i class="bi bi-escape"></i>
-                                    <span>Logout</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+                    </li>
+
+                    <!-- Profile Button -->
+                    <li>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                <i class="bi bi-person"></i>
+                                <span><?= $_SESSION["userName"] ?></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <div class="dropdown-item" role="button" onclick="location.href='logout.php'">
+                                        <i class="bi bi-escape"></i>
+                                        <span>Logout</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <!-- Body -->
-    <div class="body d-flex h-100 d-flex">
+        <!-- Body -->
+        <div class="body d-flex h-100 d-flex">
 
-        <!-- Sidebar -->
-        <div class="sidebar bg-white border-top position-absolute h-100">
+            <!-- Sidebar -->
+            <div class="sidebar bg-white border-top position-absolute h-100">
 
-            <!--   Menu     -->
-            <ul class="list-unstyled text-black m-0 d-flex flex-column">
-                <!-- Home -->
-                
-                <li onclick="gotoMenu('0')" 
-                    class="
-                        p-2 
-                        d-flex 
-                        align-items-center
-                        <?php 
-                            if($_GET["menuId"] == 0){
-                                echo "bg-secondary bg-opacity-10";
+                <!--   Menu     -->
+                <ul class="list-unstyled text-black m-0 d-flex flex-column">
+                    <!-- Home -->
+                    
+                    <li onclick="gotoMenu('0')" 
+                        class="
+                            p-2 
+                            d-flex 
+                            align-items-center
+                            <?php 
+                                if($_GET["menuId"] == 0){
+                                    echo "bg-secondary bg-opacity-10";
+                                }
+                            ?>
+                            " role="button">
+                        <span class="">Home</span>
+                    </li>
+                    <!-- Getting Menu From Database -->
+                    <?php
+                    $moduleMenuResponse = (new Modules())->getModuleMenu($_GET['id']);
+                    if ($moduleMenuResponse["status"]) {
+                        foreach ($moduleMenuResponse["data"] as $menuOption) {
+                            if($menuOption["id"] == $_GET["menuId"]){
+                                echo '<li
+                                onclick="gotoMenu(\'' . $menuOption["id"] . '\')"
+                                class="p-2 d-flex align-items-center bg-black bg-opacity-10"
+                                role="button"
+                                >
+                                    <span class="">' . $menuOption["name"] . '</span>
+                                </li>';
+                            } else {
+                                echo '<li
+                                onclick="gotoMenu(\'' . $menuOption["id"] . '\')"
+                                class="p-2 d-flex align-items-center"
+                                role="button"
+                                >
+                                    <span class="">' . $menuOption["name"] . '</span>
+                                </li>';
                             }
-                        ?>
-                        " role="button">
-                    <span class="">Home</span>
-                </li>
-                <!-- Getting Menu From Database -->
-                <?php
-                $moduleMenuResponse = (new Modules())->getModuleMenu($_GET['id']);
-                if ($moduleMenuResponse["status"]) {
-                    foreach ($moduleMenuResponse["data"] as $menuOption) {
-                        if($menuOption["id"] == $_GET["menuId"]){
-                            echo '<li
-                            onclick="gotoMenu(\'' . $menuOption["id"] . '\')"
-                            class="p-2 d-flex align-items-center bg-black bg-opacity-10"
-                            role="button"
-                            >
-                                <span class="">' . $menuOption["name"] . '</span>
-                            </li>';
-                        } else {
-                            echo '<li
-                            onclick="gotoMenu(\'' . $menuOption["id"] . '\')"
-                            class="p-2 d-flex align-items-center"
-                            role="button"
-                            >
-                                <span class="">' . $menuOption["name"] . '</span>
-                            </li>';
+                            
                         }
-                        
+                    }
+                    ?>
+                </ul>
+            </div>
+
+            <!-- Mobile Menu Background -->
+            <div id="mobileMenuBackground"
+                class="mobileMenuBackground position-absolute bg-black bg-opacity-50 h-100 w-100 d-none d-md-none"></div>
+
+
+            <!-- Content -->
+            <div class="content w-100 h-100 left-0 p-3">
+                <?php
+
+                // Getting Menu ID from GET
+                $menuId = $_GET["menuId"];
+
+                // Checking if Menu ID is 0
+                if ($menuId == 0) {
+
+                    // Getting URL of Home From Module Class
+                    $moduleUrlResponse = (new Modules())->getModuleUrl([$_GET["id"]]);
+
+                    // If File exist will include
+                    if (!@include($moduleUrlResponse)) {
+
+                        // If not found sending not found response
+                        echo "Page Not Found!";
+                        return;
+                    }
+                } else {
+                    $moduleUrlResponse = (new Modules())->getMenuUrlById($menuId);
+                    if (!$moduleUrlResponse) {
+                        echo "Page Not Found!";
+                        return;
+                    }
+                    if (!@include($_SERVER['DOCUMENT_ROOT'] . $moduleUrlResponse)) {
+                        echo "Page Not Found!";
+                        return;
                     }
                 }
                 ?>
-            </ul>
+            </div>
         </div>
 
-        <!-- Mobile Menu Background -->
-        <div id="mobileMenuBackground"
-            class="mobileMenuBackground position-absolute bg-black bg-opacity-50 h-100 w-100 d-none d-md-none"></div>
+        <!-- Mobile Sidebar Background -->
 
+        <!-- Loading -->
+        <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/inc/loading.php"; ?>
+    </body>
 
-        <!-- Content -->
-        <div class="content w-100 h-100 left-0 p-3">
-            <?php
-
-            // Getting Menu ID from GET
-            $menuId = $_GET["menuId"];
-
-            // Checking if Menu ID is 0
-            if ($menuId == 0) {
-
-                // Getting URL of Home From Module Class
-                $moduleUrlResponse = (new Modules())->getModuleUrl([$_GET["id"]]);
-
-                // If File exist will include
-                if (!@include($moduleUrlResponse)) {
-
-                    // If not found sending not found response
-                    echo "Page Not Found!";
-                    return;
-                }
-            } else {
-                $moduleUrlResponse = (new Modules())->getMenuUrlById($menuId);
-                if (!$moduleUrlResponse) {
-                    echo "Page Not Found!";
-                    return;
-                }
-                if (!@include($_SERVER['DOCUMENT_ROOT'] . $moduleUrlResponse)) {
-                    echo "Page Not Found!";
-                    return;
-                }
-            }
-            ?>
-        </div>
-    </div>
-
-    <!-- Mobile Sidebar Background -->
-
-    <!-- Loading -->
-    <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/inc/loading.php"; ?>
-</body>
-
-</html>
+    </html>

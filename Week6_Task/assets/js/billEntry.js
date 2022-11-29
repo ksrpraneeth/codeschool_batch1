@@ -383,7 +383,7 @@ function onload() {
             $("#employee").val("");
             $("#employeeDiv").addClass("d-none");
             $("#" + this.filterTypes[this.currentFilter]).addClass("d-none");
-            this.currentFilter = '';
+            this.currentFilter = "";
             window.CurrentEmployeeBillDetails = {
                 empId: "",
                 empName: "",
@@ -668,9 +668,13 @@ function onload() {
             }
             if (
                 parseInt(element.value) +
-                    window.CurrentEmployeeBillDetails.earningsTotal -
-                    window.CurrentEmployeeBillDetails.earnings[index].amount -
-                    window.CurrentEmployeeBillDetails.deductionsTotal <
+                    parseInt(window.CurrentEmployeeBillDetails.earningsTotal) -
+                    parseInt(
+                        window.CurrentEmployeeBillDetails.earnings[index].amount
+                    ) -
+                    parseInt(
+                        window.CurrentEmployeeBillDetails.deductionsTotal
+                    ) <
                 0
             ) {
                 element.value =
@@ -690,12 +694,19 @@ function onload() {
                 this.showError("Please enter valid Amount");
                 return;
             }
+            let parsedEarning = parseInt(
+                window.CurrentEmployeeBillDetails.earningsTotal
+            );
+            let parsedDeduction = parseInt(
+                window.CurrentEmployeeBillDetails.deductionsTotal
+            );
+            let parsedCurrent = parseInt(
+                window.CurrentEmployeeBillDetails.earnings[index].amount
+            );
             if (
-                window.CurrentEmployeeBillDetails.earningsTotal -
-                    (parseInt(element.value) +
-                        (window.CurrentEmployeeBillDetails.deductionsTotal -
-                            window.CurrentEmployeeBillDetails.earnings[index]
-                                .amount)) <
+                parsedEarning -
+                    (parseInt(element.value) -
+                        (parsedDeduction - parsedCurrent)) <
                 0
             ) {
                 element.value =
