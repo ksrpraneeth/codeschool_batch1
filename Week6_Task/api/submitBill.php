@@ -30,38 +30,17 @@ $bills = json_decode($_POST['bills'], true);
 $userId = (new Encryption())->decrypt($_SESSION["userDetails"]);
 
 $insertSBillResponse = (new SBill())->insertNewSBill($userId, $totalEarnings, $totalDeductions);
-if ($insertSBillResponse["status"] == false) {
-    echo (new Response(false, "Something Went Wrong Please Err:" . $insertSBillResponse["message"]))->getJSONResponse();
-    return false;
-} else {
-    $sBillId = $insertSBillResponse["data"]["id"];
-    foreach ($bills as $bill) {
-        $billId = (new Employee())->getEmployeeBillIdByEmployeeId($bill["empId"]);
-        if ($billId == false) {
-            // TODO Delete sbill
-            echo false;
-        } else {
-            $sbillEmpMapInsertResponse = (new sBill())->insertSBillEmpMap($sBillId, $billId, $bill["empId"], $bill["earningsTotal"], $bill["deductionsTotal"], $bill["month"], $bill["year"]);
-            if ($sbillEmpMapInsertResponse["status"] == false) {
-                // TODO Delete sbill
-            } else {
-                $sBillEmpMapId = $sbillEmpMapInsertResponse["data"]["id"];
-                foreach ($bill["earnings"] as $earning) {
-                    $billEarningInsertResponse = (new SBill())->insertSingleBillEarning($sBillId, $sBillEmpMapId, $earning["id"], $earning["amount"]);
-                    if ($billEarningInsertResponse["status"] == false) {
-                        // TODO Delete all and Send Error
-                        echo $billEarningInsertResponse["message"];
-                    }
-                }
 
-                foreach ($bill["deductions"] as $deduction) {
-                    $billDeductionInsertResponse = (new SBill())->insertSingleBillDeduction($sBillId, $sBillEmpMapId, $deduction["id"], $deduction["amount"]);
-                    if ($billDeductionInsertResponse["status"] == false) {
-                        // TODO Delete all and Send Error
-                        echo $billDeductionInsertResponse["message"];
-                    }
-                }
-            }
+$sBillId = $insertSBillResponse["data"]["id"];
+foreach ($bills as $bill) {
+    $billId = (new Employee())->getEmployeeBillIdByEmployeeId($bill["empId"]);
+    $sbillEmpMapInsertResponse = (new sBill())->insertSBillEmpMap($sBillId, $billId, $bill["empId"], $bill["earningsTotal"], $bill["deductionsTotal"], $bill["month"], $bill["year"]);
+    $sBillEmpMapId = $sbillEmpMapInsertResponse["data"]["id"];
+    foreach ($bill["earnings"] as $earning) {
+        $billEarningInsertResponse = (new SBill())->insertSingleBillAddings($sBillId, $sBillEmpMapId, $earning["id"], $earning["amount"]);
+
+        foreach ($bill["deductions"] as $deduction) {
+            $billDeductionInsertResponse = (new SBill())->insertSingleBillAddings($sBillId, $sBillEmpMapId, $deduction["id"], $deduction["amount"]);
         }
     }
 }

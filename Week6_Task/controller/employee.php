@@ -32,16 +32,16 @@ class Employee
 
     function getEmployeeEarnings($employeeId)
     {
-        $query = "SELECT e.name, e.id FROM earning_types e, employee_earning_types ee
-        WHERE e.id = ee.earning_type_id AND ee.emp_id = ?;";
+        $query = "SELECT a.name, a.id FROM adding_types a, employee_adding_types ea
+        WHERE a.id = ea.adding_type_id AND a.type= 'EARNING' AND ea.emp_id = ?;";
         $queryResponse = $this->DBConnection->select($query, [$employeeId]);
         return $queryResponse;
     }
 
     function getEmployeeDeductions($employeeId)
     {
-        $query = "SELECT e.name, e.id FROM deduction_types e, employee_deduction_types ee
-        WHERE e.id = ee.deduction_type_id AND ee.emp_id = ?;";
+        $query = "SELECT a.name, a.id FROM adding_types a, employee_adding_types ea
+        WHERE a.id = ea.adding_type_id AND a.type= 'DEDUCTION' AND ea.emp_id = ?;";
         $queryResponse = $this->DBConnection->select($query, [$employeeId]);
         return $queryResponse;
     }

@@ -22,27 +22,15 @@ class SBill
         return $queryResponse;
     }
 
-    function insertSingleBillEarning($sBillId, $sBillEmpMapId, $earningType, $earningAmount){
-            $query = "INSERT INTO bill_earnings (s_bill_id, s_bill_emp_map_id, earning_type_id, amount)
+    function insertSingleBillAddings($sBillId, $sBillEmpMapId, $addingType, $amount){
+            $query = "INSERT INTO bill_addings (s_bill_id, s_bill_emp_map_id, adding_type_id, amount)
             VALUES (?, ?, ?, ?)";
             $queryResponse = (new DBConnection())->insertSingle($query, [
                 $sBillId,
                 $sBillEmpMapId,
-                $earningType,
-                $earningAmount
+                $addingType,
+                $amount
             ]);
             return $queryResponse;
     }
-
-    function insertSingleBillDeduction($sBillId, $sBillEmpMapId, $deductionType, $amount){
-        $query = "INSERT INTO bill_deductions (s_bill_id, s_bill_emp_map_id, deduction_type_id, amount)
-        VALUES (?, ?, ?, ?)";
-        $queryResponse = (new DBConnection())->insertSingle($query, [
-            $sBillId,
-            $sBillEmpMapId,
-            $deductionType,
-            $amount
-        ]);
-        return $queryResponse;
-}
 }
