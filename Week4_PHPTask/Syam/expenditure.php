@@ -1,7 +1,7 @@
 <?php
 $array1 = [];
 if(!array_key_exists('expenditureType',$_POST)){
-    array_push($array,"plase select expenditureType");
+    array_push($array,"please select Expenditure Type");
 }
  $expenditureType = $_POST['expenditureType'];
 switch($expenditureType){

@@ -1,22 +1,11 @@
 <?php
 echo $_SERVER['REQUEST_METHOD'];
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
+if ($_SERVER['REQUEST_METHOD'] == "POST") { /////
 
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
     $email = $_POST['email'];
     $password = $_POST['password'];
-
-
-    /*if (!isset($_POST['firstName'])) {
-    echo "Please enter First Name";
-    }
-    if (!isset($_POST['lastName'])) {
-    echo "Please enter Last Name";
-    }
-    if (!isset($_POST['email'])) {
-    echo "Please enter Email";
-    }*/
 
     if (strlen($firstName) == 0) {
         echo "Please enter First Name";

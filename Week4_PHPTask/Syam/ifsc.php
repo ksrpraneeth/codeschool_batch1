@@ -6,11 +6,11 @@ if(array_key_exists('ifscCode',$_POST)){
 
 
 if(strlen($ifscCode) != 11){
-    array_push($bank, "ifscCode should contains 11 digits");
+    array_push($bank, "Ifsc Code should contains 11 digits");
      //return;
 }
 if(!preg_match("/[A-Z]{4}[0][0-9A-Za-z]{6}/",$ifscCode)){
-    array_push($bank, "Enter ifscCode in valid format");
+    array_push($bank, "Enter Ifsc Code in valid format");
 //return;
  }
  

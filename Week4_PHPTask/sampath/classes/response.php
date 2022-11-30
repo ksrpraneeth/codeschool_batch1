@@ -4,7 +4,7 @@ class Response
 	public $status;
 	public $message;
 	public $data;
-	function setResponse($status = null, $message = null, $data = null)
+	function setResponse($status = false, $message = null, $data = null)
 	{
 		$this->status = $status;
 		$this->message = $message;
