@@ -1,5 +1,4 @@
 $("document").ready(async () => {
-
     window.currentBill = {
         empId: "",
         empName: "",
@@ -157,7 +156,7 @@ $("document").ready(async () => {
 
             this.detailsDiv = $("#detailsDiv");
 
-            this.monthAndYear = $("#billMonthYearDiv");
+            this.monthAndYear = $("#monthAndYear");
             this.earnings = $("#earnings");
             this.deductions = $("#deductions");
 
@@ -241,6 +240,12 @@ $("document").ready(async () => {
             this.monthAndYear.val("");
             this.earnings.val("");
             this.deductions.val("");
+            this.earningsData.html("");
+            this.deductionsData.html("");
+            this.totalEarnings.text("0");
+            this.totalDeductions.text("0");
+            this.total.text("0");
+            this.monthAndYear.val("");
         }
 
         showDetailsDiv() {
