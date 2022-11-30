@@ -117,16 +117,22 @@ include "include/auth.php";
 
                     <!-- PHP QUERIES FOR UPDATING H0STEL DATA -->
                     <?php
-                    $query = "SELECT * FROM hostel";
-                    if (isset($_POST['updateHostel'])) {
-                        // echo "hello";
-                        $hostel_name = $_POST['hostel_name'];
-                        $hostel_address = $_POST['hostel_address'];
-                        $hostel_type = $_POST['hostel_type'];
-                        $hostel_room_no = $_POST['hostel_room_no'];
-                    }
+                    // $query = "SELECT * FROM hostel";
+                    // if (isset($_POST['updateHostel'])) {
+                    //     // echo "hello";
+                    //     $hostel_name = $_POST['hostel_name'];
+                    //     $hostel_address = $_POST['hostel_address'];
+                    //     $hostel_type = $_POST['hostel_type'];
+                    //     $hostel_room_no = $_POST['hostel_room_no'];
+                    // }
                     ?>
                     <!-- PHP QUERIES FOR UPDATING H0STEL DATA ENDS -->
+
+
+                    <!-- PHP QUERIES FOR UPDATE DATA -->
+
+
+                    <!-- PHP QUERIES FOR UPDATE DATA ENDS -->
 
 
                     <!-- UPDATE DATA MODAL -->
@@ -144,20 +150,20 @@ include "include/auth.php";
                                     <!-- FORM START -->
                                     <form action="" method="post">
                                         <div class="form-group">
-                                            <label for="hostel_name">Add Hostel Name</label>
+                                            <label for="hostel_name">Update Hostel Name</label>
                                             <input type="text" value="<?php echo "$hostel_name" ?>" name="hostel_name"
                                                 class="form-control" id="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="hostel_address">Add Hostel Address</label>
+                                            <label for="hostel_address">Update Hostel Address</label>
                                             <input type="text" name="hostel_address" class="form-control" id="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="hostel_type">Add Hostel Type</label>
+                                            <label for="hostel_type">Update Hostel Type</label>
                                             <input type="text" name="hostel_type" class="form-control" id="">
                                         </div>
                                         <div class="form-group">
-                                            <label for="hostel_room_no">Add Hostel Room Number</label>
+                                            <label for="hostel_room_no">Update Hostel Room Number</label>
                                             <input type="text" name="hostel_room_no" class="form-control" id="">
                                         </div>
                                         <!-- FORM ENDS-->
@@ -211,8 +217,11 @@ include "include/auth.php";
                                 echo "<td>{$hostel_address}<td>";
                                 echo "<td>{$hostel_type}<td>";
                                 // echo "<td><a href='hostel_type.php?delete={$hostel_id}'>Delete</a><td>"
-                                echo "<td ><a class='btn btn-danger text-danger' onClick=\"javascript: return confirm('Please confirm deletion');\" href='hostel_type.php?delete={$hostel_id}'>Delete</a> 
-                                <a class='btn btn-warning text-warning'  class='btn btn-success' data-toggle='modal' data-target='#updatedatamodal'>Update</a></td>";
+                                echo "
+                                <td >
+                                <a class='btn btn-danger text-danger' onClick=\"javascript: return confirm('Please confirm deletion');\" href='hostel_type.php?delete=".$hostel_id."'>Delete</a> 
+                                <a class='btn btn-warning text-warning'  class='btn btn-success' data-toggle='modal' data-target='#updatedatamodal'?updateid=".$hostel_id."'>Update</a>
+                                </td>";
                                 echo "</tr>";
                             }
                             ?>

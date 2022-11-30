@@ -182,16 +182,19 @@ include "include/auth.php";
                                 $hostel_name = $row['hostel_name'];
                                 echo "<tr>";
                                 echo "<th scope='row'>{$stu_id}<th>";
-                                echo "<td>{$stu_name}<td>";
-                                echo "<td>{$stu_class}<td>";
-                                echo "<td>{$branch_name}<td>";
-                                echo "<td>{$hostel_name}<td>";
+                                echo "<td scope='row'>{$stu_name}<td>";
+                                echo "<td scope='row'>{$stu_class}<td>";
+                                echo "<td scope='row'>{$branch_name}<td>";
+                                echo "<td scope='row'>{$hostel_name}<td>";
                                 // echo "<td><a href='students.php?delete={$}'>Delete</a><td>";
                                 echo "<td ><a class='btn btn-danger text-danger' onClick=\"javascript: return confirm('Please confirm deletion');\" href='students.php?delete={$stu_id}'>Delete</a> 
-                                <a class='btn btn-warning text-warning' onClick=\"javascript: return confirm('Please confirm deletion');\" href='students.php?udate={$stu_id}'>Update</a></td>";
+                                <a class='btn btn-warning text-warning' onClick=\"javascript: return confirm('Please confirm deletion');\" href='students.php?udate={$stu_id}'>Update</a>
+                                <a class='btn btn-primary text-warning' onClick=\"javascript: return confirm({$stu_id});\" href='#?view={$stu_id}'>View</a>
+                                </td>";
                                 echo "</tr>";
                             }
                             ?>
+                            <!-- ,{$stu_name},{$stu_class},{$branch_name},{$hostel_name} -->
                             <!-- PHP FOR SHOWING STUDENT TABLES -->
 
 
