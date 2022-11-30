@@ -3,32 +3,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/billid.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
 ?>
 <div class="billEntry bg-white h-100 w-100 overflow-auto p-3">
-    <div class="d-flex align-items-center gap-3 mb-5">
-        <div class="title">Supplementary Bill</div>
-    </div>
-
-    <!-- Supplementary Bill -->
-    <div id="sBillTable" class="d-none">
-        <table class="table table-bordered mt-4" id="">
-            <thead>
-                <tr class="fw-bold bg-secondary text-white">
-                    <td>Employee Code</td>
-                    <td>Employee Name</td>
-                    <td>Month</td>
-                    <td>Year</td>
-                    <td>Earnings Total</td>
-                    <td>Deductions Total</td>
-                    <td>Total</td>
-                    <td>Actions</td>
-                </tr>
-            </thead>
-            <tbody id="sBillTableBody"></tbody>
-        </table>
-        <div class="submitButtonDiv d-flex justify-content-end">
-            <button class="btn btn-primary" id="submitToDatabase" onclick="submitBill()">
-                Submit Bill
-            </button>
-        </div>
+    <div class="gap-3  mb-2">
+        <div class="title fs-4 fw-bold border-bottom py-2">Supplementary Bill</div>
     </div>
 
     <!-- New Bill Div -->
@@ -182,10 +158,35 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
         </div>
 
         <button id="submitForm" onclick="submitForm()" class="btn btn-success mt-3">
-            Submit
+            Add To Bill
         </button>
     </div>
 
+    <!-- Supplementary Bill -->
+    <div id="sBillTable" class="d-none">
+        <table class="table table-bordered mt-4" id="">
+            <thead>
+                <tr class="fw-bold bg-dark text-white">
+                    <td>Employee Code</td>
+                    <td>Employee Name</td>
+                    <td>Month</td>
+                    <td>Year</td>
+                    <td>Earnings Total</td>
+                    <td>Deductions Total</td>
+                    <td>Total</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody id="sBillTableBody"></tbody>
+        </table>
+        <div class="submitButtonDiv d-flex justify-content-end">
+            <button class="btn btn-dark" id="submitToDatabase" onclick="submitBill()">
+                Submit Bill
+            </button>
+        </div>
+    </div>
+    
+    
     <!-- View Employee Bill Modal -->
     <div class="modal modal-lg fade" id="viewEmployeeBillModal" aria-labelledby="viewEmpBillLabel" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">

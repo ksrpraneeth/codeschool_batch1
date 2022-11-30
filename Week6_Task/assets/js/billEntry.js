@@ -615,6 +615,10 @@ function submitForm() {
 
 async function submitBill() {
     let bills = window.SupplementaryBillClass.getBills();
+    if(bills.length == 0){
+        showMainError("Please Add Employee Bill to Submit Bill");
+        return;
+    }
     showLoading();
     await ajaxCall("/api/submitBill.php", "POST", {
         bills: JSON.stringify(bills),
