@@ -1,5 +1,17 @@
 $("document").ready(async () => {
 
+    window.currentBill = {
+        empId: "",
+        empName: "",
+        empCode: "",
+        earnings: new Array(),
+        deductions: new Array(),
+        month: "",
+        year: "",
+        earningsTotal: 0,
+        deductionsTotal: 0,
+    };
+
     window.cleanCurrentBill = () => {
         window.currentBill = {
             empId: "",
