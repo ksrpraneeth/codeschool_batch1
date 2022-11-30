@@ -38,6 +38,7 @@ $("document").ready(async () => {
             this.renderSBills();
             this.totalEarnings += bill.earningsTotal;
             this.totalDeductions += bill.deductionsTotal;
+            this.total = this.totalEarnings - this.totalDeductions;
         }
 
         getBill(index) {
@@ -92,17 +93,19 @@ $("document").ready(async () => {
                 this.sBills[index].earnings,
                 this.sBills[index].deductions,
                 this.sBills[index].earningsTotal,
-                this.sBills[index].deductionsTotal
+                this.sBills[index].deductionsTotal,
+                this.sBills[index].total
             ).view();
         }
     })();
 
     window.renderEarningModalClass = class RenderEarningModal {
-        constructor(earnings, deductions, earningsTotal, deductionsTotal) {
+        constructor(earnings, deductions, earningsTotal, deductionsTotal, total) {
             this.earnings = earnings;
             this.deductions = deductions;
             this.earningsTotal = parseInt(earningsTotal);
             this.deductionsTotal = parseInt(deductionsTotal);
+            this.total = parseInt(total);
         }
         view() {
             $("#viewEmployeeBillModal").modal("toggle");
@@ -128,6 +131,7 @@ $("document").ready(async () => {
 
             $("#totalViewDeductions").text(this.deductionsTotal);
             $("#totalViewEarnings").text(this.earningsTotal);
+            $("#viewTotalAmount").text(this.total);
         }
     };
 

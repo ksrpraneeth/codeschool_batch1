@@ -167,6 +167,7 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
 
                 // Getting Menu ID from GET
                 $menuId = $_GET["menuId"];
+                $moduleId = $_GET["id"];
 
                 // Checking if Menu ID is 0
                 if ($menuId == 0) {
@@ -175,14 +176,20 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
                     $moduleUrlResponse = (new Modules())->getModuleUrl([$_GET["id"]]);
 
                     // If File exist will include
-                    if (!@include($moduleUrlResponse)) {
+                    try{
+                        if (!@include($moduleUrlResponse)) {
 
-                        // If not found sending not found response
+                            // If not found sending not found response
+                            echo "Page Not Found!";
+                            return;
+                        }
+                    } catch (\ValueError $e){
                         echo "Page Not Found!";
                         return;
                     }
+                    
                 } else {
-                    $moduleUrlResponse = (new Modules())->getMenuUrlById($menuId);
+                    $moduleUrlResponse = (new Modules())->getMenuUrlById([$moduleId, $menuId]);
                     if (!$moduleUrlResponse) {
                         echo "Page Not Found!";
                         return;

@@ -235,6 +235,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                             </div>
                         </div>
                     </div>
+
+                    <!-- Total Text -->
+                    <div class="totalDiv d-flex justify-content-end">
+                        <strong>Total:&nbsp;</strong>
+                        <strong id="viewTotalAmount"></strong>
+                        <strong>&nbsp;.Rs/</strong>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">

@@ -36,10 +36,10 @@ class Modules
         }
     }
 
-    public function getMenuUrlById($menuId)
+    public function getMenuUrlById($data)
     {
-        $query = "SELECT * FROM sidebar_menu WHERE id = ?";
-        $queryResponse = $this->DBConnection->selectSingle($query, [$menuId]);
+        $query = "SELECT * FROM sidebar_menu WHERE id = ? AND module_id = ?";
+        $queryResponse = $this->DBConnection->selectSingle($query, $data);
         if ($queryResponse == false) {
             return false;
         } else {
