@@ -587,6 +587,7 @@ function submitForm() {
         } else {
             window.SupplementaryBillClass.addBill(form);
             window.formClass.clearForm();
+            window.cleanCurrentBill();
         }
     }
 }
