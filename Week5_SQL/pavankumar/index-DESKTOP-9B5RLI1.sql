@@ -743,3 +743,10 @@ insert into
     diseases(id, name, disease)
 values
 ('15', 'vinnela', 'diabetes');
+
+CREATE SEQUENCE inwards_id_seq;
+ALTER TABLE inwards ALTER COLUMN id SET DEFAULT nextval('inwards_id_seq');
+ALTER TABLE inwards ALTER COLUMN id SET NOT NULL;
+ALTER SEQUENCE inwards_id_seq OWNED BY inwards.id;
+
+SELECT setval('inwards_id_seq', 16, true);

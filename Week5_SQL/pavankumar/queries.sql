@@ -86,3 +86,22 @@ hospital_management=# select d.doctor_id,r.nurse_id from doctor_inwards d,room_n
          4 |        5
          5 |        8
          5 |        7
+
+
+id | patient_id | room_id |  status   | total_bill | doctor_id | disease_id
+----+------------+---------+-----------+------------+-----------+------------
+ 11 |         11 |       4 | admit     |      65000 |         6 |          3
+ 12 |         12 |       4 | admit     |      80000 |         7 |          2
+ 13 |         13 |       1 | discharge |      90000 |         7 |          4
+ 14 |         14 |       2 | admit     |      80000 |         8 |          1
+ 15 |         15 |       3 | discharge |      60000 |         8 |          2
+  1 |          1 |       1 | admit     |      50000 |         1 |          1
+  2 |          2 |       1 | discharge |      40000 |         1 |          2
+  3 |          3 |       1 | admit     |      45000 |         2 |          4
+  4 |          4 |       2 | discharge |      60000 |         2 |          1
+  5 |          5 |       2 | admit     |      65000 |         3 |          2
+  6 |          6 |       2 | discharge |      70000 |         3 |          4
+  7 |          7 |       3 | admit     |      80000 |         4 |          1
+  8 |          8 |       3 | discharge |      85000 |         4 |          3
+  9 |          9 |       4 | admit     |      55000 |         5 |          2
+ 10 |         10 |       4 | discharge |      60000 |         6 |          4
