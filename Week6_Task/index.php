@@ -34,13 +34,10 @@ if (isset($_SESSION["userDetails"])) {
 
         <!-- Main CSS -->
         <link rel="stylesheet" href="./assets/css/main.css" />
-        <!-- Main JS -->
-        <script src="./assets/js/main.js"></script>
-
+        
         <!-- Index CSS -->
         <link rel="stylesheet" href="./assets/css/index.css" />
-        <!-- Index JS -->
-        <script src="./assets/js/index.js"></script>
+        
     </head>
     <body>
         <div
@@ -126,5 +123,10 @@ if (isset($_SESSION["userDetails"])) {
 
         <!-- Loading -->
         <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/inc/loading.php"; ?>
+
+        <!-- Main JS -->
+        <script src="./assets/js/main.js"></script>
+        <!-- Index JS -->
+        <script src="./assets/js/index.js"></script>
     </body>
 </html>

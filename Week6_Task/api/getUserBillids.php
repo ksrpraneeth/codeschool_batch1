@@ -3,6 +3,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/response.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/billid.php";
 session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+if(!checkSession()){
+    echo (new Response(false, "Please Login"))->getJSONResponse();
+    exit;
+}
 if (!isset($_SESSION['userDetails'])) {
     echo (new Response(false, "User ID is missing"))->getJSONResponse();
     return;

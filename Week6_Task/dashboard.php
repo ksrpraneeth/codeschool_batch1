@@ -1,6 +1,8 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/modules.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/header.php";
 
 session_start();
 checkSession()
@@ -27,69 +29,14 @@ checkSession()
     <!-- Main CSS -->
     <link rel="stylesheet" href="./assets/css/main.css" />
 
-    <!-- Main Script -->
-    <script src="./assets/js/main.js"></script>
 
     <!-- Dashboard CSS -->
     <link rel="stylesheet" href="./assets/css/dashboard.css" />
-
-    <!-- Dashboard JS -->
-    <script src="./assets/js/dashboard.js"></script>
 </head>
 
 <body class="bg bg-light">
     <!-- Header -->
-    <div class="header border-bottom bg-white p-3 d-flex align-items-center justify-content-between">
-        <!-- Left of Header -->
-        <div class="left">
-            <!-- Brand -->
-            <div class="brand d-flex align-items-center">
-                <!-- Logo Image -->
-                <div class="logo">
-                    <img width="40px" src="./assets/images/logo.png" alt="" />
-                </div>
-
-                <!-- Logo Text -->
-                <div class="logoText ms-2 flex-column justify-content-center d-none d-sm-flex">
-                    <h5 class="m-0 fw-bold">IFMIS</h5>
-                    <span class="fs-12">&copy; Governament of India</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Right -->
-        <div class="right">
-            <!-- Menu -->
-            <ul class="list-unstyled m-0 d-flex">
-                <!-- Modules Button -->
-                <li>
-                    <button class="btn">
-                        <i class="bi bi-boxes"></i>
-                        <span class="d-none d-sm-inline">Modules</span>
-                    </button>
-                </li>
-
-                <!-- Profile Button -->
-                <li>
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person"></i>
-                            <span><?= $_SESSION["userName"] ?></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <div class="dropdown-item" role="button" onclick="location.href='logout.php'">
-                                    <i class="bi bi-escape"></i>
-                                    <span>Logout</span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-
+    <?php echo getHeader(""); ?>
     <div class="content row justify-content-center py-3 px-4 m-0">
         <div class="section p-1 p-md-3">
             <div class="title">
@@ -97,7 +44,8 @@ checkSession()
             </div>
             <div class="modules d-flex gap-3 flex-wrap">
                 <?php
-                $moduleResponse = (new Modules())->getModules();
+                $userId = (new Encryption())->decrypt($_SESSION["userDetails"]);
+                $moduleResponse = (new Modules())->getModules($userId);
                 if ($moduleResponse["status"] == true) {
                     foreach ($moduleResponse["data"] as $module) {
                         echo '<div class="module d-flex bg-white p-3 rounded-3 align-items-center">
@@ -122,6 +70,11 @@ checkSession()
     </div>
     <!-- Loading -->
     <?php include_once $_SERVER['DOCUMENT_ROOT'] . "/inc/loading.php"; ?>
+
+    <!-- Main Script -->
+    <script src="./assets/js/main.js"></script>
+    <!-- Dashboard JS -->
+    <script src="./assets/js/dashboard.js"></script>
 </body>
 
 </html>

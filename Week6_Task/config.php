@@ -1,7 +1,9 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/session.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
-
+if(!isset($_SESSION)){
+    session_start();
+}
 function checkSession()
 {
     $session_id = session_id();

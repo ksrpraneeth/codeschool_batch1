@@ -1,7 +1,11 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/response.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/employee.php";
-
+include_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+if(!checkSession()){
+    echo (new Response(false, "Please Login"))->getJSONResponse();
+    exit;
+}
 if (!isset($_POST['bankAcNo'])) {
     echo (new Response(false, "Bank Account Number is missing"))->getJSONResponse();
     return;

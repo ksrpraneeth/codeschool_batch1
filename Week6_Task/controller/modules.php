@@ -8,10 +8,11 @@ class Modules
     {
         $this->DBConnection = new DBConnection();
     }
-    public function getModules()
+    public function getModules($userId)
     {
-        $query = "SELECT * FROM modules";
-        $queryResponse = $this->DBConnection->select($query);
+        $query = "SELECT modules.* FROM modules, modules_users_map 
+        WHERE modules_users_map.module_id = modules.id AND modules_users_map.user_id = ?;";
+        $queryResponse = $this->DBConnection->select($query, [$userId]);
         return $queryResponse;
     }
 
@@ -47,5 +48,6 @@ class Modules
                 return false;
             }
             return $queryResponse["data"]["url"];
-        }}
+        }
+    }
 }

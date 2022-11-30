@@ -4,6 +4,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/sBill.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/employee.php";
 session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
+if(!checkSession()){
+    echo (new Response(false, "Please Login"))->getJSONResponse();
+    exit;
+}
 if (!isset($_POST['bills'])) {
     echo (new Response(false, "Bills Not Found"))->getJSONResponse();
     return false;
