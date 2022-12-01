@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="container-fluid p-0 m-0">
-                <img class="d-block w-100 img-fluid p-0" src="./4113098.webp" alt="First slide">
+                <img class="d-block w-100 img-fluid p-0" src="./hospital_img.webp" alt="First slide">
             </div>
         </div>
     </div>
