@@ -5,10 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/session.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
-if(!checkSession()){
-    echo (new Response(false, "Please Login"))->getJSONResponse();
-    exit;
-}
+
 if (!isset($_POST['username'])) {
     echo (new Response(false, "Please check username and password"))->getJSONResponse();
     return;

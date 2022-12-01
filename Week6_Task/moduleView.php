@@ -2,7 +2,7 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . "/controller/modules.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/header.php";
-
+if(!isset($_SESSION))    
 session_start();
 checkSession();
 if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {

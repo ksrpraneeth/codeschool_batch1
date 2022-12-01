@@ -4,6 +4,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/config.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/header.php";
 
+if(!isset($_SESSION))
 session_start();
 checkSession()
 ?>
