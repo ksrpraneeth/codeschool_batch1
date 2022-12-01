@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <label class="col-sm-3" for="emailInput">Email :</label>
+                <input
+                    class="form-control col-sm"
+                    type="email"
+                    id="emailInput"
+                />
+            </div>
+            <br />
+            <div class="row">
+                <label class="col-sm-3" for="passwordInput">Password :</label>
+                <input
+                    class="form-control col-sm"
+                    type="text"
+                    id="passwordInput"
+                />
+            </div>
+            <br />
+           
+            <div class="row">
+                <p class="col-sm" id="errors"></p>
+                
+            </div>
+            <div class="row justify-content-end" style="margin-top: 10px">
+                <button class="btn btn-primary col-sm-3" id="loginButton">
+                    Login
+                </button>
+            </div>
+        </div>
+    </body>
+    <script>
+         if (localStorage.getItem("userData") != null) {
+            window.location.assign("todo.html");
+
+        }
+        $("#loginButton").click(function () {
+            var formData = {
+                email: $("#emailInput").val(),
+                password: $("#passwordInput").val(),
+            };
+            $.ajax({
+                type:"POST",
+                data:formData,
+                url:"api/login.php",
+                success: function(responseData){
+                    responseData = JSON.parse(responseData);
+                    if(!responseData.status){
+                        $('#errors').text(responseData.message);
+                    }else{
+                        alert(responseData.message);
+                        localStorage.setItem('userData',JSON.stringify(responseData.data[0]));
+                        window.location.assign('todo.html') ;
+                    }
+                },
+                error: function(){
+
+                }
+            })
+        });
+    </script>
+</html>

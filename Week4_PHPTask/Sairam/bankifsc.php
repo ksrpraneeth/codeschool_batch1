@@ -28,7 +28,7 @@ array_push($resultArray,  "Please enter ifsccode");
  //array_push($resultArray, "ifsccode should be 11digits");
     $resultArray = [
             "Errors" => "",
-            "bankName" => "SBI",
+            
             "bankbranch" => "bengalore"];
         }
      echo json_encode($resultArray);
