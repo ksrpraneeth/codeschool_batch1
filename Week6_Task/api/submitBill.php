@@ -53,6 +53,8 @@ try {
     (s_bill_id, bill_id, emp_id, total_earnings, total_deductions, month, year)
     VALUES 
     (?, ?, ?, ?, ?, ?, ?) RETURNING id; ";
+    $newEarningQuery = "INSERT INTO bill_addings (s_bill_id, s_bill_emp_map_id, adding_type_id, amount)
+                        VALUES (?, ?, ?, ?)";
 
     foreach ($bills as $bill) {
         $billId = (new Employee())->getEmployeeBillIdByEmployeeId($bill["empId"]);
@@ -60,8 +62,6 @@ try {
         $newEmpBillStatement->execute([$sBillId, $billId, $bill["empId"], $bill["earningsTotal"], $bill["deductionsTotal"], $bill["month"], $bill["year"]]);
         $empBillId = ($newEmpBillStatement->fetch(PDO::FETCH_ASSOC))['id'];
 
-        $newEarningQuery = "INSERT INTO bill_addings (s_bill_id, s_bill_emp_map_id, adding_type_id, amount)
-        VALUES (?, ?, ?, ?)";
         foreach ($bill["earnings"] as $earning) {
             $newEarningStatement = $pdo->prepare($newEarningQuery);
             $newEarningStatement->execute([$sBillId, $empBillId, $earning["id"], $earning["amount"]]);
