@@ -28,10 +28,10 @@
                     </div>
                     <div class="d-flex justify-content-between">
                         <div class="col-lg-2-sm-2 mx-3">
-                            <a href="inwards.php" class="btn btn-primary">Inwards</a>
+                            <a href="inwards.php" class="btn btn-primary" id="register">Inwards</a>
                         </div>
                         <div class="col-lg-2-sm-2 mx-3">
-                            <a href="./inwardlist.php" class="btn btn-primary">inwardlist</a>
+                            <a href="./inwardlist.php" class="btn btn-primary" id="inwards">inwardlist</a>
                         </div>
                         <div class="col-lg-2-sm-12 mx-3">
                             <button type="button" class="btn btn-primary" id="logout">Logout</button>
@@ -135,6 +135,14 @@
         $("#logout").click(function () {
             localStorage.removeItem('userData');
             window.location.replace("login.php");
+
+        })
+        $("#register").click(function () {
+            window.location.assign("register.php");
+
+        })
+        $("#inwards").click(function () {
+            window.location.assign("inwards.php");
 
         })
     </script>

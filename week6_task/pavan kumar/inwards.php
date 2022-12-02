@@ -26,10 +26,10 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <div class="col-lg-2-sm-2 mx-3">
-                        <a href="register.php" class="btn btn-primary">Register</a>
+                        <a href="register.php" class="btn btn-primary" id="register">Register</a>
                     </div>
                     <div class="col-lg-2-sm-2 mx-3">
-                        <a href="./inwardlist.php" class="btn btn-primary">inwardlist</a>
+                        <a href="./inwardlist.php" class="btn btn-primary" id="inwardlist">inwardlist</a>
                     </div>
                     <div class="col-lg-2-sm-12 mx-3">
                         <button type="button" class="btn btn-primary" id="logout">Logout</button>
@@ -103,6 +103,14 @@
         window.location.replace("login.php");
 
     })
+    $("#register").click(function () {
+            window.location.assign("register.php");
+
+        })
+    $("#inwardlist").click(function () {
+            window.location.assign("inwardlist.php");
+
+        })
 </script>
 
 </html>
