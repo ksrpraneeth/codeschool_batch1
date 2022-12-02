@@ -4,7 +4,7 @@ class DBConnection
 {
     private $pdo;
     private $host = 'localhost';
-    private $db = 'postgres';
+    private $db = 'ifmis';
     private $user = 'postgres';
     private $password = 'postgres';
     public function __construct()
@@ -58,6 +58,19 @@ class DBConnection
 
     public function insertSingle($query, $parameters)
     {
+        try {
+            $pdo = (new DBConnection())->getPdo();
+
+            $statement = $pdo->prepare($query);
+            $statement->execute($parameters);
+            $data = $statement->fetch(PDO::FETCH_ASSOC);
+            return (new Response(true, "Success", $data))->getResponse();
+        } catch (\PDOException $e) {
+            return (new Response(false, "DB Error: " . $e->getMessage()))->getResponse();
+        }
+    }
+
+    public function deleteSingle($query, $parameters){
         try {
             $pdo = (new DBConnection())->getPdo();
 

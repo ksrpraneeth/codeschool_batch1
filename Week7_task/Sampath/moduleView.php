@@ -74,7 +74,7 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
                         if ($menuOption["id"] == $_GET["menuId"]) {
                             echo '<li
                                 onclick="gotoMenu(\'' . $menuOption["id"] . '\', \''.$menuOption["module_id"].'\')"
-                                class="p-2 d-flex align-items-center bg-black bg-opacity-10 '.$menuOption["custom_classes"].'"
+                                class="p-2 d-flex align-items-center bg-black bg-opacity-10"
                                 role="button"
                                 >
                                     <span class="">' . $menuOption["name"] . '</span>
@@ -82,7 +82,7 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
                         } else {
                             echo '<li
                             onclick="gotoMenu(\'' . $menuOption["id"] . '\', \''.$menuOption["module_id"].'\')"
-                            class="p-2 d-flex align-items-center '.$menuOption["custom_classes"].'"
+                            class="p-2 d-flex align-items-center"
                                 role="button"
                                 >
                                     <span class="">' . $menuOption["name"] . '</span>

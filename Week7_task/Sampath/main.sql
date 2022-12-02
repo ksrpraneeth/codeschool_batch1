@@ -87,6 +87,18 @@ CREATE TABLE IF NOT EXISTS adding_types(
     name VARCHAR(255) NOT NULL UNIQUE
 );
 
+INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Insurance'); 
+INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Home Loan'); 
+INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Deduction Temp 1'); 
+INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Deduction Temp 2'); 
+INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Deduction Temp 3'); 
+
+INSERT INTO adding_types (type, name) VALUES ('EARNING', 'Basic Pay'); 
+INSERT INTO adding_types (type, name) VALUES ('EARNING', 'Incentivies'); 
+INSERT INTO adding_types (type, name) VALUES ('EARNING', 'Earning Temp 1'); 
+INSERT INTO adding_types (type, name) VALUES ('EARNING', 'Earning Temp 2'); 
+INSERT INTO adding_types (type, name) VALUES ('EARNING', 'Earning Temp 3'); 
+
 -- Employee Adding Types
 CREATE TABLE IF NOT EXISTS employee_adding_types(
     id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -106,6 +118,9 @@ CREATE TABLE IF NOT EXISTS supplementary_bills(
     total_earnings BIGINT NOT NULL,
     total_deductions BIGINT NOT NULL
 );
+
+ALTER TABLE supplementary_bills ALTER COLUMN bill_date TYPE TIMESTAMP;
+ALTER TABLE supplementary_bills ALTER COLUMN bill_date  SET DEFAULT CURRENT_TIMESTAMP;
 
 ALTER TABLE supplementary_bills ADD COLUMN bill_date DATE NOT NULL DEFAULT CURRENT_TIMESTAMP;
 

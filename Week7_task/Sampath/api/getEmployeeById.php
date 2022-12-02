@@ -6,17 +6,12 @@ if(!checkSession()){
     echo (new Response(false, "Please Login"))->getJSONResponse();
     exit;
 }
-if (!isset($_POST['billId'])) {
-    echo (new Response(false, "Bill ID is missing"))->getJSONResponse();
+if (!isset($_POST['empId'])) {
+    echo (new Response(false, "Employee ID is missing"))->getJSONResponse();
     return;
 }
-
-$billId = $_POST['billId'];
-if ($billId == '') {
-    echo (new Response(false, "Please check the Bill ID"))->getJSONResponse();
-    return;
-}
+$empId = $_POST['empId'];
 $userId = (new Encryption())->decrypt($_SESSION["userDetails"]);
-$getEmployeeResponse = (new Employee())->getEmployeesByBillID($billId, $userId);
+$getEmployeeResponse = (new Employee())->getEmployeeByEmpId($empId, $userId);
 echo json_encode($getEmployeeResponse);
 return;
