@@ -29,7 +29,7 @@
                         <a href="register.php" class="btn btn-primary" id="register">Register</a>
                     </div>
                     <div class="col-lg-2-sm-2 mx-3">
-                        <a href="./inwardlist.php" class="btn btn-primary" id="inwardlist">inwardlist</a>
+                        <a href="./inwardlist.php" class="btn btn-primary" id="inwardlist">Inwardlist</a>
                     </div>
                     <div class="col-lg-2-sm-12 mx-3">
                         <button type="button" class="btn btn-primary" id="logout">Logout</button>

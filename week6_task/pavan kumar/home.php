@@ -30,7 +30,7 @@
                             <a href="./register.php" class="btn btn-primary" id="register">Register</a>
                         </div>
                         <div class="col-lg-2-sm-2 mx-3">
-                            <a href="./inwards.php" class="btn btn-primary" id="register">Inwards</a>
+                            <a href="./inwards.php" class="btn btn-primary" id="inwards">Inwards</a>
                         </div>
                         <div class="col-lg-2-sm-12 mx-3">
                             <button type="button" class="btn btn-primary" id="logout">Logout</button>
