@@ -1,0 +1,48 @@
+.body {
+    @media screen and (min-width: 767px) {
+        & {
+            position: relative;
+        }
+    }
+}
+.sidebar {
+    width: 250px;
+    left: 0;
+    transition: all ease 0.5s;
+    @media screen and (max-width: 767px) {
+        & {
+            left: -250px;
+            z-index: 5;
+            top: 0;
+        }
+    }
+    @media screen and (min-width: 767px) {
+        & {
+            left: 0 !important;
+        }
+    }
+    ul {
+        li {
+            font-size: 16px;
+            &:hover {
+                background-color: #d3d3d331;
+            }
+        }
+    }
+}
+.content {
+    margin-left: 250px;
+    transition: all ease 0.5s;
+    @media screen and (max-width: 767px) {
+        & {
+            margin-left: 0px;
+        }
+    }
+}
+.mobileMenuBackground {
+    z-index: 4;
+    top: 0;
+}
+#loading{
+    z-index: 1056!important;
+}
