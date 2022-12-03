@@ -43,7 +43,7 @@ ALTER TABLE sidebar_menu ADD COLUMN custom_classes VARCHAR(255);
 
 INSERT INTO sidebar_menu (module_id, name, logo, url) VALUES (1, 'Bill Entry', 'receipt', '/modules/menu/billEntry.php');
 INSERT INTO sidebar_menu (module_id, name, logo, url) VALUES (2, 'Employee Master', 'users', '/modules/menu/masterEmployee.php');
-INSERT INTO sidebar_menu (module_id, name, logo, url, custom_classes) VALUES (2, 'Employee View', 'users', '/modules/menu/employeeView.php', 'd-none');
+INSERT INTO sidebar_menu (module_id, name, logo, url) VALUES (1, 'View Bill', 'eye', '/modules/menu/viewBill.php');
 
 -- bill_ids
 CREATE TABLE IF NOT EXISTS bill_ids(
@@ -78,7 +78,15 @@ WHERE e.bill_id = b.id
 AND e.bill_id = '1' AND b.user_id = '3';
 
 -- Example
-INSERT INTO employee (bill_id, name, emp_code, father_name, bank_ac_no) VALUES (1, 'Sampath Bandla', 'E001', 'Saidulu', '1234567890');
+INSERT INTO employee 
+(bill_id, name, emp_code, father_name, bank_ac_no) VALUES 
+(1, 'Sampath Bandla', 'E001', 'Saidulu', '1234567890');
+INSERT INTO employee 
+(bill_id, name, emp_code, father_name, bank_ac_no) VALUES 
+(1, 'Sandeep Bandla', 'E002', 'Saidulu', '1234567891');
+INSERT INTO employee 
+(bill_id, name, emp_code, father_name, bank_ac_no) VALUES 
+(1, 'Usha Bandla', 'E003', 'Saidulu', '1234567892');
 
 -- Adding Types
 CREATE TABLE IF NOT EXISTS adding_types(
@@ -112,7 +120,7 @@ ALTER TABLE employee_adding_types ADD COLUMN amount BIGINT NOT NULL DEFAULT 0;
 
 -- Supplementary_bills
 CREATE TABLE IF NOT EXISTS supplementary_bills(
-    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    id BIGINT GENERATED ALWAYS AS IDENTITY (START WITH 400000 INCREMENT BY 20 ) PRIMARY KEY,
     user_id INTEGER REFERENCES users(id) NOT NULL,
     bill_date DATE NOT NULL,
     total_earnings BIGINT NOT NULL,
@@ -160,9 +168,45 @@ CREATE TABLE IF NOT EXISTS sessions(
 INSERT INTO adding_types (type, name)  VALUES ('EARNING', 'Basic Pay'),('EARNING', 'Allowance');
 INSERT INTO adding_types (type, name)  VALUES ('DEDUCTIONS', 'Insurance'),('DEDUCTIONS', 'Home Loan');
 
-INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (1, 1);
-INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (1, 2);
-INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (1, 3);
-INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (1, 4);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 1);
 INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 2);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 3);
 INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 4);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 5);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 6);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 7);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 8);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 9);
+INSERT INTO employee_adding_types (emp_id, adding_type_id) VALUES (2, 10);
+
+
+
+SELECT a.name, sum(ba.amount) as amount 
+FROM adding_types a, bill_addings ba
+WHERE a.id = ba.adding_type_id
+AND a.type = 'DEDUCTION'
+AND ba.s_bill_id = 400080
+GROUP BY a.name;
+
+SELECT e.name, e.bank_ac_no, eb.total_earnings, eb.total_deductions
+FROM employee e, s_bill_emp_map eb
+WHERE eb.emp_id = e.id
+AND s_bill_id = 400080;
+
+SELECT e.name, e.emp_code, a.sum
+FROM employee e, (SELECT sb.emp_id, sum(ba.amount) 
+FROM s_bill_emp_map sb, bill_addings ba
+WHERE sb.id = ba.s_bill_emp_map_id
+AND sb.s_bill_id = 400080
+GROUP BY sb.emp_id) as a
+WHERE e.id = a.emp_id;
+
+SELECT e.* FROM employee e, s_bill_emp_map as sbill
+WHERE sbill.emp_id = e.id
+AND sbill.s_bill_id = 400080;
+
+SELECT sbill.emp_id, a.* FROM s_bill_emp_map sbill, ( SELECT ba.*, a.name, a.type
+FROM bill_addings ba, adding_types a
+WHERE ba.adding_type_id = a.id
+AND ba.s_bill_id = 400080) as a
+WHERE a.s_bill_emp_map_id = sbill.id;

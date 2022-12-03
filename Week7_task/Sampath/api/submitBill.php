@@ -72,7 +72,7 @@ try {
     }
 
     $pdo->commit();
-    echo (new Response(true, "Success"))->getJSONResponse();
+    echo (new Response(true, "Success", ["token" => $sBillId]))->getJSONResponse();
 } catch (\PDOException $e) {
     $pdo->rollback();
     echo (new Response(false, "Transaction Failed Error" . $e->getMessage()))->getJSONResponse();

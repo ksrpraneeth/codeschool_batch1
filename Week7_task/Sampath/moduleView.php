@@ -41,11 +41,11 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
 
 </head>
 
-<body class="bg bg-black bg-opacity-10 vh-100 d-flex flex-column">
+<body class="bg bg-black bg-opacity-10 d-flex min-vh-100 flex-column">
     <!-- Header -->
     <?php echo getHeader("moduleView"); ?>
     <!-- Body -->
-    <div class="body d-flex h-100 d-flex">
+    <div class="body d-flex d-flex min-vh-100">
 
         <!-- Sidebar -->
         <div class="sidebar bg-white border-top position-absolute h-100">
@@ -99,7 +99,7 @@ if (!isset($_GET["id"]) || !isset($_GET["menuId"])) {
 
 
         <!-- Content -->
-        <div class="content w-100 h-100 left-0 p-3">
+        <div class="content w-100 min-h-100 left-0 p-3">
             <?php
 
             // Getting Menu ID from GET

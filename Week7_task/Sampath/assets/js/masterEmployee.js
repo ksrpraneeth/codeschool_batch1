@@ -231,10 +231,12 @@ $("document").ready(async () => {
 
             if (earningId == "") {
                 showMainError("Please Select Earning");
+                hideLoading();
                 return;
             }
             if (earningAmount == "") {
                 showMainError("Please Enter Earning Amount");
+                hideLoading();
                 return;
             }
 
@@ -286,16 +288,14 @@ $("document").ready(async () => {
                     this.getEmployee(this.employee.id);
                     callback(true);
                 } else {
-                    showMainError(
-                        message
-                    );
+                    showMainError(message);
                     callback(false);
                 }
             });
         }
 
         async deleteAdding(id) {
-            if(!confirm("Are you sure you want to delete this?")){
+            if (!confirm("Are you sure you want to delete this?")) {
                 return;
             }
             showLoading();

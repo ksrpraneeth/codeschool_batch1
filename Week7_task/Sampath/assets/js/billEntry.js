@@ -281,7 +281,10 @@ $("document").ready(async () => {
                 showMainError("Please Check Earning Amount");
                 return false;
             }
-
+            if(window.currentBill.earnings.find((element) => element.id == earningId)){
+                showMainError("This Earning Already Exists");
+                return false;
+            }
             // Making Input empty
             this.earningsAmount.val("");
             this.earnings.val("");
@@ -334,6 +337,10 @@ $("document").ready(async () => {
             }
             if (total < 0) {
                 showMainError("Total Should Not Be Negative");
+                return false;
+            }
+            if(window.currentBill.deductions.find((element) => element.id == deductionId)){
+                showMainError("This Deduction Already Exists");
                 return false;
             }
             this.deductionsAmount.val("");
@@ -626,7 +633,7 @@ async function submitBill() {
         totalDeductions: window.SupplementaryBillClass.totalDeductions,
     }).then((response) => {
         if (response.status == true) {
-            alert("Inserted Successfully");
+            alert("Inserted Successfully Token No: " + response.data.token);
             window.location.reload();
         } else {
             alert("Please check....");
