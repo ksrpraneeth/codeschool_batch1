@@ -54,7 +54,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                     id="billId"
                     class="form-select"
                 >
-                    <option value="">Select...</option>
+                    <option value="" hidden>Select...</option>
                     <?php
                     $userId = (new Encryption())->decrypt($_SESSION["userDetails"]);
                     $response = (new Billid())->getUserBillids($userId); if
@@ -89,6 +89,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                     <tr class="table-primary">
                         <th>S/O</th>
                         <th>Employee Name</th>
+                        <th>Employee Code</th>
                         <th>Department</th>
                         <th>Designation</th>
                         <th>View</th>

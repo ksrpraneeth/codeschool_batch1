@@ -16,8 +16,6 @@ $("document").ready(function () {
             }
             this.sbillId = sbillId;
             await this.getBillDetails();
-            await this.getBillEmployees();
-            await this.getBillAddings();
             await this.getBillEarnings();
             await this.getBillDeductions();
             await this.getEmployeeBankDetails();
@@ -35,55 +33,34 @@ $("document").ready(function () {
 
         async getBillDetails() {
             let billId = this.sbillId;
-            await ajaxCall("/api/getSBillDetailsById.php", "POST", {
+            await ajaxCall("/api/supplementary_bill/getSBillDetailsById.php", "POST", {
                 billId,
             }).then(({ status, message, data }) => {
+                let billInfoResponse = data.billInfo.data;
+                let employeesInfo = data.employeesInfo;
+                let addingsInfo = data.addingsInfo;
                 if (status == true) {
-                    $("#ui_ddo_code").text(data.ddoCode);
-                    $("#ui_bdate").text(data.bill_date);
+                    $("#ui_ddo_code").text(billInfoResponse.ddoCode);
+                    $("#ui_bdate").text(billInfoResponse.bill_date);
                     $("#ui_bill_id").text(billId);
-                    $("#ui_total_earnings").text(data.total_earnings);
-                    $("#ui_total_deductions").text(data.total_deductions);
+                    $("#ui_total_earnings").text(billInfoResponse.total_earnings);
+                    $("#ui_total_deductions").text(billInfoResponse.total_deductions);
                     $("#ui_total_net").text(
-                        parseInt(data.total_earnings) -
-                            parseInt(data.total_deductions)
+                        parseInt(billInfoResponse.total_earnings) -
+                            parseInt(billInfoResponse.total_deductions)
                     );
                     $("#bill_total_net").text(
                         (
-                            parseInt(data.total_earnings) -
-                            parseInt(data.total_deductions)
+                            parseInt(billInfoResponse.total_earnings) -
+                            parseInt(billInfoResponse.total_deductions)
                         ).toFixed(2)
                     );
+                    this.employees = employeesInfo.data;
+                    this.addings = addingsInfo.data;
                     $("#dpBillId").text(billId);
-                    this.billDetails = data;
+                    this.billDetails = billInfoResponse;
                 } else {
                     alert("No Bill Found with this token!");
-                }
-            });
-        }
-
-        async getBillEmployees() {
-            let billId = this.sbillId;
-            await ajaxCall("/api/supplementary_bill/getEmployees.php", "POST", {
-                billId,
-            }).then(({ status, message, data }) => {
-                if (data) {
-                    this.employees = data;
-                }
-            });
-        }
-
-        async getBillAddings() {
-            let billId = this.sbillId;
-            await ajaxCall(
-                "/api/supplementary_bill/getBillAddings.php",
-                "POST",
-                {
-                    billId,
-                }
-            ).then(({ status, message, data }) => {
-                if (data) {
-                    this.addings = data;
                 }
             });
         }

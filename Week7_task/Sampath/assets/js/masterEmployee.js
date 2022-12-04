@@ -59,6 +59,7 @@ $("document").ready(async () => {
                     <tr>
                         <td>${index + 1}</td>
                         <td>${employee.name}</td>
+                        <td>${employee.emp_code}</td>
                         <td>${employee.department}</td>
                         <td>${employee.designation}</td>
                         <td>
@@ -85,77 +86,75 @@ $("document").ready(async () => {
             showLoading();
             await ajaxCall("/api/getEmployeeById.php", "POST", { empId }).then(
                 ({ status, message, data }) => {
-                    if (data.length == 0) {
+                    let empInfo = data.empInfo;
+                    let empDeductions = data.empDeductions;
+                    let empEarnings = data.empEarnings;
+                    if (empInfo.length == 0) {
                         showMainError("No Employee Found");
                     } else {
-                        this.employee = data[0];
+                        this.employee = empInfo[0];
                         this.showEmployeeDetails();
+
+                        // Earnings Fetched
+                        if (empEarnings.length == 0) {
+                            showMainError("No Earnings Found");
+                            $("#emp_earnings").html(
+                                `
+                                    <tr>
+                                        <td colspan="3">No Earnings Found</td>
+                                    </tr>
+                                `
+                            );
+                        } else {
+                            let html = "";
+                            empEarnings.forEach((earning, index) => {
+                                html += `
+                                    <tr>
+                                        <td>${earning.name}</td>
+                                        <td>${earning.amount}</td>
+                                        <td>
+                                            <button 
+                                                class="btn text-danger"
+                                                onclick="window.employeeClass.deleteAdding(${earning.emp_adding_id})"
+                                            ><i class='bi bi-trash'></i></button>
+                                        </td>
+                                    </tr>`;
+                            });
+                            $("#emp_earnings").html(html);
+                        }
+
+                        // Deductions
+                        if (empDeductions.length == 0) {
+                            showMainError("No Deductions Found");
+                            $("#emp_deductions").html(
+                                `
+                                    <tr>
+                                        <td colspan="3">No Deductions Found</td>
+                                    </tr>
+                                `
+                            );
+                        } else {
+                            let html = "";
+                            empDeductions.forEach((deduction, index) => {
+                                html += `
+                                    <tr>
+                                        <td>${deduction.name}</td>
+                                        <td>${deduction.amount}</td>
+                                        <td>
+                                            <button 
+                                            class="btn text-danger"
+                                            onclick="window.employeeClass.deleteAdding(${deduction.emp_adding_id})"
+                                            >
+                                                <i class='bi bi-trash'></i>
+                                            </button>
+                                        </td>
+                                    </tr>`;
+                            });
+                            $("#emp_deductions").html(html);
+                        }
                     }
                 }
             );
-            await ajaxCall("/api/getEmployeeEarnings.php", "POST", {
-                empId: empId,
-            }).then(({ status, message, data }) => {
-                if (data.length == 0) {
-                    showMainError("No Earnings Found");
-                    $("#emp_earnings").html(
-                        `
-                            <tr>
-                                <td colspan="3">No Earnings Found</td>
-                            </tr>
-                        `
-                    );
-                } else {
-                    let html = "";
-                    data.forEach((earning, index) => {
-                        html += `
-                            <tr>
-                                <td>${earning.name}</td>
-                                <td>${earning.amount}</td>
-                                <td>
-                                    <button 
-                                        class="btn text-danger"
-                                        onclick="window.employeeClass.deleteAdding(${earning.emp_adding_id})"
-                                    ><i class='bi bi-trash'></i></button>
-                                </td>
-                            </tr>`;
-                    });
-                    $("#emp_earnings").html(html);
-                }
-            });
-
-            await ajaxCall("/api/getEmployeeDeductions.php", "POST", {
-                empId: empId,
-            }).then(({ status, message, data }) => {
-                if (data.length == 0) {
-                    showMainError("No Deductions Found");
-                    $("#emp_deductions").html(
-                        `
-                            <tr>
-                                <td colspan="3">No Deductions Found</td>
-                            </tr>
-                        `
-                    );
-                } else {
-                    let html = "";
-                    data.forEach((deduction, index) => {
-                        html += `
-                            <tr>
-                                <td>${deduction.name}</td>
-                                <td>${deduction.amount}</td>
-                                <td>
-                                    <button 
-                                    class="btn text-danger"
-                                    onclick="window.employeeClass.deleteAdding(${deduction.emp_adding_id})"
-                                    >
-                                        <i class='bi bi-trash'></i>
-                                    </button>
-                                </td>
-                            </tr>`;
-                    });
-                    $("#emp_deductions").html(html);
-                }
-            });
             hideLoading();
         }
 
