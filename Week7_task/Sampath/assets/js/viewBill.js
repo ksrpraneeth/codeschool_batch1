@@ -17,7 +17,7 @@ $("document").ready(function () {
                     showMainError("Please Enter valid Tokeb");
                 }
                 this.sbillId = sbillId;
-                if(await this.getBillDetails()){
+                if(await this.getBillDetails() != false){
                     await this.getBillEarnings();
                     await this.getBillDeductions();
                     await this.getEmployeeBankDetails();

@@ -232,6 +232,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                                     class="form-control"
                                     placeholder="Enter amount..."
                                     id="earningModalAmount"
+                                    onkeypress="return /[0-9]/i.test(event.key)"
                                 />
                             </div>
                         </div>
@@ -296,6 +297,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
                                     class="form-control"
                                     placeholder="Enter amount..."
                                     id="deductionModalAmount"
+                                    onkeypress="return /[0-9]/i.test(event.key)"
                                 />
                             </div>
                         </div>
