@@ -39,7 +39,7 @@ class Employee
 
     function getEmployeeEarnings($employeeId)
     {
-        $query = "SELECT a.name, a.id, ea.id as emp_adding_id, ea.amount as amount FROM adding_types a, employee_adding_types ea
+        $query = "SELECT a.name, a.id, ea.id as emp_adding_id, a.cannot_delete, ea.amount as amount FROM adding_types a, employee_adding_types ea
         WHERE a.id = ea.adding_type_id AND a.type= 'EARNING' AND ea.emp_id = ?;";
         $queryResponse = $this->DBConnection->select($query, [$employeeId]);
         return $queryResponse;

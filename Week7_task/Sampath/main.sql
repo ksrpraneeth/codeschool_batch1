@@ -99,6 +99,8 @@ CREATE TABLE IF NOT EXISTS adding_types(
     name VARCHAR(255) NOT NULL UNIQUE
 );
 
+ALTER TABLE adding_types ADD COLUMN cannot_delete BOOLEAN NOT NULL DEFAULT FALSE;
+
 INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Insurance'); 
 INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Home Loan'); 
 INSERT INTO adding_types (type, name) VALUES ('DEDUCTION', 'Deduction Temp 1'); 

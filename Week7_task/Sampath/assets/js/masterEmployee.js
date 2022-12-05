@@ -111,14 +111,16 @@ $("document").ready(async () => {
                                 html += `
                                     <tr>
                                         <td>${earning.name}</td>
-                                        <td>${earning.amount}</td>
-                                        <td>
-                                            <button 
-                                                class="btn text-danger"
-                                                onclick="window.employeeClass.deleteAdding(${earning.emp_adding_id})"
-                                            ><i class='bi bi-trash'></i></button>
-                                        </td>
-                                    </tr>`;
+                                        <td>${earning.amount}</td>`;
+                                if (earning.cannot_delete == false) {
+                                    html += `<td>
+                                    <button 
+                                        class="btn text-danger"
+                                        onclick="window.employeeClass.deleteAdding(${earning.emp_adding_id})"
+                                    ><i class='bi bi-trash'></i></button>
+                                </td>`;
+                                }
+                                html += `</tr>`;
                             });
                             $("#emp_earnings").html(html);
                         }
