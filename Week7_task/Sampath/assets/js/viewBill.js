@@ -206,7 +206,6 @@ $("document").ready(function () {
                             element.emp_id == empId &&
                             element.adding_type_id == deduction.id
                     );
-                    console.log(empId + ": " + deduction.id);
                     html += `
                                 <tr>
                                 <td>${index + 1}</td>
