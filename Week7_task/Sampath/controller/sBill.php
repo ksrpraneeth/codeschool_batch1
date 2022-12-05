@@ -10,10 +10,10 @@ class SBill
     {
         $this->db = new DBConnection();
     }
-    function getSBillDetailsById($billId)
+    function getSBillDetailsById($billId, $userId)
     {
-        $query = "SELECT * FROM supplementary_bills WHERE id =?";
-        $queryResponse = $this->db->selectSingle($query, [$billId]);
+        $query = "SELECT * FROM supplementary_bills WHERE id =? AND user_id  = ?";
+        $queryResponse = $this->db->selectSingle($query, [$billId, $userId]);
         return $queryResponse;
     }
 

@@ -13,8 +13,9 @@ if (!isset($_POST['billId'])) {
 }
 
 $billId = $_POST['billId'];
+$userId = (new Encryption())->decrypt($_SESSION["userDetails"]);
 $sbillClass = new SBill();
-$billInfoResponse = $sbillClass->getSBillDetailsById($billId);
+$billInfoResponse = $sbillClass->getSBillDetailsById($billId, $userId);
 if ($billInfoResponse["data"] == false) {
     $billInfoResponse["status"] = false;
     echo json_encode($billInfoResponse);

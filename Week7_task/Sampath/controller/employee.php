@@ -19,17 +19,21 @@ class Employee
         return $queryResponse;
     }
 
-    public function getEmployeeByEmpCode($empCode)
+    public function getEmployeeByEmpCode($empCode, $userId)
     {
-        $query = "SELECT * FROM employee WHERE emp_code = ?";
-        $queryResponse = $this->DBConnection->select($query, [$empCode]);
+        $query = "SELECT e.* FROM employee e, bill_ids b, users u
+        WHERE e.bill_id = b.id AND b.user_id = u.id
+        AND e.emp_code = ? AND u.id = ?;";
+        $queryResponse = $this->DBConnection->select($query, [$empCode, $userId]);
         return $queryResponse;
     }
 
-    public function getEmployeeByBankAcNo($bankAcNo)
+    public function getEmployeeByBankAcNo($bankAcNo, $userId)
     {
-        $query = "SELECT * FROM employee WHERE bank_ac_no = ?";
-        $queryResponse = $this->DBConnection->select($query, [$bankAcNo]);
+        $query = "SELECT e.* FROM employee e, bill_ids b, users u
+        WHERE e.bill_id = b.id AND b.user_id = u.id
+        AND e.bank_ac_no = ? AND u.id = ?;";
+        $queryResponse = $this->DBConnection->select($query, [$bankAcNo, $userId]);
         return $queryResponse;
     }
 

@@ -16,8 +16,8 @@ if ($bankAcNo == '') {
     echo (new Response(false, "Please check the Bank Account Number"))->getJSONResponse();
     return;
 }
-
-$getEmployeeResponse = (new Employee())->getEmployeeByBankAcNo($bankAcNo);
+$userId = (new Encryption())->decrypt($_SESSION["userDetails"]);
+$getEmployeeResponse = (new Employee())->getEmployeeByBankAcNo($bankAcNo, $userId);
 if ($getEmployeeResponse["data"] == false) {
     $getEmployeeResponse["data"] = [];
     $getEmployeeResponse["message"] = "No Employees Found";

@@ -153,5 +153,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/encryption.php";
             <div id="employeesList"></div>
         </div>
     </div>
+    <!-- Error Div -->
+    <div class="alert alert-warning d-none position-fixed start-0 ms-3 bottom-0" id="errorDiv">
+        ⚠️<span id="errorText"></span>
+    </div>
 </div>
 <script src="/assets/js/viewBill.js"></script>

@@ -25,8 +25,8 @@ CREATE TABLE IF NOT EXISTS modules_users_map(
     user_id INTEGER REFERENCES users(id) NOT NULL
 );
 
-INSERT INTO modules_users_map(module_id, user_id) VALUES (1, 3);
-INSERT INTO modules_users_map(module_id, user_id) VALUES (2, 3);
+INSERT INTO modules_users_map(module_id, user_id) VALUES (1, 5);
+INSERT INTO modules_users_map(module_id, user_id) VALUES (2, 5);
 
 SELECT modules.* FROM modules, modules_users_map WHERE modules_users_map.module_id = modules.id AND modules_users_map.user_id = 3;
 
@@ -72,6 +72,10 @@ CREATE TABLE IF NOT EXISTS employee(
 SELECT e.* FROM employee e, bill_ids b, users u
 WHERE e.bill_id = b.id AND b.user_id = u.id
 AND e.id = ? AND u.id = ?;
+
+SELECT e.* FROM employee e, bill_ids b, users u
+WHERE e.bill_id = b.id AND b.user_id = u.id
+AND e.emp_code = 'E001' AND u.id = 3;
 
 SELECT e.* FROM employee e, bill_ids b 
 WHERE e.bill_id = b.id

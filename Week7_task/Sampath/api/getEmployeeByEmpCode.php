@@ -16,8 +16,8 @@ if ($empCode == '') {
     echo (new Response(false, "Please check the Employee Code"))->getJSONResponse();
     return;
 }
-
-$getEmployeeResponse = (new Employee())->getEmployeeByEmpCode($empCode);
+$userId = (new Encryption())->decrypt($_SESSION["userDetails"]);
+$getEmployeeResponse = (new Employee())->getEmployeeByEmpCode($empCode, $userId);
 if ($getEmployeeResponse["data"] == false) {
     $getEmployeeResponse["data"] = [];
     $getEmployeeResponse["message"] = "No Employees Found";

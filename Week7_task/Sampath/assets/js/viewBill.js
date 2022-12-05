@@ -11,19 +11,26 @@ $("document").ready(function () {
 
         async getBill(sbillId) {
             showLoading();
-            if (sbillId == "") {
-                alert("Please Enter valid Tokeb");
+            try{
+
+                if (sbillId == "") {
+                    showMainError("Please Enter valid Tokeb");
+                }
+                this.sbillId = sbillId;
+                if(await this.getBillDetails()){
+                    await this.getBillEarnings();
+                    await this.getBillDeductions();
+                    await this.getEmployeeBankDetails();
+                    await this.singleDeductions();
+                    await this.singleEmployee();
+                    $("#billView").removeClass("d-none");
+                    $("#inputDiv").addClass("d-none");
+                }
+                hideLoading();
+            } catch(e){
+                console.log(e);
+                hideLoading();
             }
-            this.sbillId = sbillId;
-            await this.getBillDetails();
-            await this.getBillEarnings();
-            await this.getBillDeductions();
-            await this.getEmployeeBankDetails();
-            await this.singleDeductions();
-            await this.singleEmployee();
-            $("#billView").removeClass("d-none");
-            $("#inputDiv").addClass("d-none");
-            hideLoading();
         }
 
         async back(){
@@ -36,10 +43,10 @@ $("document").ready(function () {
             await ajaxCall("/api/supplementary_bill/getSBillDetailsById.php", "POST", {
                 billId,
             }).then(({ status, message, data }) => {
-                let billInfoResponse = data.billInfo.data;
-                let employeesInfo = data.employeesInfo;
-                let addingsInfo = data.addingsInfo;
                 if (status == true) {
+                    let billInfoResponse = data.billInfo.data;
+                    let employeesInfo = data.employeesInfo;
+                    let addingsInfo = data.addingsInfo;
                     $("#ui_ddo_code").text(billInfoResponse.ddoCode);
                     $("#ui_bdate").text(billInfoResponse.bill_date);
                     $("#ui_bill_id").text(billId);
@@ -60,7 +67,8 @@ $("document").ready(function () {
                     $("#dpBillId").text(billId);
                     this.billDetails = billInfoResponse;
                 } else {
-                    alert("No Bill Found with this token!");
+                    showMainError("No Bill Found with this token!");
+                    return false;
                 }
             });
         }
@@ -284,4 +292,15 @@ function ajaxCall(url, type, data) {
             error: () => reject(""),
         });
     });
+}
+function showMainError(message) {
+    if (window.errorTimeOut) {
+        clearTimeout(window.errorTimeOut);
+    }
+    $("#errorText").text(message);
+    $("#errorDiv").removeClass("d-none");
+    window.errorTimeOut = setTimeout(function () {
+        $("#errorText").text("");
+        $("#errorDiv").addClass("d-none");
+    }, 3000);
 }
