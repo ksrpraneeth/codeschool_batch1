@@ -4,11 +4,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/classes/response.php";
 
 class SBill
 {
+    private $db;
 
+    public function __construct()
+    {
+        $this->db = new DBConnection();
+    }
     function getSBillDetailsById($billId)
     {
         $query = "SELECT * FROM supplementary_bills WHERE id =?";
-        $queryResponse = (new DBConnection())->selectSingle($query, [$billId]);
+        $queryResponse = $this->db->selectSingle($query, [$billId]);
         return $queryResponse;
     }
 
@@ -16,7 +21,7 @@ class SBill
         $query = "SELECT e.*, sbill.total_earnings, sbill.total_deductions FROM employee e, s_bill_emp_map as sbill
         WHERE sbill.emp_id = e.id
         AND sbill.s_bill_id = ?;";
-        $queryResponse = (new DBConnection())->select($query, [$billId]);
+        $queryResponse = $this->db->select($query, [$billId]);
         return $queryResponse;
     }
 
@@ -26,7 +31,7 @@ class SBill
         WHERE ba.adding_type_id = a.id
         AND ba.s_bill_id = ?) as a
         WHERE a.s_bill_emp_map_id = sbill.id;";
-        $queryResponse = (new DBConnection())->select($query, [$billId]);
+        $queryResponse = $this->db->select($query, [$billId]);
         return $queryResponse;
     }
 }

@@ -13,7 +13,8 @@ if (!isset($_POST['billId'])) {
 }
 
 $billId = $_POST['billId'];
-$billInfoResponse = (new SBill())->getSBillDetailsById($billId);
+$sbillClass = new SBill();
+$billInfoResponse = $sbillClass->getSBillDetailsById($billId);
 if ($billInfoResponse["data"] == false) {
     $billInfoResponse["status"] = false;
     echo json_encode($billInfoResponse);
@@ -22,8 +23,8 @@ if ($billInfoResponse["data"] == false) {
     $date = new DateTime($billInfoResponse["data"]["bill_date"]);
     $billInfoResponse["data"]["bill_date"] = $date->format('d/m/Y');
     $billInfoResponse["data"]["ddoCode"] = (new Encryption())->decrypt($_SESSION["userDetails"]);
-    $employeeResponse = (new SBill())->getBillEmployees($billId);
-    $billAddingsResponse = (new SBill())->getBillAddings($billId);
+    $employeeResponse = $sbillClass->getBillEmployees($billId);
+    $billAddingsResponse = $sbillClass->getBillAddings($billId);
     echo (new Response(true, "Success", [
         "billInfo" => $billInfoResponse,
         "employeesInfo" => $employeeResponse,
