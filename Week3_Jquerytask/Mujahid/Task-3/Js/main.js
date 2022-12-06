@@ -65,7 +65,7 @@ $(document).ready(function () {
                 errors.push("Please enter your Last name");
             }
 
-            if (url.length == 0 || url.length > 500) {
+            if (url.length == 0 || url.length > 500) { 
                 errors.push("Should contain a url including http:");
             }
 

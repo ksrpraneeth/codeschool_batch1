@@ -10,7 +10,7 @@ if (!array_key_exists('email', $_POST)) {
 }
 if (!array_key_exists('password', $_POST)) {
     $response['status'] = false;
-    $response['message'] = "Please enter a Password address";
+    $response['message'] = "Please enter a Password";
     echo json_encode($response);
     return;
 }

@@ -105,7 +105,7 @@ VALUES
         'prashanth',
         28,
         'male',
-        ',mulugu',
+        'mulugu',
         '1234509877'
     );
 
@@ -631,3 +631,122 @@ INSERT INTO
     inward_bill_particulars(id, inward_id, bill_discription, price)
 VALUES
     (15, 15, 'Surgery,medicines,consultation', 60000);
+
+CREATE TABLE users(
+    id int primary key,
+    name varchar(100),
+    username varchar(30),
+    mobile varchar(10),
+    email varchar(50),
+    password varchar(200),
+    status int default 1
+);
+
+INSERT INTO
+    users(
+        id,
+        name,
+        username,
+        mobile,
+        email,
+        password,
+        status
+    )
+VALUES
+(
+        1,
+        'Pavan kumar',
+        'Pavan095',
+        '8106154818',
+        'pillipavankumar095@gmail.com',
+        'Pavankumar@095',
+        1
+    );
+
+CREATE TABLE diseases(
+    id int primary key,
+    name varchar(100),
+    disease varchar(50)
+);
+
+insert into
+    diseases(id, name, disease)
+values
+('1', 'ganesh', 'fever');
+
+insert into
+    diseases(id, name, disease)
+values
+('2', 'sathish', 'cold');
+
+insert into
+    diseases(id, name, disease)
+values
+('3', 'seetha', 'cough');
+
+insert into
+    diseases(id, name, disease)
+values
+('4', 'ram', 'corona');
+
+insert into
+    diseases(id, name, disease)
+values
+('5', 'prashanth', 'alcer');
+
+insert into
+    diseases(id, name, disease)
+values
+('6', 'lavan', 'cancer');
+
+insert into
+    diseases(id, name, disease)
+values
+('7', 'sanjana', 'diabetes');
+
+insert into
+    diseases(id, name, disease)
+values
+('8', 'umran', 'bloodpressure');
+
+insert into
+    diseases(id, name, disease)
+values
+('9', 'samad', 'Heartattack');
+
+insert into
+    diseases(id, name, disease)
+values
+('10', 'john', 'fever');
+
+insert into
+    diseases(id, name, disease)
+values
+('11', 'stella', 'cold');
+
+insert into
+    diseases(id, name, disease)
+values
+('12', 'janaki', 'cough');
+
+insert into
+    diseases(id, name, disease)
+values
+('13', 'vishnu', 'corona');
+
+insert into
+    diseases(id, name, disease)
+values
+('14', 'peter', 'cancer');
+
+insert into
+    diseases(id, name, disease)
+values
+('15', 'vinnela', 'diabetes');
+
+CREATE SEQUENCE inwards_id_seq;
+ALTER TABLE inwards ALTER COLUMN id SET DEFAULT nextval('inwards_id_seq');
+ALTER TABLE inwards ALTER COLUMN id SET NOT NULL;
+ALTER SEQUENCE inwards_id_seq OWNED BY inwards.id;
+
+SELECT setval('inwards_id_seq', 16, true);
