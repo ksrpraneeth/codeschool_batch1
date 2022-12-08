@@ -15,8 +15,7 @@ room no room type and date from to
 
 5> customer checking out date 
 
-on date how many are checkedouts .
-
+on date how many are checkedouts 
 
 --------------------------Queries-----------------
 
