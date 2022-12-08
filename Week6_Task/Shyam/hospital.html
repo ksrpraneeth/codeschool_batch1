@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row text-center mt-2">
+        <h3><i>MS Hospitals</i></h3>
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-2" style="height: 100%;">
+          <ul class="list-unstyled">
+            <li class="" style="cursor: pointer"><b>MENU</b></li>
+            <br />
+            <div class="btn-group-dropend" style="cursor: pointer">
+              <button
+                type="button"
+                class="btn dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <b>MASTER</b>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="department.html"
+                    class="dropdown-item btn"
+                    ><b>DEPARTMENT</b></a
+                  >
+                </li>
+                <li>
+                  <a href="roomtype.html"
+                    class="dropdown-item btn" 
+                    ><b>ROOM TYPE</b></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <br />
+            <li><a href="patient.html" class="" style="cursor: pointer; color: black; " ><b>PATIENT</b></a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-10 ">
+        
+      </div>
+      <div class="justify-content-center" >
+        <button class="btn btn-primary" id="logoutbtn">
+            LOGOUT
+        </button>
+      </div>
+    </div>
+  </body>
+  <script>
+
+if (localStorage.getItem("userData") == null) {
+            window.location.assign("login.html");
+      }
+      
+    $("#logoutbtn").click(function () {
+            localStorage.removeItem("userData");
+            window.location.assign("login.html");
+        });
+  </script>
+</html>
