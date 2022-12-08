@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row text-center mt-2">
+          <h3><i>MS Hospitals</i></h3>
+        </div>
+        <div class="justify-content-center mx-3 my-2" style="float:right;" >
+          <span> <button class="btn btn-primary " id="logoutbtn">
+               LOGOUT
+           </button></span>
+         </div>
+        <br />
+        <div class="row">
+          <div class="col-2" style="height: 100%">
+            <ul class="list-unstyled">
+              <li class="" style="cursor: pointer"><b>MENU</b></li>
+              <br />
+              <div class="btn-group-dropend" style="cursor: pointer">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <b>MASTER</b>
+                </button>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="department.html" class="dropdown-item btn" 
+                      ><b>DEPARTMENT</b></a
+                    >
+                  </li>
+                  <li>
+                    <a href="roomtype.html"
+                      class="dropdown-item"
+                      ><b>ROOM TYPE</b></a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <br />
+              <li><a href="patient.html" class="" style="cursor: pointer; color: black; " ><b>PATIENT</b></a></li>
+            </ul>
+          </div>
+          <div class="col-10">
+            <div class="d-flex mt-4 mx-3">
+              <button
+                type="submit"
+                class="btn btn-info btn-sm text-white mx-3"
+                data-bs-toggle="modal"
+                data-bs-target="#patientroombtn"
+              >
+                <b>+ ADD </b>
+              </button>
+            </div>
+            <table class="table table-bordered mt-4 mx-3" id="">
+              <thead>
+              <tr>
+                  <th >Patient Id</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Age</th>
+                  <th>Disease</th>
+                  <th>Department Name </th> 
+                  <th>Room Type </th>  
+              </tr>
+            </thead>
+            <tbody id="values">
+
+            </tbody>  
+            </table>
+          </div>
+        </div>
+      </div>
+
+       <!-- Modal1 -->
+
+       <div class="modal" tabindex="-1" id="patientroombtn">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">PATIENT DETAILS</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div>
+              <p class="text-danger" id="errors"></p>
+            </div>
+            <div class="modal-body">
+              <form id="" method="post">
+                <div class="form-group d-flex mt-3">
+                  <label class="">Patient_Id:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Please Enter Patient Id"
+                    id="patientid"
+                  />
+                </div>
+                <div class="form-group d-flex mt-3">
+                  <label class="mt-1">First_Name:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Please Enter First Name"
+                    id="firstname"
+                  />
+                </div>
+                <div class="form-group d-flex mt-3">
+                  <label class="mt-1">Last_Name: </label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Please Enter Last Name"
+                    id="lastname"
+                  />
+                </div>
+                <div class="form-group d-flex mt-3">
+                  <label class="mt-1">Age:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Please Enter Age"
+                    id="age"
+                  />
+                </div>
+                <div class="form-group d-flex mt-3">
+                  <label class="mt-1">Disease:</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Please Enter Disease "
+                    id="disease"
+                  />
+                </div>
+                <div class="form-group d-flex mt-3">
+                  <div>
+                    <label for="departmentname" class="mt-1">department_name:</label>
+                  </div>
+                  <div>
+                    <select name="department" id="dept">
+                      <option value="select">select</option>
+                           </select>
+                  </div>
+                  </div>
+                  <div class="form-group d-flex mt-3">
+                    <div>
+                      <label class="mt-1">room_type:</label>
+                    </div>
+                    <div>
+                     
+                    <select name="roomtype" id="room">
+                       <option value="select">select</option>
+                            </select>
+                    </div>
+                    
+                  </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button type="button" class="btn btn-primary" id="btnsave">
+                Save 
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+<script>
+  if (localStorage.getItem("userData") == null) {
+            window.location.assign("login.html");
+      }
+
+      $("#btnsave").click(function () {
+      let Patient_Id = $("#patientid").val();
+      let First_Name = $("#firstname").val();
+      let Last_Name = $("#lastname").val();
+      let Age = $("#age").val();
+      let Disease = $("#disease").val();
+      let department_name = $("#dept").val();
+      let room_type = $("#room").val();
+      let token=JSON.parse(localStorage.getItem('userData')).token;
+      $.ajax({
+          url:"patientvalues.php",
+          method: "POST",
+          dataType: "JSON",
+          data: {
+            token,
+            Patient_Id,
+            First_Name,
+            Last_Name,
+            Age,
+            Disease,
+            department_name,
+            room_type,
+          },
+          success: function(responseData){
+              // responseData = JSON.parse(responseData);
+              if(!responseData.status){
+                  $('#errors').text(responseData.message);
+              }else{
+                  alert(responseData.message);
+              }
+          },
+          error: function(){
+
+          }
+      })
+  });
+
+ 
+      $("document").ready(function(){
+        $.ajax({
+          "url":"./api/fetchDepartments.php",
+          "type": "GET",
+          "dataType": "JSON",
+          success: function(data){
+              if(data.status == true){
+                data.data.forEach((department) =>{
+                  $("#dept").append(`
+                  <option>${department.departmentname}</option>`)
+                })
+              }
+          }
+        })
+      });
+
+      $("document").ready(function(){
+        $.ajax({
+          "url":"./api/fetchRoomType.php",
+          "type": "GET",
+          "dataType": "JSON",
+          success: function(data){
+              if(data.status == true){
+                data.data.forEach((roomtype) =>{
+                  $("#room").append(`
+                  <option>${roomtype.room_type}</option>`)
+                })
+              }
+          }
+        })
+      });
+
+         
+     $("document").ready(function () { 
+       $.ajax({
+        url: "gettingpatientvalues.php",
+        method: "POST",
+        dataType: "JSON",
+        success: function(responseData){
+          if(responseData.status){
+            responseData.data.forEach((row) => {
+            $("#values").append(`
+                  <tr>
+                     <td>${row.patient_id}</td>
+                     <td>${row.first_name}</td>
+                     <td>${row.last_name}</td>
+                     <td>${row.age}</td>
+                     <td>${row.disease}</td>
+                     <td>${row.department_name}</td>
+                     <td>${row.room_type}</td>
+                    
+                  </tr>
+                              
+                `);
+            }); 
+            
+          }
+        }
+       })
+     });
+      
+
+
+      $("#logoutbtn").click(function () {
+          localStorage.removeItem("userData");
+          window.location.assign("login.html");
+      });
+</script>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="errorid"></div>
+    <div class="container-fluid">
+      <div class="row text-center mt-2">
+        <h3><i>MS Hospitals</i></h3>
+      </div>
+      <div class="justify-content-center mx-3 my-2" style="float: right">
+        <span>
+          <button class="btn btn-primary" id="logoutbtn">LOGOUT</button></span
+        >
+      </div>
+      <br />
+      <div class="row">
+        <div class="col-2" style="height: 100%">
+          <ul class="list-unstyled">
+            <li class="" style="cursor: pointer"><b>MENU</b></li>
+            <br />
+            <div class="btn-group-dropend" style="cursor: pointer">
+              <button
+                type="button"
+                class="btn dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <b>MASTER</b>
+              </button>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="department.html" class="dropdown-item btn"
+                    ><b>DEPARTMENT</b></a
+                  >
+                </li>
+                <li>
+                  <a href="roomtype.html" class="dropdown-item"
+                    ><b>ROOM TYPE</b></a
+                  >
+                </li>
+              </ul>
+            </div>
+            <br />
+            <li>
+              <a
+                href="patient.html"
+                class=""
+                style="cursor: pointer; color: black"
+                ><b>PATIENT</b></a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-10">
+          <div class="d-flex mt-4 mx-3">
+            <button
+              type="submit"
+              class="btn btn-info btn-sm text-white mx-3"
+              data-bs-toggle="modal"
+              data-bs-target="#departmentbtn"
+              id="adddatabtn"
+            >
+              <b>+ ADD </b>
+            </button>
+          </div>
+          <table class="table table-bordered mt-4 mx-3" id="">
+            <thead>
+              <tr>
+                <th>Department Id</th>
+                <th>Department Name</th>
+                <th>Department Head</th>
+                <th>Department PhoneNumber</th>
+                <th>Floor Id</th>
+              </tr>
+            </thead>
+            <tbody id="getdata"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal1 -->
+
+    <div class="modal" tabindex="-1" id="departmentbtn">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">DEPARTMENT</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div><p class="text-danger" id="errorid">
+          </p>
+        </div>
+          <div class="modal-body">
+            <form id="" method="post">
+              <div class="form-group d-flex mt-3">
+                <label class="">Department Id:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Please Enter Department Id"
+                  id="deptid"
+                />
+              </div>
+              <div class="form-group d-flex mt-3">
+                <label class="mt-1">Department Name:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Please Enter Department Name"
+                  id="deptname"
+                />
+              </div>
+              <div class="form-group d-flex mt-3">
+                <label class="mt-1">Department Head: </label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Please Enter Department Head"
+                  id="depthead"
+                />
+              </div>
+              <div class="form-group d-flex mt-3">
+                <label class="mt-1">Department PhoneNumber:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Please Enter Department Phone Number"
+                  id="deptphonenmber"
+                />
+              </div>
+              <div class="form-group d-flex mt-3">
+                <label class="mt-1">Floor Id:</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Please Enter Floor Id "
+                  id="floornumber"
+                />
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary" id="savebtn">
+              Save
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    if (localStorage.getItem("userData") == null) {
+      window.location.assign("login.html");
+    }
+
+    $("document").ready(function () {
+      $.ajax({
+        method: "POST",
+        url: "gettingdeptvalues.php",
+        dataType: "JSON",
+        success: function (responseData) {
+          if (responseData.status) {
+            responseData.data.forEach((row ) => {
+              $("#getdata").append(`
+                  <tr>
+                     <td>${row.departmentid}</td>
+                     <td>${row.departmentname}</td>
+                     <td>${row.departmenthead}</td>
+                     <td>${row.departmentphonenumber}</td>
+                     <td>${row.floor_id}</td>
+                  </tr>
+                              
+                `);
+            });
+          }
+        },
+      })
+    });
+    
+    $("#savebtn").click(function () {
+        let DepartmentId = $("#deptid").val();
+        let DepartmentName = $("#deptname").val();
+        let DepartmentHead = $("#depthead").val();
+        let DepartmentPhoneNumber = $("#deptphonenmber").val();
+        let Floor_Id = $("#floornumber").val();
+        let token=JSON.parse(localStorage.getItem('userData')).token;
+        $.ajax({
+            url:"departmentvalues.php",
+            method: "POST",
+            data: {
+                token,
+                DepartmentId,
+                DepartmentName,
+                DepartmentHead,
+                DepartmentPhoneNumber,
+                Floor_Id,
+            },
+            success: function(responseData){
+                responseData = JSON.parse(responseData);
+                if(!responseData.status){
+                    $('#errorid').text(responseData.message);
+                    if(responseData.message == "Logout"){
+                      localStorage.removeItem("userData")
+                      location.href = 'login.html';
+                    }
+                }else{
+                    alert(responseData.message);
+                    
+                }
+            },
+            error: function(){
+
+            }
+        })
+    });
+
+    
+
+    $("#logoutbtn").click(function () {
+      localStorage.removeItem("userData");
+      window.location.assign("login.html");
+    });
+  </script>
+</html>
