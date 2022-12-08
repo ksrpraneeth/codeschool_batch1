@@ -2,8 +2,9 @@
 
 include "adminAuthentication.php";
 
-$statement = $pdo->prepare("select p.*,e.emp_name from projects p,project_mapping pm,employee e where e.emp_id=pm.emp_id and p.project_id=pm.project_id and pm.emp_id!=? order by pm.emp_id ");
-$statement->execute([$_SESSION['emp_id']]);
+
+$statement = $pdo->prepare("select e.emp_id,e.emp_name,extract(month from a.date) as month,count(a.status) count_days  from employee e,emp_attendance a where e.emp_id=a.emp_id and a.status='t' and e.emp_id!=? group by (e.emp_id,extract(month from a.date))order by extract(month from a.date) desc; ");
+$statement->execute([($_SESSION['emp_id'])]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -14,7 +15,7 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
+    <title>Admin Dashboard</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -23,18 +24,17 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 </head>
 
 <body>
     <style>
-        .projectDetails {
+        .viewEmployeeAttendance {
             background-color: blue;
             opacity: 60%;
             color: white;
         }
 
-        .projectDetails:hover {
+        .viewEmployeeAttendance:hover {
             background-color: blue;
             opacity: 60%;
             color: white;
@@ -46,36 +46,34 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php
             include "adminHeader.php"
                 ?>
-            <div class="container mt-3">
-                <h5 class="py-3 m-0">Project Details</h5>
+            <div class="container mt-3 overflow-auto">
+                <div class="border-bottom py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="m-0">Employee Attendance Details</h5>
+                </div>
                 <table class="table table-bordered">
                     <thead>
-                        <tr class="bg-secondary text-white">
-                            <th>Project ID</th>
-                            <th>Project Name</th>
-                            <th>Client</th>
-                            <th>Duration (in.Months)</th>
-                            <th>Manager</th>
+                        <tr>
+                            <th>Employee Id</th>
+                            <th>Employee Name</th>
+                            <th>Month</th>
+                            <th>No. of Days Present</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        foreach ($resultSet as $row) {
-                            echo "<tr>";
-                            echo "<td><a type='button' class='btn' href='projectDescription.php?projid=" . $row['project_id'] . "'>" . $row['project_id'] . "</a></td>";
-                            echo "<td>" . $row['project_name'] . "</td>";
-                            echo "<td>" . $row['client'] . "</td>";
-                            echo "<td>" . $row['duration'] . "</td>";
-                            echo "<td>" . $row['emp_name'] . "</td>";
-                            echo "</tr>";
-                        }
-                        ?>
+                            foreach ($resultSet as $row) {
+                                echo "<tr>";
+                                echo "<td>". $row['emp_id']. "</td>";
+                                echo "<td>" . $row['emp_name'] . "</td>";
+                                echo "<td>" . $row['month'] . "</td>";
+                                echo "<td>" . $row['count_days'] . "</td>";
+                                echo "</tr>";
+                            }
+                            ?>
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
-
 </body>
 
 </html>

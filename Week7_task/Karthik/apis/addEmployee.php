@@ -52,6 +52,34 @@
         return;
     }
     $jobRoleIdInput = $_POST['jobRoleIdInput'];
+    if (!array_key_exists('empAddressInput', $_POST)) {
+        $response['status'] = false;
+        $response['message'] = "Please enter a Role ID";
+        echo json_encode($response);
+        return;
+    }
+    $empAddressInput = $_POST['empAddressInput'];
+    if (!array_key_exists('empDobInput', $_POST)) {
+        $response['status'] = false;
+        $response['message'] = "Please enter a Role ID";
+        echo json_encode($response);
+        return;
+    }
+    $empDobInput = $_POST['empDobInput'];
+    if (!array_key_exists('empJoinedDateInput', $_POST)) {
+        $response['status'] = false;
+        $response['message'] = "Please enter a Role ID";
+        echo json_encode($response);
+        return;
+    }
+    $empJoinedDateInput = $_POST['empJoinedDateInput'];
+    if(strlen($empidInput)==0)
+    {
+        $response['status'] = false;
+        $response['message'] = "Please enter a Employee ID";
+        echo json_encode($response);
+        return;
+    }
     if(strlen($empidInput)==0)
     {
         $response['status'] = false;
@@ -107,8 +135,8 @@ try {
     return;
     }
 
-    $statement = $pdo->prepare("insert into employee(emp_id,emp_name,salary,ph_no,email,password,role_id) values(?,?,?,?,?,?,?)");
-    $statement->execute([($_POST['empidInput']), ($_POST['empNameInput']), ($_POST["empSalaryInput"]), ($_POST['empPhnoInput']), ($_POST['empEmailInput']), md5($_POST['empPasswordInput']), ($_POST['jobRoleIdInput'])]);
+    $statement = $pdo->prepare("insert into employee(emp_id,emp_name,salary,ph_no,email,password,role_id,emp_address,dob,date_joined) values(?,?,?,?,?,?,?,?,?,?)");
+    $statement->execute([$empidInput,$empNameInput,$empSalaryInput,$empPhnoInput,$empEmailInput,md5($empPasswordInput),$jobRoleIdInput,$empAddressInput,$empDobInput,$empJoinedDateInput]);
     $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
     $response['status'] = true;
     $response['message'] = "Employee added";

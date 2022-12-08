@@ -5,14 +5,14 @@
     session_start();
     if (!array_key_exists('presentDate', $_POST)) {
         $response['status'] = false;
-        $response['message'] = "Please enter Employee Name";
+        $response['message'] = "Please enter Date";
         echo json_encode($response);
         return;
     }
     $presentDate = $_POST['presentDate'];
     if (!array_key_exists('attendanceStatus', $_POST)) {
         $response['status'] = false;
-        $response['message'] = "Please enter a Employee ID";
+        $response['message'] = "Please Select Status";
         echo json_encode($response);
         return;
     }

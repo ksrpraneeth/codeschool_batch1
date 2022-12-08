@@ -7,7 +7,7 @@ if ($_SESSION['role_id'] == 12) {
     include "employeeAuthentication.php";
 }
 
-$statement = $pdo->prepare("select from_empid,message,message_date from messages where to_empid=? order by message_date desc ");
+$statement = $pdo->prepare(" select *from employee where emp_id!=?");
 $statement->execute([$_SESSION['emp_id']]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -54,33 +54,23 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                 include "employeeHeader.php";
             }
             ?>
-            <div class="container mt-3">
+            <div class="container  mt-3">
                 <div class="d-flex justify-content-between py-2">
-                    <h5 class="align-items-center">Employee Details</h5>
-                    <a class="btn bg-primary text-white" href="chat.php">Send Message</a>
+                    <h5 class="align-items-center">Messages</h5>
+                    <!-- <a class="btn bg-primary text-white" href="chat.php">Send Message</a> -->
                 </div>
-                <table class="table table-bordered">
-                    <thead>
-                        <tr class="bg-secondary text-white">
-                            <th>Mark as read</th>
-                            <th>Employee ID</th>
-                            <th>Message</th>
-                            <th>Date</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+                <div class="d-flex py-2">
+                    <ul class="list-group">
                         <?php
-          foreach ($resultSet as $row) {
-              echo "<tr>";
-              echo "<td>" .'<input type="checkbox" id="suspendEmployee" name="suspend" value="suspend">' . "</td>";
-              echo "<td>" . $row['from_empid'] . "</td>";
-              echo "<td>" . $row['message'] . "</td>";
-              echo "<td>" . $row['message_date'] . "</td>";
-              echo "</tr>";
-          }
-          ?>
-                    </tbody>
-                </table>
+                        foreach ($resultSet as $row)
+                            echo "<a class='list-group-item' href='chat.php?to_empid=" . $row['emp_id'] . "'>" . $row['emp_name'] . "</a>";
+                        ?>
+                    </ul>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

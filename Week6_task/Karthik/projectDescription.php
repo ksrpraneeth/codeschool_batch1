@@ -2,8 +2,8 @@
 
 include "adminAuthentication.php";
 
-$statement = $pdo->prepare("select p.project_id,p.project_name,e.emp_name,p.description,p.budget,p.start_date,p.end_date from projects p left join employee e on e.emp_id=p.manager where p.project_id = ?");
-$statement->execute([$_GET["projectId"]]);
+$statement = $pdo->prepare("select p.project_id,p.project_name,pd.description,e.emp_name,pd.budget from employee e,projects p,project_mapping pm,project_details pd where e.emp_id=pm.emp_id and p.project_id=pd.project_id and p.project_id=pm.project_id AND p.project_id = ?");
+$statement->execute([$_GET["projid"]]);
 $resultSet = $statement->fetch(PDO::FETCH_ASSOC);
 
 ?>
@@ -48,26 +48,32 @@ $resultSet = $statement->fetch(PDO::FETCH_ASSOC);
                 ?>
             <div class="container mt-3">
                 <?php
-                if ($resultSet == false) {
-                    echo "No Data found!";
-                } else {
-                    echo "<h5 class='py-3 m-0'>Project Description</h5>
+                    if($resultSet == false){
+                        echo "No Data found!";
+                    } else {
+echo "<h5 class='py-3 m-0'>Project Description</h5>
 <div class='d-flex'>
     <strong class='col-2'>Project ID</strong>
     <p id='projectId'>
-        " . $resultSet["project_id"] . "
+        ". $resultSet["project_id"] . "
                 </p>
             </div>
             <div class='d-flex'>
                 <strong class='col-2'>Project Name</strong>
                 <p class='' id='EmpName'>
-                    " . $resultSet['project_name'] . "
+                    " .$resultSet['project_name'] . "
                 </p>
             </div>
             <div class='d-flex'>
                 <strong class='col-2'>Description</strong>
                 <p class='' id='description'>
-                    " . $resultSet['description'] . "
+                    " . $resultSet['description'] ."
+                </p>
+            </div>
+            <div class='d-flex'>
+                <strong class='col-2'>Manager</strong>
+                <p class='' id='emp_name'>
+                    " . $resultSet['emp_name'] . "
                 </p>
             </div>
             <div class='d-flex'>
@@ -76,58 +82,14 @@ $resultSet = $statement->fetch(PDO::FETCH_ASSOC);
                     " . $resultSet['budget'] . "
                 </p>
             </div>
-            <div class='d-flex'>
-            <strong class='col-2'>Start Date</strong>
-            <p class='' id='budget'>
-                " . $resultSet['start_date'] . "
-            </p>
-        </div>
-        <div class='d-flex'>
-        <strong class='col-2'>End Date</strong>
-        <p class='' id='budget'>
-            " . $resultSet['end_date'] . "
-        </p>
-    </div>
-    <div class='d-flex'>
-        <strong class='col-2'>Manager</strong>
-        <p class='' id='budget'>
-            " . $resultSet['emp_name'] . "
-        </p>
-    </div>
             <a class='btn btn-primary my-3' href='projectDetails.php'>Close</a>
-            <a class='btn btn-primary my-3' href='addEmployeesToProject.php?projectId=" . $resultSet['project_id'] . "'>Add Employees</a>
         </div>";
-                }
-                ?>
+        }
+        ?>
+
             </div>
         </div>
-            <?php
-            $statement = $pdo->prepare('select e.emp_id,e.emp_name from project_mapping p,employee e where e.emp_id=p.emp_id and p.project_id=?');
-            $statement->execute(array($_GET['projectId']));
-            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-            <div class="ms-lg-5 px-lg-5 col-lg-3">
-            <h4>Team Members</h4>
-            <table class="table table-bordered overflow-auto">
-                <thead>
-                    <tr class="bg-secondary text-white ">
-                        <th>Employee ID</th>
-                        <th>Employee Name</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php
-                        foreach ($result as $row) {
-                            echo "<tr>";
-                            echo "<td><a type='button' class='btn'>" . $row['emp_id'] . "</a></td>";
-                            echo "<td><a type='button' class='btn' id=" . $row['emp_id'] . ">" . $row['emp_name'] . "</a></td>";
-                            echo "</tr>";
-                        }
-                        ?>
-                </tbody>
-            </table>
-            </div>
-        </div>
+    </div>
 </body>
 
 </html>

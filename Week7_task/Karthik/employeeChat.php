@@ -11,6 +11,9 @@ if ($_SESSION['role_id'] == "12") {
     header("Location: login.php");
 }
 
+$statement = $pdo->prepare("select * from employee where emp_id!=?");
+$statement->execute([$_SESSION['emp_id']]);
+$resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -33,13 +36,13 @@ if ($_SESSION['role_id'] == "12") {
 
 <body>
     <style>
-        .attendance {
+        .employeechat {
             background-color: blue;
             opacity: 60%;
             color: white;
         }
 
-        .attendance:hover {
+        .employeechat:hover {
             background-color: blue;
             opacity: 60%;
             color: white;
@@ -48,63 +51,55 @@ if ($_SESSION['role_id'] == "12") {
     </style>
     <div class="container-fluid">
         <div class="row">
-            <?php 
-            include "employeeHeader.php"; 
-            ?>
+            <?php include "employeeHeader.php"; ?>
             <div class="container">
                 <form onsubmit="return false">
-                    <div class="form-group d-lg-flex align-items-center">
-                        <p class="p-2 col-2">Date</p>
-                        <input type="date" class="form-control-md border-1 p-1" id="presentDate">
+                    <div class="form-group d-lg-flex">
+                        <p class="p-2 col-2">To</p>
+                        <select class="form-control" id="toEmpId">
+                            <option value="" selected disabled>Select</option>
+                            <?php
+                            foreach ($resultSet as $row) {
+                                echo '<option value="' . $row['emp_id'] . '">' . $row['emp_name'] . '</option>';
+                            } ?>
+                        </select>
                     </div>
                     <div class="form-group d-lg-flex">
-                        <p class="p-2 col-2">Status</p>
-                        <div class="form-check py-2 mx-2">
-                            <input class="form-check-input" type="radio" name="attendanceStatus" id="attendanceStatusPresent" value="1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                Present
-                            </label>
-                        </div>
-                        <div class="form-check py-2 ms-5">
-                            <input class="form-check-input" type="radio" name="attendanceStatus" id="attendanceStatusAbsent"
-                                value="0">
-                            <label class="form-check-label" for="flexRadioDefault2">
-                                Absent
-                            </label>
-                        </div>
+                        <p class="p-2 col-2">Message</p>
+                        <textarea class="form-control" id="message" placeholder="Enter Message"></textarea>
                     </div>
                     <div class="form-group d-lg-flex justify-content-between my-2">
                         <p></p>
                         <button type="submit" class="btn align-items-center btn-primary text-white px-3 py-1"
-                            id="addAttendance">Add</button>
-                    </div>
+                            id="sendMessage">Send</button>
                 </form>
-            </div>
-        </div>
 </body>
 <script>
-        $("#addAttendance").click(function () {
+    $(document).ready(function () {
+        $("#sendMessage").click(function () {
             var formData = {
-                presentDate: $("#presentDate").val(),
-                attendanceStatus : $("input[type=radio][name=attendanceStatus]:checked").val(),
+                toEmpId: $("#toEmpId").val(),
+                message: $("#message").val()
             }
             $.ajax({
                 type: "POST",
-                url: "apis/addAttendance.php",
+                url: "apis/employeeChat.php",
                 dataType: "JSON",
                 data: formData,
                 success: function (responseData) {
                     if (!responseData.status) {
                         alert(responseData.message);
                         // window.location.reload();
+                        return;
                     }
                     else {
-                        alert("Attendance Added");
+                        alert(responseData.message);
                         window.location.reload();
                     }
                 }
             })
         })
+    })
 </script>
 
 </html>

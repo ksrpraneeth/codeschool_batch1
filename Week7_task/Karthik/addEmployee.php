@@ -1,6 +1,6 @@
 <?php
 include "adminAuthentication.php"
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +19,7 @@ include "adminAuthentication.php"
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body">
+<body>
     <div class="container-fluid">
         <div class="row">
             <?php
@@ -56,51 +56,73 @@ include "adminAuthentication.php"
                     </div>
                     <div class="d-flex">
                         <p class="col-4">Job role</p>
-                        <select class="form-control" id="jobRoleIdInput" required>
-                            <option value="" disabled selected>Select</option>
-                            <option value="11">Developer</option>
-                            <option value="12">Admin</option>
-                            <option value="13">Testing</option>
+                        <select class='form-control' id='jobRoleIdInput' required>
+                            <option value="" selected disabled>Select</option>
+                            <?php
+                        $statement = $pdo->prepare("select *from job_role");
+                        $statement->execute();
+                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        if ($result) {
+                            foreach ($result as $row) {
 
+                                echo "<option value=" . $row['id'] . ">" . $row['role_name'] . "</option>";
+                            }
+                        }
+                        ?>
                         </select>
                     </div>
-                            <p id="errors text-danger"></p>
-                            <div class="d-flex justify-content-between">
-                                <p></p>
-                                <button type="submit" class="btn btn-primary text-white px-3 py-1"
-                                    id="addEmployeeeButton">Add</button>
-                            </div>
+                    <div class="d-flex">
+                        <p class="col-4">Address</p>
+                        <input type="text" class="form-control my-1" id="empAddressInput">
+                    </div>
+                    <div class="d-flex">
+                        <p class="col-4">Date of Birth</p>
+                        <input type="date" class="form-control my-1" id="empDobInput">
+                    </div>
+                    <div class="d-flex">
+                        <p class="col-4">Date Joined</p>
+                        <input type="date" class="form-control my-1" id="empJoinedDateInput">
+                    </div>
+                    <p id="errors text-danger"></p>
+                    <div class="d-flex justify-content-between">
+                        <p></p>
+                        <button type="submit" class="btn btn-primary text-white px-3 py-1"
+                            id="addEmployeeButton">Add</button>
                     </div>
             </div>
         </div>
-        <script>
-            $("#addEmployeeeButton").click(function () {
-                var formData = {
-                    empidInput: $("#empidInput").val(),
-                    empNameInput: $("#empNameInput").val(),
-                    empSalaryInput: $("#empSalaryInput").val(),
-                    empPhnoInput: $("#empPhnoInput").val(),
-                    empEmailInput: $("#empEmailInput").val(),
-                    empPasswordInput: $("#empPasswordInput").val(),
-                    jobRoleIdInput: $("#jobRoleIdInput").val()
-                }
-                $.ajax({
-                    type: "POST",
-                    url: "apis/addEmployee.php",
-                    dataType: "JSON",
-                    data: formData,
-                    success: function (responseData) {
-                        if (!responseData.status) {
-                            alert(responseData.message);
-                        }
-                        else {
-                            alert("Employee Added");
-                            window.location.assign('employees.php');
-                        }
+    </div>
+    <script>
+        $("#addEmployeeButton").click(function () {
+            var formData = {
+                empidInput: $("#empidInput").val(),
+                empNameInput: $("#empNameInput").val(),
+                empSalaryInput: $("#empSalaryInput").val(),
+                empPhnoInput: $("#empPhnoInput").val(),
+                empEmailInput: $("#empEmailInput").val(),
+                empPasswordInput: $("#empPasswordInput").val(),
+                jobRoleIdInput: $("#jobRoleIdInput").val(),
+                empAddressInput: $("#empAddressInput").val(),
+                empDobInput: $("#empDobInput").val(),
+                empJoinedDateInput: $("#empJoinedDateInput").val()
+            }
+            $.ajax({
+                type: "POST",
+                url: "apis/addEmployee.php",
+                dataType: "JSON",
+                data: formData,
+                success: function (responseData) {
+                    if (!responseData.status) {
+                        alert(responseData.message);
                     }
-                })
+                    else {
+                        alert("Employee Added");
+                        window.location.assign('employees.php');
+                    }
+                }
             })
-        </script>
-        </body>
+        })
+    </script>
+    </body>
 
 </html>
