@@ -512,7 +512,7 @@ function insertingDataInto() {
         alert(responseData.message);
       } else {
         alert(responseData.message);
-        //location.reload();
+        location.reload();
       }
     },
   });
