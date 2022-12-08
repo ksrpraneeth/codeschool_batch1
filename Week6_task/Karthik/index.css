@@ -8,6 +8,13 @@
     text-align: center;
     align-items: center;
     background-color: rgb(255, 255, 255);
+}
+.passwordChangeForm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    transform:translate(-50%, -50%);
 }   
 .total_list a:hover{
     background-color: gray;

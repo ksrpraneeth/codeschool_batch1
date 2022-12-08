@@ -1,6 +1,12 @@
 <?php
-include "adminAuthentication.php"
-    ?>
+session_start();
+include "adminAuthentication.php";
+$statement = $pdo->prepare("select * from employee where emp_id=?");
+$statement->execute([$_GET['emp_id']]);
+$resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+foreach($resultSet as $row)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +25,7 @@ include "adminAuthentication.php"
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
-<body>
+<body">
     <div class="container-fluid">
         <div class="row">
             <?php
@@ -27,32 +33,43 @@ include "adminAuthentication.php"
                 ?>
             <div class="container mt-3">
                 <div class="border-bottom py-3 justify-content-between align-items-center">
-                    <h5>Add Employee</h5>
+                    <h5>Update Employee</h5>
                 </div>
                 <form class="form my-2" onclick="return false" autocomplete="off">
                     <div class="d-flex">
-                        <p class="col-4">Employee Id</p>
-                        <input type="text" class="form-control my-1" id="empidInput">
+                        <input type="hidden" class="form-control my-1" id="empIdInput" value="<?php
+                        echo $_GET['emp_id'];
+                        ?>">
                     </div>
                     <div class="d-flex">
                         <p class="col-4">Employee Name</p>
-                        <input type="text" class="form-control my-1" id="empNameInput">
+                        <input type="text" class="form-control my-1" id="empNameInput" value="<?php
+                        echo $row['emp_name'];
+                        ?>">
                     </div>
                     <div class="d-flex">
                         <p class="col-4">Salary</p>
-                        <input type="text" class="form-control my-1" id="empSalaryInput">
+                        <input type="text" class="form-control my-1" id="empSalaryInput" value="<?php
+                        echo $row['salary'];
+                        ?>">
                     </div>
                     <div class="d-flex">
                         <p class="col-4">Phone Number</p>
-                        <input type="text" class="form-control my-1" id="empPhnoInput">
+                        <input type="text" class="form-control my-1" id="empPhnoInput" value="<?php
+                        echo $row['ph_no'];
+                        ?>">
                     </div>
                     <div class="d-flex">
                         <p class="col-4">Email</p>
-                        <input type="text" class="form-control my-1" id="empEmailInput">
+                        <input type="text" class="form-control my-1" id="empEmailInput" value="<?php
+                        echo $row['email'];
+                        ?>">
                     </div>
                     <div class="d-flex">
-                        <p class="col-4">Password</p>
-                        <input type="text" class="form-control my-1" id="empPasswordInput">
+                        <p class="col-4">Address</p>
+                        <input type="text" class="form-control my-1" id="empAddressInput" value="<?php
+                        echo $row['emp_address'];
+                        ?>">
                     </div>
                     <div class="d-flex">
                         <p class="col-4">Job role</p>
@@ -64,51 +81,35 @@ include "adminAuthentication.php"
                         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
                         if ($result) {
                             foreach ($result as $row) {
-
                                 echo "<option value=" . $row['id'] . ">" . $row['role_name'] . "</option>";
                             }
                         }
                         ?>
                         </select>
                     </div>
-                    <div class="d-flex">
-                        <p class="col-4">Address</p>
-                        <input type="text" class="form-control my-1" id="empAddressInput">
-                    </div>
-                    <div class="d-flex">
-                        <p class="col-4">Date of Birth</p>
-                        <input type="date" class="form-control my-1" id="empDobInput">
-                    </div>
-                    <div class="d-flex">
-                        <p class="col-4">Date Joined</p>
-                        <input type="date" class="form-control my-1" id="empJoinedDateInput">
-                    </div>
                     <p id="errors text-danger"></p>
                     <div class="d-flex justify-content-between">
                         <p></p>
                         <button type="submit" class="btn btn-primary text-white px-3 py-1"
-                            id="addEmployeeButton">Add</button>
+                            id="updateEmployeeButton">Update</button>
                     </div>
             </div>
         </div>
     </div>
     <script>
-        $("#addEmployeeButton").click(function () {
+        $("#updateEmployeeButton").click(function () {
             var formData = {
-                empidInput: $("#empidInput").val(),
+                empIdInput: $("#empIdInput").val(),
                 empNameInput: $("#empNameInput").val(),
                 empSalaryInput: $("#empSalaryInput").val(),
                 empPhnoInput: $("#empPhnoInput").val(),
                 empEmailInput: $("#empEmailInput").val(),
-                empPasswordInput: $("#empPasswordInput").val(),
-                jobRoleIdInput: $("#jobRoleIdInput").val(),
                 empAddressInput: $("#empAddressInput").val(),
-                empDobInput: $("#empDobInput").val(),
-                empJoinedDateInput: $("#empJoinedDateInput").val()
+                jobRoleIdInput: $("#jobRoleIdInput").val()
             }
             $.ajax({
                 type: "POST",
-                url: "apis/addEmployee.php",
+                url: "apis/updateEmployee.php",
                 dataType: "JSON",
                 data: formData,
                 success: function (responseData) {
@@ -116,7 +117,7 @@ include "adminAuthentication.php"
                         alert(responseData.message);
                     }
                     else {
-                        alert("Employee Added");
+                        alert("Employee Updated");
                         window.location.assign('employees.php');
                     }
                 }

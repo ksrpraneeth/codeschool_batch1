@@ -1,13 +1,9 @@
 <?php
-
-include 'apis/response.php';
-include 'apis/db.php';
 session_start();
-if (!(isset($_SESSION['emp_id'])) || !(isset($_SESSION['role_id']))) {
-    header("Location: login.php");
-}
-if ($_SESSION['role_id'] == "12") {
-    header("Location: login.php");
+if ($_SESSION['role_id'] == 12) {
+    include "adminAuthentication.php";
+} else {
+    include "employeeAuthentication.php";
 }
 
 ?>
@@ -45,40 +41,60 @@ if ($_SESSION['role_id'] == "12") {
         }
     </style>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row col-xs-12">
             <?php
+        if ($_SESSION['role_id'] == 12) {
+            include "adminHeader.php";
+        } else {
             include "employeeHeader.php";
-            ?>
-            <form class="form-control text-center py-5"  onsubmit="return false">
-                <div class="form-group py-4">
-                    <label for="password">New Password</label>
-                    <input type="password" class="form-control-sm ms-4" id="newPasswordInput" name="newPasswordInput" placeholder="Enter New Password">
+        }
+        ?>
+            <form class="form form-control-md passwordChangeForm py-5 justify-content-center align-items-center"
+                onsubmit="return false">
+                <div class="form-group  justify-content-between d-flex">
+                    <label for="password" class="col-6">Old Password</label>
+                    <input type="password" class="form-control-sm ms-4" id="oldPasswordInput" name="oldPasswordInput"
+                        placeholder="Enter New Password">
                 </div>
-                <button type="button" id="changePassword" class="btn btn-primary">Change Password</button>
+                <div class="form-group my-2 justify-content-between d-flex">
+                    <label for="password" class="col-6">New Password</label>
+                    <input type="password" class="form-control-sm ms-4" id="newPasswordInput" name="newPasswordInput"
+                        placeholder="Enter New Password">
+                </div>
+                <div class="form-group my-2 justify-content-between d-flex">
+                    <label for="password" class="col-6">Confirm New Password</label>
+                    <input type="password" class="form-control-sm ms-4" id="confirmNewPasswordInput"
+                        name="confirmNewPasswordInput" placeholder="Enter Confirm Password">
+                </div>
+                <div class="form-group my-3 justify-content-center d-flex">
+                    <button type="button" id="changePassword" class="btn btn-primary">Change Password</button>
+                </div>
             </form>
         </div>
     </div>
     <script>
-            $('#changePassword').click(function(){
-                var  newPasswordInput=$('#newPasswordInput').val();
-                $.ajax({
-                    type: "POST",
-                    url: "apis/changePassword.php",
-                    dataType:'JSON',
-                    data: {
-                        newPasswordInput
-                    },
-                    success: function (responseData) {
-                        if (!responseData.status) {
-                            alert(responseData.message);
-                        }
-                        else {
-                            alert("Password changed");
-                            window.location.assign('employeeProfile.php');
-                        }
+        $('#changePassword').click(function () {
+            var PasswordInput = {
+                newPasswordInput: $('#newPasswordInput').val(),
+                confirmNewPasswordInput: $('#confirmNewPasswordInput').val(),
+                oldPasswordInput: $('#oldPasswordInput').val(),
+            }
+            $.ajax({
+                type: "POST",
+                url: "apis/changePassword.php",
+                dataType: 'JSON',
+                data: PasswordInput,
+                success: function (responseData) {
+                    if (!responseData.status) {
+                        alert(responseData.message);
                     }
-                })       
-            });
+                    else {
+                        alert("Password changed");
+                        window.location.assign('Profile.php');
+                    }
+                }
+            })
+        });
     </script>
 </body>
 

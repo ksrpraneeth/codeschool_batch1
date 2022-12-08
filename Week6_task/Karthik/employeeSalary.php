@@ -3,9 +3,14 @@
 include "adminAuthentication.php";
 
 
-$statement = $pdo->prepare(" select e.emp_id,e.emp_name,p.month, p.no_of_working_days,p.salary_credited,a.count total_days_present FROM employee e, pay_roll p, (select emp_id, count(status) count FROM  emp_attendance GROUP BY emp_id) a where e.emp_id=a.emp_id and p.emp_id=e.emp_id and e.emp_id!=?;");
+$statement = $pdo->prepare("SELECT sv.*, es.id FROM emp_salary_view sv
+LEFT JOIN emp_salary_status es
+    ON sv.emp_id=es.emp_id AND sv.credited_month = extract(month from es.date_paid)
+    AND sv.credited_year = extract(year from es.date_paid)
+WHERE es.id IS NULL AND sv.emp_id != ? and sv.credited_month<extract(month from current_date);");
 $statement->execute([$_SESSION['emp_id']]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -49,15 +54,19 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <div class="border-bottom py-3 d-flex justify-content-between align-items-center">
                     <h5 class="m-0">Employee Salary Details</h5>
                 </div>
+                <?php
+                if(count($resultSet)==0){?>
+                <p>No Data </p><?php } else{?>
                 <table class="table table-bordered">
-                    <thead>
+                    <thead class="bg-secondary text-white">
                         <tr>
                             <th>Employee Id</th>
                             <th>Employee Name</th>
                             <th>Month</th>
-                            <th>Total Working Days</th>
-                            <th>Salary Credited</th>
-                            <th>No. of  days present</th>
+                            <th>Year</th>
+                            <th>Salary To Be Credited</th>
+                            <th>No. of days present</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,11 +74,50 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                         foreach ($resultSet as $row) {
                             echo "<tr>";
                             echo "<td>" . $row['emp_id'] . "</td>";
-                            echo "<td>" . $row['emp_name'] . "</td>";
-                            echo "<td>" . $row['month'] . "</td>";
-                            echo "<td>" . $row['no_of_working_days'] . "</td>";
-                            echo "<td>" . $row['salary_credited'] . "</td>";
+                            echo "<td id=" . $row['emp_id'] . ">" . $row['emp_name'] . "</td>";
+                            echo "<td>" . $row['credited_month'] . "</td>";
+                            echo "<td>" . $row['credited_year'] . "</td>";
+                            echo "<td>" . $row['salary_credited']/12 . "</td>";
                             echo "<td>" . $row['total_days_present'] . "</td>";
+                            echo "<td><button data-id=" . $row['emp_id'] . " data-month=" . $row['credited_month'] . " data-year=" . $row['credited_year'] . " data-salary=" . $row['salary_credited'] . " class='btn btn-primary'  name='updateSalaryStatus'  value='paid'>Confirm  </button>";
+                            echo "</tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table><?php }?>
+            </div>
+            <div class="container mt-3 overflow-auto">
+                <div class="border-bottom py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="m-0">Employee Salary Details</h5>
+                </div>
+                <table class="table table-bordered">
+                    <thead class="bg-secondary text-white">
+                        <tr>
+                            <th>Approved Id</th>    
+                            <th>Employee Id</th>
+                            <th>Employee Name</th>
+                            <th>Month</th>
+                            <th>Year</th>
+                            <th>Salary Credited</th>
+                            <th>No. of days present</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        $statement = $pdo->prepare("select s.*,e.emp_name from emp_salary_updated_view s,employee e where s.emp_id=e.emp_id");
+                        $statement->execute();
+                        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+                        foreach ($result as $row) {
+                            echo "<tr>";
+                            echo "<td>". $row['id']. "</td>";
+                            echo "<td>" . $row['emp_id'] . "</td>";
+                            echo "<td id=" . $row['emp_id'] . ">" . $row['emp_name'] . "</td>";
+                            echo "<td>" . $row['credited_month'] . "</td>";
+                            echo "<td>" . $row['credited_year'] . "</td>";
+                            echo "<td><a class='btn' id='salaryCredited' href='employeeSalaryPaySlip.php?confirmId=" . $row['id'] . "'>" . ($row['salary_credited'] / 12) . "</a></td>";
+                            echo "<td>" . $row['total_days_present'] . "</td>";
+                            echo "<td class='text-success bold' style='font-weight:bold;'>Credited</td>";
                             echo "</tr>";
                         }
                         ?>
@@ -77,6 +125,38 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                 </table>
             </div>
         </div>
+    </div>
 </body>
-
+<script>
+        $("button[name=updateSalaryStatus]").click(function () {
+            var emp_id = $(this).data("id");
+            var month = $(this).data("month");
+            var year = $(this).data("year");
+            var salary_credited = $(this).data("salary");
+            $.ajax({
+                url: "apis/employeeSalaryUpdate.php",
+                type: "POST",
+                dataType: "JSON",
+                data: {
+                    emp_id: emp_id,
+                    month: month,
+                    year: year,
+                    salary_credited: salary_credited
+                },
+                success: function(data)  {
+                    if (data.status == true) {
+                        location.reload();
+                        alert(data.message)
+                        return true;
+                    }
+                    else {
+                        alert(data.message);
+                    }
+                },
+                error: (error) => {
+                    console.log(error);
+                }   
+            })
+        })
+</script>
 </html>

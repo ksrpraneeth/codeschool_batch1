@@ -3,7 +3,7 @@
 include "adminAuthentication.php";
 
 
-$statement = $pdo->prepare("select e.emp_id, e.emp_name,count(a.status) count_days  from employee e,emp_attendance a where e.emp_id=a.emp_id and a.status='t' and e.emp_id!=? group by e.emp_id; ");
+$statement = $pdo->prepare("select e.emp_id,e.emp_name,extract(month from a.date) as month,count(a.status) count_days  from employee e,emp_attendance a where e.emp_id=a.emp_id and a.status='t' and e.emp_id!=? group by (e.emp_id,extract(month from a.date))order by extract(month from a.date) desc; ");
 $statement->execute([($_SESSION['emp_id'])]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -55,6 +55,7 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <tr>
                             <th>Employee Id</th>
                             <th>Employee Name</th>
+                            <th>Month</th>
                             <th>No. of Days Present</th>
                         </tr>
                     </thead>
@@ -64,6 +65,7 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                                 echo "<tr>";
                                 echo "<td>". $row['emp_id']. "</td>";
                                 echo "<td>" . $row['emp_name'] . "</td>";
+                                echo "<td>" . $row['month'] . "</td>";
                                 echo "<td>" . $row['count_days'] . "</td>";
                                 echo "</tr>";
                             }

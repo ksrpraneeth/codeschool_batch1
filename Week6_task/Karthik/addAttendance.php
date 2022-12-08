@@ -11,6 +11,9 @@ if ($_SESSION['role_id'] == "12") {
     header("Location: login.php");
 }
 
+$statement = $pdo->prepare("select *from emp_attendance where emp_id=? order by date desc");
+$statement->execute([$_SESSION['emp_id']]);
+$resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!DOCTYPE html>
@@ -48,8 +51,8 @@ if ($_SESSION['role_id'] == "12") {
     </style>
     <div class="container-fluid">
         <div class="row">
-            <?php 
-            include "employeeHeader.php"; 
+            <?php
+            include "employeeHeader.php";
             ?>
             <div class="container">
                 <form onsubmit="return false">
@@ -60,14 +63,15 @@ if ($_SESSION['role_id'] == "12") {
                     <div class="form-group d-lg-flex">
                         <p class="p-2 col-2">Status</p>
                         <div class="form-check py-2 mx-2">
-                            <input class="form-check-input" type="radio" name="attendanceStatus" id="attendanceStatusPresent" value="1">
+                            <input class="form-check-input" type="radio" name="attendanceStatus"
+                                id="attendanceStatusPresent" value="1">
                             <label class="form-check-label" for="flexRadioDefault1">
                                 Present
                             </label>
                         </div>
                         <div class="form-check py-2 ms-5">
-                            <input class="form-check-input" type="radio" name="attendanceStatus" id="attendanceStatusAbsent"
-                                value="0">
+                            <input class="form-check-input" type="radio" name="attendanceStatus"
+                                id="attendanceStatusAbsent" value="0">
                             <label class="form-check-label" for="flexRadioDefault2">
                                 Absent
                             </label>
@@ -79,32 +83,57 @@ if ($_SESSION['role_id'] == "12") {
                             id="addAttendance">Add</button>
                     </div>
                 </form>
+                <div class='viewAttendance'>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach($resultSet as $row){
+                                echo '<tr>';
+                                echo '<td>'.$row['date'].'</td>';
+                               if($row['status']=='1'){
+                                echo '<td>Present</td>';
+                               }
+                               else{
+                                echo '<td>Absent</td>';
+                               }
+                                echo '</tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
 </body>
 <script>
-        $("#addAttendance").click(function () {
-            var formData = {
-                presentDate: $("#presentDate").val(),
-                attendanceStatus : $("input[type=radio][name=attendanceStatus]:checked").val(),
-            }
-            $.ajax({
-                type: "POST",
-                url: "apis/addAttendance.php",
-                dataType: "JSON",
-                data: formData,
-                success: function (responseData) {
-                    if (!responseData.status) {
-                        alert(responseData.message);
-                        // window.location.reload();
-                    }
-                    else {
-                        alert("Attendance Added");
-                        window.location.reload();
-                    }
+    $("#addAttendance").click(function () {
+        var formData = {
+            presentDate: $("#presentDate").val(),
+            attendanceStatus: $("input[type=radio][name=attendanceStatus]:checked").val(),
+        }
+        $.ajax({
+            type: "POST",
+            url: "apis/addAttendance.php",
+            dataType: "JSON",
+            data: formData,
+            success: function (responseData) {
+                if (!responseData.status) {
+                    alert(responseData.message);
+                    // window.location.reload();
                 }
-            })
+                else {
+                    alert("Attendance Added");
+                    window.location.reload();
+                }
+            }
         })
+    })
 </script>
 
 </html>

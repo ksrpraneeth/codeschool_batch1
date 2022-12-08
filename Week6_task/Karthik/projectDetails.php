@@ -2,8 +2,8 @@
 
 include "adminAuthentication.php";
 
-$statement = $pdo->prepare("select p.*,e.emp_name from projects p,project_mapping pm,employee e where e.emp_id=pm.emp_id and p.project_id=pm.project_id and pm.emp_id!=? order by pm.emp_id ");
-$statement->execute([$_SESSION['emp_id']]);
+$statement = $pdo->prepare("select * from projects order by project_id ");
+$statement->execute([]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -46,27 +46,31 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
             <?php
             include "adminHeader.php"
                 ?>
-            <div class="container mt-3">
-                <h5 class="py-3 m-0">Project Details</h5>
+            <div class="container mt-3 overflow-auto">
+                <div class="border-bottom py-3 d-flex justify-content-between align-items-center">
+                    <h5 class="m-0">Project Details</h5>
+                    <div class="d-flex gap-3">
+                        <!-- <a class="btn btn-danger " id="suspendEmployee"><i class="bi bi-trash"></i></a> -->
+                        <a class="btn btn-primary " href="addProject.php">Add Project</a>
+                    </div>
+                </div>
                 <table class="table table-bordered">
                     <thead>
                         <tr class="bg-secondary text-white">
                             <th>Project ID</th>
                             <th>Project Name</th>
                             <th>Client</th>
-                            <th>Duration (in.Months)</th>
-                            <th>Manager</th>
+                            <!-- <th>Duration</th> -->
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         foreach ($resultSet as $row) {
                             echo "<tr>";
-                            echo "<td><a type='button' class='btn' href='projectDescription.php?projid=" . $row['project_id'] . "'>" . $row['project_id'] . "</a></td>";
+                            echo "<td><a type='button' class='btn' href='projectDescription.php?projectId=" . $row['project_id'] . "'>" . $row['project_id'] . "</a></td>";
                             echo "<td>" . $row['project_name'] . "</td>";
                             echo "<td>" . $row['client'] . "</td>";
-                            echo "<td>" . $row['duration'] . "</td>";
-                            echo "<td>" . $row['emp_name'] . "</td>";
+                            // echo "<td>" . $row['duration'] . "</td>";
                             echo "</tr>";
                         }
                         ?>

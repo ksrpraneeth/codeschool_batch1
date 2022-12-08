@@ -16,7 +16,7 @@ if (!array_key_exists('passwordInput', $_POST)) {
 }
 
 $statement = $pdo->prepare("select * from employee where emp_id =? and password= ?");
-$statement->execute([$_POST['empIdInput'], ($_POST['passwordInput'])]);
+$statement->execute([$_POST['empIdInput'],md5($_POST['passwordInput'])]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 if (count($resultSet) == 0) {

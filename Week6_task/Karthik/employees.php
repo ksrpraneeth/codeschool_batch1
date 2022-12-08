@@ -3,8 +3,8 @@
 include "adminAuthentication.php";
 
 
-$statement = $pdo->prepare("select e.*,j.role_name from employee e,job_role j where j.id=e.role_id and e.emp_id!=? order by e.emp_id ");
-$statement->execute([$_SESSION['emp_id']]);
+$statement = $pdo->prepare("select e.*,j.role_name from employee e,job_role j where j.id=e.role_id  order by e.emp_id ");
+$statement->execute([]);
 $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
@@ -50,7 +50,7 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                 <div class="border-bottom py-3 d-flex justify-content-between align-items-center">
                     <h5 class="m-0">Employee Details</h5>
                     <div class="d-flex gap-3">
-                        <a class="btn btn-danger " id="suspendEmployee"><i class="bi bi-trash"></i></a>
+                        <!-- <a class="btn btn-danger " id="suspendEmployee"><i class="bi bi-trash"></i></a> -->
                         <a class="btn btn-primary " href="addEmployee.php">Add Employee</a>
                     </div>
                 </div>
@@ -63,6 +63,7 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                             <th>Ph No</th>
                             <th>Email</th>
                             <th>Role</th>
+                            <th></th>
                             <th>Remove</th>
                         </tr>
                     </thead>
@@ -70,14 +71,14 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
                         <?php
                         foreach ($resultSet as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row['emp_id'] . "</td>";
-                            echo "<td>" . $row['emp_name'] . "</td>";
+                            echo "<td><a type='button' class='btn' href='employeeDetails.php?emp_id=" . $row['emp_id'] . "'>" . $row['emp_id'] . "</a></td>";
+                            echo "<td><a type='button' class='btn' href='employeeDetails.php?emp_id=" . $row['emp_id'] . "'>" . $row['emp_name'] . "</a></td>";
                             echo "<td>" . $row['salary'] . "</td>";
-                            echo "<td>" . $row['ph_no'] . "</td>";
-                            echo "<td>" . $row['email'] . "</td>";
+                            echo "<td><a type='button' class='btn' href='employeeDetails.php?emp_id=" . $row['emp_id'] . "'>" . $row['ph_no'] . "</a></td>";
+                            echo "<td><a type='button' class='btn' href='employeeDetails.php?emp_id=" . $row['emp_id'] . "'>" . $row['email'] . "</a></td>";
                             echo "<td>" . $row['role_name'] . "</td>";
-                            echo "<td><input data-id='" . $row['emp_id'] . "' type='checkbox'  name='suspend' value='suspend'></td>";
-                            echo "<td><a data-id='" . $row['emp_id'] . "'class='btn btn-danger'  name='suspend' value='suspend'></a>";
+                            echo "<td><a  class='btn btn-primary' id='editEmployee' name='edit' href='updateEmployee.php?emp_id=" . $row['emp_id'] . "'  value='edit'>Edit</a>";
+                            echo "<td><a data-id='" . $row['emp_id'] . "' class='btn btn-danger' id='deleteEmployee' name='suspend' onclick='delEmployee(this)'  value='suspend'>Remove</a>";
                             echo "</tr>";
                         }
                         ?>
@@ -89,37 +90,29 @@ $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
         </div>
 </body>
 <script>
-    $(document).ready(function () {
-        $('#suspendEmployee').click(function () {
-            var checkboxs = $("input[type=checkbox][name=suspend]:checked");
-            let empIds = []
-            for (let index = 0; index < checkboxs.length; index++) {
-                empIds.push($(checkboxs[index]).data("id"));
-            }
-
+    function delEmployee(ele) {
+        if (confirm("Remove Employee")) {
+            let emp_id = JSON.stringify([ele.dataset.id]);
             $.ajax({
-                type: "POST",
-                data: { empIds: JSON.stringify(empIds) },
-                url: "apis/delEmployee.php",
+                url: 'apis/delEmployee.php',
+                type: 'POST',
+                data: { empIds: emp_id },
                 dataType: "json",
                 success: function (data) {
                     if (data.status == true) {
-                       if(confirm("Remove Employee")){
-                           location.reload();
-                           return true;
-                       }
-                       else{
-                           return false;
-                       }
-                        
                         location.reload();
-                    } else {
+                        return true;
+                    }
+                    else {
                         alert(data.message);
                     }
                 }
             })
-        })
-    })
+        }
+        else {
+            return false;
+        }
+    }
 </script>
 
 </html>

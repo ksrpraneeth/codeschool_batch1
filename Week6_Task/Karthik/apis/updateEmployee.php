@@ -1,15 +1,13 @@
 <?php
-
     include "db.php";
     include "response.php";
-
-    if (!array_key_exists('empidInput', $_POST)) {
+    if (!array_key_exists('empIdInput', $_POST)) {
         $response['status'] = false;
-        $response['message'] = "Please enter a Employee ID";
+        $response['message'] = "Please enter Employee Id";
         echo json_encode($response);
         return;
     }
-    $empidInput = $_POST['empidInput'];
+    $empIdInput = $_POST['empIdInput'];
     if (!array_key_exists('empNameInput', $_POST)) {
         $response['status'] = false;
         $response['message'] = "Please enter Employee Name";
@@ -38,13 +36,13 @@
         return;
     }
     $empEmailInput = $_POST['empEmailInput'];
-    if (!array_key_exists('empPasswordInput', $_POST)) {
+    if (!array_key_exists('empAddressInput', $_POST)) {
         $response['status'] = false;
-        $response['message'] = "Please enter a Password address";
+        $response['message'] = "Please enter a address";
         echo json_encode($response);
         return;
     }
-    $empPasswordInput = $_POST['empPasswordInput'];
+    $empAddressInput = $_POST['empAddressInput'];
     if (!array_key_exists('jobRoleIdInput', $_POST)) {
         $response['status'] = false;
         $response['message'] = "Please enter a Role ID";
@@ -52,41 +50,6 @@
         return;
     }
     $jobRoleIdInput = $_POST['jobRoleIdInput'];
-    if (!array_key_exists('empAddressInput', $_POST)) {
-        $response['status'] = false;
-        $response['message'] = "Please enter a Role ID";
-        echo json_encode($response);
-        return;
-    }
-    $empAddressInput = $_POST['empAddressInput'];
-    if (!array_key_exists('empDobInput', $_POST)) {
-        $response['status'] = false;
-        $response['message'] = "Please enter a Role ID";
-        echo json_encode($response);
-        return;
-    }
-    $empDobInput = $_POST['empDobInput'];
-    if (!array_key_exists('empJoinedDateInput', $_POST)) {
-        $response['status'] = false;
-        $response['message'] = "Please enter a Role ID";
-        echo json_encode($response);
-        return;
-    }
-    $empJoinedDateInput = $_POST['empJoinedDateInput'];
-    if(strlen($empidInput)==0)
-    {
-        $response['status'] = false;
-        $response['message'] = "Please enter a Employee ID";
-        echo json_encode($response);
-        return;
-    }
-    if(strlen($empidInput)==0)
-    {
-        $response['status'] = false;
-        $response['message'] = "Please enter a Employee ID";
-        echo json_encode($response);
-        return;
-    }
     if(strlen($empNameInput)==0)
     {
         $response['status'] = false;
@@ -108,10 +71,10 @@
         echo json_encode($response);
         return;
     }
-    if(strlen($empPasswordInput)==0)
+    if(strlen($empAddressInput)==0)
     {
         $response['status'] = false;
-        $response['message'] = "Please enter a Employee Password";
+        $response['message'] = "Please enter a Employee Address";
         echo json_encode($response);
         return;
     }
@@ -124,19 +87,8 @@
 
 try {
 
-    $statement = $pdo->prepare("select * from employee where emp_id=? or ph_no=? or email=?");
-    $statement->execute([($_POST['empidInput']),($_POST['empPhnoInput']), ($_POST['empEmailInput'])]);
-    $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
-    if(count($resultSet)!=0){
-    $response['status'] = False;
-    $response['message'] = "Employee Already Exists";
-    $response['data'] = $resultSet;
-    echo json_encode($response);
-    return;
-    }
-
-    $statement = $pdo->prepare("insert into employee(emp_id,emp_name,salary,ph_no,email,password,role_id,emp_address,dob,date_joined) values(?,?,?,?,?,?,?,?,?,?)");
-    $statement->execute([$empidInput,$empNameInput,$empSalaryInput,$empPhnoInput,$empEmailInput,md5($empPasswordInput),$jobRoleIdInput,$empAddressInput,$empDobInput,$empJoinedDateInput]);
+    $statement = $pdo->prepare("update employee set emp_name=?,salary=?,ph_no=?,email=?,role_id=?,emp_address=? where emp_id=?");
+    $statement->execute([$empNameInput,$empSalaryInput,$empPhnoInput,$empEmailInput,$jobRoleIdInput,$empAddressInput,$empIdInput]);
     $resultSet = $statement->fetchAll(PDO::FETCH_ASSOC);
     $response['status'] = true;
     $response['message'] = "Employee added";
