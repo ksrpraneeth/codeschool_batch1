@@ -343,88 +343,156 @@ INSERT INTO
 VALUES
     (10, 3, 10);
 
-CREATE TABLE inwards(
+CREATE TABLE inwards_details(
     id int primary key,
     patient_id int references patients(id),
     room_id int references rooms(id),
     status varchar(50),
-    total_bill int
+    total_bill int,
+    doctor_id int references doctors(id),
+    disease_id int
 );
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (1, 1, 1, 'admit', 50000);
+    (1, 1, 1, 'admit', 50000,1,1);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (2, 2, 1, 'discharge', 40000);
+    (2, 2, 1, 'discharge', 40000,1,2);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (3, 3, 1, 'admit', 45000);
+    (3, 2, 2, 'admit', 45000,5,5);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (4, 4, 2, 'discharge', 60000);
+    (4, 4, 2, 'discharge', 60000,2,1);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (5, 5, 2, 'admit', 65000);
+    (5, 3, 2, 'admit', 65000,5,2);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (6, 6, 2, 'discharge', 70000);
+    (6, 6, 2, 'discharge', 70000,3,4);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (7, 7, 3, 'admit', 80000);
+    (7, 7, 3, 'admit', 80000,4,1);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (8, 8, 3, 'discharge', 85000);
+    (8, 8, 3, 'discharge', 85000,4,3);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (9, 9, 4, 'admit', 55000);
+    (9, 9, 4, 'admit', 55000,5,2);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (10, 10, 4, 'discharge', 60000);
+    (10, 10, 4, 'discharge', 60000,6,4);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (11, 11, 4, 'admit', 65000);
+    (11, 11, 4, 'admit', 65000,6,3);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (12, 12, 4, 'admit', 80000);
+    (12, 12, 4, 'admit', 80000,7,2);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (13, 13, 1, 'discharge', 90000);
+    (13, 13, 4, 'discharge', 90000,7,4);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (14, 14, 2, 'admit', 80000);
+    (14, 3, 1, 'admit', 80000,4,3);
 
 INSERT INTO
-    inwards(id, patient_id, room_id, status, total_bill)
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
 VALUES
-    (15, 15, 3, 'discharge', 60000);
+    (15, 3, 1, 'discharge', 60000,4,3);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (17, 6, 2, 'admit', 5500,3,4);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (18, 4, 3, 'discharge', 40000,4,4);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (19, 4, 4, 'admit', 45000,4,4);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (20, 4, 4, 'discharge', 60000,4,4);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (21, 4, 4, 'admit', 65000,4,4);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (22, 1, 4, 'discharge', 70000,4,4);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (23, 8, 1, 'admit', 80000,2,1);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (24, 8, 3, 'discharge', 85000,4,5);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (25, 4, 2, 'admit', 55000,4,4);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (26, 4, 2, 'discharge', 60000,2,3);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (27, 3, 3, 'admit', 65000,4,3);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (28, 11,3, 'admit', 80000,3,2);
+
+INSERT INTO
+    inwards_details(id, patient_id, room_id, status, total_bill,doctor_id,disease_id)
+VALUES
+    (29, 1, 2, 'discharge', 90000,1,3);
+
 
 alter table
     inwards
