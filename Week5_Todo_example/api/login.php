@@ -24,6 +24,7 @@ if (count($resultSet) == 0) {
     echo json_encode($response);
     return;
 }
+
 $response['status'] = true;
 $response['message'] = "Login successful";
 $response['data'] = $resultSet;

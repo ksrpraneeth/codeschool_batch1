@@ -1,6 +1,5 @@
 /////////////////////////////   DATE AND TIME CHANGES ACCORDINGLY  \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-
 window.onload = function () {
   window.uplodedfiles = [];
   var today = new Date();
