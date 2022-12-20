@@ -35,7 +35,7 @@
               <button type="button" class="btn">I'm New Here</button>
                         <a href="">Forgot Password</a>
               <div class="sm-4">
-                <button type ="submit" id="submitbutton" class="submit-btn">Submit</button>
+                <button type ="submit" id="submitbutton" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>
@@ -49,6 +49,7 @@
             if(localStorage.getItem("userdata")!=null){
               window.loaction.assign("dashboard.php");
             }
+
             $("#submitbutton").click(function (){
               event.preventDefault();
               var formData = {

@@ -16,13 +16,13 @@
         </a>
     </li>
     <li class="dropdown nav-item">
-        <a  class="nav-link">
-            <i class="nav-link-icon fa fa-cog">Display</i>
+        <a class="nav-link">
+        <i class="nav-link-icon fa fa-edit">Display</i>
         </a>
     </li>
     <li class="dropdown nav-item">
-        <a  class="nav-link">
-            <i class="nav-link-icon fa fa-cog">Last Login</i>
+        <a class="nav-link">
+            <i class="nav-link-icon fa fa-edit>Last Login</i>
         </a>
     </li>
 </ul>    

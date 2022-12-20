@@ -37,16 +37,5 @@ $statement= $pdo->query("Select * from tasktable where id in(".$taskid.")");
     if ($pdo) {
         $pdo = null;
     }
-	<div class="grid-container">
-
-		<div class="grid-child purple">
-			Grid Column 1
-		</div>
-	
-		<div class="grid-child green">
-			Grid Column 2
-		</div>
-	  
-	</div>
 include 'footer.php';
 ?>
