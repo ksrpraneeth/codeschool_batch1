@@ -1,0 +1,59 @@
+
+.loginform{
+    position:absolute;
+    top:50%;
+    left:50%;
+    height: auto;
+    transform:translate(-50%, -50%);
+    text-align: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+}
+.passwordChangeForm{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    transform:translate(-50%, -50%);
+}   
+.total_list a:hover{
+    background-color: gray;
+}
+#logoutButton{
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    align-items: center;
+    padding: 10px;
+}
+
+.adminList{
+    position: absolute;
+    top: 30%;
+    left: 0%;
+}
+
+.form-control{
+    margin: 10px;
+}
+
+
+.adminProfile{
+    font-size: large;
+    font-weight: lighter;
+}
+.adminProfile hr{
+    padding:0;
+    margin-top:5px;
+}
+.adminContent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+.adminContent button {
+    margin: 10px;
+
+}
