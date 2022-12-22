@@ -1,0 +1,29 @@
+CREATE TABLE salary (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name VARCHAR(255) NOT NULL,
+  phone_no VARCHAR(20) NOT NULL,
+  emp_code VARCHAR(20) NOT NULL,
+  earning_type VARCHAR(255) NOT NULL,
+  earning_type_amount DECIMAL(10,2) NOT NULL,
+  deduction_type VARCHAR(255) NOT NULL,
+  deduction_amount DECIMAL(10,2) NOT NULL,
+  payable_salary DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE employee_earning (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  earning_type VARCHAR(255) NOT NULL,
+  amount DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE deduction (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  deduction_type VARCHAR(255) NOT NULL,
+  amount DECIMAL(10,2) NOT NULL
+);
+
+CREATE TABLE all_earning_deduction (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  earning_types VARCHAR(255) NOT NULL,
+  deduction_types VARCHAR(255) NOT NULL
+);
