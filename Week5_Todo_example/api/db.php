@@ -13,3 +13,6 @@
         echo "Could not connect to the database";
         return;
     }
+
+
+  

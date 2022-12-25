@@ -1,0 +1,71 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.input-container {
+  display: -ms-flexbox; 
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.icon {
+  padding: 15px;
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  min-width: 50px;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 3px solid rgb(0, 255, 0);
+}
+
+.btn:hover {
+  opacity: 1;
+}
+
+.bgs {
+  background-image: url("pictures/bg3.png");
+}
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+ 
+}
+
+.box1 {
+  background-color: rgb(0, 29, 56);
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  border: dotted 2px rgba(255, 255, 255, 0.534);
+}
+
+.circle1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spacecircle {
+  margin-top: 600px;
+}
+.supp {
+  background-color: rgb(137, 208, 255);
+  color: rgb(16, 0, 165);
+}
+
+.inputError{
+margin-right: -50px;
+}
+
+
