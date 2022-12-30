@@ -10,12 +10,27 @@ if (!array_key_exists('email',$_POST)) {
     echo json_encode($response);
     return;
 }
+
+if(strlen($_POST['email'])==0){
+    $response['status']=false;
+    $response['message']="Please enter EMAIL";
+    echo json_encode($response);
+    return;
+}
+
 if (!array_key_exists('password', $_POST)) {
     $response['status'] = false;
     $response['message'] = "Please enter a Password";
     echo json_encode($response);
     return;
 }
+if(strlen($_POST['email'])==0){
+    $response['status']=false;
+    $response['message']="Please enter EMAIL";
+    echo json_encode($response);
+    return;
+}
+
 $pdo = getDbConnection();
 $statement = $pdo->prepare("select * from users where email =? and password= ?");
 $statement->execute([$_POST['email'], md5($_POST['password'])]);
