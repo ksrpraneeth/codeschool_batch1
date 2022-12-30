@@ -1,4 +1,4 @@
-$("#save").click(function () {
+$("#Add").click(function () {
     var formData = {
         'firstname': $("#firstname").val(),
         'lastname': $("#lastname").val(),

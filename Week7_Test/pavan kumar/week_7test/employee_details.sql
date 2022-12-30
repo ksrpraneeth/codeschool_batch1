@@ -11,12 +11,12 @@ CREATE TABLE users(
 
 CREATE TABLE employees(
     id bigserial primary key,
-    first_name varchar(50) not null,
-    last_name varchar(50) not null,
-    Aadhar_number varchar(50) not null,
-    mobile_number varchar(50) not null,
-    designation_id int references department(id),
-    department_id int references designation(id)
+    firstname varchar(50) not null,
+    lastname varchar(50) not null,
+    Aadharnumber varchar(50) not null,
+    mobilenumber varchar(50) not null,
+    designation int references department(id),
+    department int references designation(id)
 );
 
 CREATE TABLE department(
