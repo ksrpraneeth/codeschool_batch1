@@ -1,0 +1,56 @@
+.sidebar {
+    background-color: white;
+    min-height: 600px;
+    border: 0px solid black;
+    padding: 0px 8px 0px 8px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.sidebar p {
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.sidebar-title {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.area {
+    margin-bottom: 42px;
+}
+
+.area ul {
+    padding: 0;
+}
+
+.area ul li {
+    list-style: none;
+}
+
+
+.area ul li a {
+    text-decoration: none;
+    color: #898787;
+    display: block;
+}
+
+
+.sidebar-list li {
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+
+.sidebar-list li a span {
+    float: right;
+}
+
+
+.sidebar-featured-product p {
+    font-size: .9rem;
+    font-family: 'Poppins', sans-serif;
+}
