@@ -13,71 +13,19 @@ include 'header.php';
     <div id="shopping_title">
     <div id="shopping_container">your bag is empty !!</div>
 </div>
-<div id="right"></div><div id="quick"></div>
-
-<!--view templates-->
-<script type="text/template" id="login_form_template">
-    <div id="form_wrapper">
-        <p>LOGIN FORM:</p>
-        <div>Email_</div> 
-        <div><input name="email" type="text" class="form_input"/></div>
-        <div>Password_</div>
-        <div><input name="password" type="password" class="form_input"/></div>
-        <div id="login_btn">Login</div>
-    </div>
-</script><script type="text/template" id="register_form_template">
-    <div id="form_wrapper3">
-        <p>REGISTRATION FORM:</p>
-        <div>Name_</div>
-        <div><input name="name" type="text" class="form_input"/></div>
-        <div>Last Name_</div>
-        <div><input name="lastname" type="text" class="form_input"/></div>
-        <div>Email_</div>
-        <div><input name="email" type="text" class="form_input"/></div>
-        <div>Password_</div>
-        <div><input name="password" type="password" class="form_input"/></div>
-        <div id="registration_btn">Register</div>
-    </div>
-</script>
-
+<div id="right"></div>
+       
 <script type="text/template" id="session_summary">
     <div id="bag">
  <div id="bagqty"><h2>ITEMS: <%= qty %></h2></div>
    <div id="bagtotal"><h2>AMOUNT:<%= tot%></h2></div>
     </div>
 </script>
-
-
-<script type="text/template" id="checkout_form_template">
-    <div id="form_wrapper2">
-        <div>Name_</div>
-        <div><input name="name" type="text" class="form_input"/></div>
-        <div>Last Name_</div>
-        <div><input name="lastname" type="text" class="form_input"/></div>
-        <div>Email_</div>
-        <div><input name="email" type="text" class="form_input"/></div>
-        <div>Phone number_</div>
-        <div><input name="phone" type="text" class="form_input"/></div>
-        <div>Credit Card number_</div>
-        <div><input name="creditcard" type="text" class="form_input"/></div>
-        <div id="order_btn">Place Order</div>
-    </div>
-</script>
-
-<script type="text/template" id="quick_view_template">
-    <div class="quick_data animated bounceInRight">
-        <div id="quick_view_picture">
-        </div>
         <div><%= name %></div>
         <div>$_<%= price %></div>
         <div><%= description %></div>
     </div>
 </script>
-
-<script type="text/template" id="map_template">
-    <div id="map"></div>
-</script>
-
 <script type="text/template" id="bag_item">
     <div class="cart_item">
         <div class="bag_item_name"><%= name %></div>
@@ -86,9 +34,6 @@ include 'header.php';
         <div class="remove_item">remove</div>
     </div>
 </script>
-
-<a href="http://s296.photobucket.com/user/massimopenzo/media/quick_view_zps9oinxbou.gif.html" target="_blank"></a>
-
 <script type="text/template" id="product_template">
     <div class="product animated bounceInDown">
         <div class="picture">

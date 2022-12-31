@@ -22,13 +22,23 @@
         </a>
     </li>
     <li class="dropdown nav-item">
+        <a class="nav-link "href="My orders.php">
+        <i class="nav-link-icon fa fa-edit">My orders</i>
+        </a>
+    </li>
+    <li class="dropdown nav-item">
         <a class="nav-link "href="cart.php">
-        <i class="nav-link-icon fa fa-edit">Cart details</i>
+        <i class="nav-link-icon fa fa-edit">cart details</i>
         </a>
     </li>
     <li class="dropdown nav-item">
         <a class="nav-link "href="feedback.php">
         <i class="nav-link-icon fa fa-edit">Feedback</i>
+        </a>
+    </li>
+    <li class="dropdown nav-item">
+        <a class="nav-link "href="product.php">
+        <i class="nav-link-icon fa fa-edit">Product</i>
         </a>
     </li>
     <li class="dropdown nav-item">

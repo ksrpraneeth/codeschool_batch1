@@ -26,8 +26,8 @@ if(!$resultset) {
 	$response['message']="username and password incorrect";
 	echo json_encode($response); return;
 }
-$_SESSION['userdet'] = $resultset;
 $_SESSION['Buyerid'] = $resultset['buyerid'];
+$_SESSION['userdet'] = $resultset;
 $response['status'] = true;
 $response['message'] = "successfully login";
 $response['data'] = $resultset;

@@ -40,3 +40,15 @@ postgres=# INSERT INTO Address values(4,'9-4Teachers colony','indranagar',04);
 INSERT 0 1
 postgres=# INSERT INTO Address values(5,'9-89madhu colony','vikarabad',05);
 INSERT 0 1
+create table payment( id int,Amount int,AmountType varchar(40));
+postgres=# INSERT INTO payment values( 1 , 4000 ,'cashondelivery');
+INSERT 0 1
+postgres=# INSERT INTO payment values( 2 , 3000 ,'onlinepayment');
+INSERT 0 1
+postgres=# INSERT INTO payment values( 3 , 89000 ,'onlinepayment');
+INSERT 0 1
+postgres=# INSERT INTO payment values( 4 , 89000 ,'cashondelivery');
+INSERT 0 1
+postgres=# INSERT INTO payment values( 5 , 8900 ,'cashondelivery');
+INSERT 0 1
+postgres=#
